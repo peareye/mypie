@@ -83,7 +83,7 @@ class ComposerStaticInit97d2d9d100b1138cfd987a784b54cdba
         ),
         'Moritz\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/app/Moritz',
+            0 => __DIR__ . '/../..' . '/app',
         ),
         'Monolog\\' => 
         array (
@@ -385,6 +385,7 @@ class ComposerStaticInit97d2d9d100b1138cfd987a784b54cdba
         'Monolog\\Processor\\UidProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/UidProcessor.php',
         'Monolog\\Processor\\WebProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/WebProcessor.php',
         'Monolog\\Registry' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Registry.php',
+        'Moritz\\Extensions\\Error' => __DIR__ . '/../..' . '/app/Extensions/Error.php',
         'Nette\\ArgumentOutOfRangeException' => __DIR__ . '/..' . '/nette/utils/src/Utils/exceptions.php',
         'Nette\\Bridges\\MailDI\\MailExtension' => __DIR__ . '/..' . '/nette/mail/src/Bridges/MailDI/MailExtension.php',
         'Nette\\DeprecatedException' => __DIR__ . '/..' . '/nette/utils/src/Utils/exceptions.php',

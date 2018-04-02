@@ -27,7 +27,7 @@ $container['view'] = function ($c) {
 // Monolog logging
 $container['logger'] = function ($c) {
     $level = ($c->get('settings')['production']) ? Monolog\Logger::ERROR : Monolog\Logger::DEBUG;
-    $logger = new Monolog\Logger('blog');
+    $logger = new Monolog\Logger('app');
     // $logger->pushProcessor(new Monolog\Processor\UidProcessor());
     $logger->pushHandler(new Monolog\Handler\StreamHandler(ROOT_DIR . 'logs/' . date('Y-m-d') . '.log', $level));
 
@@ -51,9 +51,9 @@ $container['logger'] = function ($c) {
 // };
 
 // Custom error handling (overwrite Slim errorHandler to add logging)
-// $container['errorHandler'] = function ($c) {
-//     return new \Blog\Extensions\Error($c->get('settings')['displayErrorDetails'], $c['logger']);
-// };
+$container['errorHandler'] = function ($c) {
+    return new \Moritz\Extensions\Error($c->get('settings')['displayErrorDetails'], $c['logger']);
+};
 
 // Sessions
 // $container['sessionHandler'] = function ($c) {
