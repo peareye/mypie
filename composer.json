@@ -9,9 +9,9 @@
         "erusev/parsedown": "^1.6",
         "intervention/image": "^2.3"},
     "autoload": {
-      // "psr-4": {
-      //     "Moritz\\": "app/Moritz/"
-      // }
+      "psr-4": {
+          "Moritz\\": "app/Moritz/"
+      }
     },
     "config": {
       "preferred-install": "dist",
