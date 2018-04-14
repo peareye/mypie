@@ -4,6 +4,7 @@ config/config.local.php
 logs/
 twigcache/
 .sass-cache
+docker/db/
 
 # Misc
 *.xml
