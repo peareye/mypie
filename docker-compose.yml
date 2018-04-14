@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  web:
+    build: ./docker/webserver
+    image: mypie
+    ports:
+      - "80:8080"
+      - "443:443"
+    volumes:
+      - .:/var/www/mypie
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=mypie
+      - MYSQL_USER=mypie
+      - MYSQL_PASSWORD=mypiepassword
