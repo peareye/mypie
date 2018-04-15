@@ -66,10 +66,10 @@ $container['securityHandler'] = function ($c) {
     return new Piton\Library\SecurityHandler($c->get('sessionHandler'));
 };
 
-// Override the default Not Found Handler
-// $container['notFoundHandler'] = function ($c) {
-//     return new Piton\Extensions\NotFound($c->get('view'), $c->get('logger'));
-// };
+// Override the default Slim Not Found Handler
+$container['notFoundHandler'] = function ($c) {
+    return new Piton\Library\NotFoundHandler($c->get('view'), $c->get('logger'));
+};
 
 // Mail message
 // $container['mailMessage'] = $container->factory(function ($c) {
