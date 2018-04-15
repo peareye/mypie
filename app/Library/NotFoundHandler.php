@@ -9,7 +9,7 @@ namespace Piton\Library;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-class NotFoundHandler extends \Slim\Handlers\NotFound 
+class NotFoundHandler extends \Slim\Handlers\NotFound
 {
     /**
      * Twig View Handler
