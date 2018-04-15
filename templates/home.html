@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MyPie London</title>
+    <meta name="description" itemprop="description" content="Fresh baked pies &amp; awesome sides" />
+    <meta name="keywords" itemprop="keywords" content="London food truck, pies, sides, award winning, sausages, real gravy, mypie"
+    /> {% include '_favicon.html' %}
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
+        crossorigin="anonymous"></script>
+
+    <!-- <link rel="stylesheet" href="assets/css/materialize.css"> -->
+    <link rel="stylesheet" href="assets/css/main.css">
+
+
+
+    <title>MyPie - Epic Pies + Awesome Sides</title>
 </head>
+
 <body>
-    <h1>Twig Template Loaded!</h1>
+<!-- Navbar -->
+    {% include '_nav.html' %}
+
+    <!-- Section: Header -->
+    {% include '_header.html' %}
+
+    <!-- Section: Slider -->
+    {% include '_slider.html' %}
+
+    <!-- Section: Menu -->
+    {% include '_menu.html' %}
+
+
+    <!-- Footer -->
+    {% include '_footer.html' %}
+
+    <!--JavaScript at end of body for optimized loading-->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script> -->
+    <script src="assets/js/javascript.js"></script>
 </body>
+
 </html>
