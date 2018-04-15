@@ -12,13 +12,10 @@
  * - Routes
  */
 
-// Define the application root directory
-define('ROOT_DIR', dirname(__DIR__) . '/');
-
 // Load the Composer Autoloader
 require ROOT_DIR . 'vendor/autoload.php';
 
-// Wrap bootstrap code in an anonymous function to avoid globals
+// Wrap bootstraping code in an anonymous function to avoid unnecessary globals
 return call_user_func(
     function () {
 
@@ -43,8 +40,10 @@ return call_user_func(
         // Create the application
         $app = new Slim\App(['settings' => $config]);
 
-        // Set up dependencies
+        // Load dependencies
         require ROOT_DIR . 'config/dependencies.php';
+
+        // Load middleware - for future development
 
         // Load routes
         require ROOT_DIR . 'config/routes.php';
