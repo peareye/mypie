@@ -1,11 +1,11 @@
 <?php
-// Dependencie Injection Container (DIC) Configuration
+// Dependency Injection Container (DIC) Configuration
 
 $container = $app->getContainer();
 
 // Twig templates
 $container['view'] = function ($c) {
-    // Include theme name in first (default) path, the second path is for admin templates
+    // Array of directories to look for templates, in order or priority
     $templatePaths = [
         ROOT_DIR . 'templates/',
     ];
@@ -15,8 +15,10 @@ $container['view'] = function ($c) {
         'debug' => !$c->get('settings')['production'],
     ]);
 
-    // $view->addExtension(new Blog\Extensions\TwigExtension($c));
+    // Custom Twig Extensions
+    // $view->addExtension(new Piton\Library\TwigExtension($c));
 
+    // Load Twig debugger if in development
     if ($c->get('settings')['production'] === false) {
         $view->addExtension(new Twig_Extension_Debug());
     }
@@ -28,41 +30,45 @@ $container['view'] = function ($c) {
 $container['logger'] = function ($c) {
     $level = ($c->get('settings')['production']) ? Monolog\Logger::ERROR : Monolog\Logger::DEBUG;
     $logger = new Monolog\Logger('app');
-    // $logger->pushProcessor(new Monolog\Processor\UidProcessor());
     $logger->pushHandler(new Monolog\Handler\StreamHandler(ROOT_DIR . 'logs/' . date('Y-m-d') . '.log', $level));
 
     return $logger;
 };
 
 // Database connection
-// $container['database'] = function ($c) {
-//     $dbConfig = $c->get('settings')['database'];
+$container['database'] = function ($c) {
+    $dbConfig = $c->get('settings')['database'];
 
-//     // Extra database options
-//     $dbConfig['options'][PDO::ATTR_PERSISTENT] = true;
-//     $dbConfig['options'][PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-//     $dbConfig['options'][PDO::ATTR_EMULATE_PREPARES] = false;
+    // Extra database options
+    $dbConfig['options'][PDO::ATTR_PERSISTENT] = true;
+    $dbConfig['options'][PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+    $dbConfig['options'][PDO::ATTR_EMULATE_PREPARES] = false;
 
-//     // Define connection string
-//     $dsn = "mysql:host={$dbConfig['host']};dbname={$dbConfig['dbname']};charset=utf8mb4";
+    // Define connection string
+    $dsn = "mysql:host={$dbConfig['host']};dbname={$dbConfig['dbname']};charset=utf8mb4";
 
-//     // Return connection
-//     return new PDO($dsn, $dbConfig['username'], $dbConfig['password'], $dbConfig['options']);
-// };
+    // Return connection
+    return new PDO($dsn, $dbConfig['username'], $dbConfig['password'], $dbConfig['options']);
+};
 
 // Custom error handling (overwrite Slim errorHandler to add logging)
 $container['errorHandler'] = function ($c) {
-    return new \Moritz\Extensions\Error($c->get('settings')['displayErrorDetails'], $c['logger']);
+    return new Piton\Library\ErrorHandler($c->get('settings')['displayErrorDetails'], $c['logger']);
 };
 
 // Sessions
-// $container['sessionHandler'] = function ($c) {
-//     return new WolfMoritz\Session\SessionHandler($c['database'], $c->get('settings')['session']);
-// };
+$container['sessionHandler'] = function ($c) {
+    return new WolfMoritz\Session\SessionHandler($c['database'], $c->get('settings')['session']);
+};
+
+// Security
+$container['securityHandler'] = function ($c) {
+    return new Piton\Library\SecurityHandler($c->get('sessionHandler'));
+};
 
 // Override the default Not Found Handler
 // $container['notFoundHandler'] = function ($c) {
-//     return new Blog\Extensions\NotFound($c->get('view'), $c->get('logger'));
+//     return new Piton\Extensions\NotFound($c->get('view'), $c->get('logger'));
 // };
 
 // Mail message

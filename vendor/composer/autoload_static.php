@@ -31,10 +31,10 @@ class ComposerStaticInit97d2d9d100b1138cfd987a784b54cdba
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
+            'Piton\\' => 6,
         ),
         'M' => 
         array (
-            'Moritz\\' => 7,
             'Monolog\\' => 8,
         ),
         'I' => 
@@ -81,7 +81,7 @@ class ComposerStaticInit97d2d9d100b1138cfd987a784b54cdba
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
-        'Moritz\\' => 
+        'Piton\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
@@ -385,7 +385,6 @@ class ComposerStaticInit97d2d9d100b1138cfd987a784b54cdba
         'Monolog\\Processor\\UidProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/UidProcessor.php',
         'Monolog\\Processor\\WebProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/WebProcessor.php',
         'Monolog\\Registry' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Registry.php',
-        'Moritz\\Extensions\\Error' => __DIR__ . '/../..' . '/app/Extensions/Error.php',
         'Nette\\ArgumentOutOfRangeException' => __DIR__ . '/..' . '/nette/utils/src/Utils/exceptions.php',
         'Nette\\Bridges\\MailDI\\MailExtension' => __DIR__ . '/..' . '/nette/mail/src/Bridges/MailDI/MailExtension.php',
         'Nette\\DeprecatedException' => __DIR__ . '/..' . '/nette/utils/src/Utils/exceptions.php',
@@ -456,6 +455,8 @@ class ComposerStaticInit97d2d9d100b1138cfd987a784b54cdba
         'Pimple\\Tests\\Psr11\\ContainerTest' => __DIR__ . '/..' . '/pimple/pimple/src/Pimple/Tests/Psr11/ContainerTest.php',
         'Pimple\\Tests\\Psr11\\ServiceLocatorTest' => __DIR__ . '/..' . '/pimple/pimple/src/Pimple/Tests/Psr11/ServiceLocatorTest.php',
         'Pimple\\Tests\\ServiceIteratorTest' => __DIR__ . '/..' . '/pimple/pimple/src/Pimple/Tests/ServiceIteratorTest.php',
+        'Piton\\Extensions\\Error' => __DIR__ . '/../..' . '/app/Extensions/Error.php',
+        'Piton\\Library\\SecurityHandler' => __DIR__ . '/../..' . '/app/Library/SecurityHandler.php',
         'Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
         'Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
         'Psr\\Container\\NotFoundExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/NotFoundExceptionInterface.php',

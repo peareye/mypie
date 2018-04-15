@@ -1,14 +1,16 @@
 <?php
 /**
- * Custom Error Handler
+ * Error Handler
+ *
+ * Logs errors to logs/
  */
-namespace Moritz\Extensions;
+namespace Piton\Library;
 
 use Monolog\Logger;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-final class Error extends \Slim\Handlers\Error
+final class ErrorHandler extends \Slim\Handlers\Error
 {
     protected $logger;
 

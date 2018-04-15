@@ -26,7 +26,7 @@ return call_user_func(
         require ROOT_DIR . 'config/config.default.php';
 
         if (file_exists(ROOT_DIR . 'config/config.local.php')) {
-            require ROOT_DIR . 'config/config.default.php';
+            require ROOT_DIR . 'config/config.local.php';
         }
 
         // Set error reporting level

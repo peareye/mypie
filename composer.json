@@ -10,7 +10,7 @@
         "intervention/image": "^2.3"},
     "autoload": {
       "psr-4": {
-          "Moritz\\": "app/"
+          "Piton\\": "app/"
       }
     },
     "config": {
