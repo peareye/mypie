@@ -46,6 +46,7 @@ return call_user_func(
         // Load middleware - for future development
 
         // Load routes
+        require ROOT_DIR . 'config/routesAdmin.php';
         require ROOT_DIR . 'config/routes.php';
 
         return $app;

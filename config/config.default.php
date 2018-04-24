@@ -17,6 +17,17 @@ $config['production'] = true;
 $config['baseUrl'] = '';
 
 /**
+ * Administration Email Address
+ */
+$config['user']['email'] = '';
+
+/**
+ * Basics
+ */
+$config['site']['title'] = '';
+$config['site']['senderEmail'] = '';
+
+/**
  * Database Settings
  */
 $config['database']['host'] = 'localhost';
