@@ -38,7 +38,7 @@ class SecurityHandler
      */
     public function isAuthenticated()
     {
-        return $this->session->getData($this->loggedIn);
+        return $this->session->getData($this->loggedInKey);
     }
 
     /**
@@ -46,7 +46,7 @@ class SecurityHandler
      */
     public function startAuthenticatedSession()
     {
-        $this->session->setData([$this->loggedIn => true]);
+        $this->session->setData([$this->loggedInKey => true]);
     }
 
     /**
@@ -54,7 +54,7 @@ class SecurityHandler
      */
     public function endAuthenticatedSession()
     {
-        $this->session->unsetData($this->loggedIn);
+        $this->session->unsetData($this->loggedInKey);
     }
 
     /**

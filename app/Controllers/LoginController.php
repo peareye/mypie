@@ -76,6 +76,8 @@ class LoginController extends BaseController
 
     /**
      * Process Login Token
+     *
+     * Validate login token and authenticate request
      */
     public function processLoginToken($request, $response, $args)
     {
@@ -102,7 +104,7 @@ class LoginController extends BaseController
         $message = $args['token'] . ' saved: ' . $savedToken . ' time: ' . time() . ' expires: ' . $tokenExpires;
         $this->container->logger->info('Invalid login token, supplied: ' . $message);
 
-        return $this->notFound();
+        return $this->notFound($request, $response);
     }
 
     /**
