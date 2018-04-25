@@ -102,7 +102,7 @@ class LoginController extends BaseController
         $message = $args['token'] . ' saved: ' . $savedToken . ' time: ' . time() . ' expires: ' . $tokenExpires;
         $this->container->logger->info('Invalid login token, supplied: ' . $message);
 
-        return $response->withRedirect($this->container->router->pathFor('home'));
+        return $this->notFound();
     }
 
     /**
