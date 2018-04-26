@@ -2,5 +2,15 @@
 @import "vendor/bourbon/bourbon";
 @import "vendor/base/base";
 
+// Materialize CSS 
+
 // Custom Styles
+@import "vars/custom-vars";
 @import "custom";
+
+// Section Styles
+@import "sections/nav";
+@import "sections/header";
+@import "sections/menu";
+@import "sections/calendar";
+@import "sections/get-social";

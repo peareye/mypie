@@ -1,0 +1,18 @@
+/* Section: _header.html */
+.logo-wrapper>svg {
+    max-width: 100%;
+}
+.logo-wrapper {
+    width: 100%;
+    margin: 0 auto;
+@include padding(7px null);
+ 
+}
+
+@media only screen and (min-width: 576px) {
+  .logo-wrapper{
+      max-width: 350px;
+      @include padding(.5rem null);
+
+  }
+}

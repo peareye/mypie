@@ -1,77 +1,136 @@
-/* Basic Styles */
+/* Basic Styles  and MaterializeCSS overrides */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 h1 {
-  // font-family: Arial, Helvetica, sans-serif;
-  font-size: 2.5rem !important;
-  font-weight: 700 !important;
+
+  margin: .25rem !important;
+}
+
+h2 {
+
+  margin: .25rem !important;
+}
+
+h3 {
+
+  margin: .25rem !important;
+}
+
+h4 {
+
+  margin: .25rem !important;
+}
+
+h5 {
+  
+  margin: .25rem !important;
+}
+
+h6 {
+
+  margin: .25rem !important;
+
+}
+
+h1 {
+  font-size: var(--font-size-6);
 }
 h2 {
-  // font-family: Arial, Helvetica, sans-serif;
-  font-size: 2.2rem !important;
-  font-weight: 700 !important;
+  font-size: var(--font-size-5);
 }
 h3 {
-  // font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.9rem !important;
-  font-weight: 700 !important;
+  font-size: var(--font-size-4);
 }
 h4 {
-  // font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.6rem !important;
-  font-weight: 700 !important;
+  font-size: var(--font-size-3);
 }
 h5 {
-  //     font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.3rem !important;
-  font-weight: 700 !important;
+  font-size: var(--font-size-2);
 }
 h6 {
-  font-size: 1rem !important;
-  font-weight: 700 !important;
+  font-size: var(--font-size-1);
 }
-/* Section: _header.html */
-.logo-wrapper {
+.wrapper {
+  border-radius: 3px;
+  border: solid 1px rgba(0, 0, 0, .08);
+  @include padding(1rem);
+  @include margin(1rem null);
+}
+
+.inner-shadow {
+  // box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.6);
+}
+section::after {
+  display: block;
+  content: "";
+  height: 350px;
   width: 100%;
-  padding: .5rem 0;
-  display: flex;
-  margin: auto;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+
+}
+section#menu::after {
+  background: url("../img/hot-pie-1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+section#calendar::after {
+  background: url("../img/aboutbg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+section#newsletter::after {
+  background: url("../img/mypie-pie1600x1068.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+section#newsletter::after {
+  background: url("../img/mypie-pie1600x1068.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+section#contact::after {
+  background: url("../img/mypie-pie1600x1068.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+section#full-calendar::after {
+  background: url("../img/aboutbg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+section#get-social::after {
+  display: none;
+  content: "";
+  height: 350px;
+  width: 100%;
+  background: url("../img/aboutbg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-/* Section: _nav.html    */
-.nav-wrapper ul li a{
-    color: #231f20 !important;
-}
-.navbar-fixed{
-    height: 230px !important;
-    // padding-top: 15px;
-    // padding-bottom: 15px;
-    // padding-left: 5px;
+/* footer */
+
+.footer-boxes {
+border-radius: 3px;
+ padding: 10px !important;
 }
 
-
-/* Section: _menu.html   */
-.menu-wrapper{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 1rem;
-}
-.menu-items {
-  display: flex;
-  flex-flow: row wrap;
-}
-.menu-item-title {
-  flex: 1.4;
-  text-align: left;
-}
-.menu-item-description {
-  flex: 4;
-}
-.menu-item-price {
-  flex: 1;
-}
- .collection-item {
-    padding-left: 7px !important;
-    padding-right: 7px !important;
-}

@@ -202,54 +202,147 @@ hr {
   border-top: 0;
   margin: 1.5em 0; }
 
-/* Basic Styles */
+/* Basic Styles  and MaterializeCSS overrides */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
 h1 {
-  font-size: 2.5rem !important;
-  font-weight: 700 !important; }
+  margin: .25rem !important; }
 
 h2 {
-  font-size: 2.2rem !important;
-  font-weight: 700 !important; }
+  margin: .25rem !important; }
 
 h3 {
-  font-size: 1.9rem !important;
-  font-weight: 700 !important; }
+  margin: .25rem !important; }
 
 h4 {
-  font-size: 1.6rem !important;
-  font-weight: 700 !important; }
+  margin: .25rem !important; }
 
 h5 {
-  font-size: 1.3rem !important;
-  font-weight: 700 !important; }
+  margin: .25rem !important; }
 
 h6 {
-  font-size: 1rem !important;
-  font-weight: 700 !important; }
+  margin: .25rem !important; }
 
-/* Section: _header.html */
-.logo-wrapper {
+h1 {
+  font-size: var(--font-size-6); }
+
+h2 {
+  font-size: var(--font-size-5); }
+
+h3 {
+  font-size: var(--font-size-4); }
+
+h4 {
+  font-size: var(--font-size-3); }
+
+h5 {
+  font-size: var(--font-size-2); }
+
+h6 {
+  font-size: var(--font-size-1); }
+
+.wrapper {
+  border-radius: 3px;
+  border: solid 1px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem; }
+
+section::after {
+  display: block;
+  content: "";
+  height: 350px;
   width: 100%;
-  padding: .5rem 0;
-  display: flex;
-  margin: auto;
-  justify-content: center;
-  /* align horizontal */
-  align-items: center;
-  /* align vertical */ }
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6); }
+
+section#menu::after {
+  background: url("../img/hot-pie-1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; }
+
+section#calendar::after {
+  background: url("../img/aboutbg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; }
+
+section#newsletter::after {
+  background: url("../img/mypie-pie1600x1068.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; }
+
+section#newsletter::after {
+  background: url("../img/mypie-pie1600x1068.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; }
+
+section#contact::after {
+  background: url("../img/mypie-pie1600x1068.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; }
+
+section#full-calendar::after {
+  background: url("../img/aboutbg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; }
+
+section#get-social::after {
+  display: none;
+  content: "";
+  height: 350px;
+  width: 100%;
+  background: url("../img/aboutbg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; }
+
+/* footer */
+.footer-boxes {
+  border-radius: 3px;
+  padding: 10px !important; }
 
 /* Section: _nav.html    */
-.nav-wrapper ul li a {
-  color: #231f20 !important; }
+/*  _logo.html SVG */
+/* Section: _header.html */
+.logo-wrapper > svg {
+  max-width: 100%; }
 
-.navbar-fixed {
-  height: 230px !important; }
+.logo-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 7px;
+  padding-bottom: 7px; }
 
+@media only screen and (min-width: 576px) {
+  .logo-wrapper {
+    max-width: 350px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem; } }
 /* Section: _menu.html   */
 .menu-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 1rem; }
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  grid-auto-flow: dense; }
+
+#pie-box {
+  grid-column: span 2;
+  grid-row: span 2; }
 
 .menu-items {
   display: flex;
@@ -268,5 +361,77 @@ h6 {
 .collection-item {
   padding-left: 7px !important;
   padding-right: 7px !important; }
+
+@media only screen and (max-width: 600px) {
+  .menu-wrapper {
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+    grid-auto-flow: row; } }
+/* Section: Calendars */
+.calendar-wrapper-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: .25rem;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.25rem;
+  padding-right: 1rem;
+  padding-left: 1rem; }
+
+.calendar-wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: .25rem;
+  padding: 0.75rem 1rem;
+  margin-top: 0.25rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #efefef; }
+
+.calendar-day {
+  color: #756d63; }
+
+.prev-month {
+  color: rgba(0, 0, 0, 0.2); }
+
+.box {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 3px;
+  height: 100%;
+  padding: 3px;
+  background: #fff; }
+
+.days {
+  border: none;
+  text-align: center; }
+
+.day-content {
+  display: block;
+  text-align: center; }
+
+.day-content a {
+  font-size: .7rem; }
+
+.today {
+  background: rgba(237, 28, 36, 0.1); }
+
+.calendar-day {
+  color: #756d63; }
+
+/* Section: _quick-calendar.html */
+/* Section: _full-calendar.html */
+#full-calendar .calendar-wrapper {
+  grid-template-rows: repeat(6, 1fr); }
+
+/* Section: _get-social.html */
+.get-social {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 2rem; }
+
+.social-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
 
 /*# sourceMappingURL=main.css.map */
