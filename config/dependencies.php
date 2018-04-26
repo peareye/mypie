@@ -8,6 +8,7 @@ $container['view'] = function ($c) {
     // Array of directories to look for templates, in order or priority
     $templatePaths = [
         ROOT_DIR . 'templates/',
+        'admin' => ROOT_DIR . 'templates/admin/',
     ];
 
     $view = new Slim\Views\Twig($templatePaths, [
@@ -16,7 +17,7 @@ $container['view'] = function ($c) {
     ]);
 
     // Custom Twig Extensions
-    // $view->addExtension(new Piton\Library\TwigExtension($c));
+    $view->addExtension(new Piton\Extensions\TwigExtension($c));
 
     // Load Twig debugger if in development
     if ($c->get('settings')['production'] === false) {
@@ -71,12 +72,7 @@ $container['notFoundHandler'] = function ($c) {
     return new Piton\Library\NotFoundHandler($c->get('view'), $c->get('logger'));
 };
 
-// Mail message
-// $container['mailMessage'] = $container->factory(function ($c) {
-//     return new Nette\Mail\Message;
-// });
-
-// Send mail message
-// $container['sendMailMessage'] = function ($c) {
-//     return new Nette\Mail\SendmailMailer();
-// };
+// Emailer
+$container['emailHandler'] = $container->factory(function ($c) {
+    return new SimpleMail();
+});

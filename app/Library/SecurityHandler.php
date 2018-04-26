@@ -16,6 +16,13 @@ class SecurityHandler
     protected $session;
 
     /**
+    * Logged in Key Name
+    *
+    * @var
+    */
+    protected $loggedInKey = 'loggedIn';
+
+    /**
      * Constructor
      */
     public function __construct($sessionHandler)
@@ -31,7 +38,7 @@ class SecurityHandler
      */
     public function isAuthenticated()
     {
-        return $this->session->getData('loggedIn');
+        return $this->session->getData($this->loggedInKey);
     }
 
     /**
@@ -39,7 +46,7 @@ class SecurityHandler
      */
     public function startAuthenticatedSession()
     {
-        $this->session->setData(['loggedIn' => true]);
+        $this->session->setData([$this->loggedInKey => true]);
     }
 
     /**
@@ -47,6 +54,17 @@ class SecurityHandler
      */
     public function endAuthenticatedSession()
     {
-        $this->session->destroy();
+        $this->session->unsetData($this->loggedInKey);
+    }
+
+    /**
+     * Generate Login Token Hash
+     *
+     * Generates login token
+     * @return string
+     */
+    public function generateLoginToken()
+    {
+        return hash('sha256', microtime() . mt_rand());
     }
 }
