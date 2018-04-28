@@ -79,7 +79,12 @@ $container['emailHandler'] = function ($c) {
 
 $container['dataMapper'] = function ($c) {
     return function ($mapper) use ($c) {
+        // Get session user ID
+        $session = $c->sessionHandler;
+        $userId = ($session->getData('user_id')) ? $session->getData('user_id') : 1;
+
+        // Return instantiated mapper
         $fqn = 'Piton\\Models\\' . $mapper;
-        return new $fqn($c['database'], $c['logger'], ['user_id' => 1]);
+        return new $fqn($c['database'], $c['logger'], ['user_id' => $userId]);
     };
 };

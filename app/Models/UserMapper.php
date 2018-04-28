@@ -7,9 +7,7 @@ namespace Piton\Models;
 class UserMapper extends DataMapperAbstract
 {
     protected $table = 'user';
-    protected $who = false;
     protected $modifiableColumns = ['email'];
-
 
     /**
      * Insert a Record
