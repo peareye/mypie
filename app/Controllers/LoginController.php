@@ -44,10 +44,24 @@ class LoginController extends BaseController
         $email = $this->container->emailHandler;
         $config = $this->container->settings;
         $security = $this->container->securityHandler;
+        $mapper = $this->container->dataMapper;
+        $UserMapper = $mapper('UserMapper');
         $body = $request->getParsedBody();
 
+        // Create list of valid email addresses
+        $validUserEmails[] = $config['user']['email'];
+        $userList = $UserMapper->find();
+        if ($userList) {
+            foreach ($userList as $row) {
+                $validUserEmails[] = $row['email'];
+            }
+        }
+
+        // Provided email
+        $providedEmail = strtolower(trim($body['email']));
+
         // Does the supplied email match the one in config?
-        if ($config['user']['email'] !== strtolower(trim($body['email']))) {
+        if (!in_array($providedEmail, $validUserEmails)) {
             // In this case it does not; log and silently redirect to home
             $this->container->logger->alert('Failed login attempt: ' . $body['email']);
 
@@ -65,7 +79,7 @@ class LoginController extends BaseController
 
         // Send message
         $email->setFrom($config['site']['senderEmail'], $config['site']['title'])
-            ->setTo($config['user']['email'], '')
+            ->setTo($providedEmail, '')
             ->setSubject($config['site']['title'] . ' Login')
             ->setMessage("Click to login\n\n {$link}")
             ->send();
