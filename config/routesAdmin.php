@@ -18,6 +18,11 @@ $app->group('/admin', function () {
     $this->get('/users', function ($request, $response, $args) {
         return (new Piton\Controllers\AdminController($this))->showUsers($request, $response, $args);
     })->setName('showUsers');
+
+    // Save Users
+    $this->post('/saveusers', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminController($this))->saveUsers($request, $response, $args);
+    })->setName('saveUsers');
 })->add(function ($request, $response, $next) {
     // Authentication
     $security = $this->securityHandler;

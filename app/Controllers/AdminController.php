@@ -41,4 +41,29 @@ class AdminController extends BaseController
 
         return $this->container->view->render($response, '@admin/users.html', ['users' => $users]);
     }
+
+    /**
+     * Save Users
+     *
+     * Save all email addresses, ignoring duplicates
+     */
+    public function saveUsers($request, $response, $args)
+    {
+        // Get dependencies
+        $mapper = $this->container->dataMapper;
+        $UserMapper = $mapper('UserMapper');
+        $users = $request->getParsedBodyParam('email');
+
+        // Save users
+        foreach ($users as $user) {
+            if (!empty($user)) {
+                $UserObj = $UserMapper->make();
+                $UserObj->email = strtolower(trim($user));
+                $UserMapper->save($UserObj);
+            }
+        }
+
+        // Redirect back to list of users
+        return $response->withRedirect($this->container->router->pathFor('showUsers'));
+    }
 }

@@ -1,12 +1,13 @@
 <?php
 /**
- * Domain Model Abstract
+ * Domain Model
  *
  * Base class for all domain models
+ * Extend this class to include custom property handling
  */
 namespace Piton\Models;
 
-abstract class DomainObjectAbstract
+class DomainObject
 {
     // This $id avoids an error when the __get() magic method in DomainObjectAbstract is called
     // on a non-existent property

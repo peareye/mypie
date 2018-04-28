@@ -132,7 +132,7 @@ abstract class DataMapperAbstract
     public function make()
     {
         if (!isset($this->domainObjectClass)) {
-            $this->domainObjectClass = 'DomainObjectAbstract';
+            $this->domainObjectClass = 'DomainObject';
         }
 
         $fullyQualifedClassName = __NAMESPACE__ . '\\' . $this->domainObjectClass;
@@ -227,7 +227,7 @@ abstract class DataMapperAbstract
      * @param Domain Object
      * @return mixed, Domain Object on success, false otherwise
      */
-    public function save(DomainObjectAbstract $domainObject)
+    public function save(DomainObject $domainObject)
     {
         return $this->_save($domainObject);
     }
@@ -239,7 +239,7 @@ abstract class DataMapperAbstract
      * @param Domain Object
      * @return Domain Object
      */
-    public function update(DomainObjectAbstract $domainObject)
+    public function update(DomainObject $domainObject)
     {
         return $this->_update($domainObject);
     }
@@ -251,7 +251,7 @@ abstract class DataMapperAbstract
      * @param Domain Object
      * @return Domain Object
      */
-    public function insert(DomainObjectAbstract $domainObject)
+    public function insert(DomainObject $domainObject)
     {
         return $this->_insert($domainObject);
     }
@@ -263,7 +263,7 @@ abstract class DataMapperAbstract
      * @param Domain Object
      * @return Boolean
      */
-    public function delete(DomainObjectAbstract $domainObject)
+    public function delete(DomainObject $domainObject)
     {
         return $this->_delete($domainObject);
     }
@@ -298,7 +298,7 @@ abstract class DataMapperAbstract
      * @param Domain Object
      * @return mixed, Domain Object on success, false otherwise
      */
-    protected function _save(DomainObjectAbstract $domainObject)
+    protected function _save(DomainObject $domainObject)
     {
         if (!empty($domainObject->{$this->primaryKey})) {
             return $this->update($domainObject);
@@ -314,7 +314,7 @@ abstract class DataMapperAbstract
      * @param Domain Object
      * @return Domain Object
      */
-    protected function _update(DomainObjectAbstract $domainObject)
+    protected function _update(DomainObject $domainObject)
     {
         // Make sure a primary key was set
         if (!empty($domainObject->{$this->primaryKey})) {
@@ -369,12 +369,15 @@ abstract class DataMapperAbstract
      * Insert a New Record (Protected)
      *
      * @param Domain Object
+     * @param bool, Include IGNORE syntax
      * @return Domain Object
      */
-    protected function _insert(DomainObjectAbstract $domainObject)
+    protected function _insert(DomainObject $domainObject, $ignore = false)
     {
         // Get started
-        $this->sql = 'insert into ' . $this->table . ' (';
+        $this->sql = 'insert ';
+        $this->sql .= ($ignore) ? 'ignore ' : '';
+        $this->sql .= 'into ' . $this->table . ' (';
 
         // Insert values placeholder string
         $insertValues = ' ';
@@ -433,7 +436,7 @@ abstract class DataMapperAbstract
      * @param Domain Object
      * @return Boolean
      */
-    protected function _delete(DomainObjectAbstract $domainObject)
+    protected function _delete(DomainObject $domainObject)
     {
         // Make sure the ID was set
         if (!empty($domainObject->{$this->primaryKey})) {
