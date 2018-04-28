@@ -23,6 +23,11 @@ $app->group('/admin', function () {
     $this->post('/saveusers', function ($request, $response, $args) {
         return (new Piton\Controllers\AdminController($this))->saveUsers($request, $response, $args);
     })->setName('saveUsers');
+
+    // Remove User
+    $this->get('/removeuser/{id:[0-9]{1,}}', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminController($this))->removeUser($request, $response, $args);
+    })->setName('removeUser');
 })->add(function ($request, $response, $next) {
     // Authentication
     $security = $this->securityHandler;

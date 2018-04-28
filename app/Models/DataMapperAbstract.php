@@ -439,7 +439,7 @@ abstract class DataMapperAbstract
     protected function _delete(DomainObject $domainObject)
     {
         // Make sure the ID was set
-        if (!empty($domainObject->{$this->primaryKey})) {
+        if (empty($domainObject->{$this->primaryKey})) {
             throw new \Exception('A primary key id was not provided to delete this record.');
         }
 

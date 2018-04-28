@@ -35,7 +35,7 @@ class AdminController extends BaseController
         // Reduce array
         if ($userList) {
             foreach ($userList as $row) {
-                $users['other'][] = $row['email'];
+                $users['other'][] = ['id' => $row['id'], 'email' => $row['email']];
             }
         }
 
@@ -57,11 +57,31 @@ class AdminController extends BaseController
         // Save users
         foreach ($users as $user) {
             if (!empty($user)) {
-                $UserObj = $UserMapper->make();
-                $UserObj->email = strtolower(trim($user));
-                $UserMapper->save($UserObj);
+                $User = $UserMapper->make();
+                $User->email = strtolower(trim($user));
+                $UserMapper->save($User);
             }
         }
+
+        // Redirect back to list of users
+        return $response->withRedirect($this->container->router->pathFor('showUsers'));
+    }
+
+    /**
+     * Remove User
+     *
+     * Remove user email to deny access
+     */
+    public function removeUser($request, $response, $args)
+    {
+        // Get dependencies
+        $mapper = $this->container->dataMapper;
+        $UserMapper = $mapper('UserMapper');
+
+        // Delete user
+        $User = $UserMapper->make();
+        $User->id = $args['id'];
+        $UserMapper->delete($User);
 
         // Redirect back to list of users
         return $response->withRedirect($this->container->router->pathFor('showUsers'));
