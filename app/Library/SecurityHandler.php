@@ -54,7 +54,7 @@ class SecurityHandler
      */
     public function endAuthenticatedSession()
     {
-        $this->session->unsetData($this->loggedInKey);
+        $this->session->destroy();
     }
 
     /**

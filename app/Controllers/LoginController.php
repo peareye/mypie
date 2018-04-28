@@ -44,31 +44,56 @@ class LoginController extends BaseController
         $email = $this->container->emailHandler;
         $config = $this->container->settings;
         $security = $this->container->securityHandler;
+        $mapper = $this->container->dataMapper;
+        $UserMapper = $mapper('UserMapper');
         $body = $request->getParsedBody();
 
-        // Does the supplied email match the one in config?
-        if ($config['user']['email'] !== strtolower(trim($body['email']))) {
-            // In this case it does not; log and silently redirect to home
+        // Create list of valid email addresses, and append admin user (id = 1) from config file
+        $userList = $UserMapper->find();
+        $userList[] = ['email' => $config['user']['email'], 'id' => 1];
+
+        // Provided email
+        $providedEmail = strtolower(trim($body['email']));
+
+        $foundValidUser = false;
+        foreach ($userList as $user) {
+            if ($user['email'] === $providedEmail) {
+                $foundValidUser = $user;
+                break;
+            }
+        }
+
+        // Did we find a match?
+        if (!$foundValidUser) {
+            // No, log and silently redirect to home
             $this->container->logger->alert('Failed login attempt: ' . $body['email']);
 
             return $response->withRedirect($this->container->router->pathFor('home'));
         }
 
-        // Get and set token
-        $token = $security->generateLoginToken();
-        $session->setData([$this->loginTokenKey => $token, $this->loginTokenExpiresKey => time() + 120]);
+        // Belt and braces/suspenders double check
+        if ($foundValidUser['email'] === $providedEmail) {
+            // Get and set token, and user ID
+            $token = $security->generateLoginToken();
+            $session->setData([
+                $this->loginTokenKey => $token,
+                $this->loginTokenExpiresKey => time() + 120,
+                'user_id' => $foundValidUser['id'],
+                'email' => $foundValidUser['email']
+            ]);
 
-        // Get request details to create login link and email to user
-        $scheme = $request->getUri()->getScheme();
-        $host = $request->getUri()->getHost();
-        $link = $scheme . '://' . $host . $this->container->router->pathFor('processLoginToken', ['token' => $token]);
+            // Get request details to create login link and email to user
+            $scheme = $request->getUri()->getScheme();
+            $host = $request->getUri()->getHost();
+            $link = $scheme . '://' . $host . $this->container->router->pathFor('processLoginToken', ['token' => $token]);
 
-        // Send message
-        $email->setFrom($config['site']['senderEmail'], $config['site']['title'])
-            ->setTo($config['user']['email'], '')
-            ->setSubject($config['site']['title'] . ' Login')
-            ->setMessage("Click to login\n\n {$link}")
-            ->send();
+            // Send message
+            $email->setFrom($config['site']['senderEmail'], $config['site']['title'])
+                ->setTo($providedEmail, '')
+                ->setSubject($config['site']['title'] . ' Login')
+                ->setMessage("Click to login\n\n {$link}")
+                ->send();
+        }
 
         // Direct to home page
         return $response->withRedirect($this->container->router->pathFor('home'));

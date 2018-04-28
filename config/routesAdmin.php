@@ -13,6 +13,21 @@ $app->group('/admin', function () {
     $this->get('/home', function ($request, $response, $args) {
         return (new Piton\Controllers\AdminController($this))->home($request, $response, $args);
     })->setName('adminHome');
+
+    // Show Users
+    $this->get('/users', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminController($this))->showUsers($request, $response, $args);
+    })->setName('showUsers');
+
+    // Save Users
+    $this->post('/saveusers', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminController($this))->saveUsers($request, $response, $args);
+    })->setName('saveUsers');
+
+    // Remove User
+    $this->get('/removeuser/{id:[0-9]{1,}}', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminController($this))->removeUser($request, $response, $args);
+    })->setName('removeUser');
 })->add(function ($request, $response, $next) {
     // Authentication
     $security = $this->securityHandler;
