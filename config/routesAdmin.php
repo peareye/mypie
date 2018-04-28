@@ -13,6 +13,11 @@ $app->group('/admin', function () {
     $this->get('/home', function ($request, $response, $args) {
         return (new Piton\Controllers\AdminController($this))->home($request, $response, $args);
     })->setName('adminHome');
+
+    // Show Users
+    $this->get('/users', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminController($this))->showUsers($request, $response, $args);
+    })->setName('showUsers');
 })->add(function ($request, $response, $next) {
     // Authentication
     $security = $this->securityHandler;

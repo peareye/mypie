@@ -73,6 +73,13 @@ $container['notFoundHandler'] = function ($c) {
 };
 
 // Emailer
-$container['emailHandler'] = $container->factory(function ($c) {
+$container['emailHandler'] = function ($c) {
     return new SimpleMail();
-});
+};
+
+$container['dataMapper'] = function ($c) {
+    return function ($mapper) use ($c) {
+        $fqn = 'Piton\\Models\\' . $mapper;
+        return new $fqn($c['database'], $c['logger'], ['user_id' => 1]);
+    };
+};
