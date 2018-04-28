@@ -281,6 +281,7 @@ return array(
     'Pimple\\Tests\\Psr11\\ContainerTest' => $vendorDir . '/pimple/pimple/src/Pimple/Tests/Psr11/ContainerTest.php',
     'Pimple\\Tests\\Psr11\\ServiceLocatorTest' => $vendorDir . '/pimple/pimple/src/Pimple/Tests/Psr11/ServiceLocatorTest.php',
     'Pimple\\Tests\\ServiceIteratorTest' => $vendorDir . '/pimple/pimple/src/Pimple/Tests/ServiceIteratorTest.php',
+    'Piton\\Controllers\\AdminController' => $baseDir . '/app/Controllers/AdminController.php',
     'Piton\\Controllers\\BaseController' => $baseDir . '/app/Controllers/BaseController.php',
     'Piton\\Controllers\\LoginController' => $baseDir . '/app/Controllers/LoginController.php',
     'Piton\\Extensions\\TwigExtension' => $baseDir . '/app/Extensions/TwigExtension.php',

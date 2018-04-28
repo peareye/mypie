@@ -1,6 +1,8 @@
 
 /* Section: _newsletter.html */
 
-#newsletter>div {
-    font-size: 30px !important;
-  }
+#newsletter form > div:first-child{
+  font-size: 2rem !important;
+  font-family: 'Roboto Condensed', sans-serif !important;
+  font-weight: 700 !important;
+}

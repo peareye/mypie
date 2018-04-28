@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,69 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" itemprop="description" content="Fresh baked pies &amp; awesome sides" />
-    <meta name="keywords" itemprop="keywords" content="London food truck, pies, sides, award winning, sausages, real gravy, mypie"
-    /> {% include '_favicon.html' %}
+    <title>MYPIE - Home - Epic Pies + Awesome Sides</title>
+    <!-- Google Font Base -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto+Condensed:400,700" rel="stylesheet">
     <!--Import FontAwesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
         crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="assets/css/main.css">
-
-
-
-    <title>MyPie - Epic Pies + Awesome Sides</title>
+    <!-- Import Bootstrap 4.1.0  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 
 <body>
-<!-- Section: _header.html  -->
-<header class="section">
-{% include '_header.html' %}
-</header>
+    <!-- Logo and Navbar -->
+    {% include '_header.html' %}
 
-<!-- Section: _menu.html menu -->
-<!-- <section id="menu" class="section">
-        {% include '_menu.html' %}
-</section> -->
+   <!-- Hero Section -->
+   {% include '_hero.html' %}
 
-<!-- Section: _quick-calendar -->
-<!-- <section id="calendar" class="section">
-        {% include '_quick-calendar.html' %}
-</section> -->
+    <!-- Daily Menu -->
+ {% include '_menu.html' %}
 
-<!-- Section: _newsletter.html -->
-<!-- <section id="newsletter" class="section">
-        {% include '_newsletter.html' %}
-</section> -->
-
-<!-- Section: _contact.html -->
-<!-- <section id="contact" class="section">
-        {% include '_contact.html' %}
-</section> -->
-
-<!-- Section: _full-calendar.html -->
-<!-- <section id="full-calendar" class="section">
+    <!-- Full Calendar -->
     {% include '_full-calendar.html' %}
-</section> -->
 
-<!-- Section: _get-social.html -->
-<!-- <section id="get-social" class="section">
-        {% include '_get-social.html' %}
-</section> -->
+    <!-- Newsletter Subscription -->
+    {% include '_newsletter.html' %}
 
-<!-- Section: _footer.html -->
-<!-- <footer class="footer">
-{% include '_footer.html'%}
-</footer> -->
+    <!-- Get Social & Instragram Feed Section -->
+    {% include '_get-social.html' %}
 
 
-  
+    <!-- Footer Section -->
+    {% include '_footer.html' %}  
 
-  
-    <!--JavaScript at end of body for optimized loading-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <script src="assets/js/javascript.js"></script>
+
+    <!-- Bootstrap Script Files -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+    <script src="/assets/js/javascript.js"></script>
 </body>
 
 </html>

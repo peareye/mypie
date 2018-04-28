@@ -1,16 +1,19 @@
 // Vendor Tools
 @import "vendor/bourbon/bourbon";
 @import "vendor/base/base";
+@import "bootstrap";
 
 // Materialize CSS 
 
 // Custom Styles
 @import "vars/custom-vars";
-@import "custom";
+@import "global-custom-styles";
 
 // Section Styles
-@import "sections/nav";
+
 @import "sections/header";
+@import "sections/nav";
 @import "sections/menu";
 @import "sections/calendar";
 @import "sections/get-social";
+@import "sections/newsletter";
