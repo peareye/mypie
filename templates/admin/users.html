@@ -1,6 +1,6 @@
 
   <h2>Users</h2>
-  <form action="{{ pathFor('saveUsers') }}" method="post" accept-charset="utf-8">
+  <form action="{{ pathFor('saveUsers') }}" id="user-emails" method="post" accept-charset="utf-8">
     <div>
       Primary Account {{ users.default }}
     </div>
@@ -9,9 +9,17 @@
       <input type="email" name="email[]" maxlength="60" value="{{ userEmail }}" autocomplete="off">
     </div>
     {% endfor %}
-    <div>
+    <div class="addEmail">
       <input type="email" name="email[]" maxlength="60" value="" autocomplete="off" placeholder="Email address">
     </div>
     <button type="submit" name="button">Save</button>
   </form>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script type="text/javascript">
+	$('#user-emails').on('click', '.addEmail', function() {
+		var newRow = $(this).clone();
+		$(this).removeClass('addEmail');
+		$(this).after(newRow);
+	});
+</script>
