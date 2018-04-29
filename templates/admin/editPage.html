@@ -1,0 +1,22 @@
+
+    <h1>Edit Page</h1>
+  <form action="{{ pathFor('savePage') }}" method="post" accept-charset="utf-8">
+    <input type="hidden" name="id" value="{{ page.id }}">
+    <div>
+      <label>Title</label>
+      <input type="text" name="title" maxlength="60" placeholder="Page title" value="{{ page.title }}" required>
+    </div>
+
+    <div>
+      <label>URL</label>
+      /<input type="text" name="url" maxlength="500" placeholder="URL slug" value="{{ page.url }}" required>
+    </div>
+
+    <div>
+      <label>Meta Description</label>
+      <input type="text" name="meta_description" maxlength="320" placeholder="Description to appear in search results" value="{{ page.meta_description }}">
+    </div>
+
+    <button type="submit" name="button">Save</button>
+    <a href="{{ pathFor('showPages') }}">Cancel</a>
+  </form>

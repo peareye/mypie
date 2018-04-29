@@ -28,6 +28,21 @@ $app->group('/admin', function () {
     $this->get('/removeuser/{id:[0-9]{1,}}', function ($request, $response, $args) {
         return (new Piton\Controllers\AdminController($this))->removeUser($request, $response, $args);
     })->setName('removeUser');
+
+    // Show All Pages
+    $this->get('/pages', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminPageController($this))->showPages($request, $response, $args);
+    })->setName('showPages');
+
+    // Edit Page, or Create Page
+    $this->get('/editpage[/{id:[0-9]{0,}}]', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminPageController($this))->editPage($request, $response, $args);
+    })->setName('editPage');
+
+    // Save Page
+    $this->post('/savepage', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminPageController($this))->savePage($request, $response, $args);
+    })->setName('savePage');
 })->add(function ($request, $response, $next) {
     // Authentication
     $security = $this->securityHandler;

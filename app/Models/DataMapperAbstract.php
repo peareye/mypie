@@ -317,7 +317,7 @@ abstract class DataMapperAbstract
     protected function _update(DomainObject $domainObject)
     {
         // Make sure a primary key was set
-        if (!empty($domainObject->{$this->primaryKey})) {
+        if (empty($domainObject->{$this->primaryKey})) {
             throw new \Exception('A primary key id was not provided to update the record.');
         }
 
