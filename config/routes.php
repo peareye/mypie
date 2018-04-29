@@ -7,7 +7,7 @@
 // Public (unsecured) routes
 //
 
-/** Example Route
+/* * Example Route
 
 The '/sampleurl' below is an example of a URL route segment, right after the domain. This can be anything,
 but should mean something related to the page and page title for good SEO

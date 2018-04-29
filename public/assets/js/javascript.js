@@ -1,13 +1,4 @@
-// Initialize all Materialize for now
-
-M.AutoInit();
-
- // Slider
- const slider = document.querySelector('.slider');
- M.Slider.init(slider, {
-   indicators: false,
-   height: 500,
-   transition: 500,
-   interval: 6000
- });
-
+$('.navbar-toggler').on('click','.fas', function(){
+  console.log('hi')
+  $(this).toggleClass('fa-bars fa-times');
+} );

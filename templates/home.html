@@ -5,42 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" itemprop="description" content="Fresh baked pies &amp; awesome sides" />
-    <meta name="keywords" itemprop="keywords" content="London food truck, pies, sides, award winning, sausages, real gravy, mypie"
-    /> {% include '_favicon.html' %}
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>MYPIE - Home - Epic Pies + Awesome Sides</title>
+    <!-- Google Font Base -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto+Condensed:400,700" rel="stylesheet">
+    <!--Import FontAwesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
         crossorigin="anonymous"></script>
-
-    <!-- <link rel="stylesheet" href="assets/css/materialize.css"> -->
-    <link rel="stylesheet" href="assets/css/main.css">
-
-
-
-    <title>MyPie - Epic Pies + Awesome Sides</title>
+    <!-- Import Bootstrap 4.1.0  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 
 <body>
-<!-- Navbar -->
-    {% include '_nav.html' %}
-
-    <!-- Section: Header -->
+    <!-- Logo and Navbar -->
     {% include '_header.html' %}
 
-    <!-- Section: Slider -->
-    {% include '_slider.html' %}
+   <!-- Hero Section -->
+   {% include '_hero.html' %}
 
-    <!-- Section: Menu -->
-    {% include '_menu.html' %}
+    <!-- Daily Menu -->
+ {% include '_menu.html' %}
+
+    <!-- Full Calendar -->
+    {% include '_full-calendar.html' %}
+
+    <!-- Newsletter Subscription -->
+    {% include '_newsletter.html' %}
+
+    <!-- Get Social & Instragram Feed Section -->
+    {% include '_get-social.html' %}
 
 
-    <!-- Footer -->
-    {% include '_footer.html' %}
+    <!-- Footer Section -->
+    {% include '_footer.html' %}  
 
-    <!--JavaScript at end of body for optimized loading-->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script> -->
-    <script src="assets/js/javascript.js"></script>
+
+    <!-- Bootstrap Script Files -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+    <script src="/assets/js/javascript.js"></script>
 </body>
 
 </html>

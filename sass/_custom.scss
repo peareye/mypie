@@ -1,77 +1,32 @@
-/* Basic Styles */
 
-h1 {
-  // font-family: Arial, Helvetica, sans-serif;
-  font-size: 2.5rem !important;
-  font-weight: 700 !important;
+.navbar-nav {
+  // @include padding(60px null null);
 }
-h2 {
-  // font-family: Arial, Helvetica, sans-serif;
-  font-size: 2.2rem !important;
-  font-weight: 700 !important;
-}
-h3 {
-  // font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.9rem !important;
-  font-weight: 700 !important;
-}
-h4 {
-  // font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.6rem !important;
-  font-weight: 700 !important;
-}
-h5 {
-  //     font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.3rem !important;
-  font-weight: 700 !important;
-}
-h6 {
-  font-size: 1rem !important;
-  font-weight: 700 !important;
-}
-/* Section: _header.html */
-.logo-wrapper {
-  width: 100%;
-  padding: .5rem 0;
-  display: flex;
-  margin: auto;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
+.navbar-brand {
+  // padding: 0;
+  // background: url("../img/brand.svg");
+  // height: 100px;
+  // width: 100px;
 }
 
-/* Section: _nav.html    */
-.nav-wrapper ul li a{
-    color: #231f20 !important;
-}
-.navbar-fixed{
-    height: 230px !important;
-    // padding-top: 15px;
-    // padding-bottom: 15px;
-    // padding-left: 5px;
-}
+// Get Social Buttons
+// .get-social {
+//   position: absolute;
+//   right: 0;
+//   top: 0;
+//   z-index: 2;
+// }
+// .get-social li {
+//   float: right;
+//   display: inline;
+//   @include padding(5px 10px);
+//   background: #fff;
+//   @include margin(5px 3px);
+//   border: solid 1px #ed1c24;;
+//   border-radius: 7px;
 
-
-/* Section: _menu.html   */
-.menu-wrapper{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 1rem;
-}
-.menu-items {
-  display: flex;
-  flex-flow: row wrap;
-}
-.menu-item-title {
-  flex: 1.4;
-  text-align: left;
-}
-.menu-item-description {
-  flex: 4;
-}
-.menu-item-price {
-  flex: 1;
-}
- .collection-item {
-    padding-left: 7px !important;
-    padding-right: 7px !important;
-}
+// }
+// .get-social li:nth-child(1) {
+//   @include margin(null 20px null null);
+// }
+//

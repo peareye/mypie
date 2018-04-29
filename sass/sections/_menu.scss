@@ -1,0 +1,52 @@
+/* Section: _menu.html   */
+
+.menu-wrapper {
+  background: var(--mypie-light);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    grid-auto-flow: dense;
+  }
+  
+  #pie-box {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  
+  #sausage-box {}
+  
+  #sides-box {}
+  
+  #puds-box {}
+  
+  #takeaway-box {}
+  
+  .menu-items {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  .menu-item-title {
+    flex: 1.4;
+    text-align: left;
+  }
+  
+  .menu-item-description {
+    flex: 4;
+  }
+  
+  .menu-item-price {
+    flex: 1;
+  }
+  
+  .collection-item {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }
+  @media only screen and (max-width: 600px) {
+  .menu-wrapper{
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+    grid-auto-flow: row;
+  }
+  }
