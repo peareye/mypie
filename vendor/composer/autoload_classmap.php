@@ -284,6 +284,7 @@ return array(
     'Piton\\Controllers\\AdminController' => $baseDir . '/app/Controllers/AdminController.php',
     'Piton\\Controllers\\AdminPageController' => $baseDir . '/app/Controllers/AdminPageController.php',
     'Piton\\Controllers\\BaseController' => $baseDir . '/app/Controllers/BaseController.php',
+    'Piton\\Controllers\\IndexController' => $baseDir . '/app/Controllers/IndexController.php',
     'Piton\\Controllers\\LoginController' => $baseDir . '/app/Controllers/LoginController.php',
     'Piton\\Extensions\\TwigExtension' => $baseDir . '/app/Extensions/TwigExtension.php',
     'Piton\\Library\\ErrorHandler' => $baseDir . '/app/Library/ErrorHandler.php',

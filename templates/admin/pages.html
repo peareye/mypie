@@ -5,6 +5,7 @@
     <div>
         Title: {{ p.title }}<br>
         URL: {{ p.url }}<br>
+        Template: {{ p.template|default('<none>') }}<br>
         Meta Desc: {{ p.meta_description }}<br>
         <a href="{{ pathFor('editPage', {'id': p.id}) }}">Edit {{ p.title }}</a><br>
         <a href="{{ pathFor('editPagelet') }}?page_id={{ p.id }}">Add Content</a>
