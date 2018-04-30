@@ -75,6 +75,26 @@ class AdminPageController extends BaseController
     }
 
     /**
+     * Delete Page
+     *
+     * Delete page. SQL Foreign Key Constraints cascade to pagelet records
+     */
+    public function deletePage($request, $response, $args)
+    {
+        // Get dependencies
+        $mapper = $this->container->dataMapper;
+        $PageMapper = $mapper('PageMapper');
+
+        // Delete page
+        $page = $PageMapper->make();
+        $page->id = $args['id'];
+        $page = $PageMapper->delete($page);
+
+        // Redirect back to show pages
+        return $response->withRedirect($this->container->router->pathFor('showPages'));
+    }
+
+    /**
      * Edit Pagelet Content
      *
      * Create new pagelet, or edit existing pagelet
@@ -125,6 +145,26 @@ class AdminPageController extends BaseController
         $page = $PageletMapper->save($page);
 
         // Redirect back to show page
+        return $response->withRedirect($this->container->router->pathFor('showPages'));
+    }
+
+    /**
+     * Delete Pagelet
+     *
+     * Delete pagelet
+     */
+    public function deletePagelet($request, $response, $args)
+    {
+        // Get dependencies
+        $mapper = $this->container->dataMapper;
+        $PageletMapper = $mapper('PageletMapper');
+
+        // Delete pagelet
+        $pagelet = $PageletMapper->make();
+        $pagelet->id = $args['id'];
+        $pagelet = $PageletMapper->delete($pagelet);
+
+        // Redirect back to show pages
         return $response->withRedirect($this->container->router->pathFor('showPages'));
     }
 }

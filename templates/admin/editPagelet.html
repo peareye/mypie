@@ -13,7 +13,7 @@
       <label>Content</label>
       <textarea name="content">{{ pagelet.content }}</textarea>
     </div>
-
-    <button type="submit" name="button">Save</button>
     <a href="{{ pathFor('showPages') }}">Cancel</a>
+    <button type="submit" name="button">Save</button>
+    <a href="{{ pathFor('deletePagelet', {'id': pagelet.id}) }}">Delete</a>
   </form>
