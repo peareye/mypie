@@ -6,7 +6,11 @@
         Title: {{ p.title }}<br>
         URL: {{ p.url }}<br>
         Meta Desc: {{ p.meta_description }}<br>
-        <a href="{{ pathFor('editPage', {'id': p.id}) }}">Edit {{ p.title }}</a>
+        <a href="{{ pathFor('editPage', {'id': p.id}) }}">Edit {{ p.title }}</a><br>
+        <a href="{{ pathFor('editPagelet') }}?page_id={{ p.id }}">Add Content</a>
+        {% for pl in p.pagelets %}
+        | <a href="{{ pathFor('editPagelet', {'id': pl.pagelet_id}) }}">Edit {{ pl.name }}</a>
+        {% endfor %}
     </div>
     <hr>
     {% else %}

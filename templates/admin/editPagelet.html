@@ -1,0 +1,19 @@
+
+    <h1>Edit Content</h1>
+    <h3>For {{ pagelet.title }} Page</h3>
+  <form action="{{ pathFor('savePagelet') }}" method="post" accept-charset="utf-8">
+    <input type="hidden" name="page_id" value="{{ pagelet.page_id }}">
+    <input type="hidden" name="id" value="{{ pagelet.id }}">
+    <div>
+      <label>Secion Name</label>
+      <input type="text" name="name" maxlength="60" placeholder="Section name" value="{{ pagelet.name }}" required>
+    </div>
+
+    <div>
+      <label>Content</label>
+      <textarea name="content">{{ pagelet.content }}</textarea>
+    </div>
+
+    <button type="submit" name="button">Save</button>
+    <a href="{{ pathFor('showPages') }}">Cancel</a>
+  </form>

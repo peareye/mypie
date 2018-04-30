@@ -43,6 +43,16 @@ $app->group('/admin', function () {
     $this->post('/savepage', function ($request, $response, $args) {
         return (new Piton\Controllers\AdminPageController($this))->savePage($request, $response, $args);
     })->setName('savePage');
+
+    // Edit Pagelet, or Create Pagelet
+    $this->get('/editpagelet[/{id:[0-9]{0,}}]', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminPageController($this))->editPagelet($request, $response, $args);
+    })->setName('editPagelet');
+
+    // Save Pagelet
+    $this->post('/savepagelet', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminPageController($this))->savePagelet($request, $response, $args);
+    })->setName('savePagelet');
 })->add(function ($request, $response, $next) {
     // Authentication
     $security = $this->securityHandler;
