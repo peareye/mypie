@@ -18,7 +18,11 @@ class PageMapper extends DataMapperAbstract
     public function findPageSets()
     {
         // Get page headers, and pagelet content in one DB query
-        $this->sql = 'select p.*, pl.id pagelet_id, pl.name, pl.content from page p left outer join pagelet pl on p.id = pl.page_id order by p.id, pl.name';
+        $this->sql = <<<'SQL'
+select p.*, pl.id pagelet_id, pl.name, pl.content
+from page p left outer join pagelet pl on p.id = pl.page_id
+order by p.id, pl.name;
+SQL;
 
         $results = $this->find();
 

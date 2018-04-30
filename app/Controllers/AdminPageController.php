@@ -59,8 +59,13 @@ class AdminPageController extends BaseController
         $page = $PageMapper->make();
         $page->id = $request->getParsedBodyParam('id');
         $page->title = $request->getParsedBodyParam('title');
-        $page->url = strtolower(trim($request->getParsedBodyParam('url')));
         $page->meta_description = $request->getParsedBodyParam('meta_description');
+
+        // Prep URL
+        $page->url = strtolower(trim($request->getParsedBodyParam('url')));
+        $page->url = preg_replace('/[^a-z0-9\s-]/', '', $page->url);
+        $page->url = preg_replace('/[\s-]+/', ' ', $page->url);
+        $page->url = preg_replace('/[\s]/', '-', $page->url);
 
         // Save
         $page = $PageMapper->save($page);
