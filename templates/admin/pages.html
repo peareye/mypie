@@ -1,4 +1,6 @@
-
+{% extends '@admin/admin_base.html' %}
+    
+    {% block body %}
     <h1>Pages</h1>
     <a href="{{ pathFor('editPage') }}">Add New Page</a><hr>
     {% for p in pages %}
@@ -17,3 +19,5 @@
     {% else %}
     <strong>No pages found</strong>
     {% endfor %}
+
+    {% endblock %}
