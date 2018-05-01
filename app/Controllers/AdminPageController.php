@@ -59,6 +59,7 @@ class AdminPageController extends BaseController
         $page = $PageMapper->make();
         $page->id = $request->getParsedBodyParam('id');
         $page->title = $request->getParsedBodyParam('title');
+        $page->template = $request->getParsedBodyParam('template');
         $page->meta_description = $request->getParsedBodyParam('meta_description');
 
         // Prep URL
