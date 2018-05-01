@@ -69,13 +69,13 @@ SQL;
                     'url' => $row->url,
                     'template' => $row->template];
                 if ($row->pagelet_id) {
-                    $pages[$row->id]['pagelets'][] = [
+                    $pages[$row->id]['pagelets'][$row->name] = [
                         'pagelet_id' => $row->pagelet_id,
                         'name' => $row->name,
                         'content' => $row->content];
                 }
             } else {
-                $pages[$row->id]['pagelets'][] = [
+                $pages[$row->id]['pagelets'][$row->name] = [
                     'pagelet_id' => $row->pagelet_id,
                     'name' => $row->name,
                     'content' => $row->content];
