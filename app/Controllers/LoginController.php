@@ -48,11 +48,16 @@ class LoginController extends BaseController
         $UserMapper = $mapper('UserMapper');
         $body = $request->getParsedBody();
 
-        // Create list of valid email addresses, and append admin user (id = 1) from config file
-        $userList = $UserMapper->find();
-        $userList[] = ['email' => $config['user']['email'], 'id' => 1];
+        // Create primary admin user from config file (user ID = 1)
+        $primaryUser = $UserMapper->make();
+        $primaryUser->id = 1;
+        $primaryUser->email = $config['user']['email'];
 
-        // Provided email
+        // Fetch other users, and append primary admin user to array
+        $userList = $UserMapper->find();
+        $userList[] = $primaryUser;
+
+        // Clean provided email
         $providedEmail = strtolower(trim($body['email']));
 
         $foundValidUser = false;
@@ -72,14 +77,14 @@ class LoginController extends BaseController
         }
 
         // Belt and braces/suspenders double check
-        if ($foundValidUser['email'] === $providedEmail) {
+        if ($foundValidUser->email === $providedEmail) {
             // Get and set token, and user ID
             $token = $security->generateLoginToken();
             $session->setData([
                 $this->loginTokenKey => $token,
                 $this->loginTokenExpiresKey => time() + 120,
-                'user_id' => $foundValidUser['id'],
-                'email' => $foundValidUser['email']
+                'user_id' => $foundValidUser->id,
+                'email' => $foundValidUser->email
             ]);
 
             // Get request details to create login link and email to user
