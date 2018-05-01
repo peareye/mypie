@@ -16,63 +16,70 @@
 }
 
 // Navbar Custom Styles
-.bg-dark{
-    background: var(--mypie-red) !important;
-  }
-  .navbar-brand h3{
-    @include padding(0);
-  }
-  
-  // Customized Hamburger Icon
-  
-  button.navbar-toggler{
-    color: var(--light);
-  }
-  button:focus, [type='button']:focus, [type='reset']:focus, [type='submit']:focus {
-    outline: 3px solid var(--mypie-red);
-    outline-offset: 2px;
-  }
-  
-  button:hover, [type='button']:hover, [type='reset']:hover, [type='submit']:hover {
-    background-color: var(--mypie-red);
-    color: #fff;
-  }
-  .navbar-dark .navbar-nav .nav-link {
-    color: rgba(255, 255, 255, 0.8) !important;
-  }
-  li.nav-item.active{
-    font-weight: bold !important;
-    color: var(--light) !important;
-  }
+.bg-dark {
+  background: var(--mypie-red) !important;
+}
+.navbar-brand h3 {
+  @include padding(0);
+}
+.nav-link a{
+  font-size: 1rem;
+}
+// Customized Hamburger Icon
+
+button.navbar-toggler {
+  color: var(--light);
+}
+button:focus,
+[type="button"]:focus,
+[type="reset"]:focus,
+[type="submit"]:focus {
+  outline: 3px solid var(--mypie-red);
+  outline-offset: 2px;
+}
+
+button:hover,
+[type="button"]:hover,
+[type="reset"]:hover,
+[type="submit"]:hover {
+  background-color: var(--mypie-red);
+  color: #fff;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+li.nav-item.active {
+  font-weight: bold !important;
+  color: var(--light) !important;
+}
 // Hero Section
 .jumbotron {
-    padding-top: 2rem;
-    padding-bottom: 4rem;
-    @include padding(2rem null 6rem);
-    margin-bottom: 0;
-    background-color: #fff;
-    background-image: url('../img/showcase.jpg');
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    text-align: center;
-  }
-  
-  .jumbotron-heading {
-    font-weight: 300;
-  }
-  
-  .jumbotron .container {
-    max-width: 30rem;
-    background: rgba(255,255,255,0.2);
-   @include padding(2rem 1rem);
-    color: white;
-    border-radius: var(--border-radius);
-    
-  }
-  
-  .jumbotron p {
-      color: var(--mypie-light);
-      text-shadow: 0 0 10px rgba(0,0,0,0.5);
-  }
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  @include padding(2rem null 6rem);
+  margin-bottom: 0;
+  background-color: #fff;
+  background-image: url("../img/showcase.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  text-align: center;
+}
+
+.jumbotron-heading {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 100vw;
+  background: rgba(255, 255, 255, 0.1);
+  @include padding(2rem 1rem);
+  color: white;
+
+}
+
+.jumbotron p {
+  color: var(--mypie-light);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}

@@ -34,6 +34,9 @@ h6{
     font-family: 'Open Sans', sans-serif;
 
 }
+.container h2 {
+    @include padding(1rem null null)
+}
 .heading {
     font-family: 'Roboto Condensed', sans-serif;
 }
