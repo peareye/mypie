@@ -57,7 +57,7 @@ class LoginController extends BaseController
 
         $foundValidUser = false;
         foreach ($userList as $user) {
-            if ($user['email'] === $providedEmail) {
+            if ($user->email === $providedEmail) {
                 $foundValidUser = $user;
                 break;
             }
