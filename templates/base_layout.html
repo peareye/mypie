@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="favicon/favicon.ico" type="image/x-icon" />
+
     <title>MYPIE - Home - Epic Pies + Awesome Sides</title>
     <!-- Google Font Base -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto+Condensed:400,700" rel="stylesheet">
@@ -18,29 +20,12 @@
 </head>
 
 <body>
-    <!-- Logo and Navbar -->
-    {% include '_header.html' %}
+    {% block body %}
 
-    <!-- Hero Section -->
-    {% include '_hero.html' %}
-
-    <!-- Daily Menu -->
-    {% include '_menu.html' %}
-
-    <!-- Full Calendar -->
-    {% include '_full-calendar.html' %}
-
-    <!-- Newsletter Subscription -->
-    {% include '_newsletter.html' %}
-
-    <!-- Get Social & Instragram Feed Section -->
-    {% include '_get-social.html' %}
-
+    {% endblock %}
 
     <!-- Footer Section -->
     {% include '_footer.html' %}
-
-
     <!-- Bootstrap Script Files -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
