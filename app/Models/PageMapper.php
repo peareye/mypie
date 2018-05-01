@@ -63,7 +63,11 @@ SQL;
         $pages = [];
         foreach ($queryResults as $row) {
             if (!array_key_exists($row->id, $pages)) {
-                $pages[$row->id] = ['id' => $row->id, 'title' => $row->title, 'url' => $row->url];
+                $pages[$row->id] = [
+                    'id' => $row->id,
+                    'title' => $row->title,
+                    'url' => $row->url,
+                    'template' => $row->template];
                 if ($row->pagelet_id) {
                     $pages[$row->id]['pagelets'][] = [
                         'pagelet_id' => $row->pagelet_id,
