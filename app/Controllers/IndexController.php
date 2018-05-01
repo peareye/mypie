@@ -11,7 +11,6 @@ class IndexController extends BaseController
     /**
      * Show Dynamic Page
      *
-     *
      */
     public function showPage($request, $response, $args)
     {
@@ -21,6 +20,12 @@ class IndexController extends BaseController
 
         // Fetch pages
         $page = $PageMapper->findPageSetById($args['url']);
+
+        // Send 404 if not found
+        if (!$page) {
+            return $this->notFound($request, $response);
+        }
+
         $template = (isset($page['template'])) ? $page['template'] : 'home';
         $template .= '.html';
 
