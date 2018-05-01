@@ -6,6 +6,7 @@ twigcache/
 .sass-cache
 docker/db/
 public/assets/img/originals/
+*.pdf
 
 # Misc
 *.xml
