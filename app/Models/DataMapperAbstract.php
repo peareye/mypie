@@ -43,7 +43,7 @@ abstract class DataMapperAbstract
      * Domain Object Class
      * @var String
      */
-    protected $domainObjectClass;
+    protected $domainObjectClass = 'DomainObject';
 
     /**
      * Default select column statement from 'select' to before 'where'
@@ -131,10 +131,6 @@ abstract class DataMapperAbstract
      */
     public function make()
     {
-        if (!isset($this->domainObjectClass)) {
-            $this->domainObjectClass = 'DomainObject';
-        }
-
         $fullyQualifedClassName = __NAMESPACE__ . '\\' . $this->domainObjectClass;
 
         return new $fullyQualifedClassName;
@@ -198,7 +194,7 @@ abstract class DataMapperAbstract
     public function find()
     {
         // Use default select statement unless other SQL has been supplied
-        if (empty($this->sql)) {
+        if (!$this->sql) {
             $this->makeSelect();
         }
 

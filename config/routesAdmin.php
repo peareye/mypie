@@ -43,6 +43,26 @@ $app->group('/admin', function () {
     $this->post('/savepage', function ($request, $response, $args) {
         return (new Piton\Controllers\AdminPageController($this))->savePage($request, $response, $args);
     })->setName('savePage');
+
+    // Delete Page
+    $this->get('/deletepage/{id:[0-9]{0,}}', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminPageController($this))->deletePage($request, $response, $args);
+    })->setName('deletePage');
+
+    // Edit Pagelet, or Create Pagelet
+    $this->get('/editpagelet[/{id:[0-9]{0,}}]', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminPageController($this))->editPagelet($request, $response, $args);
+    })->setName('editPagelet');
+
+    // Save Pagelet
+    $this->post('/savepagelet', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminPageController($this))->savePagelet($request, $response, $args);
+    })->setName('savePagelet');
+
+    // Delete Pagelet
+    $this->get('/deletepagelet/{id:[0-9]{0,}}', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminPageController($this))->deletePagelet($request, $response, $args);
+    })->setName('deletePagelet');
 })->add(function ($request, $response, $next) {
     // Authentication
     $security = $this->securityHandler;
