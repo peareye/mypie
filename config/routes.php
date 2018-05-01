@@ -33,5 +33,5 @@ $app->get('/{url}', function ($request, $response, $args) {
 
 // Home page '/' is always the last route, the default
 $app->get('/', function ($request, $response, $args) {
-    return $this->view->render($response, 'home.html');
+    return $this->view->render($response, '_home.html');
 })->setName('home');
