@@ -21,10 +21,9 @@ class IndexController extends BaseController
 
         // Fetch pages
         $page = $PageMapper->findPageSetById($args['url']);
-
-        $template = ($page->template) ? $page->template : 'home';
+        $template = (isset($page['template'])) ? $page['template'] : 'home';
         $template .= '.html';
 
-        $this->container->view->render($response, $template);
+        $this->container->view->render($response, $template, ['page' => $page]);
     }
 }
