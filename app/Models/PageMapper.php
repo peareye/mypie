@@ -62,23 +62,30 @@ SQL;
         // Rebuild array into multidimensional array
         $pages = [];
         foreach ($queryResults as $row) {
+            // Build pagelet
+            if ($row->pagelet_id) {
+                $pagelet = new \stdClass();
+                $pagelet->id = $row->pagelet_id;
+                $pagelet->name = $row->name;
+                $pagelet->content = $row->content;
+
+                // Assign pagelet to parent
+                $row->pagelets = [];
+                $row->pagelets[$pagelet->name] = $pagelet;
+
+                // Clean up parent row object
+                unset($row->pagelet_id);
+                unset($row->name);
+                unset($row->content);
+            }
+
+            // Check if this page exists in the return array
             if (!array_key_exists($row->id, $pages)) {
-                $pages[$row->id] = [
-                    'id' => $row->id,
-                    'title' => $row->title,
-                    'url' => $row->url,
-                    'template' => $row->template];
-                if ($row->pagelet_id) {
-                    $pages[$row->id]['pagelets'][$row->name] = [
-                        'pagelet_id' => $row->pagelet_id,
-                        'name' => $row->name,
-                        'content' => $row->content];
-                }
+                // Assign page to return array
+                $pages[$row->id] = $row;
             } else {
-                $pages[$row->id]['pagelets'][$row->name] = [
-                    'pagelet_id' => $row->pagelet_id,
-                    'name' => $row->name,
-                    'content' => $row->content];
+                // Assign pagelet to parent page
+                $pages[$row->id]->pagelets[$pagelet->name] = $pagelet;
             }
         }
 
