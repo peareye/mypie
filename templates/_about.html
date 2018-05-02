@@ -1,6 +1,15 @@
 {% extends 'base_layout.html' %}
 
 {% block body %}
-<h1 class="display-2">woo hoo</h1>
+<div class="container">
+ <pre>
+<!-- {{ dump(page) }} -->
+
+ </pre>
+<p class="lead">
+        {{ page.pagelets.news.content }}
+</p>
+
+</div>
 
 {% endblock %}
