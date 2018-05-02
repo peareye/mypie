@@ -35,7 +35,7 @@ class AdminController extends BaseController
         // Reduce array
         if ($userList) {
             foreach ($userList as $row) {
-                $users['other'][] = ['id' => $row['id'], 'email' => $row['email']];
+                $users['other'][] = ['id' => $row->id, 'email' => $row->email];
             }
         }
 
