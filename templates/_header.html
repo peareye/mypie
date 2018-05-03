@@ -2,9 +2,8 @@
 
 <!-- navbar -->
 <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-    <a class="navbar-brand d-md-none" href="#">
-        <!-- <h3>Award Winning Pies</h3> -->
-        <img src="/assets/img/brand.svg" alt="">
+    <a class="navbar-brand d-md-none" href="{{ basePath() }}/">
+        <img src="{{ basePath() }}/assets/img/brand.svg" alt="MYPIE.LONDON Website">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -14,25 +13,25 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto ">
             <li class="nav-item active">
-                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="{{ basePath() }}/">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/suppliers">Suppliers</a>
+                <a class="nav-link" href="{{ basePath() }}/suppliers">Suppliers</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/about">About Us</a>
+                <a class="nav-link" href="{{ basePath() }}/about">About Us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/events">Events &amp; Catering</a>
+                <a class="nav-link" href="{{ basePath() }}/events">Events &amp; Catering</a>
             </li>
         </ul>
 
         <ul class="navbar-nav ml-auto ">
             <li class="nav-item">
-                <a class="nav-link" href="#dailymenu">Daily Menu</a>
+                <a class="nav-link" href="{{ basePath() }}/#dailymenu">Daily Menu</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#calendar">Calendar</a>
+                <a class="nav-link" href="{{ basePath() }}/#calendar">Calendar</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#contact-us">Contact</a>
@@ -45,7 +44,8 @@
 <!-- Logo Wrapper -->
 
 <div class="logo-container d-none d-md-block">
-    <div class="lg-logo-wrapper">
-        <!-- <img src="assets/img/myPieLogo.svg" alt=""> -->
+    <div class="logo-padding">
+            <div class="lg-logo-wrapper"><h1 class="d-none">MYPIE.LONDON</h1></div>
     </div>
+   
 </div>

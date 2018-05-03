@@ -26,6 +26,26 @@ $app->get('/sampleurl', function ($request, $response, $args) {
 
 */
 
+// Load News Page
+$app->get('/news', function ($request, $response, $args) {
+    return $this->view->render($response, '_news.html');
+})->setName('news');
+
+// Load Events Page
+$app->get('/events', function ($request, $response, $args) {
+    return $this->view->render($response, '_events.html');
+})->setName('events');
+
+// Load About Us Page
+$app->get('/about', function ($request, $response, $args) {
+    return $this->view->render($response, '_about.html');
+})->setName('about');
+
+// Load Suppliers Page
+$app->get('/suppliers', function ($request, $response, $args) {
+    return $this->view->render($response, '_suppliers.html');
+})->setName('suppliers');
+
 // Load dynamic page by /url. Keep as second to last route
 $app->get('/{url}', function ($request, $response, $args) {
     return (new Piton\Controllers\IndexController($this))->showPage($request, $response, $args);

@@ -5,6 +5,7 @@
   }
   section::after {
     display: block;
+    opacity: .80;
     content: "";
     height: 400px;
     width: 100%;
@@ -51,7 +52,7 @@
 
 @media (min-width: 768px) {
   body {
-    margin-top: 70px;
+    margin-top: 56px;
   }
   .nav-link {
     font-size: 0.8rem;
@@ -59,6 +60,7 @@
 }
 
 @media (min-width: 992px) {
+
   .menu-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px 1fr));

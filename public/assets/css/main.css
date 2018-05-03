@@ -6938,7 +6938,7 @@ a.text-dark:hover, a.text-dark:focus {
 :root {
   --mypie-red: #ed1c24;
   --mypie-dark: #231f20;
-  --mypie-light-grey: #c4c8cf;
+  --mypie-light-grey: #ddd;
   --mypie-md-grey: #8b9399;
   --mypie-dark-grey: #756d6e;
   --mypie-accent-red: #6e1e21;
@@ -6951,14 +6951,28 @@ a.text-dark:hover, a.text-dark:focus {
 
 @media (min-width: 576px) and (max-width: 800px) {
   :root {
-    font-size: calc( 16px + (22 - 16) * ( (100vw - 576px) / ( 800 - 576) )); } }
+    font-size: calc( 16px + (18 - 16) * ( (100vw - 576px) / ( 800 - 576) )); } }
 @media (min-width: 800px) {
   :root {
-    font-size: 22px; } }
+    font-size: 18px; } }
+body, html {
+  height: 100vh;
+  background-color: var(--mypie-light-grey); }
+
 body {
   color: var(--mypie-dark);
   font-family: "Roboto Condensed", sans-serif;
   margin-top: 82px; }
+
+.container-page {
+  background: var(--mypie-light);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem; }
+
+.container-home {
+  background-color: var(--mypie-light);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem; }
 
 img {
   width: 100%; }
@@ -7010,10 +7024,6 @@ h6 {
   outline: none !important;
   box-shadow: none; }
 
-#main {
-  padding-top: 2rem;
-  padding-bottom: 2rem; }
-
 .headshot {
   width: 10rem;
   border-radius: 100%;
@@ -7022,21 +7032,25 @@ h6 {
   margin-right: 2rem;
   margin-bottom: .5rem; }
 
-.logo-container {
-  padding-top: 5px;
-  padding-bottom: 5px; }
+.logo-padding {
+  background: var(--mypie-light);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: solid 4px var(--mypie-red); }
 
 .lg-logo-wrapper {
   width: 100vw;
   height: 250px;
   margin: auto;
-  background: url("../img/myPieLogoWide.svg") no-repeat;
+  background-image: url("../img/myPieLogoWide.svg");
+  background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   object-fit: cover; }
 
 .lg-logo-wraper img {
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 0.8rem; }
 
 nav {
   padding: 0.1;
@@ -7074,7 +7088,7 @@ button:hover,
   color: rgba(255, 255, 255, 0.8) !important; }
 
 .jumbotron {
-  paddding-bottom: 1px !important;
+  margin-bottom: 0;
   background-image: url("../img/showcase.jpg");
   background-repeat: no-repeat;
   background-position: center center;
@@ -7088,7 +7102,6 @@ button:hover,
 .jumbotron .container {
   max-width: 100vw;
   background: rgba(255, 255, 255, 0.1);
-  padding: 2rem 1rem;
   color: white; }
 
 .jumbotron p {
@@ -7129,7 +7142,6 @@ footer a:hover {
 .custom-button input[type="submit"] {
   background: var(--mypie-red);
   color: #fff;
-  border: solid 0.03rem #6e1e21;
   text-transform: uppercase;
   font-family: "Open Sans", sans-serif;
   border-radius: var(--border-radius); }
@@ -7293,6 +7305,7 @@ footer a:hover {
 
   section::after {
     display: block;
+    opacity: .80;
     content: "";
     height: 400px;
     width: 100%;
@@ -7333,7 +7346,7 @@ footer a:hover {
     background-attachment: fixed; } }
 @media (min-width: 768px) {
   body {
-    margin-top: 70px; }
+    margin-top: 56px; }
 
   .nav-link {
     font-size: 0.8rem; } }

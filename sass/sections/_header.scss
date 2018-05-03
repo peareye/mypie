@@ -1,20 +1,27 @@
 // Header & Nav Styles
 
 // Logo Styles
-.logo-container {
-  @include padding(5px null);
+.logo-padding{
+  background: var(--mypie-light);
+  @include padding(10px null);
+  border-bottom: solid 4px var(--mypie-red);
 }
 .lg-logo-wrapper {
   width: 100vw;
   height: 250px;
   margin: auto;
-  background: url("../img/myPieLogoWide.svg") no-repeat;
+  background-image: url("../img/myPieLogoWide.svg");
+  background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   object-fit: cover;
+  
+ 
 }
 .lg-logo-wraper img {
   width: 100%;
+  @include margin(null null .8rem);
+  
 }
 
 // Navbar Custom Styles
@@ -64,7 +71,7 @@ button:hover,
 
 // Hero Section
 .jumbotron {
-  paddding-bottom: 1px !important;
+  @include margin(null null 0);
   background-image: url("../img/showcase.jpg");
   // background-attachment: fixed;
   background-repeat: no-repeat;
@@ -80,7 +87,7 @@ button:hover,
 .jumbotron .container {
   max-width: 100vw;
   background: rgba(255, 255, 255, 0.1);
-  @include padding(2rem 1rem);
+  // @include padding(2rem 1rem);
   color: white;
 }
 

@@ -1,9 +1,20 @@
 // Global Settings
-
+body,html{
+  height: 100vh;
+  background-color: var(--mypie-light-grey);
+}
 body {
   color: var(--mypie-dark);
   font-family: "Roboto Condensed", sans-serif;
   margin-top: 82px;
+}
+.container-page {
+  background: var(--mypie-light);
+  @include padding(1.5rem null);
+}
+.container-home{
+  background-color: var(--mypie-light);
+  @include padding(1.5rem null);
 }
 img {
   width: 100%;
@@ -57,7 +68,4 @@ h6 {
 }
 // Pages Styles
 
-#main{
-  
-  @include padding(2rem null);
-}
+
