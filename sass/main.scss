@@ -9,12 +9,14 @@
 @import "vars/custom-vars";
 @import "global-custom-styles";
 
-// Section Styles
+// Pages Styles
+@import "pages/about";
 
+// Section Styles
 @import "sections/header";
 @import "sections/footer";
-@import "sections/nav";
 @import "sections/menu";
 @import "sections/calendar";
 @import "sections/get-social";
 @import "sections/newsletter";
+@import "mediaQueries";

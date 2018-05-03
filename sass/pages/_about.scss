@@ -1,0 +1,8 @@
+.headshot{
+    width: 10rem;
+    @include border-radius(100%);
+    float: left;
+    shape-outside: circle();
+   margin-right: 2rem;
+   margin-bottom: .5rem;
+}

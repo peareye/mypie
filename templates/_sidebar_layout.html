@@ -1,0 +1,32 @@
+{% extends 'base_layout.html' %} {% block body %}
+<!-- Sub Pages Layout -->
+<div id="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                {% block main %} {% endblock %}
+            </div>
+            <div class="col-md-4">
+                <div class="sidebar-item">
+                    <h4>News</h4>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem reprehenderit, alias velit ipsa
+                        eaque amet libero iste est, sapiente, tempore ex!.</p>
+                </div>
+                <div class="sidebar-item">
+                    <h4>Awards</h4>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem reprehenderit, alias velit ipsa
+                        eaque amet libero iste est, sapiente, tempore ex!.</p>
+                </div>
+                <div class="sidebar-item">
+                    <h4>Misc</h4>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem reprehenderit, alias velit ipsa
+                        eaque amet libero iste est, sapiente, tempore ex!.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

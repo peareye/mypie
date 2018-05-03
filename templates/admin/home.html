@@ -2,10 +2,52 @@
 
  {% block body %}
  <div class="container">
-        <h1 class="">Admin Home</h1>
+        <h2 class="">Admin Home</h2>
+        <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                  <div class="card my-1">
+                        <div class="card-header">
+                                <h5 class="card-title">Daily Menu</h5>
+                              </div>
+                    <div class="card-body">
+                      
+                      <p class="card-text"></p>
+                      <a href="#" class="btn btn-primary">Update Menu</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                        <div class="card my-1">
+                            <div class="card-header">
+                                    <h5 class="card-title">Daily Calendar</h5>
+                            </div>
+                          <div class="card-body">
+                           
+                            <p class="card-text"></p>
+                            <a href="#" class="btn btn-primary">Update Calendar</a>
+                          </div>
+                        </div>
+                      </div>
+                <div class="col-lg-4 col-sm-6">
+                  <div class="card my-1">
+                      <div class="card-header">
+                            <h5 class="card-title">Website Content</h5>
+                      </div>
+                    <div class="card-body">
+                      
+                      <p class="card-text"></p>
+                      <a href="#" class="btn btn-primary">Add/Edit Content</a>
+                    </div>
+                  </div>
+                </div>
+        
+              </div>
+              <hr>
+     
         <ul>
             <li><a href="{{ pathFor('showUsers') }}">Users</a></li>
             <li><a href="{{ pathFor('showPages') }}">Pages</a></li>
+
         </ul>
 
  </div>

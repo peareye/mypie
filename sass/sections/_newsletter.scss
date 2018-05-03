@@ -1,7 +1,22 @@
 /* Section: _newsletter.html */
 
-#newsletter form > div:first-child{
-    font-size: 2.25rem !important;
-    font-family: 'Roboto Condensed', sans-serif !important;
-    font-weight: 700 !important;
-  }
+#newsletter form > div:first-child {
+  font-size: 2.25rem !important;
+  font-family: "Roboto Condensed", sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.newsletter-wrapper {
+
+  display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+ grid-gap: 1rem;
+ @include padding(20px null);
+}
+.newsletter-box {
+
+  @include padding(10px);
+  border: solid 1px rgba(0,0,0,.5);
+  border-radius: var(--border-radius);
+
+}

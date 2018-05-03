@@ -6,7 +6,7 @@
 .menu-items {
   display: flex;
   flex-flow: row nowrap;
-  font-size: 1rem;
+
 }
 .menu-item {
   @include padding(null 0.3rem);
@@ -17,9 +17,12 @@
 #puds-box,
 #takeaway-box {
   @include padding(null null 1rem);
+  @include border-radius(7px);
+  border: solid 1px #000;
+  @include margin(null null 1rem);
 }
 .menu-title {
-  border-radius: var(--border-radius);
+  @include border-top-radius(7px);
   background: var(--mypie-red);
   color: var(--mypie-light);
   @include padding(0.5rem null);
@@ -38,34 +41,4 @@
 .menu-item-price {
   flex: 0.75;
   font-style: italic;
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  #pie-box,
-  #sides-box,
-  #sausage-box,
-  #puds-box,
-  #takeaway-box {
-    @include padding(null null 0.1rem);
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-}
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .menu-wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px 1fr));
-    grid-gap: 0.5rem;
-  }
-  #pie-box {
-    grid-column: 1 / span 2;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
 }
