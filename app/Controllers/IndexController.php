@@ -26,8 +26,9 @@ class IndexController extends BaseController
             return $this->notFound($request, $response);
         }
 
-        $template = (isset($page['template'])) ? $page['template'] : 'home';
-        $template .= '.html';
+        // Make sure the .html file extension is there
+        $template = preg_replace('/\.html$/i', '', $page->template);
+        $template = $template . '.html';
 
         $this->container->view->render($response, $template, ['page' => $page]);
     }
