@@ -41,7 +41,7 @@ footer a:hover {
   color: #fff;
 
   text-transform: uppercase;
-  font-family: "Open Sans", sans-serif;
+  font-family: var(--regular-font);
   border-radius: var(--border-radius);
 }
 #contact-us, #message-us, #our-story {

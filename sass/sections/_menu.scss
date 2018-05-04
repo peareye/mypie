@@ -3,30 +3,21 @@
 .menu-wrapper {
   display: block;
 }
+
 .menu-items {
   display: flex;
   flex-flow: row nowrap;
 
 }
+.menu-items:nth-child(even) {
+  background: var(--mypie-light-grey);
+  @include padding(null .3rem);
+
+}
+
 .menu-item {
-  @include padding(null 0.3rem);
-}
-#pie-box,
-#sides-box,
-#sausage-box,
-#puds-box,
-#takeaway-box {
-  @include padding(null null 1rem);
-  @include border-radius(7px);
-  border: solid 1px #000;
-  @include margin(null null 1rem);
-}
-.menu-title {
-  @include border-top-radius(7px);
-  background: var(--mypie-red);
-  color: var(--mypie-light);
-  @include padding(0.5rem null);
-  font-weight: 700;
+  @include padding( 0.3rem);
+  
 }
 .menu-item-title {
   flex: 1.2;
@@ -42,3 +33,24 @@
   flex: 0.75;
   font-style: italic;
 }
+
+
+#pie-box,
+#sides-box,
+#sausage-box,
+#puds-box,
+#takeaway-box {
+  @include padding(null null 1rem);
+  @include border-radius(7px);
+  // border: solid 1px #000;
+  @include margin(null null 1rem);
+}
+
+.menu-title {
+  @include border-top-radius(7px);
+  background: var(--mypie-red);
+  color: var(--mypie-light);
+  @include padding(0.5rem null);
+  font-weight: 700;
+}
+

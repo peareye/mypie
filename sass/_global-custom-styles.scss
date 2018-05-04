@@ -5,19 +5,26 @@ body,html{
 }
 body {
   color: var(--mypie-dark);
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: var(--narrow-font);
   margin-top: 82px;
+}
+p{
+  font-size: 1rem;
 }
 .container-page {
   background: var(--mypie-light);
-  @include padding(1.5rem null);
+  @include padding(3rem null);
 }
 .container-home{
   background-color: var(--mypie-light);
-  @include padding(1.5rem null);
+  @include padding(3rem null);
 }
 img {
   width: 100%;
+}
+button{
+  background-color: #ed1c24 !important;
+
 }
 h1,
 h2,
@@ -25,7 +32,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: var(--narrow-font);
   font-weight: 700;
 }
 h1 {
@@ -50,13 +57,13 @@ h6 {
   font-weight: bold;
 }
 .text {
-  font-family: "Open Sans", sans-serif;
+  font-family: var(--regular-font);
 }
 .container h2 {
-  @include padding(1rem null null);
+  // @include padding(1rem null null);
 }
 .heading {
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: var(--narrow-font);
 }
 .center-align {
   display: block;
@@ -66,6 +73,6 @@ h6 {
   outline: none !important;
   box-shadow: none;
 }
-// Pages Styles
+
 
 

@@ -1,22 +1,18 @@
 /* Section: _newsletter.html */
 
+// This hides the auto generated title in the newsletter form
 #newsletter form > div:first-child {
-  font-size: 2.25rem !important;
-  font-family: "Roboto Condensed", sans-serif !important;
-  font-weight: 700 !important;
+  display: none;
 }
 
 .newsletter-wrapper {
-
   display: grid;
- grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
- grid-gap: 1rem;
- @include padding(20px null);
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
 }
 .newsletter-box {
-
-  @include padding(10px);
-  border: solid 1px rgba(0,0,0,.5);
-  border-radius: var(--border-radius);
-
+  @include padding(null 10px 10px);
+}
+.newsletter-box h3 {
+  @include padding(2rem null null);
 }

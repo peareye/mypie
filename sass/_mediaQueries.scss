@@ -1,4 +1,6 @@
 @media (min-width: 576px) {
+
+  
   .jumbotron {
     background-attachment: fixed;
     height: 600px;
@@ -62,13 +64,15 @@
 @media (min-width: 992px) {
 
   .menu-wrapper {
+    width: 70vw;
+    @include margin(auto);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px 1fr));
+    // grid-template-columns: repeat(auto-fit, minmax(200px 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     grid-gap: 0.5rem;
   }
-  #pie-box {
-    grid-column: 1 / span 2;
-  }
+ 
 }
 
 @media (min-width: 1200px) {
