@@ -1,0 +1,78 @@
+@media (min-width: 576px) {
+  .jumbotron {
+    background-attachment: fixed;
+    height: 600px;
+  }
+  section::after {
+    display: block;
+    content: "";
+    height: 400px;
+    width: 100%;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.6);
+  }
+
+  section#dailymenu::after {
+    background: url("../img/hot-pie-1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  //section 3
+  section#calendar::after {
+    background: url("../img/mypie-truck1600x1068.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  section#newsletter::after {
+    background: url("../img/mypie-pie1600x1068.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  section#newsletter::after {
+    background: url("../img/mypie1600x1068.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  section#full-calendar::after {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+}
+
+@media (min-width: 768px) {
+  body {
+    margin-top: 70px;
+  }
+  .nav-link {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .menu-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px 1fr));
+    grid-gap: 0.5rem;
+  }
+  #pie-box {
+    grid-column: 1 / span 2;
+  }
+}
+
+@media (min-width: 1200px) {
+}
+@media (min-width: 1975px) {
+  .lg-logo-wrapper {
+    height: 330px;
+  }
+}
