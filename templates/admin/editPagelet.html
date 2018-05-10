@@ -15,5 +15,7 @@
     </div>
     <a href="{{ pathFor('showPages') }}">Cancel</a>
     <button type="submit" name="button">Save</button>
+    {% if pagelet.id %}
     <a href="{{ pathFor('deletePagelet', {'id': pagelet.id}) }}">Delete</a>
+    {% endif %}
   </form>
