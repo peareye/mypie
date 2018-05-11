@@ -2,11 +2,7 @@
 
     {% block body %}
 
-    {% if menu.menuNotFound %}
-    <h2>Menu not found</h2>
-    {% else %}
     <h2>Menu for {{ menu.date|date('l, F j, Y') }}</h2>
-    {% endif %}
 
     {% if menu.items %}
 
@@ -21,7 +17,7 @@
     <!-- Sides -->
     {% for m in menu.items if m.section == 'sides' %}
     <div>
-        {{ m.section }} | {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
+        {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
     </div>
     {% endfor %}
     <hr>
@@ -29,7 +25,7 @@
     <!-- Sausage Rolls -->
     {% for m in menu.items if m.section == 'rolls' %}
     <div>
-        {{ m.section }} | {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
+        {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
     </div>
     {% endfor %}
     <hr>
@@ -37,7 +33,7 @@
     <!-- Puds -->
     {% for m in menu.items if m.section == 'puds' %}
     <div>
-        {{ m.section }} | {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
+        {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
     </div>
     {% endfor %}
     <hr>
@@ -45,7 +41,7 @@
     <!-- Takeaway Pies -->
     {% for m in menu.items if m.section == 'takeawaypies' %}
     <div>
-        {{ m.section }} | {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
+        {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
     </div>
     {% endfor %}
 
