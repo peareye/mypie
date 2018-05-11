@@ -1,5 +1,10 @@
+{% extends '@admin/admin_base.html' %}
 
-  <h1>Edit Menu Details</h1>
+{% block body %}
+
+  
+  <h2>Edit Menu Details</h2>
+  <hr>
   <form action="{{ pathFor('saveMenuItems') }}" method="post" accept-charset="utf-8">
     <input type="hidden" name="id" value="{{ menu.id }}">
     <div>
@@ -8,20 +13,40 @@
       <a href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete Menu</a>
       {% endif %}
     </div>
-    <hr>
+   <hr>
     <a href="{{ pathFor('showMenus') }}">Cancel</a>
     <button type="submit" name="button">Save</button>
-
+    <hr>
     <!-- Daily Pies -->
     <div>
       <h3>Daily Pies</h3>
-      {% for i in 1..10 %}
-      <div>
-        <input type="hidden" name="items[menu_item_id][]" value="">
-        <input type="hidden" name="items[section][]" maxlength="60" value="dailypies">
-        <input type="text" name="items[type][]" maxlength="20" placeholder="Type" value="">
-        <input type="text" name="items[description][]" maxlength="200" placeholder="Pie description" value="">
-        <input type="text" name="items[price][]" maxlength="20" placeholder="Price" value="">
+      {% for i in 1..5 %}
+      <div class="border rounded p-2 mb-1">
+        <input class="form-control" type="hidden" name="items[menu_item_id][]" value="">
+        <input class="form-control" type="hidden" name="items[section][]" maxlength="60" value="dailypies">
+        <div class="form-row">
+            <div class="col-sm-2">
+              <select class="form-control mb-2" name="items[type][]" id="" placerholder="Type">
+                <option value="" selected disabled hidden>Select Type...</option>
+                <option value="BEEF">Beef</option>
+                <option value="VEGGIE">Veggie</option>
+                <option value="CHICKEN">Chicken</option>
+                <option value="GUEST">Guest</option>
+              </select>
+                <!-- <input class="form-control" type="text" name="items[type][]" maxlength="20" placeholder="Type" value=""> -->
+            </div>
+            <div class="col">
+                <input class="form-control" type="text" name="items[description][]" maxlength="200" placeholder="Pie description" value="">
+            </div>
+            <div class="col-sm-2">
+                <input class="form-control" type="text" name="items[price][]" maxlength="20" placeholder="Price" value="">
+            </div>
+          </div>
+        
+
+      
+        
+     
       </div>
       {% endfor %}
     </div>
@@ -42,8 +67,8 @@
 
     <!-- Sausage Rolls -->
     <div>
-      <h3>Suasage Rolls</h3>
-      {% for i in 1..5 %}
+      <h3>Sausage Rolls</h3>
+      {% for i in 1..2 %}
       <div>
         <input type="hidden" name="items[menu_item_id][]" value="">
         <input type="hidden" name="items[section][]" maxlength="60" value="rolls">
@@ -57,7 +82,7 @@
     <!-- Puds -->
     <div>
       <h3>Puds</h3>
-      {% for i in 1..5 %}
+      {% for i in 1..2 %}
       <div>
         <input type="hidden" name="items[menu_item_id][]" value="">
         <input type="hidden" name="items[section][]" maxlength="60" value="puds">
@@ -71,7 +96,7 @@
     <!-- Takeaway Pies -->
     <div>
       <h3>Takeaway Pies</h3>
-      {% for i in 1..5 %}
+      {% for i in 1..3 %}
       <div>
         <input type="hidden" name="items[menu_item_id][]" value="">
         <input type="hidden" name="items[section][]" maxlength="60" value="takewaypies">
@@ -85,3 +110,6 @@
     <a href="{{ pathFor('showMenus') }}">Cancel</a>
     <button type="submit" name="button">Save</button>
   </form>
+
+
+  {% endblock %}

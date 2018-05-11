@@ -1,4 +1,9 @@
+{% extends '@admin/admin_base.html' %}
 
+ {% block body %}
+
+    
+    
     <h1>Edit Page</h1>
   <form action="{{ pathFor('savePage') }}" method="post" accept-charset="utf-8">
     <input type="hidden" name="id" value="{{ page.id }}">
@@ -28,3 +33,5 @@
     <a href="{{ pathFor('deletePage', {'id': page.id}) }}">Delete</a>
     {% endif %}
   </form>
+
+  {% endblock %}

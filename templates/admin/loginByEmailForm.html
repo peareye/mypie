@@ -1,10 +1,23 @@
+{% extends '_sidebar_layout.html' %}
 
-  <h2>Login</h2>
-  <form action="{{ pathFor('requestLoginToken') }}" method="post" accept-charset="utf-8">
-    <div>
-      <label>Email</label>
-      <input type="email" name="email" maxlength="60" value="" autofocus="autofocus" required>
-    </div>
-    <button type="submit" name="button" value="requestToken">Login</button>
-  </form>
+{% block main %}
+ <div id="login">
+    <div class="container mb-4">
+        <h3>Admin Login</h3>
+ 
+       
+              <form action="{{ pathFor('requestLoginToken') }}" method="post" accept-charset="utf-8">
+                  <div class="form-group">
+                   
+                    <input class="form-control" type="email" placeholder="Enter Registerd Email" name="email" maxlength="60" value="" id="email-login" autofocus="autofocus" required>
+                  </div>
+                  <button class="btn btn-primary" type="submit" name="button" value="requestToken">Login</button>
+                </form>
+      </div>
+      <hr>
+ </div>
+
+
+
+{% endblock %}
 

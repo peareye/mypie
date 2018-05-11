@@ -1,4 +1,6 @@
+{% extends '@admin/admin_base.html' %}
 
+ {% block body %}
   <h2>Users</h2>
   <form action="{{ pathFor('saveUsers') }}" id="user-emails" method="post" accept-charset="utf-8">
     <div>
@@ -25,3 +27,4 @@
 		$(this).after(newRow);
 	});
 </script>
+{% endblock %}

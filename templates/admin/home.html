@@ -2,54 +2,32 @@
 
  {% block body %}
  <div class="container">
-        <h2 class="">Admin Home</h2>
-        <div class="row">
-                <div class="col-lg-4 col-sm-6">
-                  <div class="card my-1">
-                        <div class="card-header">
-                                <h5 class="card-title">Daily Menu</h5>
-                              </div>
-                    <div class="card-body">
+  
+    <ul class="nav flex-column">
+        <li class="nav-item nav-style rounded">
+          <a class="nav-link" href="{{ pathFor('showMenus') }}">Menus</a>
+        </li>
+        <li class="nav-item nav-style rounded">
+            <a class="nav-link" href="#">Calendar</a>
+        </li>
+        <li class="nav-item nav-style rounded">
+            <a class="nav-link" href="{{ pathFor('showPages') }}">Page Content</a>
+        </li>
+        <li class="nav-item nav-style rounded">
+            <a class="nav-link" href="{{ pathFor('showUsers') }}">Users</a>
+        </li>
+        <li class="nav-item nav-style rounded">
+            <a class="nav-link" href="#">Help</a>
+        </li>
+      </ul>
+      <hr>
+ </div>
 
-                      <p class="card-text"></p>
-                      <a href="#" class="btn btn-primary">Update Menu</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                        <div class="card my-1">
-                            <div class="card-header">
-                                    <h5 class="card-title">Daily Calendar</h5>
-                            </div>
-                          <div class="card-body">
-
-                            <p class="card-text"></p>
-                            <a href="#" class="btn btn-primary">Update Calendar</a>
-                          </div>
-                        </div>
-                      </div>
-                <div class="col-lg-4 col-sm-6">
-                  <div class="card my-1">
-                      <div class="card-header">
-                            <h5 class="card-title">Website Content</h5>
-                      </div>
-                    <div class="card-body">
-
-                      <p class="card-text"></p>
-                      <a href="#" class="btn btn-primary">Add/Edit Content</a>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <hr>
-
-        <ul>
-            <li><a href="{{ pathFor('showUsers') }}">Users</a></li>
-            <li><a href="{{ pathFor('showPages') }}">Pages</a></li>
-            <li><a href="{{ pathFor('showMenus') }}">Menus</a></li>
-        </ul>
-
+ <div class="container">
+   <h3>Current Menu</h3>
+   {% include 'admin/currentMenu.html' %}
+   <hr>
+   
  </div>
 
 {% endblock %}

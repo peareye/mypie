@@ -1,15 +1,43 @@
-{% extends '@admin/admin_base.html' %}
+{% extends '@admin/admin_base.html' %} {% block body %}
 
-    {% block body %}
-    <h1>Menus</h1>
-    <a href="{{ pathFor('editMenu') }}">New Menu</a><hr>
-    {% for m in menus %}
-    <div>
-        <a href="{{ pathFor('showSingleMenu', {'id': m.id}) }}">{{ m.date|date('l, F j, Y') }}</a>
+<h3>Menus</h3>
+<div class="nav-style">
+    <div class="menu-link">
+        <a href="{{ pathFor('editMenu') }}">Add New Menu</a>
+       
     </div>
-    <hr>
-    {% else %}
-    <strong>No menus found</strong>
-    {% endfor %}
+    <div class="menu-controls">
+            <a href="{{ pathFor('editMenu') }}" data-toggle="tooltip" title="Create a new menu.">
+                <i class="fas fa-plus" alt="Copy Menu"></i>
+                </i>
+            </a>
+       
+        </div>
+</div>
+<div class="">
+        <h3 class="mt-3">Previous Menus</h3>
+         {% for m in menus %}
+        
+        <div class="nav-style">
+            <div class="menu-link">
+                <a href="{{ pathFor('showSingleMenu', {'id': m.id}) }}">{{ m.date|date('l, F j, Y') }}</a>
+            </div>
+            <div class="menu-controls">
+                <a href="#" data-toggle="tooltip" title="Copy this menu">
+                    <i class="fas fa-copy" alt="Copy Menu"></i>
+                    </i>
+                </a>
+                <a href="#" data-toggle="tooltip" title="Delete this menu">
+                    <i class="fas fa-trash-alt" alt="Delete Menu"></i>
+                    </i>
+                </a>
+            </div>
+        </div>
+        
+        <hr> {% else %}
+        
+        <strong>No menus found</strong>
+</div>
 
-    {% endblock %}
+
+{% endfor %} {% endblock %}

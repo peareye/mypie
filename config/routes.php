@@ -31,6 +31,21 @@ $app->get('/menu/{id:[0-9]{0,}}', function ($request, $response, $args) {
     return (new Piton\Controllers\IndexController($this))->showMenu($request, $response, $args);
 })->setName('showMenu');
 
+// Events/Catering Page
+$app->get('/events', function ($request, $response, $args) {
+    return $this->view->render($response, '_events.html');
+})->setName('events');
+
+// Show About Page
+$app->get('/about', function ($request, $response, $args) {
+    return $this->view->render($response, '_about.html');
+})->setName('about');
+
+// Show Suppliers Page
+$app->get('/suppliers', function ($request, $response, $args) {
+    return $this->view->render($response, '_suppliers.html');
+})->setName('suppliers');
+
 // Load dynamic page by /url. Keep as second to last route
 $app->get('/{url}', function ($request, $response, $args) {
     return (new Piton\Controllers\IndexController($this))->showPage($request, $response, $args);

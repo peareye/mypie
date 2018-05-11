@@ -3,10 +3,10 @@
     {% block body %}
 
     {% if menu.menuNotFound %}
-    <h2>Menu not found</h2>
+    <h4>Menu not found</h4>
     {% else %}
 
-    <h2>Menu for {{ menu.date|date('l, F j, Y') }}</h2>
+    <h4>Menu for {{ menu.date|date('l, F j, Y') }}</h4>
     <a href="{{ pathFor('editMenuItems', {'id': menu.id}) }}">Edit Menu</a>
     {% endif %}
 
