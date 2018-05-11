@@ -23,24 +23,6 @@ body{
     }
 
 }
-// .nav-style {
-//     background: #ed1c24 !important;
-//     margin: 5px 0;
-//     padding: 5px 0;
-//     text-align: center;
-//     box-shadow: 0 3px 7px rgba(0,0,0,.3);
-// }
-// .nav-style:hover{
-//     box-shadow: 0 3px 2px rgba(0,0,0,.3);
-// }
-// .nav-style:active {
-//     box-shadow: 0 0;
-// }
-// .nav-item a{
-//     color: #fff;
-//     text-decoration: none;
-// }
-//   Add New Menu & Manage Previous Menu 
 
 .menu-controls{
     margin-left: auto;
@@ -50,4 +32,18 @@ body{
     border: solid 1px #6e1e21;
     border-radius: 7px;
 
+}
+
+// Style for Menu 
+
+.menu-list-item{
+   
+    margin: 10px 0;
+    padding: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    // justify-content: space-around;
+}
+.menu-item {
+    flex: 1;
 }

@@ -6756,4 +6756,13 @@ body {
   border: solid 1px #6e1e21;
   border-radius: 7px; }
 
+.menu-list-item {
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  flex-flow: row wrap; }
+
+.menu-item {
+  flex: 1; }
+
 /*# sourceMappingURL=admin-main.css.map */

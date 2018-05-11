@@ -1,59 +1,79 @@
 {% extends '@admin/admin_base.html' %}
 
     {% block body %}
+    <div id="menu">
 
-    {% if menu.menuNotFound %}
+  {% if menu.menuNotFound %}
     <h4>Menu not found</h4>
     {% else %}
 
-    <h4>Menu for {{ menu.date|date('l, F j, Y') }}</h4>
-    <a href="{{ pathFor('editMenuItems', {'id': menu.id}) }}">Edit Menu</a>
-    {% endif %}
+    <a class="btn btn-primary mb-3" href="{{ pathFor('editMenuItems', {'id': menu.id}) }}">Edit This Menu</a>
 
-    {% if menu.items %}
+    <h4>Menu for {{ menu.date|date('l, F j, Y') }}</h4>
+
+    <hr> {% endif %} {% if menu.items %}
 
     <!-- Daily Pies -->
+    <h5>Pies</h5>
     {% for m in menu.items if m.section == 'dailypies' %}
-    <div>
-        {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
+
+    <div class="menu-list-item">
+        <div class="menu-type">{{ m.type }}</div>
+        <div class="menu-description">{{ m.description }} </div>
+        <div class="menu-price">{{ m.price }}</div>
     </div>
     {% endfor %}
     <hr>
 
     <!-- Sides -->
-    {% for m in menu.items if m.section == 'sides' %}
-    <div>
-        {{ m.section }} | {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
+    <h5>Sides</h5>
+    <div class="row">
+            {% for m in menu.items if m.section == 'sides' %}
+
+            <div class="menu-list-item">
+                <div class="menu-type">{{ m.type }}</div>
+                <div class="menu-description">{{ m.description }} </div>
+                <div class="menu-price">{{ m.price }}</div>
+            </div>
+            <!-- <div>
+                    {{ m.section }} | {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
+                </div> -->
+            {% endfor %}
     </div>
-    {% endfor %}
+   
     <hr>
 
     <!-- Sausage Rolls -->
+    <h5>Sausage Rolls &amp; Others</h5>
     {% for m in menu.items if m.section == 'rolls' %}
+
     <div>
-        {{ m.section }} | {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
+        {{ m.section }} | {{ m.type }} | {{ m.description }} | {{ m.price }}
+        <br>
     </div>
     {% endfor %}
     <hr>
 
     <!-- Puds -->
+    <h5>Puds</h5>
     {% for m in menu.items if m.section == 'puds' %}
+
     <div>
-        {{ m.section }} | {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
+        {{ m.section }} | {{ m.type }} | {{ m.description }} | {{ m.price }}
+        <br>
     </div>
     {% endfor %}
     <hr>
 
     <!-- Takeaway Pies -->
+    <h5>Takeaway Pies</h5>
     {% for m in menu.items if m.section == 'takeawaypies' %}
     <div>
-        {{ m.section }} | {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
+        {{ m.section }} | {{ m.type }} | {{ m.description }} | {{ m.price }}
+        <br>
     </div>
-    {% endfor %}
-
-    {% else %}
+    {% endfor %} {% else %}
     <strong>No menu items found for this date</strong>
-    {% endif %}
-
-    {% endblock %}
-
+    {% endif %} 
+</div>
+{% endblock %}
