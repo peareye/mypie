@@ -60,7 +60,7 @@ h6 {
   font-family: var(--regular-font);
 }
 .container h2 {
-  // @include padding(1rem null null);
+  @include padding(1rem null null);
 }
 .heading {
   font-family: var(--narrow-font);

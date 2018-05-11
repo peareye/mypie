@@ -7018,6 +7018,9 @@ h6 {
 .text {
   font-family: var(--regular-font); }
 
+.container h2 {
+  padding-top: 1rem; }
+
 .heading {
   font-family: var(--narrow-font); }
 
