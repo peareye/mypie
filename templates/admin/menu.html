@@ -1,0 +1,53 @@
+{% extends '@admin/admin_base.html' %}
+
+    {% block body %}
+    <h2>Menu for {{ menu.date|date('l, F j, Y') }}</h2>
+
+    {% if menu.items %}
+    <a href="{{ pathFor('editMenuItems', {'id': menu.id}) }}">Edit</a>
+
+    <!-- Daily Pies -->
+    {% for m in menu.items if m.section == 'dailypies' %}
+    <div>
+        {{ m.section }} | {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
+    </div>
+    {% endfor %}
+    <hr>
+
+    <!-- Sides -->
+    {% for m in menu.items if m.section == 'sides' %}
+    <div>
+        {{ m.section }} | {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
+    </div>
+    {% endfor %}
+    <hr>
+
+    <!-- Sausage Rolls -->
+    {% for m in menu.items if m.section == 'rolls' %}
+    <div>
+        {{ m.section }} | {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
+    </div>
+    {% endfor %}
+    <hr>
+
+    <!-- Puds -->
+    {% for m in menu.items if m.section == 'puds' %}
+    <div>
+        {{ m.section }} | {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
+    </div>
+    {% endfor %}
+    <hr>
+
+    <!-- Takeaway Pies -->
+    {% for m in menu.items if m.section == 'takeawaypies' %}
+    <div>
+        {{ m.section }} | {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
+    </div>
+    {% endfor %}
+
+    {% else %}
+    <strong>No menu items found for this date</strong>
+    {% endif %}
+
+    {% endblock %}
+

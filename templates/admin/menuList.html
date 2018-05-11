@@ -1,0 +1,15 @@
+{% extends '@admin/admin_base.html' %}
+
+    {% block body %}
+    <h1>Menus</h1>
+    <a href="{{ pathFor('editMenu') }}">New Menu</a><hr>
+    {% for m in menus %}
+    <div>
+        <a href="{{ pathFor('showSingleMenu', {'id': m.id}) }}">{{ m.date|date('l, F j, Y') }}</a>
+    </div>
+    <hr>
+    {% else %}
+    <strong>No menus found</strong>
+    {% endfor %}
+
+    {% endblock %}

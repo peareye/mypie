@@ -1,0 +1,87 @@
+
+  <h1>Edit Menu Details</h1>
+  <form action="{{ pathFor('saveMenuItems') }}" method="post" accept-charset="utf-8">
+    <input type="hidden" name="id" value="{{ menu.id }}">
+    <div>
+      {{ m.date|date('l, F j, Y') }}
+      {% if menu.id %}
+      <a href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete Menu</a>
+      {% endif %}
+    </div>
+    <hr>
+    <a href="{{ pathFor('showMenus') }}">Cancel</a>
+    <button type="submit" name="button">Save</button>
+
+    <!-- Daily Pies -->
+    <div>
+      <h3>Daily Pies</h3>
+      {% for i in 1..10 %}
+      <div>
+        <input type="hidden" name="items[menu_item_id][]" value="">
+        <input type="hidden" name="items[section][]" maxlength="60" value="dailypies">
+        <input type="text" name="items[type][]" maxlength="20" placeholder="Type" value="BEEF">
+        <input type="text" name="items[description][]" maxlength="200" placeholder="Pie description" value="Desc">
+        <input type="text" name="items[price][]" maxlength="20" placeholder="Price" value="7.50">
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Sides -->
+    <div>
+      <h3>Sides</h3>
+      {% for i in 1..5 %}
+      <div>
+        <input type="hidden" name="items[menu_item_id][]" value="">
+        <input type="hidden" name="items[section][]" maxlength="60" value="sides">
+        <input type="text" name="items[type][]" maxlength="20" placeholder="Type" value="SIDE">
+        <input type="text" name="items[description][]" maxlength="200" placeholder="Side description" value="Desc">
+        <input type="text" name="items[price][]" maxlength="20" placeholder="Price" value="50">
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Sausage Rolls -->
+    <div>
+      <h3>Suasage Rolls</h3>
+      {% for i in 1..5 %}
+      <div>
+        <input type="hidden" name="items[menu_item_id][]" value="">
+        <input type="hidden" name="items[section][]" maxlength="60" value="rolls">
+        <input type="text" name="items[type][]" maxlength="20" placeholder="Type" value="ROLL">
+        <input type="text" name="items[description][]" maxlength="200" placeholder="Roll description" value="Desc">
+        <input type="text" name="items[price][]" maxlength="20" placeholder="Price" value="2.50">
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Puds -->
+    <div>
+      <h3>Puds</h3>
+      {% for i in 1..5 %}
+      <div>
+        <input type="hidden" name="items[menu_item_id][]" value="">
+        <input type="hidden" name="items[section][]" maxlength="60" value="puds">
+        <input type="text" name="items[type][]" maxlength="20" placeholder="Type" value="PUD">
+        <input type="text" name="items[description][]" maxlength="200" placeholder="Pud description" value="Desc">
+        <input type="text" name="items[price][]" maxlength="20" placeholder="Price" value="2.50">
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Takeaway Pies -->
+    <div>
+      <h3>Takeaway Pies</h3>
+      {% for i in 1..5 %}
+      <div>
+        <input type="hidden" name="items[menu_item_id][]" value="">
+        <input type="hidden" name="items[section][]" maxlength="60" value="takewaypies">
+        <input type="text" name="items[type][]" maxlength="20" placeholder="Type" value="BEEF">
+        <input type="text" name="items[description][]" maxlength="200" placeholder="Pud description" value="Desc">
+        <input type="text" name="items[price][]" maxlength="20" placeholder="Price" value="2.50">
+      </div>
+      {% endfor %}
+    </div>
+
+    <a href="{{ pathFor('showMenus') }}">Cancel</a>
+    <button type="submit" name="button">Save</button>
+  </form>

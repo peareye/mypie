@@ -63,6 +63,41 @@ $app->group('/admin', function () {
     $this->get('/deletepagelet/{id:[0-9]{0,}}', function ($request, $response, $args) {
         return (new Piton\Controllers\AdminPageController($this))->deletePagelet($request, $response, $args);
     })->setName('deletePagelet');
+
+    // Show list of Menus
+    $this->get('/menus', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminMenuController($this))->showMenus($request, $response, $args);
+    })->setName('showMenus');
+
+    // Show Single Menu
+    $this->get('/menu/{id:[0-9]{0,}}', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminMenuController($this))->showSingleMenu($request, $response, $args);
+    })->setName('showSingleMenu');
+
+    // Edit Menu
+    $this->get('/editmenu[/{id:[0-9]{0,}}]', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminMenuController($this))->editMenu($request, $response, $args);
+    })->setName('editMenu');
+
+    // Save Menu
+    $this->post('/savemenu', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminMenuController($this))->saveMenu($request, $response, $args);
+    })->setName('saveMenu');
+
+    // Delete Menu
+    $this->get('/deletemenu/{id:[0-9]{0,}}', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminMenuController($this))->deleteMenu($request, $response, $args);
+    })->setName('deleteMenu');
+
+    // Edit Menu Items
+    $this->get('/editmenuitems/{id:[0-9]{0,}}', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminMenuController($this))->editMenuItems($request, $response, $args);
+    })->setName('editMenuItems');
+
+    // Save Menu Items
+    $this->post('/savemenuitems', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminMenuController($this))->saveMenuItems($request, $response, $args);
+    })->setName('saveMenuItems');
 })->add(function ($request, $response, $next) {
     // Authentication
     $security = $this->securityHandler;

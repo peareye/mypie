@@ -1,0 +1,15 @@
+
+  <h1>Edit Menu</h1>
+  <form action="{{ pathFor('saveMenu') }}" method="post" accept-charset="utf-8">
+    <input type="hidden" name="id" value="{{ menu.id }}">
+    <div>
+      <label>Menu Date</label>
+      <input type="date" name="date" placeholder="Menu date" value="{{ menu.date }}" required>
+    </div>
+
+    <a href="{{ pathFor('showMenus') }}">Cancel</a>
+    <button type="submit" name="button">Save</button>
+    {% if menu.id %}
+    <a href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a>
+    {% endif %}
+  </form>
