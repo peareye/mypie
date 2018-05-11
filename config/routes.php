@@ -26,6 +26,11 @@ $app->get('/sampleurl', function ($request, $response, $args) {
 
 */
 
+// Show Single Menu
+$app->get('/menu/{id:[0-9]{0,}}', function ($request, $response, $args) {
+    return (new Piton\Controllers\IndexController($this))->showMenu($request, $response, $args);
+})->setName('showMenu');
+
 // Load dynamic page by /url. Keep as second to last route
 $app->get('/{url}', function ($request, $response, $args) {
     return (new Piton\Controllers\IndexController($this))->showPage($request, $response, $args);
