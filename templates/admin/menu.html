@@ -1,15 +1,21 @@
 {% extends '@admin/admin_base.html' %}
 
     {% block body %}
+
+    {% if menu.menuNotFound %}
+    <h2>Menu not found</h2>
+    {% else %}
+
     <h2>Menu for {{ menu.date|date('l, F j, Y') }}</h2>
+    <a href="{{ pathFor('editMenuItems', {'id': menu.id}) }}">Edit Menu</a>
+    {% endif %}
 
     {% if menu.items %}
-    <a href="{{ pathFor('editMenuItems', {'id': menu.id}) }}">Edit</a>
 
     <!-- Daily Pies -->
     {% for m in menu.items if m.section == 'dailypies' %}
     <div>
-        {{ m.section }} | {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
+        {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
     </div>
     {% endfor %}
     <hr>

@@ -38,8 +38,13 @@ class AdminMenuController extends BaseController
         // Fetch menu header
         $menu = $MenuMapper->findById($args['id']);
 
-        // Fetch menu iems
-        $menu->items = $MenuItemMapper->findItemsByMenuId($args['id']);
+        if ($menu->id) {
+            // Fetch menu iems
+            $menu->items = $MenuItemMapper->findItemsByMenuId($args['id']);
+        } else {
+            $menu->menuNotFound = true;
+        }
+
 
         return $this->container->view->render($response, '@admin/menu.html', ['menu' => $menu]);
     }
@@ -54,10 +59,12 @@ class AdminMenuController extends BaseController
         // Get dependencies
         $mapper = $this->container->dataMapper;
         $MenuMapper = $mapper('MenuMapper');
+        $MenuItemMapper = $mapper('MenuItemMapper');
 
         // Fetch menu, or create new menu
         if ($args['id']) {
             $menu = $MenuMapper->findById($args['id']);
+            $menu->items = $MenuItemMapper->findItemsByMenuId($args['id']);
         } else {
             $menu = $MenuMapper->make();
         }
