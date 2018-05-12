@@ -32,7 +32,7 @@
     {% for m in menu.items if m.section == 'dailypies' %}
       {{ forms.pieForm('dailypies', m) }}
     {% else %}
-      {{ forms.pieForm('dailypies', m) }}
+      {{ forms.pieForm('dailypies') }}
     {% endfor %}
     <button class="btn btn-success btn-block add-item-row" type="button">Add Row</button>
   </div>
@@ -43,7 +43,7 @@
     {% for m in menu.items if m.section == 'sides' %}
       {{ forms.otherForm('sides', m) }}
     {% else %}
-      {{ forms.otherForm('sides', m) }}
+      {{ forms.otherForm('sides') }}
     {% endfor %}
     <button class="btn btn-success btn-block add-item-row" type="button">Add Row</button>
   </div>
@@ -54,7 +54,7 @@
     {% for m in menu.items if m.section == 'rolls' %}
       {{ forms.otherForm('rolls', m) }}
     {% else %}
-      {{ forms.otherForm('rolls', m) }}
+      {{ forms.otherForm('rolls') }}
     {% endfor %}
     <button class="btn btn-success btn-block add-item-row" type="button">Add Row</button>
   </div>
@@ -65,7 +65,7 @@
     {% for m in menu.items if m.section == 'puds' %}
       {{ forms.otherForm('puds', m) }}
     {% else %}
-      {{ forms.otherForm('puds', m) }}
+      {{ forms.otherForm('puds') }}
     {% endfor %}
     <button class="btn btn-success btn-block add-item-row" type="button">Add Row</button>
   </div>
@@ -76,7 +76,7 @@
     {% for m in menu.items if m.section == 'takeawaypies' %}
       {{ forms.pieForm('takeawaypies', m) }}
     {% else %}
-      {{ forms.pieForm('takeawaypies', m) }}
+      {{ forms.pieForm('takeawaypies') }}
     {% endfor %}
     <button class="btn btn-success btn-block add-item-row" type="button">Add Row</button>
   </div>
@@ -110,9 +110,17 @@
           <div class="col">
               <input class="form-control" type="text" name="items[description][]" maxlength="200" placeholder="Description" value="{{ value.description }}">
           </div>
-          <div class="col-sm-2">
+          <div class="col-sm-1">
               <input class="form-control" type="text" name="items[price][]" maxlength="20" placeholder="Price" value="{{ value.price }}">
           </div>
+          {% if value.id %}
+          <div class="col-sm-1 optional-button">
+            <a class="btn btn-info" href="">Out</a>
+          </div>
+          <div class="col-sm-1 optional-button">
+            <a class="btn btn-danger delete-menu-item" href="{{ pathFor('deleteMenuItem', {'id': value.id}) }}">Delete</a>
+          </div>
+          {% endif %}
         </div>
     </div>
 {% endmacro %}
@@ -129,6 +137,14 @@
         <div class="col-sm-2">
           <input class="form-control" type="text" name="items[price][]" maxlength="20" placeholder="Price" value="{{ value.price }}">
         </div>
+        {% if value.id %}
+        <div class="col-sm-1 optional-button">
+          <a class="btn btn-info" href="">Out</a>
+        </div>
+        <div class="col-sm-1 optional-button">
+          <a class="btn btn-danger delete-menu-item" href="{{ pathFor('deleteMenuItem', {'id': value.id}) }}">Delete</a>
+        </div>
+        {% endif %}
       </div>
     </div>
 {% endmacro %}

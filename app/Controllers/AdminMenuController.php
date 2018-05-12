@@ -152,12 +152,38 @@ class AdminMenuController extends BaseController
         $mapper = $this->container->dataMapper;
         $MenuMapper = $mapper('MenuMapper');
 
-        // Delete page
+        // Delete item
         $menu = $MenuMapper->make();
         $menu->id = $args['id'];
         $MenuMapper->delete($menu);
 
         // Redirect back to show menus
         return $response->withRedirect($this->container->router->pathFor('showMenus'));
+    }
+
+    /**
+     * Delete Menu Item
+     *
+     * Delete menu item
+     */
+    public function deleteMenuItem($request, $response, $args)
+    {
+        // Get dependencies
+        $mapper = $this->container->dataMapper;
+        $MenuItemMapper = $mapper('MenuItemMapper');
+
+        // Delete item
+        $menuItem = $MenuItemMapper->make();
+        $menuItem->id = $args['id'];
+        $MenuItemMapper->delete($menuItem);
+
+        if ($request->isXhr()) {
+            // Set the response XHR type and return
+            $r = $response->withHeader('Content-Type', 'application/json');
+            return $r->write(json_encode(['status' => 'success']));
+        } else {
+            // Redirect back to show menus
+            return $response->withRedirect($this->container->router->pathFor('showMenus'));
+        }
     }
 }
