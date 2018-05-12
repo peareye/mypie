@@ -7,7 +7,7 @@ namespace Piton\Models;
 class MenuItemMapper extends DataMapperAbstract
 {
     protected $table = 'menu_item';
-    protected $modifiableColumns = ['menu_id', 'section', 'type', 'description', 'price'];
+    protected $modifiableColumns = ['menu_id', 'section', 'sort', 'type', 'description', 'price', 'sold_out'];
 
     /**
      * Get Menus Items
@@ -20,7 +20,7 @@ class MenuItemMapper extends DataMapperAbstract
     {
         // Make select
         $this->makeSelect();
-        $this->sql .= ' where menu_id = ?';
+        $this->sql .= ' where menu_id = ? order by section, sort;';
         $this->bindValues[] = $id;
 
         return $this->find();

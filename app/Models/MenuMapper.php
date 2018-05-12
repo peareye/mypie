@@ -7,7 +7,7 @@ namespace Piton\Models;
 class MenuMapper extends DataMapperAbstract
 {
     protected $table = 'menu';
-    protected $modifiableColumns = ['date'];
+    protected $modifiableColumns = ['date', 'location'];
 
     /**
      * Get Menus in Descending Ordery by Date

@@ -1,23 +1,136 @@
 {% extends '@admin/admin_base.html' %} {% block body %}
 
-<h2>Choose a Menu Date</h2>
-<p class="font-weight-light">From the date picker below, select the date this menu will be available. When you save the date, it will redirect you to the page that will allow you to enter the menu items.</p>
+<h2>{% if menu.id %}Edit{% else %}Add{% endif %} Menu</h2>
 <form action="{{ pathFor('saveMenu') }}" method="post" accept-charset="utf-8">
-
   <input type="hidden" name="id" value="{{ menu.id }}">
-  
-  <div class="form-group">
-    <input class="form-control" type="date" name="date" placeholder="Menu date" value="{{ menu.date }}" required>
-  </div>
 
-
-  <button class="btn btn-primary" type="reset" name="button">Cancel</button>
+  <a class="btn btn-success" href="{{ pathFor('showMenus') }}">Return to Menus Page</a>
   <button class="btn btn-primary" type="submit" name="button">Save</button>
   {% if menu.id %}
-  <a href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a>
+  <a class="btn btn-danger deleteButton" href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a>
+  {% endif %}
+  <hr>
+
+  <!-- Menu Header Date & Location -->
+  <p class="form-text text-muted font-weight-light">Select the date and location when this menu will be available.</p>
+  <div class="form-row">
+    <div class="col-sm-2">
+      <input class="form-control" type="date" name="date" placeholder="Menu date" value="{{ menu.date }}" required>
+    </div>
+    <div class="col">
+      <input class="form-control" type="text" name="location" maxlength="60" placeholder="Location" value="{{ menu.location }}">
+    </div>
+  </div>
+  <hr>
+
+  {# This loads the macro functions at the bottom of this template. Each section has an extra blank row #}
+  {% import _self as forms %}
+
+  <!-- Daily Pies -->
+  <div class="menu-section">
+    <h3>Daily Pies</h3>
+    {% for m in menu.items if m.section == 'dailypies' %}
+      {{ forms.pieForm('dailypies', m) }}
+    {% else %}
+      {{ forms.pieForm('dailypies', m) }}
+    {% endfor %}
+    <button class="btn btn-success btn-block add-item-row" type="button">Add Row</button>
+  </div>
+
+  <!-- Sides -->
+  <div class="menu-section">
+    <h3>Sides</h3>
+    {% for m in menu.items if m.section == 'sides' %}
+      {{ forms.otherForm('sides', m) }}
+    {% else %}
+      {{ forms.otherForm('sides', m) }}
+    {% endfor %}
+    <button class="btn btn-success btn-block add-item-row" type="button">Add Row</button>
+  </div>
+
+  <!-- Sausage Rolls -->
+  <div class="menu-section">
+    <h3>Sausage Rolls &amp; Other</h3>
+    {% for m in menu.items if m.section == 'rolls' %}
+      {{ forms.otherForm('rolls', m) }}
+    {% else %}
+      {{ forms.otherForm('rolls', m) }}
+    {% endfor %}
+    <button class="btn btn-success btn-block add-item-row" type="button">Add Row</button>
+  </div>
+
+  <!-- Puds -->
+  <div class="menu-section">
+    <h3>Puds</h3>
+    {% for m in menu.items if m.section == 'puds' %}
+      {{ forms.otherForm('puds', m) }}
+    {% else %}
+      {{ forms.otherForm('puds', m) }}
+    {% endfor %}
+    <button class="btn btn-success btn-block add-item-row" type="button">Add Row</button>
+  </div>
+
+  <!-- Takeaway Pies -->
+  <div class="menu-section">
+    <h3>Takeaway Pies</h3>
+    {% for m in menu.items if m.section == 'takeawaypies' %}
+      {{ forms.pieForm('takeawaypies', m) }}
+    {% else %}
+      {{ forms.pieForm('takeawaypies', m) }}
+    {% endfor %}
+    <button class="btn btn-success btn-block add-item-row" type="button">Add Row</button>
+  </div>
+  <hr>
+
+  <a class="btn btn-success" href="{{ pathFor('showMenus') }}">Return to Menus Page</a>
+  <button class="btn btn-primary" type="submit" name="button">Save</button>
+  {% if menu.id %}
+  <a class="btn btn-danger deleteButton" href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a>
   {% endif %}
 </form>
-<hr>
-  <a class="btn btn-success mt-3" href="{{ pathFor('showMenus') }}">Return to Menus Page</a>
+
+
+
+{# Special custom Twig functions for the two types of form sections (pie and other) so we don't repeat ourselves #}
+
+{% macro pieForm(section, value) %}
+    <div class="border rounded p-2 mb-1 menu-item">
+      <input class="form-control" type="hidden" name="items[menu_item_id][]" value="{{ value.id }}">
+      <input class="form-control" type="hidden" name="items[section][]" maxlength="60" value="{{ section }}">
+      <div class="form-row">
+          <div class="col-sm-2">
+            <select class="form-control mb-2" name="items[type][]">
+              <option selected disabled hidden value="default">Select Type...</option>
+              <option {% if value.type == 'BEEF' %}selected{% endif %} value="BEEF">Beef</option>
+              <option {% if value.type == 'VEGGIE' %}selected{% endif %} value="VEGGIE">Veggie</option>
+              <option {% if value.type == 'CHICKEN' %}selected{% endif %} value="CHICKEN">Chicken</option>
+              <option {% if value.type == 'GUEST' %}selected{% endif %} value="GUEST">Guest</option>
+            </select>
+          </div>
+          <div class="col">
+              <input class="form-control" type="text" name="items[description][]" maxlength="200" placeholder="Description" value="{{ value.description }}">
+          </div>
+          <div class="col-sm-2">
+              <input class="form-control" type="text" name="items[price][]" maxlength="20" placeholder="Price" value="{{ value.price }}">
+          </div>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro otherForm(section, value) %}
+    <div class="border rounded p-2 mb-1 menu-item">
+      <input type="hidden" name="items[menu_item_id][]" value="{{ value.id }}">
+      <input type="hidden" name="items[section][]" maxlength="60" value="{{ section }}">
+      <input type="hidden" name="items[type][]" maxlength="20" value="{{ value.type }}">
+      <div class="form-row">
+        <div class="col">
+          <input class="form-control" type="text" name="items[description][]" maxlength="200" placeholder="Description" value="{{ value.description }}">
+        </div>
+        <div class="col-sm-2">
+          <input class="form-control" type="text" name="items[price][]" maxlength="20" placeholder="Price" value="{{ value.price }}">
+        </div>
+      </div>
+    </div>
+{% endmacro %}
 
 {% endblock %}
