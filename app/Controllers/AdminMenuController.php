@@ -146,15 +146,11 @@ class AdminMenuController extends BaseController
         // Capture menu ID to use for all items
         $menuId = $request->getParsedBodyParam('id');
         $items = $request->getParsedBodyParam('items');
-// print_r($_POST);die();
 
         // Loop through items array
-// print_r($items['description']);
         foreach ($items['description'] as $key => $row) {
             // Only save if there is at least a description
-// echo "0, ";
             if (!empty(trim($row))) {
-// echo "1, ";
                 // Create menu item object
                 $menuItem = $MenuItemMapper->make();
                 $menuItem->id = $items['menu_item_id'][$key];
@@ -163,13 +159,14 @@ class AdminMenuController extends BaseController
                 $menuItem->type = $items['type'][$key];
                 $menuItem->description = $items['description'][$key];
                 $menuItem->price = $items['price'][$key];
-// print_r($menuItem);
+                //$menuItem->sold_out = $items['price'][$key];
+
                 // Save
                 $MenuItemMapper->save($menuItem);
                 unset($menuItem);
             }
         }
-// die('after save');
+
         // Redirect back to show menu
         return $response->withRedirect($this->container->router->pathFor('showMenus'));
     }
