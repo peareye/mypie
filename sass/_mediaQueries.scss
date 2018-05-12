@@ -1,7 +1,8 @@
 @media (min-width: 576px) {
   .jumbotron {
     background-attachment: fixed;
-    height: 600px;
+    height: 450px;
+    padding: 2rem !important;
   }
   section::after {
     display: block;
@@ -12,7 +13,7 @@
   }
 
   section#dailymenu::after {
-    background: url("../img/hot-pie-1.jpg");
+  background: url("../img/showcase.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
