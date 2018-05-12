@@ -73,6 +73,37 @@ class AdminMenuController extends BaseController
     }
 
     /**
+     * Copy Edit Menu
+     *
+     * Copies and loads existing menu, but unsets date, location, and ID's
+     */
+    public function copyEditMenu($request, $response, $args)
+    {
+        // Get dependencies
+        $mapper = $this->container->dataMapper;
+        $MenuMapper = $mapper('MenuMapper');
+        $MenuItemMapper = $mapper('MenuItemMapper');
+
+        // Fetch menu to copy
+        $menu = $MenuMapper->findById($args['id']);
+        $menu->items = $MenuItemMapper->findItemsByMenuId($args['id']);
+
+        // Clean up copied menu
+        unset($menu->id);
+        unset($menu->date);
+        unset($menu->location);
+
+        foreach ($menu->items as $key => $row) {
+            unset($menu->items[$key]->id);
+            unset($menu->items[$key]->menu_id);
+            unset($menu->items[$key]->sort);
+            $menu->items[$key]->sold_out = 'N';
+        }
+
+        return $this->container->view->render($response, '@admin/editMenu.html', ['menu' => $menu]);
+    }
+
+    /**
      * Save Menu
      *
      * Save new menu, or update existing menu, along with all menu item records

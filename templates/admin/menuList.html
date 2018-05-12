@@ -8,7 +8,7 @@
     </div>
     <div class="menu-controls">
             <a href="{{ pathFor('editMenu') }}" data-toggle="tooltip" title="Create a new menu.">
-                <i class="fas fa-plus" alt="Copy Menu"></i>
+                <i class="fas fa-plus" alt="Create Menu"></i>
                 </i>
             </a>
 
@@ -29,7 +29,7 @@
                     <i class="fas fa-edit" alt="Edit Menu"></i>
                     </i>
                 </a>
-                <a href="#" data-toggle="tooltip" title="Copy this menu">
+                <a href="{{ pathFor('copyEditMenu', {'id': m.id}) }}" data-toggle="tooltip" title="Copy this menu">
                     <i class="fas fa-copy" alt="Copy Menu"></i>
                     </i>
                 </a>
