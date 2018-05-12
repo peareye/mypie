@@ -13,30 +13,31 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto ">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Home</a>
+            <li class="nav-item {% if inUrl('/') %} active {% endif %}">
+                <a class="nav-link" href="{{ basePath() }}/">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/suppliers">Suppliers</a>
+            <li class="nav-item {% if inUrl('suppliers') %} active {% endif %}">
+                <a class="nav-link" href="{{ basePath() }}/suppliers">Suppliers</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/about">About Us</a>
+            <li class="nav-item {% if inUrl('about') %} active {% endif %}">
+                <a class="nav-link" href="{{ basePath() }}/about">About Us</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/events">Events &amp; Catering</a>
+            <li class="nav-item {% if inUrl('events') %} active {% endif %}">
+                <a class="nav-link" href="{{ basePath() }}/events">Events &amp; Catering</a>
             </li>
         </ul>
 
-        <ul class="navbar-nav ml-auto ">
+        <ul id="#in-page-links" class="navbar-nav ml-auto ">
             <li class="nav-item">
-                <a class="nav-link" href="#dailymenu">Daily Menu</a>
+                <a class="nav-link" href="{{ basePath() }}/#dailymenu">Daily Menu</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#calendar">Calendar</a>
+                <a class="nav-link" href="{{ basePath() }}/#calendar">Calendar</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#contact-us">Contact</a>
             </li>
+            <!-- <li class="nav-item nav-link" data-toggle="modal" data-target="#menuModal">Modal</li> -->
 
         </ul>
     </div>

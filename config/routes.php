@@ -37,9 +37,9 @@ $app->get('/events', function ($request, $response, $args) {
 })->setName('events');
 
 // Show About Page
-$app->get('/about', function ($request, $response, $args) {
-    return $this->view->render($response, '_about.html');
-})->setName('about');
+// $app->get('/about', function ($request, $response, $args) {
+//     return $this->view->render($response, '_about.html');
+// })->setName('about');
 
 // Show Suppliers Page
 $app->get('/suppliers', function ($request, $response, $args) {

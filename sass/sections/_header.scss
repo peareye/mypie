@@ -1,9 +1,9 @@
 // Header & Nav Styles
-
 // Logo Styles
 .logo-container {
   @include padding(5px null);
 }
+
 .lg-logo-wrapper {
   width: 100vw;
   height: 250px;
@@ -13,36 +13,36 @@
   background-size: cover;
   object-fit: cover;
 }
+
 .lg-logo-wraper img {
   width: 100%;
 }
 
 // Navbar Custom Styles
 nav {
-  @include padding(0.1);
+  // @include padding(0.1);
   box-shadow: var(--box-shadow);
 
 }
+
 .bg-dark {
   background: var(--mypie-red) !important;
-}
-.nav-link a {
-  font-size: 1rem;
 }
 
 //Navbar Brand Sizing
 .navbar-brand img {
   height: 80px;
   width: auto;
-  // background: pink;
   @include padding(3px null null);
 }
-
+.navbar a {
+  font-size: 1.1rem !important; 
+}
 // Customized Hamburger Icon
-
 button.navbar-toggler {
   color: var(--light);
 }
+
 button:focus,
 [type="button"]:focus,
 [type="reset"]:focus,
@@ -58,9 +58,7 @@ button:hover,
   background-color: var(--mypie-red);
   color: #fff;
 }
-.navbar-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.8) !important;
-}
+
 
 // Hero Section
 .jumbotron {
@@ -69,14 +67,15 @@ button:hover,
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-text-align: center;
-
+  text-align: center;
 }
+
 .jumbo-inner {
-  background: rgba(0,0,0,.08);
+  background: rgba(0, 0, 0, .08);
   border-radius: var(--border-radius);
   @include padding(1rem);
 }
+
 .jumbotron-heading {
   font-weight: 300;
 }
@@ -85,6 +84,7 @@ text-align: center;
   color: var(--mypie-light);
   text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
 }
+
 .jumbotron h1 {
   text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
   color: var(--mypie-light);

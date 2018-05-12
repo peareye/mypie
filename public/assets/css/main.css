@@ -6937,7 +6937,7 @@ a.text-dark:hover, a.text-dark:focus {
     border: 1px solid #dee2e6 !important; } }
 :root {
   --mypie-red: #ed1c24;
-  --mypie-dark: #231f20;
+  --mypie-dark: #333;
   --mypie-light-grey: #c4c8cf;
   --mypie-md-grey: #8b9399;
   --mypie-dark-grey: #756d6e;
@@ -6951,13 +6951,13 @@ a.text-dark:hover, a.text-dark:focus {
 
 @media (min-width: 576px) and (max-width: 800px) {
   :root {
-    font-size: calc( 16px + (22 - 16) * ( (100vw - 576px) / ( 800 - 576) )); } }
+    font-size: calc( 16px + (18 - 16) * ( (100vw - 576px) / ( 800 - 576) )); } }
 @media (min-width: 800px) {
   :root {
-    font-size: 22px; } }
+    font-size: 18px; } }
 body {
-  color: var(--mypie-dark);
-  font-family: "Roboto Condensed", sans-serif;
+  color: var(--mypie-dark-grey);
+  font-family: 'Montserrat', sans-serif;
   margin-top: 82px; }
 
 img {
@@ -6970,6 +6970,7 @@ h4,
 h5,
 h6 {
   font-family: "Roboto Condensed", sans-serif;
+  color: var(--mypie-dark);
   font-weight: 700; }
 
 h1 {
@@ -6993,26 +6994,21 @@ h6 {
 .strong {
   font-weight: bold; }
 
-.text {
-  font-family: "Open Sans", sans-serif; }
-
 .container h2 {
   padding-top: 1rem; }
-
-.heading {
-  font-family: "Roboto Condensed", sans-serif; }
 
 .center-align {
   display: block;
   text-align: center; }
 
-.btn:focus, .btn:active, a.hover, a:active {
+.btn:focus, .btn:active, a:hover, a:active {
   outline: none !important;
   box-shadow: none; }
 
 #main {
-  padding-top: 2rem;
-  padding-bottom: 2rem; }
+  border-top: solid 4px black;
+  padding-top: 4rem;
+  padding-bottom: 4rem; }
 
 .headshot {
   width: 10rem;
@@ -7039,19 +7035,18 @@ h6 {
   width: 100%; }
 
 nav {
-  padding: 0.1;
   box-shadow: var(--box-shadow); }
 
 .bg-dark {
   background: var(--mypie-red) !important; }
 
-.nav-link a {
-  font-size: 1rem; }
-
 .navbar-brand img {
   height: 80px;
   width: auto;
   padding-top: 3px; }
+
+.navbar a {
+  font-size: 1.1rem !important; }
 
 button.navbar-toggler {
   color: var(--light); }
@@ -7069,9 +7064,6 @@ button:hover,
 [type="submit"]:hover {
   background-color: var(--mypie-red);
   color: #fff; }
-
-.navbar-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.8) !important; }
 
 .jumbotron {
   padding-bottom: 1px !important;
@@ -7133,7 +7125,6 @@ footer a:hover {
   color: #fff;
   border: solid 0.03rem #6e1e21;
   text-transform: uppercase;
-  font-family: "Open Sans", sans-serif;
   border-radius: var(--border-radius); }
 
 #contact-us, #message-us, #our-story {
@@ -7171,7 +7162,7 @@ footer a:hover {
 #takeaway-box {
   padding-bottom: 1rem;
   border-radius: 7px;
-  border: solid 1px #000;
+  border: solid 1px rgba(167, 167, 167, 0.5);
   margin-bottom: 1rem; }
 
 .menu-title {
@@ -7215,6 +7206,9 @@ footer a:hover {
   margin-bottom: 2rem;
   border: 1px solid rgba(0, 0, 0, 0.08);
   background: #efefef; }
+
+.calendar-title {
+  position: relative; }
 
 .calendar-day {
   color: #756d63; }
@@ -7278,7 +7272,7 @@ footer a:hover {
 
 .newsletter-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   grid-gap: 1rem;
   padding-top: 20px;
   padding-bottom: 20px; }
@@ -7336,10 +7330,7 @@ footer a:hover {
     background-attachment: fixed; } }
 @media (min-width: 768px) {
   body {
-    margin-top: 70px; }
-
-  .nav-link {
-    font-size: 0.8rem; } }
+    margin-top: 70px; } }
 @media (min-width: 992px) {
   .menu-wrapper {
     display: grid;
