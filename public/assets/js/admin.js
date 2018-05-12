@@ -40,3 +40,25 @@ $('.menu-section').on('click', '.delete-menu-item', function(e) {
         });
     }
 });
+
+// Set sold out menu item asynchronosly
+// $('.menu-section').on('click', '.soldout-menu-item', function(e) {
+//     e.preventDefault();
+
+//     $.ajax({
+//         url: this.href,
+//         method: 'GET',
+//         success: function(r) {
+//             if (r.status === 'success') {
+//                 if (r.sold_out === 'Y') {
+//                     // TODO something here
+//                 }
+//             } else {
+//                 alert('There was an error. Please contact Moritz Media.')
+//             }
+//         },
+//         error: function(r) {
+//             alert('Error, something unexpected happened.');
+//         }
+//     });
+// });

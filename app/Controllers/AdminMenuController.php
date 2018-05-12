@@ -186,4 +186,39 @@ class AdminMenuController extends BaseController
             return $response->withRedirect($this->container->router->pathFor('showMenus'));
         }
     }
+
+    /**
+     * Sell Out Menu Item Flag
+     *
+     * Set sold out status flag on item
+     */
+    public function soldOutMenuItemStatus($request, $response, $args)
+    {
+        // Get dependencies
+        $mapper = $this->container->dataMapper;
+        $MenuItemMapper = $mapper('MenuItemMapper');
+
+        // Make item, set status, and update
+        $menuItem = $MenuItemMapper->make();
+        $menuItem->id = $args['id'];
+
+        if ($status = $request->getQueryParam('status')) {
+            if ($status === 'N') {
+                $menuItem->sold_out = 'N';
+            } elseif ($status === 'Y') {
+                $menuItem->sold_out = 'Y';
+            }
+        }
+
+        $menuItem = $MenuItemMapper->update($menuItem);
+
+        if ($request->isXhr()) {
+            // Set the response XHR type and return
+            $r = $response->withHeader('Content-Type', 'application/json');
+            return $r->write(json_encode(['status' => 'success', 'menuItem' => $menuItem]));
+        } else {
+            // Redirect back to show menus
+            return $response->withRedirect($this->container->router->pathFor('showMenus'));
+        }
+    }
 }
