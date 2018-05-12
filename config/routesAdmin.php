@@ -89,15 +89,10 @@ $app->group('/admin', function () {
         return (new Piton\Controllers\AdminMenuController($this))->deleteMenu($request, $response, $args);
     })->setName('deleteMenu');
 
-    // Edit Menu Items
-    $this->get('/editmenuitems/{id:[0-9]{0,}}', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminMenuController($this))->editMenuItems($request, $response, $args);
-    })->setName('editMenuItems');
-
-    // Save Menu Items
-    $this->post('/savemenuitems', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminMenuController($this))->saveMenuItems($request, $response, $args);
-    })->setName('saveMenuItems');
+    // Delete Menu Item
+    $this->get('/deletemenuitem/{id:[0-9]{0,}}', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminMenuController($this))->deleteMenuItem($request, $response, $args);
+    })->setName('deleteMenuItem');
 })->add(function ($request, $response, $next) {
     // Authentication
     $security = $this->securityHandler;

@@ -3,7 +3,7 @@
 {% else %}
 
 <h4>{{ page.menu.date|date('l, F j, Y') }}</h4>
-<a href="{{ pathFor('editMenuItems', {'id': page.menu.id}) }}">Edit Menu</a>
+<a href="{{ pathFor('editMenu', {'id': page.menu.id}) }}">Edit Menu</a>
 {% endif %}
 
 {% if page.menu.items %}

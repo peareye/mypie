@@ -52,7 +52,7 @@ class AdminMenuController extends BaseController
     /**
      * Edit Menu
      *
-     * Create new menu
+     * Create new menu, or edit existing menu
      */
     public function editMenu($request, $response, $args)
     {
@@ -75,24 +75,70 @@ class AdminMenuController extends BaseController
     /**
      * Save Menu
      *
-     * Create new menu, or update existing menu
+     * Save new menu, or update existing menu, along with all menu item records
      */
     public function saveMenu($request, $response, $args)
     {
         // Get dependencies
         $mapper = $this->container->dataMapper;
         $MenuMapper = $mapper('MenuMapper');
+        $MenuItemMapper = $mapper('MenuItemMapper');
 
-        // Create menu
+        // Create menu and get the menu ID, if provided
         $menu = $MenuMapper->make();
         $menu->id = $request->getParsedBodyParam('id');
         $menu->date = $request->getParsedBodyParam('date');
+        $menu->location = $request->getParsedBodyParam('location');
 
-        // Save
+        // Was there a date provided? If not, reload page
+        if (!$menu->date) {
+            // TODO Reload page with validation error
+            die('TODO validation no date');
+        }
+
+        // Save menu record and get menu ID
         $menu = $MenuMapper->save($menu);
 
+        // Verify id is set
+        if (!$menu->id) {
+            // TODO Reload page with validation error
+            die('TODO validation no menu ID');
+        }
+
+        // Get items to save
+        $items = $request->getParsedBodyParam('items');
+
+        // Loop through items array
+        $sectionSortKey = [];
+        foreach ($items['description'] as $key => $row) {
+            // Only save if there is at least a description
+            if (!empty(trim($row))) {
+                // Set sort index by section to keep entered rows in order
+                if (!array_key_exists($items['section'][$key], $sectionSortKey)) {
+                    $sectionSortKey[$items['section'][$key]] = 1;
+                } else {
+                    $sectionSortKey[$items['section'][$key]] += 1;
+                }
+
+                // Create menu item object
+                $menuItem = $MenuItemMapper->make();
+                $menuItem->id = $items['menu_item_id'][$key];
+                $menuItem->menu_id = $menu->id;
+                $menuItem->section = $items['section'][$key];
+                $menuItem->sort = $sectionSortKey[$items['section'][$key]];
+                $menuItem->type = $items['type'][$key];
+                $menuItem->description = $items['description'][$key];
+                $menuItem->price = $items['price'][$key];
+                $menuItem->sold_out = $items['sold_out'][$key];
+
+                // Save item
+                $MenuItemMapper->save($menuItem);
+                unset($menuItem);
+            }
+        }
+
         // Redirect back to show menu
-        return $response->withRedirect($this->container->router->pathFor('editMenuItems', ['id' => $menu->id]));
+        return $response->withRedirect($this->container->router->pathFor('showSingleMenu', ['id' => $menu->id]));
     }
 
     /**
@@ -106,7 +152,7 @@ class AdminMenuController extends BaseController
         $mapper = $this->container->dataMapper;
         $MenuMapper = $mapper('MenuMapper');
 
-        // Delete page
+        // Delete item
         $menu = $MenuMapper->make();
         $menu->id = $args['id'];
         $MenuMapper->delete($menu);
@@ -116,58 +162,28 @@ class AdminMenuController extends BaseController
     }
 
     /**
-     * Edit Menu Items
+     * Delete Menu Item
      *
-     * Create new menu items, or edit
+     * Delete menu item
      */
-    public function editMenuItems($request, $response, $args)
-    {
-        // Get dependencies
-        $mapper = $this->container->dataMapper;
-        $MenuMapper = $mapper('MenuMapper');
-
-        // Get menu date record
-        $menu = $MenuMapper->findById($args['id']);
-
-        return $this->container->view->render($response, '@admin/editMenuItems.html', ['menu' => $menu]);
-    }
-
-    /**
-     * Save Menu Items
-     *
-     * Create new menu items, or update existing menu items
-     */
-    public function saveMenuItems($request, $response, $args)
+    public function deleteMenuItem($request, $response, $args)
     {
         // Get dependencies
         $mapper = $this->container->dataMapper;
         $MenuItemMapper = $mapper('MenuItemMapper');
 
-        // Capture menu ID to use for all items
-        $menuId = $request->getParsedBodyParam('id');
-        $items = $request->getParsedBodyParam('items');
+        // Delete item
+        $menuItem = $MenuItemMapper->make();
+        $menuItem->id = $args['id'];
+        $MenuItemMapper->delete($menuItem);
 
-        // Loop through items array
-        foreach ($items['description'] as $key => $row) {
-            // Only save if there is at least a description
-            if (!empty(trim($row))) {
-                // Create menu item object
-                $menuItem = $MenuItemMapper->make();
-                $menuItem->id = $items['menu_item_id'][$key];
-                $menuItem->menu_id = $menuId;
-                $menuItem->section = $items['section'][$key];
-                $menuItem->type = $items['type'][$key];
-                $menuItem->description = $items['description'][$key];
-                $menuItem->price = $items['price'][$key];
-                //$menuItem->sold_out = $items['price'][$key];
-
-                // Save
-                $MenuItemMapper->save($menuItem);
-                unset($menuItem);
-            }
+        if ($request->isXhr()) {
+            // Set the response XHR type and return
+            $r = $response->withHeader('Content-Type', 'application/json');
+            return $r->write(json_encode(['status' => 'success']));
+        } else {
+            // Redirect back to show menus
+            return $response->withRedirect($this->container->router->pathFor('showMenus'));
         }
-
-        // Redirect back to show menu
-        return $response->withRedirect($this->container->router->pathFor('showMenus'));
     }
 }

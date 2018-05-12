@@ -1,5 +1,5 @@
 {% extends '@admin/admin_base.html' %}
-    
+
     {% block body %}
     <h1>Pages</h1>
     <a href="{{ pathFor('editPage') }}">Add New Page</a><hr>
@@ -12,7 +12,7 @@
         <a href="{{ pathFor('editPage', {'id': p.id}) }}">Edit {{ p.title }}</a><br>
         <a href="{{ pathFor('editPagelet') }}?page_id={{ p.id }}">Add Content</a>
         {% for pl in p.pagelets %}
-        | <a href="{{ pathFor('editPagelet', {'id': pl.pagelet_id}) }}">Edit {{ pl.name }}</a>
+        | <a href="{{ pathFor('editPagelet', {'id': pl.id}) }}">Edit {{ pl.name }}</a>
         {% endfor %}
     </div>
     <hr>
