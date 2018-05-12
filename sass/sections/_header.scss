@@ -64,27 +64,28 @@ button:hover,
 
 // Hero Section
 .jumbotron {
-  paddding-bottom: 1px !important;
-  background-image: url("../img/showcase.jpg");
-  // background-attachment: fixed;
+  padding-bottom: 1px !important;
+  background-image: url("../img/hot-pie-1.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  object-fit: cover;
-  text-align: center;
-}
+text-align: center;
 
+}
+.jumbo-inner {
+  background: rgba(0,0,0,.08);
+  border-radius: var(--border-radius);
+  @include padding(1rem);
+}
 .jumbotron-heading {
   font-weight: 300;
-}
-.jumbotron .container {
-  max-width: 100vw;
-  background: rgba(255, 255, 255, 0.1);
-  @include padding(2rem 1rem);
-  color: white;
 }
 
 .jumbotron p {
   color: var(--mypie-light);
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+.jumbotron h1 {
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  color: var(--mypie-light);
 }

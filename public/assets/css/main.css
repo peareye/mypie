@@ -7074,26 +7074,28 @@ button:hover,
   color: rgba(255, 255, 255, 0.8) !important; }
 
 .jumbotron {
-  paddding-bottom: 1px !important;
-  background-image: url("../img/showcase.jpg");
+  padding-bottom: 1px !important;
+  background-image: url("../img/hot-pie-1.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  object-fit: cover;
   text-align: center; }
+
+.jumbo-inner {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: var(--border-radius);
+  padding: 1rem; }
 
 .jumbotron-heading {
   font-weight: 300; }
 
-.jumbotron .container {
-  max-width: 100vw;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 2rem 1rem;
-  color: white; }
-
 .jumbotron p {
   color: var(--mypie-light);
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5); }
+
+.jumbotron h1 {
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  color: var(--mypie-light); }
 
 footer {
   font-size: 0.7rem;
@@ -7289,7 +7291,8 @@ footer a:hover {
 @media (min-width: 576px) {
   .jumbotron {
     background-attachment: fixed;
-    height: 600px; }
+    height: 450px;
+    padding: 2rem !important; }
 
   section::after {
     display: block;
@@ -7299,7 +7302,7 @@ footer a:hover {
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.6); }
 
   section#dailymenu::after {
-    background: url("../img/hot-pie-1.jpg");
+    background: url("../img/showcase.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
