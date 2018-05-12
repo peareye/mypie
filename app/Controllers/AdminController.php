@@ -12,7 +12,15 @@ class AdminController extends BaseController
      */
     public function home($request, $response, $args)
     {
-        return $this->container->view->render($response, '@admin/home.html');
+        // Get dependencies
+        $mapper = $this->container->dataMapper;
+        $MenuMapper = $mapper('MenuMapper');
+
+        // Get most recently updated menu and assign to data array
+        $lastMenu = $MenuMapper->getLastMenu();
+        $page['menu'] = $lastMenu;
+
+        return $this->container->view->render($response, '@admin/home.html', ['page' => $page]);
     }
 
     /**
