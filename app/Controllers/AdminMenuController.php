@@ -18,7 +18,7 @@ class AdminMenuController extends BaseController
         $MenuMapper = $mapper('MenuMapper');
 
         // Fetch menus
-        $menus = $MenuMapper->getRecentMenus();
+        $menus = $MenuMapper->getMenusInDescDateOrder();
 
         return $this->container->view->render($response, '@admin/menuList.html', ['menus' => $menus]);
     }
