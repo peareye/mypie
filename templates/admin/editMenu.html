@@ -116,14 +116,6 @@
           </div>
           {% if value.id %}
           <div class="col-sm-1 optional-button">
-            {% if value.sold_out == 'N' %}
-              {% set status, label = 'Y', 'Out' %}
-            {% else %}
-              {% set status, label = 'N', 'In' %}
-            {% endif %}
-            <a class="btn btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': value.id}) }}?status={{ status}}">{{ label }}</a>
-          </div>
-          <div class="col-sm-1 optional-button">
             <a class="btn btn-danger delete-menu-item" href="{{ pathFor('deleteMenuItem', {'id': value.id}) }}">Delete</a>
           </div>
           {% endif %}
@@ -145,14 +137,6 @@
           <input class="form-control" type="text" name="items[price][]" maxlength="20" placeholder="Price" value="{{ value.price }}">
         </div>
         {% if value.id %}
-        <div class="col-sm-1 optional-button">
-            {% if value.sold_out == 'N' %}
-              {% set status, label = 'Y', 'Out' %}
-            {% else %}
-              {% set status, label = 'N', 'In' %}
-            {% endif %}
-            <a class="btn btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': value.id}) }}?status={{ status}}">{{ label }}</a>
-        </div>
         <div class="col-sm-1 optional-button">
           <a class="btn btn-danger delete-menu-item" href="{{ pathFor('deleteMenuItem', {'id': value.id}) }}">Delete</a>
         </div>
