@@ -1,11 +1,11 @@
 {% extends '@admin/admin_base.html' %} {% block body %}
 
-<h2 class="text-danger">{% if menu.id %}Edit{% else %}Add{% endif %} Menu</h2>
+<h1 class="page-title">{% if menu.id %}Edit{% else %}Add{% endif %} Menu</h1>
 <form action="{{ pathFor('saveMenu') }}" method="post" accept-charset="utf-8">
   <input type="hidden" name="id" value="{{ menu.id }}">
 
-  <a class="btn btn-success" href="{{ pathFor('showMenus') }}">Return to Menus Page</a>
-  <button class="btn btn-primary" type="submit" name="button">Save</button>
+  <a class="btn btn-warning" href="{{ pathFor('showMenus') }}">Cancel</a>
+  <button class="btn btn-success" type="submit" name="button">Save</button>
   {% if menu.id %}
   <a class="btn btn-danger deleteButton" href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a>
   {% endif %}
@@ -82,8 +82,8 @@
   </div>
   <hr>
 
-  <a class="btn btn-success" href="{{ pathFor('showMenus') }}">Return to Menus Page</a>
-  <button class="btn btn-primary" type="submit" name="button">Save</button>
+  <a class="btn btn-warning" href="{{ pathFor('showMenus') }}">Cancel</a>
+  <button class="btn btn-success" type="submit" name="button">Save</button>
   {% if menu.id %}
   <a class="btn btn-danger deleteButton" href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a>
   {% endif %}

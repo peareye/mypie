@@ -1,20 +1,18 @@
 {% extends '@admin/admin_base.html' %}
 
  {% block body %}
- <div class="container">
+ <div class="container-fluid">
 
     <ul class="nav flex-column">
         <li class="nav-item nav-style rounded">
-          <a class="nav-link" href="{{ pathFor('showMenus') }}">Menus</a>
+          <a class="nav-link" href="{{ pathFor('showMenus') }}">Menu Management</a>
+        </li>
+    
+        <li class="nav-item nav-style rounded">
+            <a class="nav-link" href="{{ pathFor('showPages') }}">Pages Management</a>
         </li>
         <li class="nav-item nav-style rounded">
-            <a class="nav-link" href="#">Calendar</a>
-        </li>
-        <li class="nav-item nav-style rounded">
-            <a class="nav-link" href="{{ pathFor('showPages') }}">Page Content</a>
-        </li>
-        <li class="nav-item nav-style rounded">
-            <a class="nav-link" href="{{ pathFor('showUsers') }}">Users</a>
+            <a class="nav-link" href="{{ pathFor('showUsers') }}">User Management</a>
         </li>
         <li class="nav-item nav-style rounded">
             <a class="nav-link" href="#">Help</a>

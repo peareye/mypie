@@ -1,12 +1,22 @@
 body{
     margin-top: 80px;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--mypie-dark-grey);
 }
 // global styles
-.nav-style {
-    display: flex;
-    flex-flow: row nowrap;
+.page-title {
+    display: block;
+    border-bottom: solid 1px rgba(0,0,0,.08);
+    @include margin(1rem null);
+}
+
+.link-container {
+    display: block;
+    position: relative;
+    flex-flow: row wrap;
     background: #efefef;
-    padding: .5rem;
+    @include padding(.5rem);
+    @include margin(1rem nul);
     border-radius: 3px;
     box-shadow: 0 3px 7px rgba(0,0,0,.3);
 
@@ -21,29 +31,22 @@ body{
         color: #ed1c24;
     
     }
+}
+// Menu Management Section
+
+.menu-link a {
+    font-size: 1.3rem;
 
 }
-
-.menu-controls{
-    margin-left: auto;
-}
-.menu-controls i {
-    padding: 5px;
-    border: solid 1px #6e1e21;
-    border-radius: 7px;
-
-}
-
-// Style for Menu 
-
-.menu-list-item{
-   
-    margin: 10px 0;
-    padding: 10px;
+.menu-actions  {
     display: flex;
-    flex-flow: row wrap;
-    // justify-content: space-around;
+    flex-flow: row nowrap;
+    justify-content: center;
+
 }
-.menu-item {
-    flex: 1;
+.menu-icon {
+    @include padding(1rem);
 }
+
+
+
