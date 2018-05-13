@@ -15,10 +15,17 @@ class AdminController extends BaseController
         // Get dependencies
         $mapper = $this->container->dataMapper;
         $MenuMapper = $mapper('MenuMapper');
+        $MenuItemMapper = $mapper('MenuItemMapper');
 
         // Get most recently updated menu and assign to data array
-        $lastMenu = $MenuMapper->getLastMenu();
-        $page['menu'] = $lastMenu;
+        $menu = $MenuMapper->getCurrentActiveMenu();
+
+        // Did we find a menu to display?
+        if ($menu->id) {
+            $menu->items = $MenuItemMapper->findItemsByMenuId($menu->id);
+        }
+
+        $page['menu'] = $menu;
 
         return $this->container->view->render($response, '@admin/home.html', ['page' => $page]);
     }
