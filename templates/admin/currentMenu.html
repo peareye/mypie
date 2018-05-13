@@ -11,7 +11,12 @@
 <!-- Daily Pies -->
 {% for m in page.menu.items if m.section == 'dailypies' %}
 <div>
-    <a class="btn btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status=Y">Sell Out</a>
+    {% if m.sold_out == 'N' %}
+      {% set status, label = 'Y', 'Sell Out' %}
+    {% else %}
+      {% set status, label = 'N', 'Sell In' %}
+    {% endif %}
+    <a class="btn btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
     {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
 </div>
 {% endfor %}
@@ -20,7 +25,12 @@
 <!-- Sides -->
 {% for m in page.menu.items if m.section == 'sides' %}
 <div>
-    <a class="btn btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status=Y">Sell Out</a>
+    {% if m.sold_out == 'N' %}
+      {% set status, label = 'Y', 'Sell Out' %}
+    {% else %}
+      {% set status, label = 'N', 'Sell In' %}
+    {% endif %}
+    <a class="btn btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
     {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
 </div>
 {% endfor %}
@@ -29,7 +39,12 @@
 <!-- Sausage Rolls -->
 {% for m in page.menu.items if m.section == 'rolls' %}
 <div>
-    <a class="btn btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status=Y">Sell Out</a>
+    {% if m.sold_out == 'N' %}
+      {% set status, label = 'Y', 'Sell Out' %}
+    {% else %}
+      {% set status, label = 'N', 'Sell In' %}
+    {% endif %}
+    <a class="btn btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
     {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
 </div>
 {% endfor %}
@@ -38,7 +53,12 @@
 <!-- Puds -->
 {% for m in page.menu.items if m.section == 'puds' %}
 <div>
-    <a class="btn btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status=Y">Sell Out</a>
+    {% if m.sold_out == 'N' %}
+      {% set status, label = 'Y', 'Sell Out' %}
+    {% else %}
+      {% set status, label = 'N', 'Sell In' %}
+    {% endif %}
+    <a class="btn btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
     {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
 </div>
 {% endfor %}
@@ -47,7 +67,12 @@
 <!-- Takeaway Pies -->
 {% for m in page.menu.items if m.section == 'takeawaypies' %}
 <div>
-    <a class="btn btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status=Y">Sell Out</a>
+    {% if m.sold_out == 'N' %}
+      {% set status, label = 'Y', 'Sell Out' %}
+    {% else %}
+      {% set status, label = 'N', 'Sell In' %}
+    {% endif %}
+    <a class="btn btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
     {{ m.type }} | {{ m.description }} | {{ m.price }}<br>
 </div>
 {% endfor %}
