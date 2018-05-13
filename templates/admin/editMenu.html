@@ -30,9 +30,9 @@
   <div class="menu-section">
     <h3>Daily Pies</h3>
     {% for m in menu.items if m.section == 'dailypies' %}
-      {{ forms.pieForm('dailypies', m) }}
+      {{ forms.menuItem('dailypies', m) }}
     {% else %}
-      {{ forms.pieForm('dailypies') }}
+      {{ forms.menuItem('dailypies') }}
     {% endfor %}
     <button class="btn btn-success btn-block add-item-row" type="button">Add Row</button>
   </div>
@@ -41,9 +41,9 @@
   <div class="menu-section">
     <h3>Sides</h3>
     {% for m in menu.items if m.section == 'sides' %}
-      {{ forms.otherForm('sides', m) }}
+      {{ forms.menuItem('sides', m) }}
     {% else %}
-      {{ forms.otherForm('sides') }}
+      {{ forms.menuItem('sides') }}
     {% endfor %}
     <button class="btn btn-success btn-block add-item-row" type="button">Add Row</button>
   </div>
@@ -52,9 +52,9 @@
   <div class="menu-section">
     <h3>Sausage Rolls &amp; Other</h3>
     {% for m in menu.items if m.section == 'rolls' %}
-      {{ forms.otherForm('rolls', m) }}
+      {{ forms.menuItem('rolls', m) }}
     {% else %}
-      {{ forms.otherForm('rolls') }}
+      {{ forms.menuItem('rolls') }}
     {% endfor %}
     <button class="btn btn-success btn-block add-item-row" type="button">Add Row</button>
   </div>
@@ -63,9 +63,9 @@
   <div class="menu-section">
     <h3>Puds</h3>
     {% for m in menu.items if m.section == 'puds' %}
-      {{ forms.otherForm('puds', m) }}
+      {{ forms.menuItem('puds', m) }}
     {% else %}
-      {{ forms.otherForm('puds') }}
+      {{ forms.menuItem('puds') }}
     {% endfor %}
     <button class="btn btn-success btn-block add-item-row" type="button">Add Row</button>
   </div>
@@ -74,9 +74,9 @@
   <div class="menu-section">
     <h3>Takeaway Pies</h3>
     {% for m in menu.items if m.section == 'takeawaypies' %}
-      {{ forms.pieForm('takeawaypies', m) }}
+      {{ forms.menuItem('takeawaypies', m) }}
     {% else %}
-      {{ forms.pieForm('takeawaypies') }}
+      {{ forms.menuItem('takeawaypies') }}
     {% endfor %}
     <button class="btn btn-success btn-block add-item-row" type="button">Add Row</button>
   </div>
@@ -90,10 +90,9 @@
 </form>
 
 
-
 {# Special custom Twig functions for the two types of form sections (pie and other) so we don't repeat ourselves #}
 
-{% macro pieForm(section, value) %}
+{% macro menuItem(section, value) %}
     <div class="border rounded p-2 mb-1 menu-item">
       <input class="form-control" type="hidden" name="items[menu_item_id][]" value="{{ value.id }}">
       <input class="form-control" type="hidden" name="items[section][]" maxlength="60" value="{{ section }}">
@@ -120,28 +119,6 @@
           </div>
           {% endif %}
         </div>
-    </div>
-{% endmacro %}
-
-{% macro otherForm(section, value) %}
-    <div class="border rounded p-2 mb-1 menu-item">
-      <input type="hidden" name="items[menu_item_id][]" value="{{ value.id }}">
-      <input type="hidden" name="items[section][]" maxlength="60" value="{{ section }}">
-      <input type="hidden" name="items[type][]" maxlength="20" value="{{ value.type }}">
-      <input class="form-control" type="hidden" name="items[sold_out][]" maxlength="1" value="{{ value.sold_out|default('N') }}">
-      <div class="form-row">
-        <div class="col">
-          <input class="form-control" type="text" name="items[description][]" maxlength="200" placeholder="Description" value="{{ value.description }}">
-        </div>
-        <div class="col-sm-2">
-          <input class="form-control" type="text" name="items[price][]" maxlength="20" placeholder="Price" value="{{ value.price }}">
-        </div>
-        {% if value.id %}
-        <div class="col-sm-1 optional-button">
-          <a class="btn btn-danger delete-menu-item" href="{{ pathFor('deleteMenuItem', {'id': value.id}) }}">Delete</a>
-        </div>
-        {% endif %}
-      </div>
     </div>
 {% endmacro %}
 
