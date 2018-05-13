@@ -11,7 +11,9 @@
     {% include '_menu.html' %}
 
     <!-- Full Calendar -->
-    {% include '_full-calendar.html' %}
+    {% import '_full-calendar.html' as calendar %}
+    {{ calendar.schedule(page.calendar.thisMonth.month, page.calendar.thisMonth.days) }}
+    {{ calendar.schedule(page.calendar.nextMonth.month, page.calendar.nextMonth.days) }}
 
     <!-- Newsletter Subscription -->
     {% include '_newsletter.html' %}

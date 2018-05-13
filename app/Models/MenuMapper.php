@@ -41,6 +41,26 @@ class MenuMapper extends DataMapperAbstract
     }
 
     /**
+     * Get Menus For This and Next Month
+     *
+     * Returns an array of Domain Objects
+     * @return Array
+     */
+    public function getMenusForThisAndNextMonth()
+    {
+        // Make select
+        $this->makeSelect();
+        $this->sql .= ' where date >= ?';
+
+        // Set parameter
+        $startDate = new \DateTime('first day of this month 00:00:00');
+        $fromDate = $startDate->format('Y-m-1');
+        $this->bindValues[] = $fromDate;
+
+        return $this->find();
+    }
+
+    /**
      * Get Last Menus Entered
      *
      * Returns the last menu entered with item details

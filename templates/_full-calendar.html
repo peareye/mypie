@@ -1,7 +1,9 @@
+
+{% macro schedule(month, date) %}
 <section id="calendar">
         <div class="container">
-            <h2>April 2018</h2>
-           
+            <h2>{{ month|date('F Y') }}</h2>
+
                 <div class="calendar-wrapper-days">
                     <div class="box days">
                         <h5>Mon</h5>
@@ -27,168 +29,175 @@
                 </div>
 
                 <div id="full-calendar"class="calendar-wrapper">
-                    <div class="box prev-month day01">
-                        <h6 class="">26</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[0].dayClass }}">
+                        <h6 class="{{ date[0].dateClass }}">{{ date[0].date }}</h6>
+                        <div class="day-content">{{ date[0].content|raw }}</div>
                     </div>
-                    <div class="box prev-month day02">
-                        <h6 class="">27</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[1].dayClass }}">
+                        <h6 class="{{ date[1].dateClass }}">{{ date[1].date }}</h6>
+                        <div class="day-content">{{ date[1].content|raw }}</div>
                     </div>
-                    <div class="box prev-month day03">
-                        <h6 class="">28</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[2].dayClass }}">
+                        <h6 class="{{ date[2].dateClass }}">{{ date[2].date }}</h6>
+                        <div class="day-content">{{ date[2].content|raw }}</div>
                     </div>
-                    <div class="box prev-month day04">
-                        <h6 class="">29</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[3].dayClass }}">
+                        <h6 class="{{ date[3].dateClass }}">{{ date[3].date }}</h6>
+                        <div class="day-content">{{ date[3].content|raw }}</div>
                     </div>
-                    <div class="box prev-month day05">
-                        <h6 class="">30</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[4].dayClass }}">
+                        <h6 class="{{ date[4].dateClass }}">{{ date[4].date }}</h6>
+                        <div class="day-content">{{ date[4].content|raw }}</div>
                     </div>
-                    <div class="box prev-month day06">
-                        <h6 class="">31</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[5].dayClass }}">
+                        <h6 class="{{ date[5].dateClass }}">{{ date[5].date }}</h6>
+                        <div class="day-content">{{ date[5].content|raw }}</div>
                     </div>
-                    <div class="box day01 ">
-                        <h6 class="calendar-day">01</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[6].dayClass }}">
+                        <h6 class="{{ date[6].dateClass }}">{{ date[6].date }}</h6>
+                        <div class="day-content">{{ date[6].content|raw }}</div>
                     </div>
-                    <div class="box day02">
-                        <h6 class="calendar-day">02</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[7].dayClass }}">
+                        <h6 class="{{ date[7].dateClass }}">{{ date[7].date }}</h6>
+                        <div class="day-content">{{ date[7].content|raw }}</div>
                     </div>
-                    <div class="box day03">
-                        <h6 class="calendar-day">03</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[8].dayClass }}">
+                        <h6 class="{{ date[8].dateClass }}">{{ date[8].date }}</h6>
+                        <div class="day-content">{{ date[8].content|raw }}</div>
                     </div>
-                    <div class="box day04">
-                        <h6 class="calendar-day">04</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[9].dayClass }}">
+                        <h6 class="{{ date[9].dateClass }}">{{ date[9].date }}</h6>
+                        <div class="day-content">{{ date[9].content|raw }}</div>
                     </div>
-                    <div class="box day05">
-                        <h6 class="calendar-day">05</h6>
-                        <div class="day-content">
-                            <a href="#">Broadgate</a>
-                        </div>
+                    <div class="box {{ date[10].dayClass }}">
+                        <h6 class="{{ date[10].dateClass }}">{{ date[10].date }}</h6>
+                        <div class="day-content">{{ date[10].content|raw }}</div>
                     </div>
-                    <div class="box day06">
-                        <h6 class="calendar-day">06</h6>
-                        <div class="day-content">
-                            <a href="#">Chiswick Park</a>
-                        </div>
+                    <div class="box {{ date[11].dayClass }}">
+                        <h6 class="{{ date[11].dateClass }}">{{ date[11].date }}</h6>
+                        <div class="day-content">{{ date[11].content|raw }}</div>
                     </div>
-                    <div class="box day07">
-                        <h6 class="calendar-day">07</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[12].dayClass }}">
+                        <h6 class="{{ date[12].dateClass }}">{{ date[12].date }}</h6>
+                        <div class="day-content">{{ date[12].content|raw }}</div>
                     </div>
-                    <div class="box day08">
-                        <h6 class="calendar-day">08</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[13].dayClass }}">
+                        <h6 class="{{ date[13].dateClass }}">{{ date[13].date }}</h6>
+                        <div class="day-content">{{ date[13].content|raw }}</div>
                     </div>
-                    <div class="box day09">
-                        <h6 class="calendar-day">09</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[14].dayClass }}">
+                        <h6 class="{{ date[14].dateClass }}">{{ date[14].date }}</h6>
+                        <div class="day-content">{{ date[14].content|raw }}</div>
                     </div>
-                    <div class="box day10">
-                        <h6 class="calendar-day">10</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[15].dayClass }}">
+                        <h6 class="{{ date[15].dateClass }}">{{ date[15].date }}</h6>
+                        <div class="day-content">{{ date[15].content|raw }}</div>
                     </div>
-                    <div class="box day11">
-                        <h6 class="calendar-day">11</h6>
-                        <div class="day-content">
-                            <a href="#">Paddington</a>
-                        </div>
+                    <div class="box {{ date[16].dayClass }}">
+                        <h6 class="{{ date[16].dateClass }}">{{ date[16].date }}</h6>
+                        <div class="day-content">{{ date[16].content|raw }}</div>
                     </div>
-                    <div class="box day12">
-                        <h6 class="calendar-day">12</h6>
-                        <div class="day-content">
-                            <a href="#">Broadgate</a>
-                        </div>
+                    <div class="box {{ date[17].dayClass }}">
+                        <h6 class="{{ date[17].dateClass }}">{{ date[17].date }}</h6>
+                        <div class="day-content">{{ date[17].content|raw }}</div>
                     </div>
-                    <div class="box day13">
-                        <h6 class="calendar-day">13</h6>
-                        <div class="day-content">
-                            <a href="#">Chiswick Park</a>
-                        </div>
+                    <div class="box {{ date[18].dayClass }}">
+                        <h6 class="{{ date[18].dateClass }}">{{ date[18].date }}</h6>
+                        <div class="day-content">{{ date[18].content|raw }}</div>
                     </div>
-                    <div class="box day14">
-                        <h6 class="calendar-day">14</h6>
-                        <div class="day-content">
-                            <a href="#">Fancy Fest</a>
-                        </div>
+                    <div class="box {{ date[19].dayClass }}">
+                        <h6 class="{{ date[19].dateClass }}">{{ date[19].date }}</h6>
+                        <div class="day-content">{{ date[19].content|raw }}</div>
                     </div>
-                    <div class="box day15">
-                        <h6 class="calendar-day">15</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[20].dayClass }}">
+                        <h6 class="{{ date[20].dateClass }}">{{ date[20].date }}</h6>
+                        <div class="day-content">{{ date[20].content|raw }}</div>
                     </div>
-                    <div class="box day16">
-                        <h6 class="calendar-day">16</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[21].dayClass }}">
+                        <h6 class="{{ date[21].dateClass }}">{{ date[21].date }}</h6>
+                        <div class="day-content">{{ date[21].content|raw }}</div>
                     </div>
-                    <div class="box day17 today">
-                        <h6 class="calendar-day">17</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[22].dayClass }}">
+                        <h6 class="{{ date[22].dateClass }}">{{ date[22].date }}</h6>
+                        <div class="day-content">{{ date[22].content|raw }}</div>
                     </div>
-                    <div class="box day18">
-                        <h6 class="calendar-day">18</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[23].dayClass }}">
+                        <h6 class="{{ date[23].dateClass }}">{{ date[23].date }}</h6>
+                        <div class="day-content">{{ date[23].content|raw }}</div>
                     </div>
-                    <div class="box day19">
-                        <h6 class="calendar-day">19</h6>
-                        <div class="day-content">
-                            <a href="#">Broadgate</a>
-                        </div>
+                    <div class="box {{ date[24].dayClass }}">
+                        <h6 class="{{ date[24].dateClass }}">{{ date[24].date }}</h6>
+                        <div class="day-content">{{ date[24].content|raw }}</div>
                     </div>
-                    <div class="box day20">
-                        <h6 class="calendar-day">20</h6>
-                        <div class="day-content">
-                            <a href="#">Chiswick Park</a>
-                        </div>
+                    <div class="box {{ date[25].dayClass }}">
+                        <h6 class="{{ date[25].dateClass }}">{{ date[25].date }}</h6>
+                        <div class="day-content">{{ date[25].content|raw }}</div>
                     </div>
-                    <div class="box day21">
-                        <h6 class="calendar-day">21</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[26].dayClass }}">
+                        <h6 class="{{ date[26].dateClass }}">{{ date[26].date }}</h6>
+                        <div class="day-content">{{ date[26].content|raw }}</div>
                     </div>
-                    <div class="box day22">
-                        <h6 class="calendar-day">22</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[27].dayClass }}">
+                        <h6 class="{{ date[27].dateClass }}">{{ date[27].date }}</h6>
+                        <div class="day-content">{{ date[27].content|raw }}</div>
                     </div>
-                    <div class="box day23">
-                        <h6 class="calendar-day">23</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[28].dayClass }}">
+                        <h6 class="{{ date[28].dateClass }}">{{ date[28].date }}</h6>
+                        <div class="day-content">{{ date[28].content|raw }}</div>
                     </div>
-                    <div class="box day24">
-                        <h6 class="calendar-day">24</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[29].dayClass }}">
+                        <h6 class="{{ date[29].dateClass }}">{{ date[29].date }}</h6>
+                        <div class="day-content">{{ date[29].content|raw }}</div>
                     </div>
-                    <div class="box day25">
-                        <h6 class="calendar-day">25</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[30].dayClass }}">
+                        <h6 class="{{ date[30].dateClass }}">{{ date[30].date }}</h6>
+                        <div class="day-content">{{ date[30].content|raw }}</div>
                     </div>
-                    <div class="box day26">
-                        <h6 class="calendar-day">26</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[31].dayClass }}">
+                        <h6 class="{{ date[31].dateClass }}">{{ date[31].date }}</h6>
+                        <div class="day-content">{{ date[31].content|raw }}</div>
                     </div>
-                    <div class="box day27">
-                        <h6 class="calendar-day">27</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[32].dayClass }}">
+                        <h6 class="{{ date[32].dateClass }}">{{ date[32].date }}</h6>
+                        <div class="day-content">{{ date[32].content|raw }}</div>
                     </div>
-                    <div class="box day28">
-                        <h6 class="calendar-day">28</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[33].dayClass }}">
+                        <h6 class="{{ date[33].dateClass }}">{{ date[33].date }}</h6>
+                        <div class="day-content">{{ date[33].content|raw }}</div>
                     </div>
-                    <div class="box day29">
-                        <h6 class="calendar-day">29</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[34].dayClass }}">
+                        <h6 class="{{ date[34].dateClass }}">{{ date[34].date }}</h6>
+                        <div class="day-content">{{ date[34].content|raw }}</div>
                     </div>
-                    <div class="box day30">
-                        <h6 class="calendar-day">30</h6>
-                        <div class="day-content"></div>
+                    <div class="box {{ date[35].dayClass }}">
+                        <h6 class="{{ date[35].dateClass }}">{{ date[35].date }}</h6>
+                        <div class="day-content">{{ date[35].content|raw }}</div>
+                    </div>
+                    <div class="box {{ date[36].dayClass }}">
+                        <h6 class="{{ date[36].dateClass }}">{{ date[36].date }}</h6>
+                        <div class="day-content">{{ date[36].content|raw }}</div>
+                    </div>
+                    <div class="box {{ date[37].dayClass }}">
+                        <h6 class="{{ date[37].dateClass }}">{{ date[37].date }}</h6>
+                        <div class="day-content">{{ date[37].content|raw }}</div>
+                    </div>
+                    <div class="box {{ date[38].dayClass }}">
+                        <h6 class="{{ date[38].dateClass }}">{{ date[38].date }}</h6>
+                        <div class="day-content">{{ date[38].content|raw }}</div>
+                    </div>
+                    <div class="box {{ date[39].dayClass }}">
+                        <h6 class="{{ date[39].dateClass }}">{{ date[39].date }}</h6>
+                        <div class="day-content">{{ date[39].content|raw }}</div>
+                    </div>
+                    <div class="box {{ date[40].dayClass }}">
+                        <h6 class="{{ date[40].dateClass }}">{{ date[40].date }}</h6>
+                        <div class="day-content">{{ date[40].content|raw }}</div>
+                    </div>
+                    <div class="box {{ date[41].dayClass }}">
+                        <h6 class="{{ date[41].dateClass }}">{{ date[41].date }}</h6>
+                        <div class="day-content">{{ date[41].content|raw }}</div>
                     </div>
                 </div>
-          
-
         </div>
     </section>
+{% endmacro %}
