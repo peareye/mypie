@@ -73,6 +73,37 @@ class AdminMenuController extends BaseController
     }
 
     /**
+     * Copy Edit Menu
+     *
+     * Copies and loads existing menu, but unsets date, location, and ID's
+     */
+    public function copyEditMenu($request, $response, $args)
+    {
+        // Get dependencies
+        $mapper = $this->container->dataMapper;
+        $MenuMapper = $mapper('MenuMapper');
+        $MenuItemMapper = $mapper('MenuItemMapper');
+
+        // Fetch menu to copy
+        $menu = $MenuMapper->findById($args['id']);
+        $menu->items = $MenuItemMapper->findItemsByMenuId($args['id']);
+
+        // Clean up copied menu
+        unset($menu->id);
+        unset($menu->date);
+        unset($menu->location);
+
+        foreach ($menu->items as $key => $row) {
+            unset($menu->items[$key]->id);
+            unset($menu->items[$key]->menu_id);
+            unset($menu->items[$key]->sort);
+            $menu->items[$key]->sold_out = 'N';
+        }
+
+        return $this->container->view->render($response, '@admin/editMenu.html', ['menu' => $menu]);
+    }
+
+    /**
      * Save Menu
      *
      * Save new menu, or update existing menu, along with all menu item records
@@ -181,6 +212,41 @@ class AdminMenuController extends BaseController
             // Set the response XHR type and return
             $r = $response->withHeader('Content-Type', 'application/json');
             return $r->write(json_encode(['status' => 'success']));
+        } else {
+            // Redirect back to show menus
+            return $response->withRedirect($this->container->router->pathFor('showMenus'));
+        }
+    }
+
+    /**
+     * Sell Out Menu Item Flag
+     *
+     * Set sold out status flag on item
+     */
+    public function soldOutMenuItemStatus($request, $response, $args)
+    {
+        // Get dependencies
+        $mapper = $this->container->dataMapper;
+        $MenuItemMapper = $mapper('MenuItemMapper');
+
+        // Make item, set status, and update
+        $menuItem = $MenuItemMapper->make();
+        $menuItem->id = $args['id'];
+
+        if ($status = $request->getQueryParam('status')) {
+            if ($status === 'N') {
+                $menuItem->sold_out = 'N';
+            } elseif ($status === 'Y') {
+                $menuItem->sold_out = 'Y';
+            }
+        }
+
+        $menuItem = $MenuItemMapper->update($menuItem);
+
+        if ($request->isXhr()) {
+            // Set the response XHR type and return
+            $r = $response->withHeader('Content-Type', 'application/json');
+            return $r->write(json_encode(['status' => 'success', 'menuItem' => $menuItem]));
         } else {
             // Redirect back to show menus
             return $response->withRedirect($this->container->router->pathFor('showMenus'));

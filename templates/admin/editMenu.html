@@ -97,6 +97,7 @@
     <div class="border rounded p-2 mb-1 menu-item">
       <input class="form-control" type="hidden" name="items[menu_item_id][]" value="{{ value.id }}">
       <input class="form-control" type="hidden" name="items[section][]" maxlength="60" value="{{ section }}">
+      <input class="form-control" type="hidden" name="items[sold_out][]" maxlength="1" value="{{ value.sold_out|default('N') }}">
       <div class="form-row">
           <div class="col-sm-2">
             <select class="form-control mb-2" name="items[type][]">
@@ -115,7 +116,12 @@
           </div>
           {% if value.id %}
           <div class="col-sm-1 optional-button">
-            <a class="btn btn-info" href="">Out</a>
+            {% if value.sold_out == 'N' %}
+              {% set status, label = 'Y', 'Out' %}
+            {% else %}
+              {% set status, label = 'N', 'In' %}
+            {% endif %}
+            <a class="btn btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': value.id}) }}?status={{ status}}">{{ label }}</a>
           </div>
           <div class="col-sm-1 optional-button">
             <a class="btn btn-danger delete-menu-item" href="{{ pathFor('deleteMenuItem', {'id': value.id}) }}">Delete</a>
@@ -130,6 +136,7 @@
       <input type="hidden" name="items[menu_item_id][]" value="{{ value.id }}">
       <input type="hidden" name="items[section][]" maxlength="60" value="{{ section }}">
       <input type="hidden" name="items[type][]" maxlength="20" value="{{ value.type }}">
+      <input class="form-control" type="hidden" name="items[sold_out][]" maxlength="1" value="{{ value.sold_out|default('N') }}">
       <div class="form-row">
         <div class="col">
           <input class="form-control" type="text" name="items[description][]" maxlength="200" placeholder="Description" value="{{ value.description }}">
@@ -139,7 +146,12 @@
         </div>
         {% if value.id %}
         <div class="col-sm-1 optional-button">
-          <a class="btn btn-info" href="">Out</a>
+            {% if value.sold_out == 'N' %}
+              {% set status, label = 'Y', 'Out' %}
+            {% else %}
+              {% set status, label = 'N', 'In' %}
+            {% endif %}
+            <a class="btn btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': value.id}) }}?status={{ status}}">{{ label }}</a>
         </div>
         <div class="col-sm-1 optional-button">
           <a class="btn btn-danger delete-menu-item" href="{{ pathFor('deleteMenuItem', {'id': value.id}) }}">Delete</a>

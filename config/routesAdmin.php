@@ -79,6 +79,11 @@ $app->group('/admin', function () {
         return (new Piton\Controllers\AdminMenuController($this))->editMenu($request, $response, $args);
     })->setName('editMenu');
 
+    // Copy Edit Menu
+    $this->get('/copyeditmenu[/{id:[0-9]{0,}}]', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminMenuController($this))->copyEditMenu($request, $response, $args);
+    })->setName('copyEditMenu');
+
     // Save Menu
     $this->post('/savemenu', function ($request, $response, $args) {
         return (new Piton\Controllers\AdminMenuController($this))->saveMenu($request, $response, $args);
@@ -93,6 +98,11 @@ $app->group('/admin', function () {
     $this->get('/deletemenuitem/{id:[0-9]{0,}}', function ($request, $response, $args) {
         return (new Piton\Controllers\AdminMenuController($this))->deleteMenuItem($request, $response, $args);
     })->setName('deleteMenuItem');
+
+    // Set Sold Out Menu Item Flag
+    $this->get('/soldoutmenuitem/{id:[0-9]{0,}}', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminMenuController($this))->soldOutMenuItemStatus($request, $response, $args);
+    })->setName('soldOutMenuItem');
 })->add(function ($request, $response, $next) {
     // Authentication
     $security = $this->securityHandler;
