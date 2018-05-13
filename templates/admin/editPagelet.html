@@ -1,7 +1,7 @@
 {% extends '@admin/admin_base.html' %}
 
  {% block body %}
-    <h2>Edit Content</h2>
+    <h2 class="text-danger">Add / Edit Content</h2>
     <h3>For the {{ pagelet.title }} Page</h3>
     
   <form action="{{ pathFor('savePagelet') }}" method="post" accept-charset="utf-8">

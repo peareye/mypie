@@ -4,7 +4,7 @@
 
     
     
-    <h1>Edit Page</h1>
+    <h1 class="text-danger">Add / Edit a Page </h1>
   <form action="{{ pathFor('savePage') }}" method="post" accept-charset="utf-8">
     <input type="hidden" name="id" value="{{ page.id }}">
     <div>
@@ -12,7 +12,7 @@
       <input type="text" name="title" maxlength="60" placeholder="Page title" value="{{ page.title }}" required>
     </div>
 
-    <div>
+    <div> 
       <label>URL</label>
       /<input type="text" name="url" maxlength="500" placeholder="URL slug" value="{{ page.url }}" required>
     </div>
