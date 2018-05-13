@@ -9,7 +9,7 @@
 
     <a class="btn btn-primary mb-3" href="{{ pathFor('editMenu', {'id': menu.id}) }}">Edit This Menu</a>
 
-    <h4>Menu for {{ menu.date|date('l, F j, Y') }}, {{ menu.location }}</h4>
+    <h4>The Menu for {{ menu.date|date('l, F j, Y') }}, {{ menu.location }}</h4>
 
     <hr>
     {% endif %}

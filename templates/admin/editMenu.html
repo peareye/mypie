@@ -1,6 +1,6 @@
 {% extends '@admin/admin_base.html' %} {% block body %}
 
-<h2>{% if menu.id %}Edit{% else %}Add{% endif %} Menu</h2>
+<h2 class="text-danger">{% if menu.id %}Edit{% else %}Add{% endif %} Menu</h2>
 <form action="{{ pathFor('saveMenu') }}" method="post" accept-charset="utf-8">
   <input type="hidden" name="id" value="{{ menu.id }}">
 
@@ -105,6 +105,7 @@
               <option {% if value.type == 'VEGGIE' %}selected{% endif %} value="VEGGIE">Veggie</option>
               <option {% if value.type == 'CHICKEN' %}selected{% endif %} value="CHICKEN">Chicken</option>
               <option {% if value.type == 'GUEST' %}selected{% endif %} value="GUEST">Guest</option>
+              <option {% if value.type == 'OTHER' %}selected{% endif %} value="OTHER">Other</option>
             </select>
           </div>
           <div class="col">
