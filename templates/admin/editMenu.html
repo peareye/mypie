@@ -113,11 +113,9 @@
           <div class="col-sm-1">
               <input class="form-control" type="text" name="items[price][]" maxlength="20" placeholder="Price" value="{{ value.price }}">
           </div>
-          {% if value.id %}
           <div class="col-sm-1 optional-button">
-            <a class="btn btn-danger delete-menu-item" href="{{ pathFor('deleteMenuItem', {'id': value.id}) }}">Delete</a>
+            <a class="btn btn-danger delete-menu-item" href="#">Delete</a>
           </div>
-          {% endif %}
         </div>
     </div>
 {% endmacro %}

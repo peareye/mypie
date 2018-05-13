@@ -15,13 +15,21 @@ $('.menu-section').on('click', '.add-item-row', function() {
     $(this).before($row);
 });
 
-// Delete menu item asynchronosly
+// Delete menu item
 $('.menu-section').on('click', '.delete-menu-item', function(e) {
     e.preventDefault();
     var menuItemId = $(this).parents('.menu-item').find('input[name="items[menu_item_id][]"]').val();
     var $menuItemRow = $(this).parents('.menu-item');
 
     if (confirm('Are you sure you want to delete?')) {
+        // If no ID has been set, just remove row
+        if (!Number.isInteger(parseInt(menuItemId))) {
+            $menuItemRow.fadeOut(function() {
+                $(this).slideUp().remove();
+            });
+            return;
+        }
+        // Otherwise hard delete
         $.ajax({
             url: '/admin/deletemenuitem/' + menuItemId,
             method: 'GET',
