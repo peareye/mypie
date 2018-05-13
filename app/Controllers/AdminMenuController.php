@@ -168,8 +168,8 @@ class AdminMenuController extends BaseController
             }
         }
 
-        // Redirect back to show menu
-        return $response->withRedirect($this->container->router->pathFor('showSingleMenu', ['id' => $menu->id]));
+        // Redirect back to show menus
+        return $response->withRedirect($this->container->router->pathFor('showMenus'));
     }
 
     /**
