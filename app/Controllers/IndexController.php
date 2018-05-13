@@ -9,6 +9,31 @@ namespace Piton\Controllers;
 class IndexController extends BaseController
 {
     /**
+     * Show Home Page
+     *
+     */
+    public function homePage($request, $response, $args)
+    {
+        // Get dependencies
+        $mapper = $this->container->dataMapper;
+        $MenuMapper = $mapper('MenuMapper');
+        $MenuItemMapper = $mapper('MenuItemMapper');
+
+        // Assume menus expire end of date of effective date
+        // Get the next active menu as of 'now'
+        $menu = $MenuMapper->getCurrentActiveMenu();
+
+        // Did we find a menu to display?
+        if ($menu->id) {
+            $menu->items = $MenuItemMapper->findItemsByMenuId($menu->id);
+        }
+
+        $page['menu'] = $menu;
+
+        $this->container->view->render($response, '_home.html', ['page' => $page]);
+    }
+
+    /**
      * Show Dynamic Page
      *
      */
