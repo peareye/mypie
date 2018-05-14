@@ -40,7 +40,7 @@ class IndexController extends BaseController
         }
 
         // Assign today's menu
-        $page['menu'] = $todaysMenu;
+        $page->menu = $todaysMenu;
 
         // Populate two month calendar
         $this->populateCalendar();
@@ -61,7 +61,7 @@ class IndexController extends BaseController
         }
 
         // Add calendar to page
-        $page['calendar'] = $this->calendar;
+        $page->calendar = $this->calendar;
 
         $this->container->view->render($response, '_home.html', ['page' => $page]);
     }
