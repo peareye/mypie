@@ -22,9 +22,14 @@ class IndexController extends BaseController
         $MenuMapper = $mapper('MenuMapper');
         $MenuItemMapper = $mapper('MenuItemMapper');
         $PageMapper = $mapper('PageMapper');
+        $PageLetMapper = $mapper('PageLetMapper');
 
-        // Fetch pages
-        $page = $PageMapper->findPageSetById('home');
+        // Fetch pages and add pagelet content
+        $page = $PageMapper->findPageByUrl('home');
+
+        if ($page->id) {
+            $page->pagelets = $this->indexPageletKeys($PageLetMapper->findPageletsByPageId($page->id));
+        }
 
         // Assume menus expire end of date. Get the next active menu as of 'now'
         $todaysMenu = $MenuMapper->getCurrentActiveMenu();
@@ -70,14 +75,18 @@ class IndexController extends BaseController
         // Get dependencies
         $mapper = $this->container->dataMapper;
         $PageMapper = $mapper('PageMapper');
+        $PageLetMapper = $mapper('PageLetMapper');
 
         // Fetch pages
-        $page = $PageMapper->findPageSetById($args['url']);
+        $page = $PageMapper->findPageByUrl($args['url']);
 
         // Send 404 if not found
         if (!$page) {
             return $this->notFound($request, $response);
         }
+
+        // Add pagelet content
+        $page->pagelets = $this->indexPageletKeys($PageLetMapper->findPageletsByPageId($page->id));
 
         // Make sure the .html file extension is there
         $template = preg_replace('/\.html$/i', '', $page->template);
