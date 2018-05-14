@@ -37,4 +37,27 @@ class BaseController
         $notFound = $this->container->get('notFoundHandler');
         return $notFound($request, $response);
     }
+
+    /**
+     * Index Pagelet Keys
+     *
+     * Accepts array of pagelets, and reindexes array using the pagelet->name as key
+     * @param array of Piton\Models\DomainObject
+     * @return array
+     */
+    protected function indexPageletKeys(array $pagelets)
+    {
+        $newPagelets = [];
+
+        // Make sure we have results to index, or pass through input
+        if (!$pagelets) {
+            return $pagelets;
+        }
+
+        foreach ($pagelets as $row) {
+            $newPagelets[$row->name] = $row;
+        }
+
+        return $newPagelets;
+    }
 }
