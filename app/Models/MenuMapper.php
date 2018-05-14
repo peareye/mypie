@@ -41,12 +41,12 @@ class MenuMapper extends DataMapperAbstract
     }
 
     /**
-     * Get Menus For This and Next Month
+     * Get Future Menus as of This Month
      *
      * Returns an array of Domain Objects
      * @return Array
      */
-    public function getMenusForThisAndNextMonth()
+    public function getFutureMenusStartingThisMonth()
     {
         // Make select
         $this->makeSelect();
@@ -54,8 +54,7 @@ class MenuMapper extends DataMapperAbstract
 
         // Set parameter
         $startDate = new \DateTime('first day of this month 00:00:00');
-        $fromDate = $startDate->format('Y-m-1');
-        $this->bindValues[] = $fromDate;
+        $this->bindValues[] = $startDate->format('Y-m-1');
 
         return $this->find();
     }

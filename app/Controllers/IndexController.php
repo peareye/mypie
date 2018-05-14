@@ -21,26 +21,29 @@ class IndexController extends BaseController
         $mapper = $this->container->dataMapper;
         $MenuMapper = $mapper('MenuMapper');
         $MenuItemMapper = $mapper('MenuItemMapper');
+        $PageMapper = $mapper('PageMapper');
 
-        // Assume menus expire end of date of effective date
-        // Get the next active menu as of 'now'
+        // Fetch pages
+        $page = $PageMapper->findPageSetById('home');
+
+        // Assume menus expire end of date. Get the next active menu as of 'now'
         $todaysMenu = $MenuMapper->getCurrentActiveMenu();
 
-        // Did we find a menu to display?
+        // Did we find a menu to display? If so get menu items
         if ($todaysMenu->id) {
             $todaysMenu->items = $MenuItemMapper->findItemsByMenuId($todaysMenu->id);
         }
 
-        // Today's menu
+        // Assign today's menu
         $page['menu'] = $todaysMenu;
 
         // Populate two month calendar
         $this->populateCalendar();
 
-        // Get all menus for this and next month
-        $menus = $MenuMapper->getMenusForThisAndNextMonth();
+        // Get all future menus starting this month
+        $menus = $MenuMapper->getFutureMenusStartingThisMonth();
 
-        // Merge menus, start by looping months then days
+        // Merge menus, start by looping this/next months then days
         foreach ($this->calendar as $month => $row) {
             foreach ($this->calendar[$month]['days'] as $dateKey => $day) {
                 // Find matching menu dates
