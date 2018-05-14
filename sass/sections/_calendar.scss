@@ -1,69 +1,72 @@
 /* Section: Calendars */
-
+.calendar-container {
+@include margin(null null 2rem);
+}
+.calendar-container h3{
+  text-align: center;
+}
 .calendar-wrapper-days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: .1rem;
-    justify-content: center;
-    align-items: center;
-    @include padding(.25rem 1rem null); 
-  }
-  
-  .calendar-wrapper {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: .25rem;
-    @include padding(.75rem 1rem);
-    @include margin(.25rem null 2rem);
-    border: 1px solid rgba(0, 0, 0, .08);
-    background: #efefef;
-  }
-  .calendar-title{
- position: relative;
-  }
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 1px;
+  justify-content: center;
+  align-items: center;
+}
 
-  .calendar-day {
-    color: #756d63;
-  }
-  
-  .prev-month {
-    color: rgba(0, 0, 0, .2);
-  }
-  
-  .box {
-    border: 1px solid rgba(0, 0, 0, .08);
-    border-radius: 3px;
-    height: 100%;
-    @include padding(3px);
-    background: #fff;
-  }
-  
-  .days {
-    border: none;
-    text-align: center;
-  }
-  
-  .day-content {
-    display: block;
-    text-align: center;
-  }
-  
-  .day-content a {
-    font-size: .7rem;
-  }
-  
-  .today {
-    background: rgba(237, 28, 36, .1);
-  }
-  
-  .calendar-day {
-    color: #756d63;
-  }
-  
-  /* Section: _quick-calendar.html */
-  
-  /* Section: _full-calendar.html */
-  
-  #full-calendar .calendar-wrapper {
-    grid-template-rows: repeat(6, 1fr);
-  }
+.calendar-wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, minmax(40px, 1fr)); 
+  grid-gap: 1px;
+  @include padding(.25rem);
+  border: 1px solid rgba(0, 0, 0, .08);
+  background: #efefef;
+}
+
+.calendar-title {
+  position: relative;
+}
+
+.calendar-day {
+  color: #756d63;
+}
+
+.prev-month {
+  color: rgba(0, 0, 0, .2);
+}
+
+.box {
+  border: 1px solid rgba(0, 0, 0, .08);
+  border-radius: 3px;
+  height: 100%;
+  @include padding(3px);
+  background: #fff;
+}
+
+.days {
+  border: none;
+  text-align: center;
+}
+
+.day-content {
+  display: block;
+  text-align: center;
+}
+
+.day-content a {
+  font-size: .7rem;
+}
+
+.today {
+  background: rgba(237, 28, 36, .1);
+}
+
+.calendar-day {
+  color: #756d63;
+}
+
+/* Section: _full-calendar.html */
+
+#full-calendar .calendar-wrapper {
+  grid-template-rows: repeat(7, 1fr);
+}

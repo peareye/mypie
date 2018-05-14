@@ -20,7 +20,7 @@
 
 // Navbar Custom Styles
 nav {
-  // @include padding(0.1);
+  @include padding(0.1);
   box-shadow: var(--box-shadow);
 
 }
@@ -36,7 +36,7 @@ nav {
   @include padding(3px null null);
 }
 .navbar a {
-  font-size: 1.1rem !important; 
+  font-size: .8rem !important; 
 }
 // Customized Hamburger Icon
 button.navbar-toggler {
@@ -63,6 +63,7 @@ button:hover,
 // Hero Section
 .jumbotron {
   padding-bottom: 1px !important;
+  min-height: 400px;
   background-image: url("../img/hot-pie-1.jpg");
   background-repeat: no-repeat;
   background-position: center center;
@@ -76,16 +77,12 @@ button:hover,
   @include padding(1rem);
 }
 
-.jumbotron-heading {
-  font-weight: 300;
-}
-
 .jumbotron p {
   color: var(--mypie-light);
-  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  text-shadow:var(--text-shadow);
 }
 
 .jumbotron h1 {
-  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  text-shadow:var(--text-shadow);
   color: var(--mypie-light);
 }

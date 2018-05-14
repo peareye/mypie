@@ -10,11 +10,53 @@
 
     <!-- Full Calendar -->
     {% import '/includes/_full-calendar.html' as calendar %}
-    {{ calendar.schedule(page.calendar.thisMonth.month, page.calendar.thisMonth.days) }}
-    {{ calendar.schedule(page.calendar.nextMonth.month, page.calendar.nextMonth.days) }}
+   
+    <section id="calendar">
+                <div class="container">
+                                <h2>Our Upcoming Locations</h2>
+                </div>
+           
+            {{ calendar.schedule(page.calendar.thisMonth.month, page.calendar.thisMonth.days) }}
+            {{ calendar.schedule(page.calendar.nextMonth.month, page.calendar.nextMonth.days) }}
+    </section>
+    <!-- Location Modal -->
+
+      
+      <!-- Modal -->
+      <div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-labelledby="locationModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="locationModalLabel">MYPIE Locations</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                     <div class="container">
+                             <h4>Broadgate</h4>
+                             <p>Broadgate Tower, 201 Bishopsgate, London EC2M 3AB</p>
+                             <hr>
+                             <h4>Chiswick Park</h4>
+                             <p> 566 Chiswick High Road, Chiswick, London, W4 5YA</p>
+                             <hr>
+                             <h4>Paddington</h4>
+                             <p> Address for Paddington Goes Here</p>
+
+                     </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary sm-btn" data-dismiss="modal">Close</button>
+               
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
 
     <!-- Newsletter Subscription -->
     {% include '/includes/_newsletter.html' %}
+
 
     <!-- Get Social & Instragram Feed Section -->
     {% include '/includes/_get-social.html' %}

@@ -1,10 +1,6 @@
-
-
-<section id="calendar">
-<h1>Monthly Calendar</h1>
         {% macro schedule(month, date) %}
-        <div class="container">
-            <h2>{{ month|date('F Y') }}</h2>
+        <div class="container calendar-container">
+            <h3>{{ month|date('F Y') }}</h3>
 
                 <div class="calendar-wrapper-days">
                     <div class="box days">
@@ -33,173 +29,174 @@
                 <div id="full-calendar"class="calendar-wrapper">
                     <div class="box {{ date[0].dayClass }}">
                         <h6 class="{{ date[0].dateClass }}">{{ date[0].date }}</h6>
-                        <div class="day-content">{{ date[0].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[0].content|raw }}</div>
                     </div>
                     <div class="box {{ date[1].dayClass }}">
                         <h6 class="{{ date[1].dateClass }}">{{ date[1].date }}</h6>
-                        <div class="day-content">{{ date[1].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[1].content|raw }}</div>
                     </div>
                     <div class="box {{ date[2].dayClass }}">
                         <h6 class="{{ date[2].dateClass }}">{{ date[2].date }}</h6>
-                        <div class="day-content">{{ date[2].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[2].content|raw }}</div>
                     </div>
                     <div class="box {{ date[3].dayClass }}">
                         <h6 class="{{ date[3].dateClass }}">{{ date[3].date }}</h6>
-                        <div class="day-content">{{ date[3].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[3].content|raw }}</div>
                     </div>
                     <div class="box {{ date[4].dayClass }}">
                         <h6 class="{{ date[4].dateClass }}">{{ date[4].date }}</h6>
-                        <div class="day-content">{{ date[4].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[4].content|raw }}</div>
                     </div>
                     <div class="box {{ date[5].dayClass }}">
                         <h6 class="{{ date[5].dateClass }}">{{ date[5].date }}</h6>
-                        <div class="day-content">{{ date[5].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[5].content|raw }}</div>
                     </div>
                     <div class="box {{ date[6].dayClass }}">
                         <h6 class="{{ date[6].dateClass }}">{{ date[6].date }}</h6>
-                        <div class="day-content">{{ date[6].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[6].content|raw }}</div>
                     </div>
                     <div class="box {{ date[7].dayClass }}">
                         <h6 class="{{ date[7].dateClass }}">{{ date[7].date }}</h6>
-                        <div class="day-content">{{ date[7].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[7].content|raw }}</div>
                     </div>
                     <div class="box {{ date[8].dayClass }}">
                         <h6 class="{{ date[8].dateClass }}">{{ date[8].date }}</h6>
-                        <div class="day-content">{{ date[8].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[8].content|raw }}</div>
                     </div>
                     <div class="box {{ date[9].dayClass }}">
                         <h6 class="{{ date[9].dateClass }}">{{ date[9].date }}</h6>
-                        <div class="day-content">{{ date[9].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[9].content|raw }}</div>
                     </div>
                     <div class="box {{ date[10].dayClass }}">
                         <h6 class="{{ date[10].dateClass }}">{{ date[10].date }}</h6>
-                        <div class="day-content">{{ date[10].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[10].content|raw }}</div>
                     </div>
                     <div class="box {{ date[11].dayClass }}">
                         <h6 class="{{ date[11].dateClass }}">{{ date[11].date }}</h6>
-                        <div class="day-content">{{ date[11].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[11].content|raw }}</div>
                     </div>
                     <div class="box {{ date[12].dayClass }}">
                         <h6 class="{{ date[12].dateClass }}">{{ date[12].date }}</h6>
-                        <div class="day-content">{{ date[12].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[12].content|raw }}</div>
                     </div>
                     <div class="box {{ date[13].dayClass }}">
                         <h6 class="{{ date[13].dateClass }}">{{ date[13].date }}</h6>
-                        <div class="day-content">{{ date[13].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[13].content|raw }}</div>
                     </div>
                     <div class="box {{ date[14].dayClass }}">
                         <h6 class="{{ date[14].dateClass }}">{{ date[14].date }}</h6>
-                        <div class="day-content">{{ date[14].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[14].content|raw }}</div>
                     </div>
                     <div class="box {{ date[15].dayClass }}">
                         <h6 class="{{ date[15].dateClass }}">{{ date[15].date }}</h6>
-                        <div class="day-content">{{ date[15].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[15].content|raw }}</div>
                     </div>
                     <div class="box {{ date[16].dayClass }}">
                         <h6 class="{{ date[16].dateClass }}">{{ date[16].date }}</h6>
-                        <div class="day-content">{{ date[16].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[16].content|raw }}</div>
                     </div>
                     <div class="box {{ date[17].dayClass }}">
                         <h6 class="{{ date[17].dateClass }}">{{ date[17].date }}</h6>
-                        <div class="day-content">{{ date[17].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[17].content|raw }}</div>
                     </div>
                     <div class="box {{ date[18].dayClass }}">
                         <h6 class="{{ date[18].dateClass }}">{{ date[18].date }}</h6>
-                        <div class="day-content">{{ date[18].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[18].content|raw }}</div>
                     </div>
                     <div class="box {{ date[19].dayClass }}">
                         <h6 class="{{ date[19].dateClass }}">{{ date[19].date }}</h6>
-                        <div class="day-content">{{ date[19].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[19].content|raw }}</div>
                     </div>
                     <div class="box {{ date[20].dayClass }}">
                         <h6 class="{{ date[20].dateClass }}">{{ date[20].date }}</h6>
-                        <div class="day-content">{{ date[20].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[20].content|raw }}</div>
                     </div>
                     <div class="box {{ date[21].dayClass }}">
                         <h6 class="{{ date[21].dateClass }}">{{ date[21].date }}</h6>
-                        <div class="day-content">{{ date[21].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[21].content|raw }}</div>
                     </div>
                     <div class="box {{ date[22].dayClass }}">
                         <h6 class="{{ date[22].dateClass }}">{{ date[22].date }}</h6>
-                        <div class="day-content">{{ date[22].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[22].content|raw }}</div>
                     </div>
                     <div class="box {{ date[23].dayClass }}">
                         <h6 class="{{ date[23].dateClass }}">{{ date[23].date }}</h6>
-                        <div class="day-content">{{ date[23].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[23].content|raw }}</div>
                     </div>
                     <div class="box {{ date[24].dayClass }}">
                         <h6 class="{{ date[24].dateClass }}">{{ date[24].date }}</h6>
-                        <div class="day-content">{{ date[24].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[24].content|raw }}</div>
                     </div>
                     <div class="box {{ date[25].dayClass }}">
                         <h6 class="{{ date[25].dateClass }}">{{ date[25].date }}</h6>
-                        <div class="day-content">{{ date[25].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[25].content|raw }}</div>
                     </div>
                     <div class="box {{ date[26].dayClass }}">
                         <h6 class="{{ date[26].dateClass }}">{{ date[26].date }}</h6>
-                        <div class="day-content">{{ date[26].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[26].content|raw }}</div>
                     </div>
                     <div class="box {{ date[27].dayClass }}">
                         <h6 class="{{ date[27].dateClass }}">{{ date[27].date }}</h6>
-                        <div class="day-content">{{ date[27].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[27].content|raw }}</div>
                     </div>
                     <div class="box {{ date[28].dayClass }}">
                         <h6 class="{{ date[28].dateClass }}">{{ date[28].date }}</h6>
-                        <div class="day-content">{{ date[28].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[28].content|raw }}</div>
                     </div>
                     <div class="box {{ date[29].dayClass }}">
                         <h6 class="{{ date[29].dateClass }}">{{ date[29].date }}</h6>
-                        <div class="day-content">{{ date[29].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[29].content|raw }}</div>
                     </div>
                     <div class="box {{ date[30].dayClass }}">
                         <h6 class="{{ date[30].dateClass }}">{{ date[30].date }}</h6>
-                        <div class="day-content">{{ date[30].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[30].content|raw }}</div>
                     </div>
                     <div class="box {{ date[31].dayClass }}">
                         <h6 class="{{ date[31].dateClass }}">{{ date[31].date }}</h6>
-                        <div class="day-content">{{ date[31].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[31].content|raw }}</div>
                     </div>
                     <div class="box {{ date[32].dayClass }}">
                         <h6 class="{{ date[32].dateClass }}">{{ date[32].date }}</h6>
-                        <div class="day-content">{{ date[32].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[32].content|raw }}</div>
                     </div>
                     <div class="box {{ date[33].dayClass }}">
                         <h6 class="{{ date[33].dateClass }}">{{ date[33].date }}</h6>
-                        <div class="day-content">{{ date[33].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[33].content|raw }}</div>
                     </div>
                     <div class="box {{ date[34].dayClass }}">
                         <h6 class="{{ date[34].dateClass }}">{{ date[34].date }}</h6>
-                        <div class="day-content">{{ date[34].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[34].content|raw }}</div>
                     </div>
                     <div class="box {{ date[35].dayClass }}">
                         <h6 class="{{ date[35].dateClass }}">{{ date[35].date }}</h6>
-                        <div class="day-content">{{ date[35].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[35].content|raw }}</div>
                     </div>
                     <div class="box {{ date[36].dayClass }}">
                         <h6 class="{{ date[36].dateClass }}">{{ date[36].date }}</h6>
-                        <div class="day-content">{{ date[36].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[36].content|raw }}</div>
                     </div>
                     <div class="box {{ date[37].dayClass }}">
                         <h6 class="{{ date[37].dateClass }}">{{ date[37].date }}</h6>
-                        <div class="day-content">{{ date[37].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[37].content|raw }}</div>
                     </div>
                     <div class="box {{ date[38].dayClass }}">
                         <h6 class="{{ date[38].dateClass }}">{{ date[38].date }}</h6>
-                        <div class="day-content">{{ date[38].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[38].content|raw }}</div>
                     </div>
                     <div class="box {{ date[39].dayClass }}">
                         <h6 class="{{ date[39].dateClass }}">{{ date[39].date }}</h6>
-                        <div class="day-content">{{ date[39].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[39].content|raw }}</div>
                     </div>
                     <div class="box {{ date[40].dayClass }}">
                         <h6 class="{{ date[40].dateClass }}">{{ date[40].date }}</h6>
-                        <div class="day-content">{{ date[40].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[40].content|raw }}</div>
                     </div>
                     <div class="box {{ date[41].dayClass }}">
                         <h6 class="{{ date[41].dateClass }}">{{ date[41].date }}</h6>
-                        <div class="day-content">{{ date[41].content|raw }}</div>
+                        <div class="day-content" data-toggle="modal" data-target="#locationModal">{{ date[41].content|raw }}</div>
                     </div>
                 </div>
         </div>
         {% endmacro %}
-    </section>
+
+  
