@@ -49,7 +49,7 @@ class IndexController extends BaseController
                 // Find matching menu dates
                 foreach ($menus as $menu) {
                     if ($menu->date === $day['canonicalDate'] && !empty($menu->location)) {
-                        $this->calendar[$month]['days'][$dateKey]['content'] = "<a href=\"#\">{$menu->location}</a>";
+                        $this->calendar[$month]['days'][$dateKey]['content'] = "<a href=\"#calendar\">{$menu->location}</a>";
                     }
                 }
             }
