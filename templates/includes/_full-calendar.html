@@ -1,6 +1,8 @@
 
-{% macro schedule(month, date) %}
+
 <section id="calendar">
+<h1>Monthly Calendar</h1>
+        {% macro schedule(month, date) %}
         <div class="container">
             <h2>{{ month|date('F Y') }}</h2>
 
@@ -199,5 +201,5 @@
                     </div>
                 </div>
         </div>
+        {% endmacro %}
     </section>
-{% endmacro %}

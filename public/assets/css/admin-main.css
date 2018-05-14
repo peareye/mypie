@@ -6944,17 +6944,19 @@ hr {
   --mypie-accent-red: #6e1e21;
   --mypie-light: #ffffff;
   --border-radius: 4px;
-  --box-shadow: 0 2px 2px rgba(0,0,0,.5); }
+  --box-shadow: 0 2px 2px rgba(0,0,0,.5);
+  --text-shadow: 0 2px 2px rgba(0,0,0,.5);
+  --border: solid 1px rgba(140,140,140,.08); }
 
 :root {
-  font-size: 16px; }
+  font-size: 12px; }
 
-@media (min-width: 576px) and (max-width: 800px) {
+@media (min-width: 576px) and (max-width: 991px) {
   :root {
-    font-size: calc( 16px + (18 - 16) * ( (100vw - 576px) / ( 800 - 576) )); } }
-@media (min-width: 800px) {
+    font-size: calc( 12px + (20 - 12) * ( (100vw - 576px) / ( 991 - 576) )); } }
+@media (min-width: 991px) {
   :root {
-    font-size: 18px; } }
+    font-size: 20px; } }
 body {
   margin-top: 80px;
   font-family: 'Montserrat', sans-serif;

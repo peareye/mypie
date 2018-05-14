@@ -2,23 +2,21 @@
 {% extends 'base_layout.html' %}
 
 {% block body %}
-
-
     <!-- Hero Section -->
-    {% include '_hero.html' %}
+    {% include '/includes/_hero.html' %}
 
     <!-- Daily Menu -->
-    {% include '_menu.html' %}
+    {% include '/includes/_menu.html' %}
 
     <!-- Full Calendar -->
-    {% import '_full-calendar.html' as calendar %}
+    {% import '/includes/_full-calendar.html' as calendar %}
     {{ calendar.schedule(page.calendar.thisMonth.month, page.calendar.thisMonth.days) }}
     {{ calendar.schedule(page.calendar.nextMonth.month, page.calendar.nextMonth.days) }}
 
     <!-- Newsletter Subscription -->
-    {% include '_newsletter.html' %}
+    {% include '/includes/_newsletter.html' %}
 
     <!-- Get Social & Instragram Feed Section -->
-    {% include '_get-social.html' %}
+    {% include '/includes/_get-social.html' %}
  {% endblock %}
 

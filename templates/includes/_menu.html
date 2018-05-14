@@ -1,0 +1,77 @@
+<section id="dailymenu">
+    <div class="container">
+        {% if page.menu.menuNotFound %}
+        <h4>Menu not found</h4>
+        {% else %}
+
+        <h2 class="center-align">Menu for {{ page.menu.date|date('l, F j, Y') }} at {{ page.menu.location }}</h2>
+
+        {% endif %} 
+        
+        {% if page.menu.items %}
+        <div class="menu-wrapper">
+            <!-- Daily Pies -->
+            <div id="pie-box">
+                <h4 class="menu-title center-align">Pie w/mash or salad + gravy</h4>
+                {% for m in page.menu.items if m.section == 'dailypies' %}
+                <span class="menu-items">
+
+                    <div class="menu-item menu-item-title">{{ m.type }}</div>
+                    <div class="menu-item menu-item-description">{{ m.description }}</div>
+                    <div class="menu-item menu-item-price"> {{ m.price }}</div>
+                </span>
+                {% endfor %}
+            </div>
+
+            <!-- Sides -->
+            <div id="sides-box">
+                <h4 class="menu-title center-align">Awesome Sides</h4>
+                {% for m in page.menu.items if m.section == 'sides' %}
+                <span class="menu-items">
+                    <div class="menu-item menu-item-description">{{ m.description }}</div>
+                    <div class="menu-item menu-item-price"> {{ m.price }}</div>
+                </span>
+                {% endfor %}
+            </div>
+
+            <!-- Sausage Rolls -->
+            <div id="sausage-box">
+                <h4 class="menu-title center-align">Sausage Rolls &amp; More</h4>
+                {% for m in page.menu.items if m.section == 'rolls' %}
+                <span class="menu-items">
+                    <div class="menu-item menu-item-title">{{ m.type }}</div>
+                    <div class="menu-item menu-item-description">{{ m.description }}</div>
+                    <div class="menu-item menu-item-price"> {{ m.price }}</div>
+                </span>
+                {% endfor %}
+            </div>
+
+            <!-- Puds -->
+            <div id="puds-box">
+                <h4 class="menu-title center-align">Puds</h4>
+                {% for m in page.menu.items if m.section == 'puds' %}
+                <span class="menu-items">
+                    <div class="menu-item menu-item-description">{{ m.description }}</div>
+                    <div class="menu-item menu-item-price"> {{ m.price }}</div>
+                </span>
+                {% endfor %}
+            </div>
+
+            <!-- Takeaway Pies -->
+            <div id="takeaway-box">
+                <h4 class="menu-title center-align">Takeaway Pies</h4>
+                {% for m in page.menu.items if m.section == 'takeawaypies' %}
+                <span class="menu-items">
+                    <div class="menu-item menu-item-title">{{ m.type }}</div>
+                    <div class="menu-item menu-item-description">{{ m.description }}</div>
+                    <div class="menu-item menu-item-price"> {{ m.price }}</div>
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+        {% else %}
+        <h4>No menu items found for this date</h4>
+        {% endif %}
+    </div>
+  
+</section>

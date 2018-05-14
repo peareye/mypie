@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="favicon/favicon.ico" type="image/x-icon" />
+    {% include '/includes/_favicon.html' %}
 
     <title>MYPIE - Home - Epic Pies + Awesome Sides</title>
     <!-- Google Font Base -->
@@ -22,13 +22,14 @@
 
 <body>
       <!-- Logo and Navbar -->
-      {% include '_header.html' %}
+      {% include '/includes/_header.html' %}
+
     {% block body %}
 
     {% endblock %}
 
     <!-- Footer Section -->
-    {% include '_footer.html' %}
+    {% include '/includes/_footer.html' %}
     <!-- Bootstrap Script Files -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -41,7 +42,7 @@
  
     <!-- Default Statcounter code for Moritz Media
 http://moritzmedia.com -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     var sc_project=9291428; 
     var sc_invisible=1; 
     var sc_security="23e3a822"; 
@@ -53,7 +54,7 @@ http://moritzmedia.com -->
     href="http://statcounter.com/" target="_blank"><img
     class="statcounter"
     src="//c.statcounter.com/9291428/0/23e3a822/1/" alt="Web
-    Analytics"></a></div></noscript>
+    Analytics"></a></div></noscript> -->
     <!-- End of Statcounter Code -->
 
   
