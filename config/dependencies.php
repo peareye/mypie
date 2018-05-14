@@ -14,6 +14,7 @@ $container['view'] = function ($c) {
     $view = new Slim\Views\Twig($templatePaths, [
         'cache' => ROOT_DIR . 'twigcache',
         'debug' => !$c->get('settings')['production'],
+        'autoescape' => false,
     ]);
 
     // Custom Twig Extensions
@@ -77,6 +78,7 @@ $container['emailHandler'] = function ($c) {
     return new SimpleMail();
 };
 
+// Data mapper to CRUD the database tables
 $container['dataMapper'] = function ($c) {
     return function ($mapper) use ($c) {
         // Get session user ID
@@ -87,4 +89,9 @@ $container['dataMapper'] = function ($c) {
         $fqn = 'Piton\\Models\\' . $mapper;
         return new $fqn($c['database'], $c['logger'], ['user_id' => $userId]);
     };
+};
+
+// Markdown parser
+$container['markdownParser'] = function ($c) {
+    return new Parsedown();
 };

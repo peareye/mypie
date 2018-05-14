@@ -132,6 +132,7 @@ class AdminPageController extends BaseController
         // Get dependencies
         $mapper = $this->container->dataMapper;
         $PageletMapper = $mapper('PageletMapper');
+        $markdown = $this->container->markdownParser;
 
         // Create page
         $page = $PageletMapper->make();
@@ -139,8 +140,7 @@ class AdminPageController extends BaseController
         $page->page_id = $request->getParsedBodyParam('page_id');
         $page->name = $request->getParsedBodyParam('name');
         $page->content = $request->getParsedBodyParam('content');
-        // TODO enable markdown conversion
-        //$page->content_html = $request->getParsedBodyParam('content_html');
+        $page->content_html = $markdown->text($request->getParsedBodyParam('content'));
 
         // Save
         $page = $PageletMapper->save($page);
