@@ -34,19 +34,6 @@
     background-size: cover;
     background-attachment: fixed;
   }
-  section#newsletter::after {
-    background: url("../img/mypie1600x1068.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-  }
-  section#full-calendar::after {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-  }
 
 }
 
@@ -54,9 +41,7 @@
   body {
     margin-top: 70px;
   }
-  .nav-link {
-    // font-size: 0.8rem;
-  }
+
 }
 
 @media (min-width: 992px) {

@@ -7274,21 +7274,33 @@ footer a:hover {
 #newsletter form > div:first-child {
   display: none; }
 
+#newsletter h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0; }
+
 .newsletter-wrapper {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 1rem;
-  padding-top: 20px;
-  padding-bottom: 20px;
   justify-content: center;
   align-items: center; }
 
-@media screen and (min-width: 576px) {
-  grid-template-columns: 1fr; }
-.newsletter-box {
-  padding: 10px;
-  margin: 0; }
+.newsletter-signup-content {
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-bottom: -35px; }
 
+@media screen and (min-width: 768px) {
+  #newsletter h2 {
+    margin-top: 1.5rem; }
+
+  .newsletter-box {
+    margin-top: -20px; }
+
+  .newsletter-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem; } }
 @media (min-width: 576px) {
   section::after {
     display: block;
@@ -7313,19 +7325,6 @@ footer a:hover {
 
   section#newsletter::after {
     background: url("../img/mypie-pie1600x1068.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed; }
-
-  section#newsletter::after {
-    background: url("../img/mypie1600x1068.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed; }
-
-  section#full-calendar::after {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

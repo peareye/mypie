@@ -4,22 +4,36 @@
   display: none;
 }
 
+#newsletter h2 {
+  @include margin(0px null);
+  @include padding(0 null);
+}
+
 .newsletter-wrapper {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 1rem;
-  @include padding(20px null);
   justify-content: center;
   align-items: center;
-
-
 }
-@media screen and (min-width: 576px){
-  grid-template-columns: 1fr;
 
+.newsletter-signup-content {
+  @include padding(null 10px);
+  @include margin(null null -35px);
 }
-.newsletter-box {
-  @include padding(10px);
-  @include margin(0);
 
+// Media Query 
+@media screen and (min-width: 768px) {
+  #newsletter h2 {
+ 
+    @include margin(1.5rem null null);
+    @include padding(null);
+  }
+  .newsletter-box{
+   
+    @include margin(-20px null null);
+  }
+  .newsletter-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+  }
 }
