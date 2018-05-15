@@ -16,7 +16,7 @@ class AdminPageController extends BaseController
         // Get dependencies
         $mapper = $this->container->dataMapper;
         $PageMapper = $mapper('PageMapper');
-        $PageLetMapper = $mapper('PageLetMapper');
+        $PageletMapper = $mapper('PageletMapper');
 
         // Fetch pages
         $pages = $PageMapper->find();
@@ -24,7 +24,7 @@ class AdminPageController extends BaseController
         // If we found pages, then loop through to get pagelets
         if ($pages) {
             foreach ($pages as $key => $row) {
-                $pages[$key]->pagelets = $this->indexPageletKeys($PageLetMapper->findPageletsByPageId($row->id));
+                $pages[$key]->pagelets = $this->indexPageletKeys($PageletMapper->findPageletsByPageId($row->id));
             }
         }
 
