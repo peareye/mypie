@@ -1,29 +1,38 @@
-{% extends '@admin/admin_base.html' %}
+{% extends '@admin/admin_base.html' %} {% block body %}
 
- {% block body %}
- <div class="container-fluid">
+<section id="admin">
+    <div class="container">
+        <h1 class="page-title">Dashboard Home</h1>
+        <div class="link-container">
 
-    <ul class="nav flex-column">
-        <li class="nav-item nav-style rounded">
-          <a class="nav-link" href="{{ pathFor('showMenus') }}">Menu Management</a>
-        </li>
-    
-        <li class="nav-item nav-style rounded">
-            <a class="nav-link" href="{{ pathFor('showPages') }}">Pages Management</a>
-        </li>
-        <li class="nav-item nav-style rounded">
-            <a class="nav-link" href="{{ pathFor('showUsers') }}">User Management</a>
-        </li>
-        <li class="nav-item nav-style rounded">
-            <a class="nav-link" href="#">Help</a>
-        </li>
-      </ul>
-      <hr>
- </div>
+            <ul class="nav flex-column">
+                <li class="nav-item nav-style rounded">
+                    <a class="nav-link" href="{{ pathFor('showMenus') }}">Menu Management</a>
+                </li>
 
- <div class="container">
-   <h3>Current Menu</h3>
-   {% include 'admin/currentMenu.html' %}
- </div>
+                <li class="nav-item nav-style rounded">
+                    <a class="nav-link" href="{{ pathFor('showPages') }}">Pages Management</a>
+                </li>
+                <li class="nav-item nav-style rounded">
+                    <a class="nav-link" href="{{ pathFor('showUsers') }}">User Management</a>
+                </li>
+                <li class="nav-item nav-style rounded">
+                    <a class="nav-link" href="#">Help</a>
+                </li>
+            </ul>
+        </div>
+
+        <hr>
+
+      
+            <h3>Current Menu</h3>
+            <div class="link-container">
+                    {% include 'admin/currentMenu.html' %}
+            </div>
+           
+   
+
+    </div>
+</section>
 
 {% endblock %}
