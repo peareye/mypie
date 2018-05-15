@@ -10,18 +10,19 @@
 
     <!-- Full Calendar -->
     {% import '/includes/_full-calendar.html' as calendar %}
-   
+
     <section id="calendar">
                 <div class="container">
                                 <h2>Our Upcoming Locations</h2>
                 </div>
-           
-            {{ calendar.schedule(page.calendar.thisMonth.month, page.calendar.thisMonth.days) }}
-            {{ calendar.schedule(page.calendar.nextMonth.month, page.calendar.nextMonth.days) }}
+
+        {% for cal in page.calendar %}
+            {{ calendar.schedule(cal.month, cal.days) }}
+        {% endfor %}
     </section>
     <!-- Location Modal -->
 
-      
+
       <!-- Modal -->
       <div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-labelledby="locationModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -47,12 +48,12 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary sm-btn" data-dismiss="modal">Close</button>
-               
+
                     </div>
                   </div>
                 </div>
               </div>
-        
+
 
     <!-- Newsletter Subscription -->
     {% include '/includes/_newsletter.html' %}
