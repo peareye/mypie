@@ -31,36 +31,22 @@ class IndexController extends BaseController
             $page->pagelets = $this->indexPageletKeys($PageLetMapper->findPageletsByPageId($page->id));
         }
 
-        // Assume menus expire end of date. Get the next active menu as of 'now'
+        // Assume menus expire end of today. Get the next active menu as of 'now'
         $todaysMenu = $MenuMapper->getCurrentActiveMenu();
 
-        // Did we find a menu to display? If so get menu items
+        // Did we find a menu to display? If so get menu items assign to page content
         if ($todaysMenu->id) {
             $todaysMenu->items = $MenuItemMapper->findItemsByMenuId($todaysMenu->id);
         }
 
-        // Assign today's menu
         $page->menu = $todaysMenu;
 
-        // Populate two month calendar
+        // Make calendar and merge in future menu dates
         $this->populateCalendar();
-
-        // Get all future menus starting this month
         $menus = $MenuMapper->getFutureMenusStartingThisMonth();
+        $this->mergeMenuDatesIntoCalendar($menus);
 
-        // Merge menus, start by looping this/next months then days
-        foreach ($this->calendar as $month => $row) {
-            foreach ($this->calendar[$month]['days'] as $dateKey => $day) {
-                // Find matching menu dates
-                foreach ($menus as $menu) {
-                    if ($menu->date === $day['canonicalDate'] && !empty($menu->location)) {
-                        $this->calendar[$month]['days'][$dateKey]['content'] = "<a href=\"#calendar\">{$menu->location}</a>";
-                    }
-                }
-            }
-        }
-
-        // Add calendar to page
+        // Add calendar to page content
         $page->calendar = $this->calendar;
 
         $this->container->view->render($response, '_home.html', ['page' => $page]);
@@ -123,74 +109,86 @@ class IndexController extends BaseController
     }
 
     /**
-     * Populate Calendar
+     * Merge Menu Dates into Calendar
      *
-     * Populates two months calendar array to $this->calendar[]
+     * Builds Calendar and Merges in Menu Dates
+     * @param array Array of menu objects
+     */
+    protected function mergeMenuDatesIntoCalendar($menuDates)
+    {
+        // Merge menus, start by looping this/next months then days
+        foreach ($this->calendar as $month => $row) {
+            foreach ($this->calendar[$month]['days'] as $dateKey => $day) {
+                // Find matching menu dates
+                foreach ($menuDates as $menu) {
+                    if ($menu->date === $day['canonicalDate'] && !empty($menu->location)) {
+                        $this->calendar[$month]['days'][$dateKey]['content'] = $menu->location;
+                    }
+                }
+            }
+        }
+
+        return;
+    }
+
+    /**
+     * Populate Calendar Array
+     *
+     * Populates three full month calendar arrays, including leading/trailing dates
      */
     protected function populateCalendar()
     {
-        // Get start and end date of period range (2 months)
-        $startDate = new \DateTime('first day of this month 00:00:00');
-        $endDate = new \DateTime('last day of this month 00:00:00');
-        $endDate->modify('+ 1 month');
+        // Loop through three months for three calendars
+        for ($i=0; $i < 3; $i++) {
+            // Start with month
+            $month = new \DateTime('first day of this month 00:00:00');
 
-        // Set interval to 'day' and get iterable date period object
-        $dayInterval = new \DateInterval('P1D');
-        $dateRange = new \DatePeriod($startDate, $dayInterval, $endDate);
+            // Increment month counter with each loop
+            if ($i > 0) {
+                $month->modify('+' . $i . ' months');
+            }
 
-        // Set this and next month dates for use as titles.
-        // Because $endDate is the beginning of the third month, we need to
-        // do a trick to get the true next month
-        $nextMonth = clone $startDate;
-        $nextMonth->modify('next month');
-        $this->calendar['thisMonth']['month'] = $startDate->format('Y-m-1');
-        $this->calendar['nextMonth']['month'] = $nextMonth->format('Y-m-1');
+            // Start with the last monday in the prior month to start filling full calendar block
+            $startDate = clone $month;
+            $startDate->modify('last monday of previous month');
 
-        // Index to know when to flip to the nextMonth array
-        $thisMonth = $startDate->format('m');
-        $today = date('Y-m-d');
+            // Get the first Sunday of the next month to close our calendar block
+            $endDate = clone $month;
+            $endDate->modify('first sunday of next month');
+            $endDate->modify('+1 day');
 
-        foreach ($dateRange as $date) {
-            $monthKey = ($date->format('m') === $thisMonth) ? 'thisMonth' : 'nextMonth';
+            // Set interval to 'day' and get iterable date period object
+            $dayInterval = new \DateInterval('P1D');
+            $dateRange = new \DatePeriod($startDate, $dayInterval, $endDate);
 
-            $this->calendar[$monthKey]['days'][] = [
-                'canonicalDate' => $date->format('Y-m-d'),
-                'dayClass' => ($date->format('Y-m-d') === $today) ? ' today' : '',
-                'dateClass' => 'calendar-day',
-                'date' => $date->format('j'),
-                'content' => '',
-            ];
+            // Set month date for use in calendar label
+            $this->calendar[$i]['month'] = $month->format('Y-m-1');
+
+            // Loop iterator to build array
+            $today = date('Y-m-d');
+            foreach ($dateRange as $date) {
+                // Our range extends beyond the current month, so we need a flag to know when we are
+                // iterating within the contiguous month
+                $inMonth = ($month->format('Y-m') === $date->format('Y-m')) ? true : false;
+
+                // Assign out-of-month class, and today class, if appropriate
+                $dateBoxClass = '';
+                if (!$inMonth) {
+                    $dateBoxClass = 'prev-month';
+                }
+                if ($date->format('Y-m-d') === $today) {
+                    $dateBoxClass = 'today';
+                }
+
+                $this->calendar[$i]['days'][] = [
+                    'canonicalDate' => $date->format('Y-m-d'),
+                    'dateBoxClass' => $dateBoxClass,
+                    'dateClass' => ($inMonth) ? 'calendar-day' : '',
+                    'date' => $date->format('j'),
+                    'content' => '',
+                ];
+            }
         }
-
-        // We need 42 array rows per months to complete a calendar
-        // Get the first day of each month and determine the day of week to get
-        // the offset to prepend array
-        $fillerArray = [
-                'canonicalDate' => '',
-                'dayClass' => 'prev-month',
-                'dateClass' => '',
-                'date' => '',
-                'content' => '',
-            ];
-
-        $firstDayOfWeekThisMonth = (int) $startDate->format('N');
-        $firstDayOfWeekNextMonth = (int) $nextMonth->format('N');
-
-        // Prepend this month
-        if ($firstDayOfWeekThisMonth > 1) {
-            $leadingDays = array_fill(0, $firstDayOfWeekThisMonth - 1, $fillerArray);
-            $this->calendar['thisMonth']['days'] = array_merge($leadingDays, $this->calendar['thisMonth']['days']);
-        }
-
-        // Prepent next month
-        if ($firstDayOfWeekNextMonth > 1) {
-            $leadingDays = array_fill(0, $firstDayOfWeekNextMonth - 1, $fillerArray);
-            $this->calendar['nextMonth']['days'] = array_merge($leadingDays, $this->calendar['nextMonth']['days']);
-        }
-
-        // Complete end of month by padding out to 42 days
-        $this->calendar['thisMonth']['days'] = array_pad($this->calendar['thisMonth']['days'], 42, $fillerArray);
-        $this->calendar['nextMonth']['days'] = array_pad($this->calendar['nextMonth']['days'], 42, $fillerArray);
 
         return;
     }
