@@ -1,58 +1,60 @@
+ {% extends 'base_layout.html' %} 
+ 
+ {% block body %}
 
-{% extends 'base_layout.html' %}
+<!-- Hero Section -->
+{% include '/includes/_hero.html' %}
 
-{% block body %}
-    <!-- Hero Section -->
-    {% include '/includes/_hero.html' %}
+<!-- Daily Menu -->
+{% include '/includes/_menu.html' %}
 
-    <!-- Daily Menu -->
-    {% include '/includes/_menu.html' %}
+<!-- Full Calendar -->
+{% import '/includes/_full-calendar.html' as calendar %}
 
-    <!-- Full Calendar -->
-    {% import '/includes/_full-calendar.html' as calendar %}
-
-    <section id="calendar">
-                <div class="container">
-                                <h2>Our Upcoming Locations</h2>
-                </div>
-
-        {% for cal in page.calendar %}
-            {{ calendar.schedule(cal.month, cal.days) }}
-        {% endfor %}
-    </section>
-    <!-- Location Modal -->
-
-
-      <!-- Modal -->
-      <div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-labelledby="locationModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="locationModalLabel">MYPIE Locations</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                     <div class="container">
-                         {{ page.pagelets.modal_locations.content_html }}
-
-                     </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary sm-btn" data-dismiss="modal">Close</button>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
+<section id="calendar">
+  <div class="container">
+    <h2>Our Upcoming Locations</h2>
+  </div>
+  <div class="container">
+    <div class="slider single-item">
+      {% for cal in page.calendar %} 
+    
+      {{ calendar.schedule(cal.month, cal.days) }} 
+      
+      {% endfor %}
+    </div>
+  </div>
 
 
-    <!-- Newsletter Subscription -->
-    {% include '/includes/_newsletter.html' %}
 
+</section>
 
-    <!-- Get Social & Instragram Feed Section -->
-    {% include '/includes/_get-social.html' %}
- {% endblock %}
+<!-- Location Modal -->
+<div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-labelledby="locationModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="locationModalLabel">MYPIE Locations</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          {{ page.pagelets.modal_locations.content_html }}
 
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary sm-btn" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Newsletter Subscription -->
+{% include '/includes/_newsletter.html' %}
+
+<!-- Get Social & Instragram Feed Section -->
+{% include '/includes/_get-social.html' %} {% endblock %}
