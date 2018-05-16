@@ -27,7 +27,12 @@ class IndexController extends BaseController
         // Fetch pages and add pagelet content
         $page = $PageMapper->findPageByUrl('home');
 
-        if ($page->id) {
+        // Verify we have an object, if not create one
+        if (!is_object($page)) {
+            $page = $PageMapper->make();
+        }
+
+        if (isset($page->id)) {
             $page->pagelets = $this->indexPageletKeys($PageletMapper->findPageletsByPageId($page->id));
         }
 
@@ -35,7 +40,7 @@ class IndexController extends BaseController
         $todaysMenu = $MenuMapper->getCurrentActiveMenu();
 
         // Did we find a menu to display? If so get menu items assign to page content
-        if ($todaysMenu->id) {
+        if (isset($todaysMenu->id)) {
             $todaysMenu->items = $MenuItemMapper->findItemsByMenuId($todaysMenu->id);
         }
 
@@ -66,8 +71,13 @@ class IndexController extends BaseController
         // Fetch pages
         $page = $PageMapper->findPageByUrl($args['url']);
 
+        // Verify we have an object, if not create one
+        if (!is_object($page)) {
+            $page = $PageMapper->make();
+        }
+
         // Send 404 if not found
-        if (!$page) {
+        if (!isset($page->id)) {
             return $this->notFound($request, $response);
         }
 
@@ -97,8 +107,13 @@ class IndexController extends BaseController
         // Fetch menu header
         $menu = $MenuMapper->findById($args['id']);
 
+        // Verify we have an object, if not create one
+        if (!is_object($menu)) {
+            $menu = $MenuMapper->make();
+        }
+
         // Send 404 if menu not found
-        if (!$menu) {
+        if (!isset($menu->id)) {
             return $this->notFound($request, $response);
         }
 
