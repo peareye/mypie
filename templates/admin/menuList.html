@@ -1,0 +1,54 @@
+{% extends '@admin/admin_base.html' %} {% block body %}
+
+
+<section id="admin">
+    <div class="container">
+        <h1 class="page-title">Menu Management</h1>
+
+        <div class="link-container">
+            <div class="menu-link">
+                <a href="{{ pathFor('editMenu') }}" data-toggle="tooltip" title="Create a new menu.">
+                    <i class="fas fa-plus" alt="Create Menu"></i> Add New Menu</a>
+            </div>
+        </div>
+
+        <h2 class="page-title">Active Menus</h2>
+        {% for m in menus %}
+
+        <div class="link-container">
+            <div class="menu-link">
+                <a href="{{ pathFor('showSingleMenu', {'id': m.id}) }}">
+                    {{ m.date|date('l, F j, Y') }}{% if m.location %} {{ m.location }}{% else %} No Location{% endif %}
+                </a>
+            </div>
+
+            <div class="menu-actions">
+                <div class="menu-icon">
+                    <a href="{{ pathFor('editMenu', {'id': m.id}) }}" data-toggle="tooltip" title="Edit this menu">
+                        <i class="fas fa-edit fa-2x" alt="Edit Menu"></i>
+                        </i>
+                    </a>
+                </div>
+                <div class="menu-icon">
+                    <a href="{{ pathFor('copyEditMenu', {'id': m.id}) }}" data-toggle="tooltip" title="Copy this menu">
+                        <i class="fas fa-copy fa-2x" alt="Copy Menu"></i>
+                        </i>
+                    </a>
+                </div>
+                <div class="menu-icon">
+                    <a class="deleteButton" href="{{ pathFor('deleteMenu', {'id': m.id}) }}" data-toggle="tooltip" title="Delete this menu">
+                        <i class="fas fa-trash-alt fa-2x" alt="Delete Menu"></i>
+                        </i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <hr> {% else %}
+        <strong>No menus found</strong>
+
+        {% endfor %}
+
+    </div>
+</section>
+{% endblock %}

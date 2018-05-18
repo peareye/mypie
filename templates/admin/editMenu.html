@@ -1,0 +1,111 @@
+{% extends '@admin/admin_base.html' %} {% block body %}
+
+<section id="admin">
+  <div class="container">
+    <h1 class="page-title">{% if menu.id %}Edit{% else %}Add{% endif %} Menu</h1>
+    <form action="{{ pathFor('saveMenu') }}" method="post" accept-charset="utf-8">
+      <input type="hidden" name="id" value="{{ menu.id }}">
+
+      <a class="btn btn-warning" href="{{ pathFor('showMenus') }}">Cancel</a>
+      <button class="btn btn-success" type="submit" name="button">Save</button>
+      {% if menu.id %}
+      <a class="btn btn-danger deleteButton" href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a>
+      {% endif %}
+      <hr>
+
+      <!-- Menu Header Date & Location -->
+      <p class="form-text text-muted font-weight-light">Select the date and location when this menu will be available.</p>
+      <div class="form-row">
+        <div class="col-sm-2">
+          <input class="form-control" type="date" name="date" placeholder="Menu date" value="{{ menu.date }}" required>
+        </div>
+        <div class="col">
+          <input class="form-control" type="text" name="location" maxlength="60" placeholder="Location" value="{{ menu.location }}">
+        </div>
+      </div>
+      <hr> {# This loads the macro functions at the bottom of this template. Each section has an extra blank row #} {% import
+      _self as forms %}
+
+      <!-- Daily Pies -->
+      <div class="menu-section">
+        <h3>Daily Pies</h3>
+        {% for m in menu.items if m.section == 'dailypies' %} {{ forms.menuItem('dailypies', m) }} {% else %} {{ forms.menuItem('dailypies')
+        }} {% endfor %}
+        <button class="btn btn-success btn-block add-item-row" type="button">Add Row</button>
+      </div>
+
+      <!-- Sides -->
+      <div class="menu-section">
+        <h3>Sides</h3>
+        {% for m in menu.items if m.section == 'sides' %} {{ forms.menuItem('sides', m) }} {% else %} {{ forms.menuItem('sides')
+        }} {% endfor %}
+        <button class="btn btn-success btn-block add-item-row" type="button">Add Row</button>
+      </div>
+
+      <!-- Sausage Rolls -->
+      <div class="menu-section">
+        <h3>Sausage Rolls &amp; Other</h3>
+        {% for m in menu.items if m.section == 'rolls' %} {{ forms.menuItem('rolls', m) }} {% else %} {{ forms.menuItem('rolls')
+        }} {% endfor %}
+        <button class="btn btn-success btn-block add-item-row" type="button">Add Row</button>
+      </div>
+
+      <!-- Puds -->
+      <div class="menu-section">
+        <h3>Puds</h3>
+        {% for m in menu.items if m.section == 'puds' %} {{ forms.menuItem('puds', m) }} {% else %} {{ forms.menuItem('puds') }}
+        {% endfor %}
+        <button class="btn btn-success btn-block add-item-row" type="button">Add Row</button>
+      </div>
+
+      <!-- Takeaway Pies -->
+      <div class="menu-section">
+        <h3>Takeaway Pies</h3>
+        {% for m in menu.items if m.section == 'takeawaypies' %} {{ forms.menuItem('takeawaypies', m) }} {% else %} {{ forms.menuItem('takeawaypies')
+        }} {% endfor %}
+        <button class="btn btn-success btn-block add-item-row" type="button">Add Row</button>
+      </div>
+      <hr>
+
+      <a class="btn btn-warning" href="{{ pathFor('showMenus') }}">Cancel</a>
+      <button class="btn btn-success" type="submit" name="button">Save</button>
+      {% if menu.id %}
+      <a class="btn btn-danger deleteButton" href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a>
+      {% endif %}
+    </form>
+
+
+    {# Special custom Twig functions for the two types of form sections (pie and other) so we don't repeat ourselves #} {% macro
+    menuItem(section, value) %}
+    <div class="border rounded p-2 mb-1 menu-item">
+      <input class="form-control" type="hidden" name="items[menu_item_id][]" value="{{ value.id }}">
+      <input class="form-control" type="hidden" name="items[section][]" maxlength="60" value="{{ section }}">
+      <input class="form-control" type="hidden" name="items[sold_out][]" maxlength="1" value="{{ value.sold_out|default('N') }}">
+      <div class="form-row">
+        <div class="col-sm-2">
+          <select class="form-control mb-2" name="items[type][]">
+            <option selected disabled hidden value="default">Select Type...</option>
+            <option {% if value.type=='BEEF' %}selected{% endif %} value="BEEF">Beef</option>
+            <option {% if value.type=='VEGGIE' %}selected{% endif %} value="VEGGIE">Veggie</option>
+            <option {% if value.type=='CHICKEN' %}selected{% endif %} value="CHICKEN">Chicken</option>
+            <option {% if value.type=='GUEST' %}selected{% endif %} value="GUEST">Guest</option>
+            <option {% if value.type=='OTHER' %}selected{% endif %} value="OTHER">Other</option>
+          </select>
+        </div>
+        <div class="col">
+          <input class="form-control" type="text" name="items[description][]" maxlength="200" placeholder="Description" value="{{ value.description }}">
+        </div>
+        <div class="col-sm-1">
+          <input class="form-control" type="text" name="items[price][]" maxlength="20" placeholder="Price" value="{{ value.price }}">
+        </div>
+        <div class="col-sm-1 optional-button">
+          <a class="btn btn-danger delete-menu-item" href="#">Delete</a>
+        </div>
+      </div>
+    </div>
+    {% endmacro %}
+
+  </div>
+</section>
+
+{% endblock %}

@@ -16,9 +16,17 @@ class AdminPageController extends BaseController
         // Get dependencies
         $mapper = $this->container->dataMapper;
         $PageMapper = $mapper('PageMapper');
+        $PageletMapper = $mapper('PageletMapper');
 
         // Fetch pages
-        $pages = $PageMapper->findPageSets();
+        $pages = $PageMapper->find();
+
+        // If we found pages, then loop through to get pagelets
+        if ($pages) {
+            foreach ($pages as $key => $row) {
+                $pages[$key]->pagelets = $this->indexPageletKeys($PageletMapper->findPageletsByPageId($row->id));
+            }
+        }
 
         return $this->container->view->render($response, '@admin/pages.html', ['pages' => $pages]);
     }
@@ -132,6 +140,7 @@ class AdminPageController extends BaseController
         // Get dependencies
         $mapper = $this->container->dataMapper;
         $PageletMapper = $mapper('PageletMapper');
+        $markdown = $this->container->markdownParser;
 
         // Create page
         $page = $PageletMapper->make();
@@ -139,8 +148,7 @@ class AdminPageController extends BaseController
         $page->page_id = $request->getParsedBodyParam('page_id');
         $page->name = $request->getParsedBodyParam('name');
         $page->content = $request->getParsedBodyParam('content');
-        // TODO enable markdown conversion
-        //$page->content_html = $request->getParsedBodyParam('content_html');
+        $page->content_html = $markdown->text($request->getParsedBodyParam('content'));
 
         // Save
         $page = $PageletMapper->save($page);

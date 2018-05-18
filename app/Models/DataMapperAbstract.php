@@ -154,12 +154,7 @@ abstract class DataMapperAbstract
 
         $this->bindValues[] = $id;
 
-        // Execute the query and fetch result
-        $this->execute();
-        $result = $this->statement->fetch();
-        $this->clear();
-
-        return $result;
+        return $this->findRow();
     }
 
     /**

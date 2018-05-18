@@ -1,0 +1,81 @@
+body{
+    margin-top: 80px;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--mypie-dark-grey);
+}
+// global styles
+#admin{
+    
+}
+.page-title {
+    color: #000;
+    font-size: 1.8;
+    // display: block;
+    border-bottom: solid 1px #000;
+    @include margin(null null 10px);
+    @include padding(1rem null null);
+}
+
+.link-container {
+    display: block;
+    position: relative;
+    flex-flow: row wrap;
+    background: #efefef;
+    @include padding(.5rem);
+    @include margin(1rem nul);
+    border-radius: 3px;
+    box-shadow: 0 3px 7px rgba(0,0,0,.3);
+
+    & a{
+        color: #6e1e21;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+    & a:hover {
+        color: #ed1c24;
+    
+    }
+}
+// Menu Management Section
+
+.menu-link a {
+    font-size: 1.3rem;
+
+}
+.menu-actions  {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+
+}
+.menu-icon {
+    @include padding(1rem);
+}
+
+.menu-item-wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: .5rem;
+    justify-content: center;
+    align-items: center;
+    @include padding(.5rem);
+    @media(min-width: 768px){
+    
+    grid-template-columns: .75fr .75fr 3fr .5fr;
+   
+}
+
+}
+
+.menu-item-wrapper:nth-child(odd){
+    background: var(--mypie-light);
+   
+}
+.menu-item-each{
+    @include margin(3px null);
+}
+// Pages Management Section
+
+
+

@@ -10,4 +10,4 @@ public/assets/img/originals/
 
 # Misc
 *.xml
-templates/test*
+# templates/test*

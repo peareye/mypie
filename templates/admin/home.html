@@ -1,55 +1,35 @@
-{% extends '@admin/admin_base.html' %}
+{% extends '@admin/admin_base.html' %} {% block body %}
 
- {% block body %}
- <div class="container">
-        <h2 class="">Admin Home</h2>
-        <div class="row">
-                <div class="col-lg-4 col-sm-6">
-                  <div class="card my-1">
-                        <div class="card-header">
-                                <h5 class="card-title">Daily Menu</h5>
-                              </div>
-                    <div class="card-body">
-                      
-                      <p class="card-text"></p>
-                      <a href="#" class="btn btn-primary">Update Menu</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                        <div class="card my-1">
-                            <div class="card-header">
-                                    <h5 class="card-title">Daily Calendar</h5>
-                            </div>
-                          <div class="card-body">
-                           
-                            <p class="card-text"></p>
-                            <a href="#" class="btn btn-primary">Update Calendar</a>
-                          </div>
-                        </div>
-                      </div>
-                <div class="col-lg-4 col-sm-6">
-                  <div class="card my-1">
-                      <div class="card-header">
-                            <h5 class="card-title">Website Content</h5>
-                      </div>
-                    <div class="card-body">
-                      
-                      <p class="card-text"></p>
-                      <a href="#" class="btn btn-primary">Add/Edit Content</a>
-                    </div>
-                  </div>
-                </div>
-        
-              </div>
-              <hr>
-     
-        <ul>
-            <li><a href="{{ pathFor('showUsers') }}">Users</a></li>
-            <li><a href="{{ pathFor('showPages') }}">Pages</a></li>
+<section id="admin">
+    <div class="container">
+        <h1 class="page-title">Dashboard Home</h1>
+        <div class="link-container">
 
-        </ul>
+            <ul class="nav flex-column">
+                <li class="nav-item nav-style rounded">
+                    <a class="nav-link" href="{{ pathFor('showMenus') }}">Menu Management</a>
+                </li>
 
- </div>
+                <li class="nav-item nav-style rounded">
+                    <a class="nav-link" href="{{ pathFor('showPages') }}">Pages Management</a>
+                </li>
+                <li class="nav-item nav-style rounded">
+                    <a class="nav-link" href="{{ pathFor('showUsers') }}">User Management</a>
+                </li>
+                <li class="nav-item nav-style rounded">
+                    <a class="nav-link" href="#">Help</a>
+                </li>
+            </ul>
+        </div>
+
+        <hr>
+           
+                    {% include 'admin/currentMenu.html' %}
+         
+           
+   
+
+    </div>
+</section>
 
 {% endblock %}

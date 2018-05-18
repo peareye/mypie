@@ -6937,53 +6937,34 @@ a.text-dark:hover, a.text-dark:focus {
     border: 1px solid #dee2e6 !important; } }
 :root {
   --mypie-red: #ed1c24;
-  --mypie-dark: #231f20;
-  --mypie-light-grey: #fafafa;
+  --mypie-dark: #333;
+  --mypie-light-grey: #efefef;
   --mypie-md-grey: #8b9399;
   --mypie-dark-grey: #756d6e;
   --mypie-accent-red: #6e1e21;
   --mypie-light: #ffffff;
   --border-radius: 4px;
   --box-shadow: 0 2px 2px rgba(0,0,0,.5);
-  --narrow-font: 'Roboto Condensed', sans-serif;
-  --regular-font: 'Open Sans', sans-serif; }
+  --text-shadow: 0 2px 2px rgba(0,0,0,.5);
+  --border: solid 1px rgba(140,140,140,.08); }
 
 :root {
-  font-size: 16px; }
+  font-size: 12px; }
 
-@media (min-width: 576px) and (max-width: 800px) {
+@media (min-width: 576px) and (max-width: 991px) {
   :root {
-    font-size: calc( 16px + (18 - 16) * ( (100vw - 576px) / ( 800 - 576) )); } }
-@media (min-width: 800px) {
+    font-size: calc( 12px + (20 - 12) * ( (100vw - 576px) / ( 991 - 576) )); } }
+@media (min-width: 991px) {
   :root {
-    font-size: 18px; } }
-body, html {
-  height: 100vh;
-  background-color: var(--mypie-light-grey); }
-
+    font-size: 20px; } }
 body {
-  color: var(--mypie-dark);
-  font-family: var(--narrow-font);
+  color: var(--mypie-dark-grey);
+  font-family: 'Montserrat', sans-serif;
   margin-top: 82px; }
 
-p {
-  font-size: 1rem; }
-
-.container-page {
-  background: var(--mypie-light);
-  padding-top: 3rem;
-  padding-bottom: 3rem; }
-
-.container-home {
-  background-color: var(--mypie-light);
-  padding-top: 3rem;
-  padding-bottom: 3rem; }
-
 img {
-  width: 100%; }
-
-button {
-  background-color: #ed1c24 !important; }
+  width: 100%;
+  display: block; }
 
 h1,
 h2,
@@ -6991,7 +6972,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--narrow-font);
+  font-family: "Roboto Condensed", sans-serif;
+  color: var(--mypie-dark);
   font-weight: 700; }
 
 h1 {
@@ -7015,22 +6997,21 @@ h6 {
 .strong {
   font-weight: bold; }
 
-.text {
-  font-family: var(--regular-font); }
-
 .container h2 {
   padding-top: 1rem; }
-
-.heading {
-  font-family: var(--narrow-font); }
 
 .center-align {
   display: block;
   text-align: center; }
 
-.btn:focus, .btn:active, a.hover, a:active {
+.btn:focus, .btn:active, a:hover, a:active {
   outline: none !important;
   box-shadow: none; }
+
+#main {
+  border-top: solid 4px black;
+  padding-top: 4rem;
+  padding-bottom: 4rem; }
 
 .headshot {
   width: 10rem;
@@ -7040,25 +7021,21 @@ h6 {
   margin-right: 2rem;
   margin-bottom: .5rem; }
 
-.logo-padding {
-  background: var(--mypie-light);
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-bottom: solid 4px var(--mypie-red); }
+.logo-container {
+  padding-top: 5px;
+  padding-bottom: 5px; }
 
 .lg-logo-wrapper {
   width: 100vw;
   height: 250px;
   margin: auto;
-  background-image: url("../img/myPieLogoWide.svg");
-  background-repeat: no-repeat;
+  background: url("../img/myPieLogoWide.svg") no-repeat;
   background-position: center center;
   background-size: cover;
   object-fit: cover; }
 
 .lg-logo-wraper img {
-  width: 100%;
-  margin-bottom: 0.8rem; }
+  width: 100%; }
 
 nav {
   padding: 0.1;
@@ -7067,13 +7044,13 @@ nav {
 .bg-dark {
   background: var(--mypie-red) !important; }
 
-.nav-link a {
-  font-size: 1rem; }
-
 .navbar-brand img {
   height: 80px;
   width: auto;
   padding-top: 3px; }
+
+.navbar a {
+  font-size: .8rem !important; }
 
 button.navbar-toggler {
   color: var(--light); }
@@ -7092,29 +7069,27 @@ button:hover,
   background-color: var(--mypie-red);
   color: #fff; }
 
-.navbar-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.8) !important; }
-
 .jumbotron {
-  margin-bottom: 0;
-  background-image: url("../img/showcase.jpg");
+  padding-bottom: 1px !important;
+  min-height: 400px;
+  background-image: url("../img/hot-pie-1.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  object-fit: cover;
   text-align: center; }
 
-.jumbotron-heading {
-  font-weight: 300; }
-
-.jumbotron .container {
-  max-width: 100vw;
-  background: rgba(255, 255, 255, 0.1);
-  color: white; }
+.jumbo-inner {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: var(--border-radius);
+  padding: 1rem; }
 
 .jumbotron p {
   color: var(--mypie-light);
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
+  text-shadow: var(--text-shadow); }
+
+.jumbotron h1 {
+  text-shadow: var(--text-shadow);
+  color: var(--mypie-light); }
 
 footer {
   font-size: 0.7rem;
@@ -7150,8 +7125,8 @@ footer a:hover {
 .custom-button input[type="submit"] {
   background: var(--mypie-red);
   color: #fff;
+  border: solid 0.03rem #6e1e21;
   text-transform: uppercase;
-  font-family: var(--regular-font);
   border-radius: var(--border-radius); }
 
 #contact-us, #message-us, #our-story {
@@ -7178,13 +7153,31 @@ footer a:hover {
   display: flex;
   flex-flow: row nowrap; }
 
-.menu-items:nth-child(even) {
-  background: var(--mypie-light-grey);
-  padding-right: 0.3rem;
-  padding-left: 0.3rem; }
-
 .menu-item {
   padding: 0.3rem; }
+
+.menu-items:nth-child(even) {
+  background-color: var(--mypie-light-grey); }
+
+#pie-box,
+#sides-box,
+#sausage-box,
+#puds-box,
+#takeaway-box {
+  padding-bottom: 1rem;
+  border-radius: 4px;
+  border: solid 1px rgba(167, 167, 167, 0.5);
+  margin-bottom: 1rem; }
+
+.menu-title {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  background: var(--mypie-red);
+  color: var(--mypie-light);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-weight: 700;
+  margin-bottom: 0; }
 
 .menu-item-title {
   flex: 1.2;
@@ -7198,55 +7191,103 @@ footer a:hover {
   flex: 0.75;
   font-style: italic; }
 
-#pie-box,
-#sides-box,
-#sausage-box,
-#puds-box,
-#takeaway-box {
-  padding-bottom: 1rem;
-  border-radius: 7px;
-  margin-bottom: 1rem; }
-
-.menu-title {
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-  background: var(--mypie-red);
-  color: var(--mypie-light);
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  font-weight: 700; }
-
 /* Section: Calendars */
+.calendar-wrapper {
+  margin-bottom: 0.5rem; }
+
+.calendar-controls {
+  background: #fff;
+  padding-top: 0;
+  padding-bottom: 0.25rem;
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  background: #fff;
+  justify-content: center; }
+
+.calendar-controls h3 {
+  margin: 10px; }
+
+/* Arrows */
+.slick-prev,
+.slick-next {
+  font-size: 0;
+  position: absolute;
+  border: 0;
+  background: none;
+  z-index: 1;
+  line-height: 1; }
+
+.slick-prev {
+  color: rgba(0, 0, 0, 0.5);
+  left: .25rem;
+  top: 0; }
+
+.slick-prev::before {
+  content: '\f104';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 40px;
+  border: none; }
+
+.slick-next {
+  color: rgba(0, 0, 0, 0.5);
+  right: .25rem;
+  top: 0; }
+
+.slick-next::after {
+  content: '\f105';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 40px;
+  border: none; }
+
+.slick-prev:hover::after,
+.slick-next:hover::after {
+  color: black;
+  outline: none; }
+
 .calendar-wrapper-days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-gap: .1rem;
-  justify-content: center;
-  align-items: center;
+  grid-gap: 2px;
   padding-top: 0.25rem;
-  padding-right: 1rem;
-  padding-left: 1rem; }
+  padding-right: 0.25rem;
+  padding-left: 0.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #ddd; }
+
+.calendar-wrapper-days .box {
+  display: grid;
+  height: 30px;
+  justify-items: center;
+  align-content: center; }
+
+.calendar-wrapper-days > .box > h5 {
+  text-transform: uppercase;
+  margin-bottom: 0; }
 
 .calendar-wrapper {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-gap: .25rem;
-  padding: 0.75rem 1rem;
-  margin-top: 0.25rem;
-  margin-bottom: 2rem;
+  grid-auto-rows: minmax(75px, auto);
+  grid-gap: 1px;
+  padding-right: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.25rem;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  background: #efefef; }
+  background: #ddd; }
 
 .calendar-day {
-  color: #756d63; }
+  color: #333; }
 
-.prev-month {
-  color: rgba(0, 0, 0, 0.2); }
+.prev-month h6 {
+  color: #ddd; }
 
 .box {
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 3px;
-  height: 100%;
+  min-height: 40px;
   padding: 3px;
   background: #fff; }
 
@@ -7267,10 +7308,8 @@ footer a:hover {
 .calendar-day {
   color: #756d63; }
 
-/* Section: _quick-calendar.html */
-/* Section: _full-calendar.html */
-#full-calendar .calendar-wrapper {
-  grid-template-rows: repeat(6, 1fr); }
+.prev-month h6 {
+  color: #cfcfcf; }
 
 .get-social-wrapper {
   display: flex;
@@ -7295,34 +7334,43 @@ footer a:hover {
 #newsletter form > div:first-child {
   display: none; }
 
+#newsletter h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0; }
+
 .newsletter-wrapper {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1rem; }
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center; }
 
-.newsletter-box {
+.newsletter-signup-content {
   padding-right: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px; }
+  padding-left: 10px;
+  margin-bottom: -35px; }
 
-.newsletter-box h3 {
-  padding-top: 2rem; }
+@media screen and (min-width: 768px) {
+  #newsletter h2 {
+    margin-top: 1.5rem; }
 
+  .newsletter-box {
+    margin-top: -20px; }
+
+  .newsletter-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem; } }
 @media (min-width: 576px) {
-  .jumbotron {
-    background-attachment: fixed;
-    height: 600px; }
-
   section::after {
     display: block;
-    opacity: .80;
     content: "";
     height: 400px;
     width: 100%;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.6); }
 
   section#dailymenu::after {
-    background: url("../img/hot-pie-1.jpg");
+    background: url("../img/showcase.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -7340,34 +7388,18 @@ footer a:hover {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-attachment: fixed; }
-
-  section#newsletter::after {
-    background: url("../img/mypie1600x1068.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed; }
-
-  section#full-calendar::after {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
     background-attachment: fixed; } }
 @media (min-width: 768px) {
   body {
-    margin-top: 56px; }
-
-  .nav-link {
-    font-size: 0.8rem; } }
+    margin-top: 70px; } }
 @media (min-width: 992px) {
   .menu-wrapper {
-    width: 70vw;
-    margin: auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    grid-gap: 0.5rem; } }
+    grid-template-columns: repeat(auto-fit, minmax(200px 1fr));
+    grid-gap: 0.5rem; }
+
+  #pie-box {
+    grid-column: 1 / span 2; } }
 @media (min-width: 1975px) {
   .lg-logo-wrapper {
     height: 330px; } }

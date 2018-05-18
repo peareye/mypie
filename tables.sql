@@ -53,7 +53,42 @@ CREATE TABLE IF NOT EXISTS `pagelet` (
   UNIQUE KEY `page_id_name_uq` (`page_id`, `name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE IF NOT EXISTS `menu` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` date NOT NULL,
+  `location` varchar(60) NULL DEFAULT NULL,
+  `created_by` int(11) NOT NULL DEFAULT '1',
+  `created_date` datetime NOT NULL,
+  `updated_by` int(11) NOT NULL DEFAULT '1',
+  `updated_date` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `menu_date_idx` (`date`),
+  KEY `menu_updated_date_idx` (`updated_date`),
+  KEY `menu_location_idx` (`location`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `menu_item` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `menu_id` int(11) NOT NULL,
+  `section` varchar(60) NOT NULL,
+  `sort` int(11) NOT NULL DEFAULT '1',
+  `type` varchar(20) NULL DEFAULT NULL,
+  `description` varchar(200) NOT NULL,
+  `price` varchar(20) NULL DEFAULT NULL,
+  `sold_out` enum('N','Y') NOT NULL DEFAULT 'N',
+  `created_by` int(11) NOT NULL DEFAULT '1',
+  `created_date` datetime NOT NULL,
+  `updated_by` int(11) NOT NULL DEFAULT '1',
+  `updated_date` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `menu_id_idx` (`menu_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
+
 ALTER TABLE `pagelet`
 ADD CONSTRAINT `pagelet_page_id_fk` FOREIGN KEY (`page_id`) REFERENCES `page` (`id`) ON DELETE CASCADE;
 
+ALTER TABLE `menu_item`
+ADD CONSTRAINT `menu_item_menu_id_fk` FOREIGN KEY (`menu_id`) REFERENCES `menu` (`id`) ON DELETE CASCADE;
+
 SET FOREIGN_KEY_CHECKS=1;
+

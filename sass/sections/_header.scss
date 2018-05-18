@@ -1,27 +1,21 @@
 // Header & Nav Styles
-
 // Logo Styles
-.logo-padding{
-  background: var(--mypie-light);
-  @include padding(10px null);
-  border-bottom: solid 4px var(--mypie-red);
+.logo-container {
+  @include padding(5px null);
 }
+
 .lg-logo-wrapper {
   width: 100vw;
   height: 250px;
   margin: auto;
-  background-image: url("../img/myPieLogoWide.svg");
-  background-repeat: no-repeat;
+  background: url("../img/myPieLogoWide.svg") no-repeat;
   background-position: center center;
   background-size: cover;
   object-fit: cover;
-  
- 
 }
+
 .lg-logo-wraper img {
   width: 100%;
-  @include margin(null null .8rem);
-  
 }
 
 // Navbar Custom Styles
@@ -30,26 +24,25 @@ nav {
   box-shadow: var(--box-shadow);
 
 }
+
 .bg-dark {
   background: var(--mypie-red) !important;
-}
-.nav-link a {
-  font-size: 1rem;
 }
 
 //Navbar Brand Sizing
 .navbar-brand img {
   height: 80px;
   width: auto;
-  // background: pink;
   @include padding(3px null null);
 }
-
+.navbar a {
+  font-size: .8rem !important; 
+}
 // Customized Hamburger Icon
-
 button.navbar-toggler {
   color: var(--light);
 }
+
 button:focus,
 [type="button"]:focus,
 [type="reset"]:focus,
@@ -65,33 +58,31 @@ button:hover,
   background-color: var(--mypie-red);
   color: #fff;
 }
-.navbar-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.8) !important;
-}
+
 
 // Hero Section
 .jumbotron {
-  @include margin(null null 0);
-  background-image: url("../img/showcase.jpg");
-  // background-attachment: fixed;
+  padding-bottom: 1px !important;
+  min-height: 400px;
+  background-image: url("../img/hot-pie-1.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  object-fit: cover;
   text-align: center;
 }
 
-.jumbotron-heading {
-  font-weight: 300;
-}
-.jumbotron .container {
-  max-width: 100vw;
-  background: rgba(255, 255, 255, 0.1);
-  // @include padding(2rem 1rem);
-  color: white;
+.jumbo-inner {
+  background: rgba(0, 0, 0, .08);
+  border-radius: var(--border-radius);
+  @include padding(1rem);
 }
 
 .jumbotron p {
   color: var(--mypie-light);
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-shadow:var(--text-shadow);
+}
+
+.jumbotron h1 {
+  text-shadow:var(--text-shadow);
+  color: var(--mypie-light);
 }

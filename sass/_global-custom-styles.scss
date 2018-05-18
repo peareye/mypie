@@ -1,30 +1,14 @@
 // Global Settings
-body,html{
-  height: 100vh;
-  background-color: var(--mypie-light-grey);
-}
+
 body {
-  color: var(--mypie-dark);
-  font-family: var(--narrow-font);
+  color: var(--mypie-dark-grey);
+  font-family: 'Montserrat', sans-serif;
   margin-top: 82px;
 }
-p{
-  font-size: 1rem;
-}
-.container-page {
-  background: var(--mypie-light);
-  @include padding(3rem null);
-}
-.container-home{
-  background-color: var(--mypie-light);
-  @include padding(3rem null);
-}
+
 img {
   width: 100%;
-}
-button{
-  background-color: #ed1c24 !important;
-
+  display: block;
 }
 h1,
 h2,
@@ -32,7 +16,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--narrow-font);
+  font-family: "Roboto Condensed", sans-serif;
+  color: var(--mypie-dark);
   font-weight: 700;
 }
 h1 {
@@ -57,22 +42,35 @@ h6 {
   font-weight: bold;
 }
 .text {
-  font-family: var(--regular-font);
+  // font-family: "Open Sans", sans-serif;
 }
 .container h2 {
   @include padding(1rem null null);
 }
 .heading {
-  font-family: var(--narrow-font);
+  // font-family: "Roboto Condensed", sans-serif;
 }
 .center-align {
   display: block;
   text-align: center;
 }
-.btn:focus,.btn:active, a.hover, a:active{
+.btn:focus,.btn:active, a:hover, a:active{
   outline: none !important;
   box-shadow: none;
 }
+// Pages Styles
 
+#main{
+  border-top: solid 4px black;
+  @include padding(4rem null);
+}
+// .font1 {
+//   font-family: 'Montserrat', sans-serif;
 
-
+// }
+// .font2 {
+//   font-family: 'Open Sans', sans-serif;
+// }
+// .font3 {
+//   font-family: 'Roboto Condensed', sans-serif;
+// }

@@ -10,16 +10,18 @@ class PageletMapper extends DataMapperAbstract
     protected $modifiableColumns = ['page_id', 'name', 'content', 'content_html'];
 
     /**
-     * Get Pagelet by ID
+     * Get Pagelets by Page ID
      *
-     * Returns part of the page header record
-     * @param int, pagelet ID
+     * Returns array of domain objects
+     * @param int Page ID
+     * @return array
      */
-    public function findById($pageletId)
+    public function findPageletsByPageId($id)
     {
-        $this->sql = 'select p.title, p.url, pl.* from page p join pagelet pl on p.id = pl.page_id where pl.id = ?';
-        $this->bindValues[] = $pageletId;
+        $this->makeSelect();
+        $this->sql .= ' where page_id = ?';
+        $this->bindValues[] = $id;
 
-        return $this->findRow();
+        return $this->find();
     }
 }
