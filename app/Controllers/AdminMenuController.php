@@ -256,4 +256,85 @@ class AdminMenuController extends BaseController
             return $response->withRedirect($this->container->router->pathFor('adminHome'));
         }
     }
+
+    /**
+     * Show All Menu Item Default
+     *
+     * Show all menu item default values
+     */
+    public function showMenuItemDefaults($request, $response, $args)
+    {
+        // Get dependencies
+        $mapper = $this->container->dataMapper;
+        $MenuItemDefaultMapper = $mapper('MenuItemDefaultMapper');
+
+        // Fetch menu defaults
+        $defaults = $MenuItemDefaultMapper->find();
+
+        // If rows were found, create at least one record
+        if (!$defaults) {
+            $defaults[] = $MenuItemDefaultMapper->make();
+        }
+
+        return $this->container->view->render($response, '@admin/editMenuItemDefaults.html', ['defaults' => $defaults]);
+    }
+
+    /**
+     * Save Menu Item Defaults
+     *
+     * Save menu item default array
+     */
+    public function saveMenuItemDefaults($request, $response, $args)
+    {
+        // Get dependencies
+        $mapper = $this->container->dataMapper;
+        $MenuItemDefaultMapper = $mapper('MenuItemDefaultMapper');
+
+        // Get items to save
+        $defaults = $request->getParsedBodyParam('defaults');
+
+        // Loop through defaults array
+        foreach ($defaults['kind'] as $key => $row) {
+            // Only save if there is at least a kind description
+            if (!empty(trim($row))) {
+                // Create menu item default object
+                $menuItemDefault = $MenuItemDefaultMapper->make();
+                $menuItemDefault->id = $defaults['menu_item_default_id'][$key];
+                $menuItemDefault->kind = trim($defaults['kind'][$key]);
+                $menuItemDefault->price = $defaults['price'][$key];
+
+                // Save item default
+                $MenuItemDefaultMapper->save($menuItemDefault);
+                unset($menuItemDefault);
+            }
+        }
+
+        // Redirect back to show menus
+        return $response->withRedirect($this->container->router->pathFor('showMenus'));
+    }
+
+    /**
+     * Delete Menu Item Default Value
+     *
+     */
+    public function deleteMenuItemDefault($request, $response, $args)
+    {
+        // Get dependencies
+        $mapper = $this->container->dataMapper;
+        $MenuItemDefaultMapper = $mapper('MenuItemDefaultMapper');
+
+        // Delete item default
+        $menuItem = $MenuItemDefaultMapper->make();
+        $menuItem->id = $args['id'];
+        $MenuItemDefaultMapper->delete($menuItem);
+
+        if ($request->isXhr()) {
+            // Set the response XHR type and return
+            $r = $response->withHeader('Content-Type', 'application/json');
+            return $r->write(json_encode(['status' => 'success']));
+        } else {
+            // Redirect back to show menus
+            return $response->withRedirect($this->container->router->pathFor('showMenus'));
+        }
+    }
 }
