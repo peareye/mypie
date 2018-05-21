@@ -4,6 +4,13 @@ $('body').on('click', '.deleteButton', function() {
   return reply;
 });
 
+// Auto grow user list
+$('#user-emails').on('click', '.addEmail', function () {
+    var newRow = $(this).clone();
+    $(this).removeClass('addEmail');
+    $(this).after(newRow);
+});
+
 // Add menu item form rows
 $('.menu-section').on('click', '.add-item-row', function() {
     var $row = $(this).prev('.menu-item').clone();
