@@ -84,6 +84,13 @@ CREATE TABLE IF NOT EXISTS `menu_item` (
   KEY `menu_id_idx` (`menu_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE IF NOT EXISTS `menu_item_default` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `kind` varchar(20) NULL DEFAULT NULL,
+  `price` varchar(20) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
+
 ALTER TABLE `pagelet`
 ADD CONSTRAINT `pagelet_page_id_fk` FOREIGN KEY (`page_id`) REFERENCES `page` (`id`) ON DELETE CASCADE;
 

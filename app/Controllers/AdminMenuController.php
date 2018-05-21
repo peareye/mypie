@@ -60,6 +60,7 @@ class AdminMenuController extends BaseController
         $mapper = $this->container->dataMapper;
         $MenuMapper = $mapper('MenuMapper');
         $MenuItemMapper = $mapper('MenuItemMapper');
+        $MenuItemDefaultMapper = $mapper('MenuItemDefaultMapper');
 
         // Fetch menu, or create new menu
         if ($args['id']) {
@@ -68,6 +69,9 @@ class AdminMenuController extends BaseController
         } else {
             $menu = $MenuMapper->make();
         }
+
+        // Get defaults
+        $menu->defaults = $MenuItemDefaultMapper->find();
 
         return $this->container->view->render($response, '@admin/editMenu.html', ['menu' => $menu]);
     }
