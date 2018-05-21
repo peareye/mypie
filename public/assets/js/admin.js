@@ -101,3 +101,10 @@ $('.menu-item-defaults').on('click', '.delete-menu-item-default', function(e) {
         });
     }
 });
+
+// Set the default price on change of kind
+$('.edit-menu').on('change', 'select[name="items[type][]"]', function() {
+    var newKind = $(this).val();
+    var price = priceList[newKind];
+    $(this).parents('.menu-item').find('input[name="items[price][]"]').val(price);
+});

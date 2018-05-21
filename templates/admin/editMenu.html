@@ -3,8 +3,15 @@
 <section id="admin">
   <div class="container">
     <h1 class="page-title">{% if menu.id %}Edit{% else %}Add{% endif %} Menu</h1>
-    <form action="{{ pathFor('saveMenu') }}" method="post" accept-charset="utf-8">
+    <form class="edit-menu" action="{{ pathFor('saveMenu') }}" method="post" accept-charset="utf-8">
       <input type="hidden" name="id" value="{{ menu.id }}">
+
+      <script type="text/javascript">
+        var priceList = {};
+        {% for pl in menu.defaults %}
+        priceList['{{ pl.kind }}'] = '{{ pl.price }}';
+        {% endfor %}
+      </script>
 
       <a class="btn btn-warning" href="{{ pathFor('showMenus') }}">Cancel</a>
       <button class="btn btn-success" type="submit" name="button">Save</button>
