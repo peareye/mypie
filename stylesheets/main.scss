@@ -1,0 +1,40 @@
+@charset 'UTF-8';
+
+// Vendor Tools
+@import 'vendor/bourbon/bourbon',
+'vendor/base/base',
+'bootstrap';
+
+// 1. Configuration and helpers
+@import 'abstracts/variables',
+'abstracts/functions',
+'abstracts/mixins';
+
+// 2. Vendors
+@import 'vendor/normalize';
+
+// 3. Base stuff
+@import 'base/base',
+'base/fonts',
+'base/typography',
+'base/helpers';
+
+// 4. Layout-related sections
+@import 'layout/header',
+'layout/footer';
+
+// 5. Components
+@import 'components/button',
+'components/calendar',
+'components/get-social',
+'components/menu',
+'components/newsletter';
+
+// 6. Page-specific styles
+@import 'pages/home',
+'pages/suppliers',
+'pages/events',
+'pages/about';
+
+// 7. Themes
+@import 'themes/default';
