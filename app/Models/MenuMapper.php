@@ -83,4 +83,30 @@ class MenuMapper extends DataMapperAbstract
 
         return $menu;
     }
+
+    /**
+     * Get Menu By Date
+     *
+     * Finds menu given dd-mmm-yy format
+     * @param str dd-mmm-yy date
+     * @return mixed
+     */
+    public function getMenuByDate($dateUrl)
+    {
+        // Format input argument as valid date
+        $menuDate = \DateTime::createFromFormat('d-M-y', $dateUrl);
+
+        // Make sure we have a valid date conversion
+        if (!$menuDate) {
+            return null;
+        }
+
+        // Prepare query
+        $this->makeSelect();
+        $this->sql .= ' where date = ?';
+        $this->bindValues[] = $menuDate->format('Y-m-d');
+
+        // Return data
+        return $this->findRow();
+    }
 }
