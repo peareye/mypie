@@ -8,10 +8,18 @@ $('.single-item').slick({
     fade: true,
 });
 
+var smoothScroll = function(hash) {
+    $('html, body').animate({
+        scrollTop: $(hash).offset().top - 100
+    }, 500, 'easeInOutSine');
+}
+
 // Close BS4 navbar on in-page links, and scroll with offset
 $('.navbar-nav > li > a').on('click', function(){
     $('.navbar-collapse').collapse('hide');
-    $('html, body').animate({
-        scrollTop: $( $(this).prop('hash') ).offset().top - 100
-    });
+    smoothScroll($(this).prop('hash'))
 });
+
+if (window.location.hash) {
+    smoothScroll(window.location.hash)
+}
