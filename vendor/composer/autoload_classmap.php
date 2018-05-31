@@ -293,6 +293,7 @@ return array(
     'Piton\\Library\\SecurityHandler' => $baseDir . '/app/Library/SecurityHandler.php',
     'Piton\\Models\\DataMapperAbstract' => $baseDir . '/app/Models/DataMapperAbstract.php',
     'Piton\\Models\\DomainObject' => $baseDir . '/app/Models/DomainObject.php',
+    'Piton\\Models\\MenuItemDefaultMapper' => $baseDir . '/app/Models/MenuItemDefaultMapper.php',
     'Piton\\Models\\MenuItemMapper' => $baseDir . '/app/Models/MenuItemMapper.php',
     'Piton\\Models\\MenuMapper' => $baseDir . '/app/Models/MenuMapper.php',
     'Piton\\Models\\PageMapper' => $baseDir . '/app/Models/PageMapper.php',

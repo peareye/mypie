@@ -415,6 +415,7 @@ class ComposerStaticInit97d2d9d100b1138cfd987a784b54cdba
         'Piton\\Library\\SecurityHandler' => __DIR__ . '/../..' . '/app/Library/SecurityHandler.php',
         'Piton\\Models\\DataMapperAbstract' => __DIR__ . '/../..' . '/app/Models/DataMapperAbstract.php',
         'Piton\\Models\\DomainObject' => __DIR__ . '/../..' . '/app/Models/DomainObject.php',
+        'Piton\\Models\\MenuItemDefaultMapper' => __DIR__ . '/../..' . '/app/Models/MenuItemDefaultMapper.php',
         'Piton\\Models\\MenuItemMapper' => __DIR__ . '/../..' . '/app/Models/MenuItemMapper.php',
         'Piton\\Models\\MenuMapper' => __DIR__ . '/../..' . '/app/Models/MenuMapper.php',
         'Piton\\Models\\PageMapper' => __DIR__ . '/../..' . '/app/Models/PageMapper.php',

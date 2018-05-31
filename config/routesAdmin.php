@@ -103,6 +103,21 @@ $app->group('/admin', function () {
     $this->get('/soldoutmenuitem/{id:[0-9]{0,}}', function ($request, $response, $args) {
         return (new Piton\Controllers\AdminMenuController($this))->soldOutMenuItemStatus($request, $response, $args);
     })->setName('soldOutMenuItem');
+
+    // Show all menu item default values
+    $this->get('/menuitemdefaults', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminMenuController($this))->showMenuItemDefaults($request, $response, $args);
+    })->setName('showMenuItemDefaults');
+
+    // Save all menu item defaults
+    $this->post('/savemenuitemdefaults', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminMenuController($this))->saveMenuItemDefaults($request, $response, $args);
+    })->setName('saveMenuItemDefaults');
+
+    // Delete One Menu Item Default
+    $this->get('/deletemenuitemdefault/{id:[0-9]+}', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminMenuController($this))->deleteMenuItemDefault($request, $response, $args);
+    })->setName('deleteMenuItemDefault');
 })->add(function ($request, $response, $next) {
     // Authentication
     $security = $this->securityHandler;

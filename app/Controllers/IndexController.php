@@ -105,7 +105,7 @@ class IndexController extends BaseController
         $MenuItemMapper = $mapper('MenuItemMapper');
 
         // Fetch menu header
-        $menu = $MenuMapper->findById($args['id']);
+        $menu = $MenuMapper->getMenuByDate($args['date']);
 
         // Verify we have an object, if not create one
         if (!is_object($menu)) {
@@ -118,7 +118,7 @@ class IndexController extends BaseController
         }
 
         // Get menu item details
-        $menu->items = $MenuItemMapper->findItemsByMenuId($args['id']);
+        $menu->items = $MenuItemMapper->findItemsByMenuId($menu->id);
 
         $this->container->view->render($response, '_menuSample.html', ['menu' => $menu]);
     }
