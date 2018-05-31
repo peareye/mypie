@@ -27,7 +27,7 @@ $app->get('/sampleurl', function ($request, $response, $args) {
 */
 
 // Show Single Menu
-$app->get('/menu/{id:[0-9]{0,}}', function ($request, $response, $args) {
+$app->get('/menu/{date:\d\d-[a-zA-Z]{3}-\d\d}', function ($request, $response, $args) {
     return (new Piton\Controllers\IndexController($this))->showMenu($request, $response, $args);
 })->setName('showMenu');
 
