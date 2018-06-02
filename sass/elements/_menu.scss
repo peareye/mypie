@@ -1,0 +1,75 @@
+.menu-wrapper{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+  grid-template-areas:
+
+  "pie"
+  "sides"
+  "sausage"
+  "puds"
+  "takeaway";
+}
+.pie-box,
+.sides-box,
+.sausage-box,
+.puds-box,
+.takeaway-box {
+  @include padding(null null 1rem);
+  @include border-radius(4px);
+  border: solid 1px rgba(167,167,167,.5);
+  @include margin(null null 1rem);
+}
+.pie-box{
+  grid-area: pie;
+}
+.sides-box {
+  grid-area: sides;
+}
+.sausage-box {
+  grid-area: sausage;
+}
+.puds-box {
+  grid-area: puds;
+}
+.takeaway-box {
+  grid-area: takeaway;
+}
+
+// menu items
+.menu-title {
+  @include border-top-radius(4px);
+  background: var(--mypie-red);
+  color: var(--mypie-light);
+  @include padding(0.5rem);
+  font-weight: 700;
+}
+.menu-items{
+  display: flex;
+  flex-flow: row nowrap;
+  &:nth-child(even){
+    background-color: var(--mypie-light-grey);
+  }
+}
+.menu-item {
+  @include padding(0.3rem);
+}
+.menu-item-title {
+  flex: 1.2;
+  text-align: left;
+  font-weight: bold;
+}
+
+.menu-item-description {
+  flex: 4;
+
+}
+
+.menu-item-price {
+  flex: 0.75;
+  font-style: italic;
+}
+.sold-out {
+  text-decoration: line-through;
+  color:var(--mypie-accent-red);
+}

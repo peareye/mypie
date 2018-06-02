@@ -3,20 +3,12 @@
 @import "vendor/base/base";
 @import "bootstrap";
 
-// Materialize CSS 
-
 // Custom Styles
-@import "vars/custom-vars";
+@import "vars/vars";
 @import "global-custom-styles";
 
 // Pages Styles
-@import "pages/about";
+@import "pages/pages";
 
-// Section Styles
-@import "sections/header";
-@import "sections/footer";
-@import "sections/menu";
-@import "sections/calendar";
-@import "sections/get-social";
-@import "sections/newsletter";
-@import "mediaQueries";
+// Elements Styles
+@import 'elements/elements';

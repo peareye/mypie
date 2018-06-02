@@ -1,0 +1,28 @@
+// Hero Section
+.jumbotron {
+  height: 500px;
+  background-color: var(--mypie-light-grey);
+  background-image: url("../img/hot-pie-1.jpg");
+  background-repeat: no-repeat;
+  // background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+
+}
+
+.jumbo-inner {
+  background: rgba(0, 0, 0, .08);
+  border-radius: var(--border-radius);
+  @include padding(1rem);
+}
+
+.jumbotron p {
+  color: var(--mypie-light);
+  text-shadow: var(--text-shadow);
+}
+
+.jumbotron h1 {
+  text-shadow: var(--text-shadow);
+  color: var(--mypie-light);
+}

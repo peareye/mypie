@@ -1,0 +1,161 @@
+// Header & Nav Styles
+// Logo Styles
+.logo-container {
+  // @include padding(25px null);
+  @include margin(25px null);
+}
+
+.lg-logo-wrapper {
+  width: 100vw;
+  height: 225px;
+  margin: auto;
+  background: url("../img/myPieLogoWide.svg") no-repeat;
+  background-position: center center;
+  background-size: cover;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 700px){
+  body{
+    background-color: pink;
+  }
+
+}
+@media screen and (min-width: 1975px) {
+  .lg-logo-wrapper {
+    height: 330px;
+  }
+}
+
+.lg-logo-wraper img {
+  width: 100%;
+}
+
+// Navbar Custom Styles
+nav {
+  @include padding(.1px);
+  box-shadow: var(--box-shadow);
+}
+
+.navbar {
+  @include padding(0 null);
+}
+
+.bg-dark {
+  background: var(--mypie-red) !important;
+}
+
+//Navbar Brand Sizing
+.navbar-brand img {
+  height: 70px;
+  width: auto;
+  @include padding(3px null null);
+}
+
+/* Hamburger Styles Credit: http://w3bits.com/animated-hamburger-icons/*/
+
+.hamburger {
+  font-size: 1.5rem;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  padding: 0;
+  cursor: pointer;
+  transition: transform .2s ease-in-out;
+  -moz-transition: transform .2s ease-in-out;
+  -webkit-transition: transform .2s ease-in-out;
+  vertical-align: middle;
+  border: 0 none;
+  background: transparent;
+}
+
+button:hover,
+[type='button']:hover,
+[type='reset']:hover,
+[type='submit']:hover {
+  background-color: var(--mypie-red);
+}
+
+/**
+ * Button height fix for Firefox
+ */
+
+.hamburger::-moz-focus-inner {
+  padding: 0;
+  border: 0 none;
+}
+
+/**
+ * Focus fix for Chrome
+ */
+
+.hamburger:focus {
+  outline: 0;
+}
+
+/**
+ * Styling the icon
+ */
+
+.hamburger:before,
+.hamburger:after {
+  content: "";
+}
+
+.hamburger:before,
+.hamburger .icon,
+.hamburger:after {
+  display: block;
+  width: 100%;
+  height: .2em;
+  margin: 0 0 .2em;
+  transition: transform .2s ease-in-out;
+  -moz-transition: transform .2s ease-in-out;
+  -webkit-transition: transform .2s ease-in-out;
+  border-radius: .25em;
+  -moz-border-radius: 25em;
+  -webkit-border-radius: .25em;
+  background: rgba(255, 255, 255, 1);
+}
+
+/**
+ * Styles for the active `.hamburger` icon
+ */
+
+.hamburger.active:before,
+.hamburger.active .icon,
+.hamburger.active:after {
+  background: white;
+}
+
+/**
+ * VERTICAL HAMBURGER
+ */
+
+.hamburger.hamburger-vertical.active {
+  transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+}
+
+/**
+ * CLOSE/CANCEL/CROSS
+ */
+
+.hamburger.hamburger-cancel.active .icon {
+  transform: scale(0);
+  -moz-transform: scale(0);
+  -webkit-transform: scale(0);
+}
+
+.hamburger.hamburger-cancel.active:before {
+  transform: translateY(.4em) rotate(135deg);
+  -moz-transform: translateY(.4em) rotate(135deg);
+  -webkit-transform: translateY(.4em) rotate(135deg);
+}
+
+.hamburger.hamburger-cancel.active:after {
+  transform: translateY(-.4em) rotate(-135deg);
+  -moz-transform: translateY(-.4em) rotate(-135deg);
+  -webkit-transform: translateY(-.4em) rotate(-135deg);
+}

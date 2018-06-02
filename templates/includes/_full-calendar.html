@@ -2,35 +2,31 @@
 
         <div class="calendar-container">
             <div class="calendar-controls">
-                    <h3>{{ month|date('F Y') }}</h3>
-            </div>
-      
-
-            <div class="calendar-wrapper-days">
-                <div class="box days">
-                    <h5>Mon</h5>
-                </div>
-                <div class="box days">
-                    <h5>Tue</h5>
-                </div>
-                <div class="box days">
-                    <h5>Wed</h5>
-                </div>
-                <div class="box days">
-                    <h5>Thu</h5>
-                </div>
-                <div class="box days">
-                    <h5>Fri</h5>
-                </div>
-                <div class="box days">
-                    <h5>Sat</h5>
-                </div>
-                <div class="box days">
-                    <h5>Sun</h>
-                </div>
+                    <h3 class="section-title">{{ month|date('F Y') }}</h3>
             </div>
 
             <div class="calendar-wrapper">
+                    <div class="box days">
+                            <h5>Mon</h5>
+                          </div>
+                          <div class="box days">
+                            <h5>Tue</h5>
+                          </div>
+                          <div class="box days">
+                            <h5>Wed</h5>
+                          </div>
+                          <div class="box days">
+                            <h5>Thu</h5>
+                          </div>
+                          <div class="box days">
+                            <h5>Fri</h5>
+                          </div>
+                          <div class="box days">
+                            <h5>Sat</h5>
+                          </div>
+                          <div class="box days">
+                            <h5>Sun</h5>
+                          </div>
                 {% for d in date %}
                 <div class="box {{ d.dateBoxClass }}">
                     <h6 class="{{ d.dateClass }}">{{ d.date }}</h6>
