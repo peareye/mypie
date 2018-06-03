@@ -23,7 +23,7 @@ footer a:hover {
   background-size: cover;
   @include padding(1rem null null);
   margin-bottom: -2px;
-  color: var(--mypie-light);
+
 }
 
 #contact-us,
@@ -31,7 +31,13 @@ footer a:hover {
 #our-story {
   @include padding(null null 20px);
 }
-
+.get-social{
+  display: flex;
+  flex-flow: row nowrap;
+}
+.social-item{
+  @include padding(10px);
+}
 // Footer Form Styles
 .form-control {
   background: rgba(255, 255, 255, .6);

@@ -1,24 +1,23 @@
 // Header & Nav Styles
 // Logo Styles
 .logo-container {
+  width: 100vw;
   // @include padding(25px null);
   @include margin(25px null);
+  position: relative;
 }
 
 .lg-logo-wrapper {
-  width: 100vw;
+  width: 100%;
   height: 225px;
   margin: auto;
   background: url("../img/myPieLogoWide.svg") no-repeat;
   background-position: center center;
   background-size: cover;
   object-fit: cover;
+  position: relative;
 }
-
 @media screen and (min-width: 700px){
-  body{
-    background-color: pink;
-  }
 
 }
 @media screen and (min-width: 1975px) {
@@ -74,6 +73,7 @@ button:hover,
 [type='reset']:hover,
 [type='submit']:hover {
   background-color: var(--mypie-red);
+
 }
 
 /**

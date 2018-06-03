@@ -6952,7 +6952,8 @@ h5,
 h6 {
   font-family: "Roboto Condensed", sans-serif;
   color: var(--mypie-dark);
-  font-weight: 700; }
+  font-weight: 700;
+  margin-bottom: 0; }
 
 h1 {
   font-size: 2.75rem; }
@@ -7014,7 +7015,7 @@ body {
     text-decoration: none;
     font-size: 1rem; }
   .link-container a:hover {
-    color: #ed1c24; }
+    color: purple; }
 
 .menu-link a {
   font-size: 1.3rem; }

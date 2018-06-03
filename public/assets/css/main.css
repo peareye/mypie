@@ -6952,7 +6952,8 @@ h5,
 h6 {
   font-family: "Roboto Condensed", sans-serif;
   color: var(--mypie-dark);
-  font-weight: 700; }
+  font-weight: 700;
+  margin-bottom: 0; }
 
 h1 {
   font-size: 2.75rem; }
@@ -7010,6 +7011,9 @@ img {
   text-align: center;
   margin-bottom: .5rem; }
 
+a:focus {
+  outline: none; }
+
 footer {
   font-size: 0.7rem;
   line-height: 1.2rem;
@@ -7029,13 +7033,19 @@ footer a:hover {
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 1rem;
-  margin-bottom: -2px;
-  color: var(--mypie-light); }
+  margin-bottom: -2px; }
 
 #contact-us,
 #message-us,
 #our-story {
   padding-bottom: 20px; }
+
+.get-social {
+  display: flex;
+  flex-flow: row nowrap; }
+
+.social-item {
+  padding: 10px; }
 
 .form-control {
   background: rgba(255, 255, 255, 0.6);
@@ -7126,24 +7136,41 @@ input[type="submit"]:active {
 
 /* Section: Calendars */
 .calendar-wrapper {
-  margin-bottom: 0.5rem; }
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: minmax(70px, auto);
+  grid-gap: 2px; }
 
-.calendar-controls {
-  background: #fff;
-  padding-top: 0;
-  padding-bottom: 0.25rem;
-  position: relative;
+.days {
   display: flex;
-  flex-flow: row nowrap;
-  background: #fff;
-  justify-content: center; }
+  margin-top: auto;
+  justify-content: center;
+  border: none;
+  text-align: center; }
 
-.calendar-controls h3 {
-  margin: 10px; }
+.box {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  padding: 3px;
+  background: #fff; }
 
-.calendar-wrapper-days > .box > h5 {
+.calendar-wrapper > .box > h5 {
   text-transform: uppercase;
   margin-bottom: 0; }
+
+.prev-month > h6 {
+  color: #cfcfcf; }
+
+.day-content {
+  display: block;
+  text-align: center; }
+
+.day-content a {
+  font-size: .7rem; }
+
+.today {
+  background: rgba(237, 28, 36, 0.1);
+  display: block; }
 
 /* Arrows */
 .slick-prev,
@@ -7184,78 +7211,24 @@ input[type="submit"]:active {
   color: black;
   outline: none; }
 
-.calendar-wrapper-days {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-gap: 2px;
-  padding-top: 0.25rem;
-  padding-right: 0.25rem;
-  padding-left: 0.25rem;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: #ddd; }
+@supports (display: grid) {
+  .menu-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+    grid-template-areas: "pie" "sides" "sausage" "puds" "takeaway"; }
 
-.calendar-wrapper-days .box {
-  display: grid;
-  height: 30px;
-  justify-items: center;
-  align-content: center; }
-
-.calendar-wrapper > .box > h5 {
-  text-transform: uppercase;
-  margin-bottom: 0; }
-
-.calendar-wrapper {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-gap: 1px;
-  padding: 0.25rem;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: var(--mypie-md-grey); }
-
-.calendar-day {
-  color: #333; }
-
-.prev-month h6 {
-  color: #ddd; }
-
-.box {
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 3px;
-  padding: 3px;
-  background: #fff; }
-
-.days {
-  border: none;
-  text-align: center; }
-
-.day-content {
-  display: block;
-  text-align: center; }
-
-.day-content a {
-  font-size: .7rem; }
-
-.today {
-  background: rgba(237, 28, 36, 0.1); }
-
-.calendar-day {
-  color: #756d63; }
-
-.prev-month h6 {
-  color: #cfcfcf; }
-
-.menu-wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 1rem;
-  grid-template-areas: "pie" "sides" "sausage" "puds" "takeaway"; }
-
+  @media screen and (min-width: 768px) {
+    .menu-wrapper {
+      grid-template-areas: "pie pie" "sides sausage" "puds takeaway"; } }
+  @media screen and (min-width: 992px) {
+    .menu-wrapper {
+      grid-template-areas: "pie pie sides" "puds sausage takeaway"; } } }
 .pie-box,
 .sides-box,
 .sausage-box,
 .puds-box,
 .takeaway-box {
-  padding-bottom: 1rem;
   border-radius: 4px;
   border: solid 1px rgba(167, 167, 167, 0.5);
   margin-bottom: 1rem; }
@@ -7285,12 +7258,14 @@ input[type="submit"]:active {
 
 .menu-items {
   display: flex;
-  flex-flow: row nowrap; }
-  .menu-items:nth-child(even) {
+  flex-flow: row nowrap;
+  font-size: .9rem; }
+  .menu-items:nth-child(odd) {
     background-color: var(--mypie-light-grey); }
 
 .menu-item {
-  padding: 0.3rem; }
+  padding: 0.4rem;
+  line-height: 1.2; }
 
 .menu-item-title {
   flex: 1.2;
@@ -7298,32 +7273,34 @@ input[type="submit"]:active {
   font-weight: bold; }
 
 .menu-item-description {
-  flex: 4; }
+  flex: 4;
+  text-align: left; }
 
 .menu-item-price {
   flex: 0.75;
-  font-style: italic; }
+  font-style: italic;
+  text-align: right; }
 
 .sold-out {
   text-decoration: line-through;
   color: var(--mypie-accent-red); }
 
 .logo-container {
+  width: 100vw;
   margin-top: 25px;
-  margin-bottom: 25px; }
+  margin-bottom: 25px;
+  position: relative; }
 
 .lg-logo-wrapper {
-  width: 100vw;
+  width: 100%;
   height: 225px;
   margin: auto;
   background: url("../img/myPieLogoWide.svg") no-repeat;
   background-position: center center;
   background-size: cover;
-  object-fit: cover; }
+  object-fit: cover;
+  position: relative; }
 
-@media screen and (min-width: 700px) {
-  body {
-    background-color: pink; } }
 @media screen and (min-width: 1975px) {
   .lg-logo-wrapper {
     height: 330px; } }
@@ -7489,22 +7466,6 @@ button:hover,
   .newsletter-wrapper {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1rem; } }
-.get-social-wrapper {
-  background: pink;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-evenly; }
-
-.social-link {
-  color: var(--mypie-red);
-  display: flex;
-  flex-flow: column wrap;
-  align-content: center; }
-
-.social-icon {
-  flex: 1;
-  align-self: center; }
-
 #instagram {
   padding-top: 20px;
   padding-bottom: 20px; }
