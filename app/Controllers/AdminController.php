@@ -21,7 +21,7 @@ class AdminController extends BaseController
         $menu = $MenuMapper->getCurrentActiveMenu();
 
         // Did we find a menu to display?
-        if ($menu->id) {
+        if (isset($menu->id)) {
             $menu->items = $MenuItemMapper->findItemsByMenuId($menu->id);
         }
 

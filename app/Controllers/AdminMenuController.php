@@ -49,7 +49,7 @@ class AdminMenuController extends BaseController
         // Fetch menu header
         $menu = $MenuMapper->findById($args['id']);
 
-        if ($menu->id) {
+        if (isset($menu->id)) {
             // Fetch menu iems
             $menu->items = $MenuItemMapper->findItemsByMenuId($args['id']);
         } else {
