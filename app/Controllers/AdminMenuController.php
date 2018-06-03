@@ -98,6 +98,7 @@ class AdminMenuController extends BaseController
         $mapper = $this->container->dataMapper;
         $MenuMapper = $mapper('MenuMapper');
         $MenuItemMapper = $mapper('MenuItemMapper');
+        $MenuItemDefaultMapper = $mapper('MenuItemDefaultMapper');
 
         // Fetch menu to copy
         $menu = $MenuMapper->findById($args['id']);
@@ -114,6 +115,9 @@ class AdminMenuController extends BaseController
             unset($menu->items[$key]->sort);
             $menu->items[$key]->sold_out = 'N';
         }
+
+        // Get defaults
+        $menu->defaults = $MenuItemDefaultMapper->find();
 
         return $this->container->view->render($response, '@admin/editMenu.html', ['menu' => $menu]);
     }
