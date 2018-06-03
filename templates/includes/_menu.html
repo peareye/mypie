@@ -14,7 +14,7 @@
             <div class="pie-box">
                 <h4 class="menu-title">Pie w/mash or salad + gravy</h4>
                 {% for m in page.menu.items if m.section == 'dailypies' %}
-                <span class="menu-items">
+                <span class="menu-items {% if m.sold_out == 'Y' %} sold-out {% endif %}">
 
                     <!-- <div class="menu-item menu-item-title">{{ m.type }}</div> -->
                     <div class="menu-item menu-item-description">{{ m.description }}</div>
@@ -27,7 +27,7 @@
             <div class="sides-box">
                 <h4 class="menu-title">Awesome Sides</h4>
                 {% for m in page.menu.items if m.section == 'sides' %}
-                <span class="menu-items">
+                <span class="menu-items {% if m.sold_out == 'Y' %} sold-out {% endif %}">
                     <div class="menu-item menu-item-description">{{ m.description }}</div>
                     <div class="menu-item menu-item-price"> {{ m.price }}</div>
                 </span>
@@ -38,7 +38,7 @@
             <div class="sausage-box">
                 <h4 class="menu-title">Sausage Rolls &amp; More</h4>
                 {% for m in page.menu.items if m.section == 'rolls' %}
-                <span class="menu-items sold-out">
+                <span class="menu-items {% if m.sold_out == 'Y' %} sold-out {% endif %}">
                     <!-- <div class="menu-item menu-item-title">{{ m.type }}</div> -->
                     <div class="menu-item menu-item-description">{{ m.description }}</div>
                     <div class="menu-item menu-item-price"> {{ m.price }}</div>
@@ -50,7 +50,7 @@
             <div class="puds-box">
                 <h4 class="menu-title">Puds</h4>
                 {% for m in page.menu.items if m.section == 'puds' %}
-                <span class="menu-items">
+                <span class="menu-items {% if m.sold_out == 'Y' %} sold-out {% endif %}">
                     <div class="menu-item menu-item-description">{{ m.description }}</div>
                     <div class="menu-item menu-item-price"> {{ m.price }}</div>
                 </span>
@@ -61,7 +61,7 @@
             <div class="takeaway-box">
                 <h4 class="menu-title">Takeaway Pies</h4>
                 {% for m in page.menu.items if m.section == 'takeawaypies' %}
-                <span class="menu-items">
+                <span class="menu-items {% if m.sold_out == 'Y' %} sold-out {% endif %}">
                     <!-- <div class="menu-item menu-item-title">{{ m.type }}</div> -->
                     <div class="menu-item menu-item-description">{{ m.description }}</div>
                     <div class="menu-item menu-item-price"> {{ m.price }}</div>
