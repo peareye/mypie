@@ -287,6 +287,7 @@ return array(
     'Piton\\Controllers\\BaseController' => $baseDir . '/app/Controllers/BaseController.php',
     'Piton\\Controllers\\IndexController' => $baseDir . '/app/Controllers/IndexController.php',
     'Piton\\Controllers\\LoginController' => $baseDir . '/app/Controllers/LoginController.php',
+    'Piton\\Extensions\\PaginationExtension' => $baseDir . '/app/Extensions/PaginationExtension.php',
     'Piton\\Extensions\\TwigExtension' => $baseDir . '/app/Extensions/TwigExtension.php',
     'Piton\\Library\\ErrorHandler' => $baseDir . '/app/Library/ErrorHandler.php',
     'Piton\\Library\\NotFoundHandler' => $baseDir . '/app/Library/NotFoundHandler.php',

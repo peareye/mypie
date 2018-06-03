@@ -28,6 +28,11 @@ $container['view'] = function ($c) {
     return $view;
 };
 
+// Twig pagination extenion for admin
+$container['adminPagination'] = function ($c) {
+    return new Piton\Extensions\PaginationExtension($c->get('settings')['pagination']['admin']);
+};
+
 // Monolog logging
 $container['logger'] = function ($c) {
     $level = ($c->get('settings')['production']) ? Monolog\Logger::ERROR : Monolog\Logger::DEBUG;

@@ -43,3 +43,9 @@ $config['session']['checkIpAddress'] = true;
 $config['session']['checkUserAgent'] = true;
 $config['session']['salt'] = ''; // Salt key to hash
 $config['session']['secondsUntilExpiration'] = 7200;
+
+/**
+ * Admin Menu Pagination Options
+ */
+$config['pagination']['admin']['rowsPerPage'] = 10;
+$config['pagination']['admin']['numberOfLinks'] = 2;

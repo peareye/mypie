@@ -16,9 +16,20 @@ class AdminMenuController extends BaseController
         // Get dependencies
         $mapper = $this->container->dataMapper;
         $MenuMapper = $mapper('MenuMapper');
+        $Pagination = $this->container->get('adminPagination');
+
+        // Get the page number and setup pagination
+        $pageNumber = ($request->getParam('page')) ?: 1;
+        $Pagination->setPagePath($this->container->router->pathFor('showMenus'));
+        $Pagination->setPaginationTemplateName('includes/_pagination.html');
+        $Pagination->setCurrentPageNumber($pageNumber);
 
         // Fetch menus
-        $menus = $MenuMapper->getMenusInDescDateOrder();
+        $menus = $MenuMapper->getMenusInDescDateOrder($Pagination->getRowsPerPage(), $Pagination->getOffset());
+
+        // Get total row count and add extension
+        $Pagination->setTotalRowsFound($MenuMapper->foundRows());
+        $this->container->view->addExtension($Pagination);
 
         return $this->container->view->render($response, '@admin/menuList.html', ['menus' => $menus]);
     }

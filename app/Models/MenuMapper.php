@@ -29,13 +29,25 @@ class MenuMapper extends DataMapperAbstract
      * Get Menus in Descending Ordery by Date
      *
      * Returns an array of Domain Objects (one for each record)
+     * @param int $limit Limit
+     * @param int $offset Offset
      * @return Array
      */
-    public function getMenusInDescDateOrder()
+    public function getMenusInDescDateOrder($limit = null, $offset = null)
     {
         // Make select
         $this->makeSelect();
         $this->sql .= ' order by date desc';
+
+        if ($limit) {
+            $this->sql .= " limit ?";
+            $this->bindValues[] = $limit;
+        }
+
+        if ($offset) {
+            $this->sql .= " offset ?";
+            $this->bindValues[] = $offset;
+        }
 
         return $this->find();
     }
