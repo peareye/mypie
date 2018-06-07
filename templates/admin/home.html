@@ -1,12 +1,15 @@
 {% extends '@admin/admin_base.html' %} {% block body %}
-
-<section id="admin-home">
-    <div class="container">
-        <h1 class="page-title">Admin Home</h1>
-        
-            {% include 'admin/currentMenu.html' %}
-    </div>
-
-</section>
+<header>
+  <h1 class="page-title">MyPie Dashboard</h1>
+  <p>Manage daily menus and page content from the administrative dashboard. Here on the home page you can quickly manage the current day's menu. If an item sells out, click the Sell Out button and that menu item will strike out on the MyPie website. If you get the item back, just click the Sell In button.</p>
+</header>
+<div class="grid-cell">
+        {% include 'admin/includes/_currentMenu.html' %}
+</div>
+<div class="grid-cell">
+    <h3 class="page-title">All Menu's List</h3>
+    <p>Maybe we can put the active menus list here, kind of put all the relevant stuff on the front page?</p>
+</div>
+       
 
 {% endblock %}

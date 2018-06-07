@@ -1,18 +1,21 @@
-{% extends '@admin/admin_base.html' %} {% block body %}
+{% extends '@admin/admin_base.html' %} 
 
+{% block body %}
 
-<section id="admin">
-    <div class="container">
-        <h1 class="page-title">Menu Management</h1>
-
-        <div class="link-container">
-            <!-- Add a New Menu  -->
-            <div class="menu-link">
-                <a href="{{ pathFor('editMenu') }}" data-toggle="tooltip" title="Create a new menu.">
-                    <i class="fas fa-plus" alt="Create Menu"></i> Add New Menu</a>
-            </div>
+<header>
+        <h1 class="page-title">Menu & Calendar Management</h1>
+        <p>Add a new menu, or if you prefer, you can copy a previous menu. By clicking the second icon below the menu you want to duplicate, it will take you to a page that you can update the date and location of the particular menu. You can also edit and delete a menu.</p>
+        <p>If you just want to add an event to the calendar, Add a New Menu but only select a location and date. It will appear on the calendar. </p>
+</header>
+<div class="grid-cell">
+      <!-- Add a New Menu  -->
+      <div class="menu-link">
+            <a href="{{ pathFor('editMenu') }}" data-toggle="tooltip" title="Create a new menu.">
+                <i class="fas fa-plus" alt="Create Menu"></i> Add New Menu</a>
         </div>
-
+  
+</div>
+<div class="grid-cell">
         <h2 class="page-title">Active Menus</h2>
         {% for m in menus %}
 
@@ -50,7 +53,11 @@
         {% endfor %}
 
         {{ pagination() }}
+</div>
+       
 
-    </div>
-</section>
+      
+
+
+
 {% endblock %}

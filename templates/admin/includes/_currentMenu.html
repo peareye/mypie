@@ -4,7 +4,7 @@
     {% else %}
     
     <h3 class="page-title">Menu for {{ page.menu.date|date('l, j F, Y') }}</h3>
-    <a class="btn btn-primary mb-3" href="{{ pathFor('editMenu', {'id': page.menu.id}) }}">Edit This Menu</a>
+    <a class="btn btn-primary btn-sm m-2" href="{{ pathFor('editMenu', {'id': page.menu.id}) }}">Edit This Menu</a>
     {% endif %} {% if page.menu.items %}
     <div class="link-container">
     <!-- Daily Pies -->
@@ -12,7 +12,10 @@
     {% for m in page.menu.items if m.section == 'dailypies' %}
     <div class="menu-item-wrapper">
       <div class="menu-item-each">
-        {% if m.sold_out == 'N' %} {% set status, label = 'Y', 'Sell Out' %} {% else %} {% set status, label = 'N', 'Sell In' %}
+        {% if m.sold_out == 'N' %} 
+        {% set status, label = 'Y', 'Sell Out' %} 
+        {% else %} 
+        {% set status, label = 'N', 'Sell In' %}
         {% endif %}
         <a class="btn btn-sm btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
       </div>
@@ -27,7 +30,7 @@
       </div>
     </div>
     {% endfor %}
-    <hr>
+  
     
     <!-- Sides -->
     <h4 class="page-title">Sides</h4>
@@ -50,7 +53,7 @@
     
     </div>
     {% endfor %}
-    <hr>
+  
     
     <!-- Sausage Rolls -->
     <h4 class="page-title"> Sausage Rolls &amp; More</h4>
@@ -73,7 +76,7 @@
     
     </div>
     {% endfor %}
-    <hr>
+  
     
     <!-- Puds -->
     <h4 class="page-title">Puds</h4>
@@ -96,7 +99,7 @@
     
     </div>
     {% endfor %}
-    <hr>
+  
     
     <!-- Takeaway Pies -->
     <h4 class="page-title">Takeaway Pies</h4>

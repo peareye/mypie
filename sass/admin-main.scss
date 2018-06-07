@@ -1,12 +1,14 @@
 // Vendor Tools
 
-@import "bootstrap";
+
 
 // Vendor
 @import "vendor/bourbon/bourbon";
 @import "vendor/base/base";
+@import "bootstrap";
 
 // Custom Styles
+@import 'vars/vars';
 @import "vars/admin-vars";
 @import "admin/global-custom-styles"; 
 

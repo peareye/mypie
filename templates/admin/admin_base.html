@@ -6,45 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MyPie Admin Dashboard</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+        crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Open+Sans+Condensed:300" rel="stylesheet">
     <link href="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ basePath() }}/assets/css/admin-main.css">
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light shadow-sm">
-        <a class="navbar-brand" href="{{ pathFor('adminHome') }}">MYPIE Admin Dashboard</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ pathFor('showMenus') }}">Menu Management</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ pathFor('showMenuItemDefaults') }}">Menu Defaults</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ pathFor('showPages') }}">Pages Management</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Help</a>
-                </li>
+    <div class="navbar-wrapper">
+        <ul class="nav">
+            <li class="nav-item">
+                <a href="{{ pathFor('adminHome') }}" class="nav-link">
+                    <i class="center fas fa-home fa-2x"></i>
+                    <div class="nav-description">Home</div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ pathFor('showMenus') }}">
+                    <i class="center fas fa-edit fa-2x"></i>
+                    <div class="nav-description">Menu</div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ pathFor('showPages') }}">
+               
+                    <i class="center fas fa-wrench fa-2x"></i>
+                    <div class="nav-description">Pages</div>
 
-            </ul>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="center fas fa-question fa-2x"></i>
+                    <div class="nav-description">Help</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- <li class="nav-item">
+            <a class="nav-link" href="{{ pathFor('showMenuItemDefaults') }}">Menu Defaults</a>
+        </li> -->
+    <div class="right-container">
+        {% block body %} {% endblock %}
+    </div>
 
-        </div>
-    </nav>
 
-        {% block body %}
-        
-        
-        {% endblock %}
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
