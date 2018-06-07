@@ -7135,12 +7135,21 @@ input[type="submit"]:active {
       color: var(--mypie-md-grey); }
 
 /* Section: Calendars */
-.calendar-wrapper {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-auto-rows: minmax(70px, auto);
-  grid-gap: 2px; }
+.box {
+  width: calc(100% / 7);
+  height: calc(50vh / 6);
+  float: left; }
 
+@supports (display: grid) {
+  .calendar-wrapper {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: minmax(70px, auto);
+    grid-gap: 2px; }
+
+  .box {
+    width: initial;
+    height: initial; } }
 .days {
   display: flex;
   margin-top: auto;
@@ -7151,8 +7160,7 @@ input[type="submit"]:active {
 .box {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 3px;
-  padding: 3px;
-  background: #fff; }
+  padding: 3px; }
 
 .calendar-wrapper > .box > h5 {
   text-transform: uppercase;

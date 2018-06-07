@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MyPie Dashboard</title>
+    <title>MyPie Admin Dashboard</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link href="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/admin-main.css">
+    <link rel="stylesheet" href="{{ basePath() }}/assets/css/admin-main.css">
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light shadow-sm">
-        <a class="navbar-brand" href="{{ pathFor('adminHome') }}">MYPIE Dashboard</a>
+    <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light shadow-sm">
+        <a class="navbar-brand" href="{{ pathFor('adminHome') }}">MYPIE Admin Dashboard</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,7 +28,7 @@
                     <a class="nav-link" href="{{ pathFor('showMenuItemDefaults') }}">Menu Defaults</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ pathFor('showPages') }}">Page Management</a>
+                    <a class="nav-link" href="{{ pathFor('showPages') }}">Pages Management</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Help</a>
@@ -39,8 +39,10 @@
         </div>
     </nav>
 
-        {% block body %} {% endblock %}
-
+        {% block body %}
+        
+        
+        {% endblock %}
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"

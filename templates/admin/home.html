@@ -1,35 +1,12 @@
 {% extends '@admin/admin_base.html' %} {% block body %}
 
-<section id="admin">
+<section id="admin-home">
     <div class="container">
-        <h1 class="page-title">Dashboard Home</h1>
-        <div class="link-container">
-
-            <ul class="nav flex-column">
-                <li class="nav-item nav-style rounded">
-                    <a class="nav-link" href="{{ pathFor('showMenus') }}">Menu Management</a>
-                </li>
-
-                <li class="nav-item nav-style rounded">
-                    <a class="nav-link" href="{{ pathFor('showPages') }}">Pages Management</a>
-                </li>
-                <li class="nav-item nav-style rounded">
-                    <a class="nav-link" href="{{ pathFor('showUsers') }}">User Management</a>
-                </li>
-                <li class="nav-item nav-style rounded">
-                    <a class="nav-link" href="#">Help</a>
-                </li>
-            </ul>
-        </div>
-
-        <hr>
-           
-                    {% include 'admin/currentMenu.html' %}
-         
-           
-   
-
+        <h1 class="page-title">Admin Home</h1>
+        
+            {% include 'admin/currentMenu.html' %}
     </div>
+
 </section>
 
 {% endblock %}

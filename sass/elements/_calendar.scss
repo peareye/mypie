@@ -1,12 +1,28 @@
 /* Section: Calendars */
 
-.calendar-wrapper {
-  // @include margin(null null .5rem);
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-auto-rows: minmax(70px, auto);
-  grid-gap: 2px;
+// Grid Fallback Support
+.calendar-wrapper{
 }
+.box{
+  width: calc(100% / 7);
+  height: calc(50vh / 6);
+  float: left;
+}
+@supports(display: grid){
+  .calendar-wrapper {
+    // @include margin(null null .5rem);
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: minmax(70px, auto);
+    grid-gap: 2px;
+  }
+  .box{
+    width: initial;
+    height: initial;
+
+  }
+}
+
 // MON TUE WED etc....
 .days {
   display: flex;
@@ -20,7 +36,7 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   padding: 3px;
-  background: #fff;
+  // background: #fff;
 }
 
 .calendar-wrapper>.box>h5 {

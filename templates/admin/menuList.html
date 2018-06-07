@@ -6,6 +6,7 @@
         <h1 class="page-title">Menu Management</h1>
 
         <div class="link-container">
+            <!-- Add a New Menu  -->
             <div class="menu-link">
                 <a href="{{ pathFor('editMenu') }}" data-toggle="tooltip" title="Create a new menu.">
                     <i class="fas fa-plus" alt="Create Menu"></i> Add New Menu</a>
@@ -15,7 +16,7 @@
         <h2 class="page-title">Active Menus</h2>
         {% for m in menus %}
 
-        <div class="link-container">
+        <div id="active-menus" class="link-container">
             <div class="menu-link">
                 <a href="{{ pathFor('showSingleMenu', {'id': m.id}) }}">
                     {{ m.date|date('l, F j, Y') }}{% if m.location %} {{ m.location }}{% else %} No Location{% endif %}

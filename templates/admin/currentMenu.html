@@ -1,9 +1,9 @@
 
     {% if page.menu.menuNotFound %}
-    <h3>Menu not found</h3>
+    <h3 class="page-title">Menu not found</h3>
     {% else %}
     
-    <h3 class="menu-title">{{ page.menu.date|date('l, j F, Y') }}</h3>
+    <h3 class="page-title">Menu for {{ page.menu.date|date('l, j F, Y') }}</h3>
     <a class="btn btn-primary mb-3" href="{{ pathFor('editMenu', {'id': page.menu.id}) }}">Edit This Menu</a>
     {% endif %} {% if page.menu.items %}
     <div class="link-container">

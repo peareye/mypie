@@ -3,20 +3,18 @@ body{
     font-family: 'Montserrat', sans-serif;
     color: var(--mypie-dark-grey);
 }
+
 // global styles
-#admin{
-    
-}
+
 .page-title {
-    color: #000;
-    font-size: 1.8;
-    // display: block;
-    border-bottom: solid 1px #000;
-    @include margin(null null 10px);
-    @include padding(1rem null null);
+    color: #444;
+    // background: pink;
+    border-bottom: solid 3px #777;
+    @include margin(null null .5rem);
+    @include padding(.5rem null null);
 }
 
-.link-container {
+.menu-container {
     display: block;
     position: relative;
     flex-flow: row wrap;
@@ -38,6 +36,10 @@ body{
     }
 }
 // Menu Management Section
+
+#active-menus{
+    background: green;
+}
 
 .menu-link a {
     font-size: 1.3rem;
@@ -77,6 +79,3 @@ body{
     @include margin(3px null);
 }
 // Pages Management Section
-
-
-
