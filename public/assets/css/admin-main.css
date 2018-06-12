@@ -6990,74 +6990,29 @@ h6 {
   --muted-accent-border: solid 0.1rem rgba(110,30,33,.5); }
 
 body {
+  margin-top: 80px;
   font-family: 'Montserrat', sans-serif;
-  color: var(--mypie-dark);
-  position: relative;
-  height: 100vh; }
-
-.navbar-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 60px;
-  background: #444;
-  display: grid;
-  justify-content: center; }
-
-.nav {
-  display: block;
-  padding-top: 50px; }
-
-.nav a {
-  color: var(--mypie-light);
-  outline: none; }
-
-.nav a:hover {
-  color: var(--mypie-red);
-  outline: none; }
-
-.nav-description {
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 300;
-  font-size: .75rem; }
-
-.nav-description a {
-  color: var(--mypie-light); }
-
-.nav-description a:hover {
-  color: var(--mypie-red); }
-
-.right-container {
-  width: calc(100% - 60px);
-  margin-left: 60px;
-  padding: 10px;
-  margin-right: 0;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 20px; }
-
-header {
-  grid-column: span 2; }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Open Sans Condensed', sans-serif; }
-
-.center {
-  display: inline-block !important;
-  width: 60px !important; }
+  color: var(--mypie-dark-grey); }
 
 .page-title {
-  color: var(--mypie-dark);
+  color: #444;
   border-bottom: solid 3px #777;
   margin-bottom: 0.5rem;
   padding-top: 0.5rem; }
+
+.menu-container {
+  display: block;
+  position: relative;
+  flex-flow: row wrap;
+  background: #efefef;
+  padding: 0.5rem;
+  margin: 1rem nul;
+  border-radius: 3px;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3); }
+  .menu-container a {
+    color: #6e1e21;
+    text-decoration: none;
+    font-size: 1rem; }
 
 .menu-link a {
   font-size: 1.3rem; }
@@ -7088,36 +7043,5 @@ h6 {
 .menu-item-each {
   margin-top: 3px;
   margin-bottom: 3px; }
-
-#admin-home {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
-  grid-template-areas: 'header header' 'col1 col2'; }
-
-.header {
-  grid-area: header; }
-
-.col1 {
-  grid-area: col1;
-  background: #efefef; }
-
-.col2 {
-  grid-area: col2;
-  background: #efefef; }
-
-.menu-container {
-  display: block;
-  position: relative;
-  flex-flow: row wrap;
-  background: #efefef;
-  padding: 0.5rem;
-  margin: 1rem nul;
-  border-radius: 3px;
-  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3); }
-  .menu-container a {
-    color: #6e1e21;
-    text-decoration: none;
-    font-size: 1rem; }
 
 /*# sourceMappingURL=admin-main.css.map */

@@ -1,99 +1,55 @@
-body {
+body{
+    margin-top: 80px;
     font-family: 'Montserrat', sans-serif;
-    color: var(--mypie-dark);
-    position: relative;
-    height: 100vh;
-}
-
-// Main Navbar
-.navbar-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 60px;
-    background: #444;
-    display: grid;
-    justify-content: center;
-}
-
-.nav {
-    display: block;
-    padding-top: 50px;
-}
-
-.nav a {
-    color: var(--mypie-light);
-    outline: none;
-}
-
-.nav a:hover {
-    color: var(--mypie-red);
-    outline: none;
-}
-
-.nav-description {
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 300;
-    font-size: .75rem;
-}
-
-.nav-description a {
-    color: var(--mypie-light);
-}
-
-.nav-description a:hover {
-    color: var(--mypie-red);
-}
-
-//   Admin Home Layout & Styles
-.right-container {
-    width: calc(100% - 60px);
-    margin-left: 60px;
-    @include padding(10px);
-    margin-right: 0;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 20px;
-} 
-header{
-    grid-column: span 2;
+    color: var(--mypie-dark-grey);
 }
 
 // global styles
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Open Sans Condensed', sans-serif;
-}
-
-.center {
-    display: inline-block !important;
-    width: 60px !important;
-}
 
 .page-title {
-    color: var(--mypie-dark);
+    color: #444;
+    // background: pink;
     border-bottom: solid 3px #777;
     @include margin(null null .5rem);
     @include padding(.5rem null null);
 }
 
+.menu-container {
+    display: block;
+    position: relative;
+    flex-flow: row wrap;
+    background: #efefef;
+    @include padding(.5rem);
+    @include margin(1rem nul);
+    border-radius: 3px;
+    box-shadow: 0 3px 7px rgba(0,0,0,.3);
+
+    & a{
+        color: #6e1e21;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+    & a:hover {
+    
+    
+    }
+}
 // Menu Management Section
-.menu-link a {
-    font-size: 1.3rem;
+
+#active-menus{
+  
 }
 
-.menu-actions {
+.menu-link a {
+    font-size: 1.3rem;
+
+}
+.menu-actions  {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
-}
 
+}
 .menu-icon {
     @include padding(1rem);
 }
@@ -106,54 +62,19 @@ h6 {
     justify-content: center;
     align-items: center;
     @include padding(.5rem);
-    @media(min-width: 768px) {
-        grid-template-columns: .75fr .75fr 3fr .5fr;
-    }
+    @media(min-width: 768px){
+    
+    grid-template-columns: .75fr .75fr 3fr .5fr;
+   
 }
 
-.menu-item-wrapper:nth-child(odd) {
+}
+
+.menu-item-wrapper:nth-child(odd){
     background: var(--mypie-light);
+   
 }
-
-.menu-item-each {
+.menu-item-each{
     @include margin(3px null);
 }
-
-#admin-home {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;
-    grid-template-areas: 'header header' 'col1 col2';
-}
-
-.header {
-    grid-area: header;
-}
-
-.col1 {
-    grid-area: col1;
-    background: #efefef;
-}
-
-.col2 {
-    grid-area: col2;
-    background: #efefef;
-}
-
-.menu-container {
-    display: block;
-    position: relative;
-    flex-flow: row wrap;
-    background: #efefef;
-    @include padding(.5rem);
-    @include margin(1rem nul);
-    border-radius: 3px;
-    box-shadow: 0 3px 7px rgba(0, 0, 0, .3);
-    & a {
-        color: #6e1e21;
-        text-decoration: none;
-        font-size: 1rem;
-    }
-}
-
 // Pages Management Section
