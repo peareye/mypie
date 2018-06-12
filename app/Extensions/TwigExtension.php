@@ -9,6 +9,12 @@ use Interop\Container\ContainerInterface;
 class TwigExtension extends \Twig_Extension
 {
     /**
+     * Twig Environment
+     * @var \Twig_Environment
+     */
+    protected $environment;
+
+    /**
      * @var \Slim\Interfaces\RouterInterface
      */
     private $router;
@@ -37,10 +43,20 @@ class TwigExtension extends \Twig_Extension
         $this->settings = $container->settings;
     }
 
-    // Identifer
+    /**
+     * Identifier
+     */
     public function getName()
     {
         return 'Piton';
+    }
+
+    /**
+     * Initialize Extension
+     */
+    public function initRuntime(\Twig_Environment $environment)
+    {
+        $this->environment = $environment;
     }
 
     /**
@@ -72,6 +88,7 @@ class TwigExtension extends \Twig_Extension
             new \Twig_SimpleFunction('basePath', array($this, 'getBasePath')),
             new \Twig_SimpleFunction('inUrl', array($this, 'isInUrl')),
             new \Twig_SimpleFunction('checked', array($this, 'checked')),
+            new \Twig_SimpleFunction('displayMenu', array($this, 'displayMenu'), array('is_safe' => array('html'))),
         ];
     }
 
@@ -159,5 +176,32 @@ class TwigExtension extends \Twig_Extension
     public function checked($value = 0)
     {
         return ($value == 1 || $value == 'Y') ? 'checked="checked"' : '';
+    }
+
+    /**
+     * Display Menu
+     *
+     * Gets menu and menu item data for the current menu, and renders _menu.html
+     * @param none
+     * @return string
+     */
+    public function displayMenu()
+    {
+        // Get dependencies
+        $mapper = $this->container->dataMapper;
+        $MenuMapper = $mapper('MenuMapper');
+        $MenuItemMapper = $mapper('MenuItemMapper');
+
+        // Assume menus expire end of today. Get the next active menu as of 'now'
+        $todaysMenu = $MenuMapper->getCurrentActiveMenu();
+
+        // Did we find a menu to display?
+        if (isset($todaysMenu->id)) {
+            $todaysMenu->items = $MenuItemMapper->findItemsByMenuId($todaysMenu->id);
+        } else {
+            $todaysMenu->menuNotFound = true;
+        }
+
+        return $this->environment->render('includes/_menu.html', ['menu' => $todaysMenu]);
     }
 }
