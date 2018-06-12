@@ -20,7 +20,6 @@ class IndexController extends BaseController
         // Get dependencies
         $mapper = $this->container->dataMapper;
         $MenuMapper = $mapper('MenuMapper');
-        $MenuItemMapper = $mapper('MenuItemMapper');
         $PageMapper = $mapper('PageMapper');
         $PageletMapper = $mapper('PageletMapper');
 
@@ -35,16 +34,6 @@ class IndexController extends BaseController
         if (isset($page->id)) {
             $page->pagelets = $this->indexPageletKeys($PageletMapper->findPageletsByPageId($page->id));
         }
-
-        // Assume menus expire end of today. Get the next active menu as of 'now'
-        $todaysMenu = $MenuMapper->getCurrentActiveMenu();
-
-        // Did we find a menu to display? If so get menu items assign to page content
-        if (isset($todaysMenu->id)) {
-            $todaysMenu->items = $MenuItemMapper->findItemsByMenuId($todaysMenu->id);
-        }
-
-        $page->menu = $todaysMenu;
 
         // Make calendar and merge in future menu dates
         $this->populateCalendar();
