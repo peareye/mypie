@@ -6959,11 +6959,6 @@ body {
     color: #6e1e21;
     text-decoration: none;
     font-size: 1rem; }
-  .menu-container a:hover {
-    color: purple; }
-
-#active-menus {
-  background: green; }
 
 .menu-link a {
   font-size: 1.3rem; }

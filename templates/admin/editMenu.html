@@ -23,10 +23,10 @@
       <!-- Menu Header Date & Location -->
       <p class="form-text text-muted font-weight-light">Select the date and location when this menu will be available.</p>
       <div class="form-row">
-        <div class="col-sm-2">
+        <div class="col-sm-3">
           <input class="form-control" type="date" name="date" placeholder="Menu date" value="{{ menu.date }}" required>
         </div>
-        <div class="col">
+        <div class="col-sm-9">
           <input class="form-control" type="text" name="location" maxlength="60" placeholder="Location" value="{{ menu.location }}">
         </div>
       </div>
@@ -114,10 +114,10 @@
         <div class="col">
           <input class="form-control" type="text" name="items[description][]" maxlength="200" placeholder="Description" value="{{ value.description }}">
         </div>
-        <div class="col-sm-1">
+        <div class="col-sm-3">
           <input class="form-control" type="text" name="items[price][]" maxlength="20" placeholder="Price" value="{{ value.price }}">
         </div>
-        <div class="col-sm-1 optional-button">
+        <div class="col-sm-2 optional-button">
           <a class="btn btn-danger delete-menu-item" href="#">Delete</a>
         </div>
       </div>
