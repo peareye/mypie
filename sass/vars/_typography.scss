@@ -1,11 +1,21 @@
+// Font family
 
+@font-face {
+  font-family: 'franchise_freebold';
+  src: url('../fonts/franchise-free-bold-webfont.woff2') format('woff2'),
+       url('../fonts/franchise-free-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  
+
+}
 // These values are the minimum and maximum viewport sizes to apply the font scaling
 $min_width: 576;
 $max_width: 991;
 // These values represent the range of font-size to apply
 // These values effect the base font-size, headings and other elements will scale proportionally
 $min_font: 16;
-$max_font: 18; 
+$max_font: 20; 
 
 :root { font-size: #{$min_font}px; }
 
@@ -21,22 +31,28 @@ $max_font: 18;
 }
 
 // Base Typography
+// <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto+Condensed:400,700" rel="stylesheet">
+// <link href="https://fonts.googleapis.com/css?family=Montserrat:400" rel="stylesheet">
+body {
+  font-family: ''
+}
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "franchise_freebold", sans-serif;
   color: var(--mypie-dark);
   font-weight: 700;
   @include margin(null null 0);
+  letter-spacing: .0625em;
 }
 h1 {
-  font-size: 2.75rem;
+  font-size: 4rem;
 }
 h2 {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
 }
 h3 {
   font-size: 1.75rem;
