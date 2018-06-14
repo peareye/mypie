@@ -1,28 +1,59 @@
 // Hero Section
-.jumbotron {
-  height: 500px;
-  background-color: var(--mypie-light-grey);
-  background-image: url("../img/hot-pie-1.jpg");
-  background-repeat: no-repeat;
-  // background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  text-align: center;
 
+.jarallax {
+  position: relative;
+  z-index: 0;
 }
+.jarallax > .jarallax-img {
+  position: absolute;
+  object-fit: cover;
 
-.jumbo-inner {
-  background: rgba(0, 0, 0, .08);
-  border-radius: var(--border-radius);
+  /* support for plugin https://github.com/bfred-it/object-fit-images */
+  font-family: 'object-fit: cover;';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.jarallax-keep-img {
+  position: relative;
+  z-index: 0;
+}
+.jarallax-keep-img > .jarallax-img {
+  position: relative;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  z-index: -100;
+}
+.hero-inner{
+  width: 100%;
+  height: 450px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(0,0,0,.2);
+  color: var(--mypie-light);
+  overflow: hidden;
+}
+.hero-content{
+  border-radius: 1rem;
+  width: 90vw;
   @include padding(1rem);
 }
-
-.jumbotron p {
+.hero-content h1{
   color: var(--mypie-light);
-  text-shadow: var(--text-shadow);
 }
 
-.jumbotron h1 {
-  text-shadow: var(--text-shadow);
-  color: var(--mypie-light);
+/* hero block */
+.demo-table {
+  display: table;
+  width: 100%;
+  height: 450px;
+  background-color: rgba(39, 35, 51, 0.6);
+  color: #fff;
 }

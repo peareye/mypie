@@ -5,12 +5,8 @@ body {
   font-family: 'Montserrat', sans-serif;
   margin-top: 80px;
   @media (min-width: 768px) {
-    body {
-      margin-top: 700px;
-    }
-  
+      margin-top: 50px;
   }
-
 }
 h1 {
   @include margin(1rem null);
@@ -26,6 +22,10 @@ img {
     @include padding(4rem null);
   }
 
+}
+section{
+
+  @include padding(20px null);
 }
 .section-title{
   text-align: center;

@@ -3,8 +3,7 @@
 .logo-container {
   width: 100vw;
   // @include padding(25px null);
-  @include margin(25px null);
-  position: relative;
+  @include margin(25px null 7px);
 }
 
 .lg-logo-wrapper {
@@ -20,7 +19,7 @@
 @media screen and (min-width: 700px){
 
 }
-@media screen and (min-width: 1975px) {
+@media screen and (min-width: 1750px) {
   .lg-logo-wrapper {
     height: 330px;
   }
