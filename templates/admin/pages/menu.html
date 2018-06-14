@@ -1,8 +1,15 @@
-{% extends '@admin/admin_base.html' %} {% block body %}
+{% extends '@admin/admin_base.html' %} 
+{% block title %}
+Menu
+{% endblock %}
 
-<section id="admin">
-    <div class="container">
+{% block blurb %}
+<p>Edit this menu</p>
+{% endblock %}
 
+
+
+{% block body %}
             {% if menu.menuNotFound %}
             <h4>Menu not found</h4>
             {% else %}
@@ -71,7 +78,7 @@
             <strong>No menu items found for this date</strong>
             {% endif %}
         
-    </div>
-</section>
+
+
 
 {% endblock %}

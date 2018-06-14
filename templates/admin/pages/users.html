@@ -1,0 +1,37 @@
+{% extends '@admin/admin_base.html' %} 
+{% block title %}
+User Management
+{% endblock %}
+
+{% block blurb %}
+<p>Add a new user to manage the MYPIE website.</p>
+{% endblock %}
+
+{% block id %}users-home{% endblock %}
+
+{% block body %}
+<div class="grid-cell">
+    <h2 class="page-title">Main Admin</h2>
+  <strong>{{ users.default }}</strong>
+  <p>* This user cannot be deleted. To change this email address, please contact Moritz Media.</p>
+   
+ 
+</div>
+<div class="grid-cell">
+  <h2 class="page-title">Add a User</h2>
+    <form action="{{ pathFor('saveUsers') }}" id="user-emails" method="post" accept-charset="utf-8">
+        {% for user in users.other %}
+        <div>
+          <input type="email" name="email[]" maxlength="60" value="{{ user.email }}" autocomplete="off">
+          <a href="{{ pathFor('removeUser', {'id': user.id}) }}" class="btn btn-danger">Remove</a>
+        </div>
+        {% endfor %}
+        <div class="addEmail">
+          <input type="email" name="email[]" maxlength="60" value="" autocomplete="off" placeholder="Email address">
+        </div>
+        <button type="submit" name="button">Save</button>
+      </form>
+      
+      <p>* Add an email address of a user you would like to give access to the admin space. Note that they will have full access to everything.</p>
+</div>
+{% endblock %}

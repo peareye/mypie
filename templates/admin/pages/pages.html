@@ -1,18 +1,23 @@
-{% extends '@admin/admin_base.html' %} {% block body %}
+{% extends '@admin/admin_base.html' %} 
+{% block title %}
+Page Content Management
+{% endblock %}
 
-<section id="admin">
-    <div class="container">
-        <h1 class="page-title">Pages Management</h1>
-        <div class="link-container">
-            <div class="menu-link">
+{% block blurb %}
+<p>Add Page Content Here</p>
+{% endblock %}
+{% block id %}pages-home{% endblock %}
+{% block body %}
+<div class="grid-cell">
+        <div class="menu-link">
                 <a href="{{ pathFor('editPage') }}">
                     <i class="fas fa-plus" alt="Create Page"></i> Add New Page</a>
             </div>
-        </div>
-
+</div>
+<div class="grid-cell">
         <h2 class="page-title">Current Pages</h2>
         {% for p in pages %}
-        <div class="link-container">
+        
             <ul>
                 <li>
                     <h4>{{ p.title }} Page</h4>
@@ -37,11 +42,16 @@
                 </li>
                 {% endfor %}
             </div>
-        </div>
+  
         <hr> {% else %}
         <strong>No pages found</strong>
         {% endfor %}
-    </div>
-</section>
+</div>
+
+        
+         
+
+
+       
 
 {% endblock %}

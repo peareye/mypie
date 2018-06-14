@@ -1,8 +1,15 @@
-{% extends '@admin/admin_base.html' %} {% block body %}
+{% extends '@admin/admin_base.html' %} 
+{% block title %}
+MYPIE Dashboard - Edit Menu
+{% endblock %}
 
-<section id="admin">
-  <div class="container">
-    <h1 class="page-title">{% if menu.id %}Edit{% else %}Add{% endif %} Menu</h1>
+{% block blurb %}
+<p>Add/Edit/Delete a Menu.</p>
+{% endblock %}
+
+{% block body %}
+
+    <h2 class="page-title">{% if menu.id %}Edit{% else %}Add{% endif %} Menu</h2>
     <form class="edit-menu" action="{{ pathFor('saveMenu') }}" method="post" accept-charset="utf-8">
       <input type="hidden" name="id" value="{{ menu.id }}">
 
@@ -123,8 +130,5 @@
       </div>
     </div>
     {% endmacro %}
-
-  </div>
-</section>
 
 {% endblock %}

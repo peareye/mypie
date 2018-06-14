@@ -1,0 +1,21 @@
+{% extends '@admin/admin_base.html' %} 
+
+{% block title %}
+Dashboard - Home
+{% endblock %}
+
+{% block blurb %}
+<p>Pulling back the curtain!</p>
+{% endblock %}
+
+{% block id %}admin-home{% endblock %}
+
+{% block body %}
+<div class="grid-cell">
+{% include 'admin/includes/_currentMenu.html' %}
+</div>
+<div class="grid-cell">
+{% include '@admin/includes/_menuListAll.html' %}
+</div>
+{% endblock %}
+
