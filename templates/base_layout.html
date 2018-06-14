@@ -8,8 +8,9 @@
     {% include '/includes/_favicon.html' %}
 
     <title>MYPIE - Home - Epic Pies + Awesome Sides</title>
-   
-
+    <!-- Google Font Base -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto+Condensed:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400" rel="stylesheet">
     <!--Import FontAwesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
         crossorigin="anonymous">
@@ -22,7 +23,7 @@
 
 <body>
       <!-- Logo and Navbar -->
-     {% include '/includes/_header.html' %}  
+      {% include '/includes/_header.html' %}
 
     {% block body %}
 
@@ -37,14 +38,43 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
-        <script src="{{ basePath() }}/assets/slick/slick.min.js"></script>
+        <script src="assets/slick/slick.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-        <script src="{{ basePath() }}/assets/object-fit/dist/ofi.js"></script>
-        <script src="{{ basePath() }}/assets/jarallax/dist/jarallax.min.js"></script>
+        <script src="{{ basePath() }}/assets/object-fit/dist/ofi.min.js"></script>
+        <script src="{{ basePath() }}/assets/jarallax/dist/jarallax.js"></script>
         <script src="{{ basePath() }}/assets/jarallax/dist/jarallax-element.min.js"></script>
-      
-    <script src="{{ basePath() }}/assets/js/javascript.js"></script>
+     <script src="{{ basePath() }}/assets/js/javascript.js"></script>
+    <script type="text/javascript">
+        // object-fit polyfill run
+objectFitImages();
 
+/* init Jarallax */
+jarallax(document.querySelectorAll('.jarallax'));
+
+jarallax(document.querySelectorAll('.jarallax-keep-img'), {
+    keepImg: true,
+});
+
+/* init Flickity Carousel + Jarallax inside it */
+// new Flickity( '.demo-carousel', {
+//     initialIndex: 1,
+//     autoPlay: 3000,
+//     pauseAutoPlayOnHover: false,
+//     pageDots: false,
+//     prevNextButtons: false,
+//     wrapAround: true
+// });
+// jarallax(document.querySelectorAll('.demo-carousel .jarallax'), {
+//     elementInViewport: document.querySelectorAll('.demo-carousel')
+// });
+
+/* init Jarallax with jQuery */
+// $('.jarallax').jarallax({
+//     speed: 0.5,
+//     imgWidth: 1366,
+//     imgHeight: 768
+// });
+    </script>
 
     <!-- Default Statcounter code for Moritz Media
 http://moritzmedia.com -->
