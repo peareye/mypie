@@ -7017,12 +7017,12 @@ img {
 @media (min-width: 768px) {
   #main {
     border-top: solid 4px black;
-    padding-top: 4rem;
-    padding-bottom: 4rem; } }
+    padding-top: 2rem;
+    padding-bottom: 2rem; } }
 
 section {
-  padding-top: 20px;
-  padding-bottom: 20px; }
+  padding-top: 3rem;
+  padding-bottom: 3rem; }
 
 .section-title {
   text-align: center;
@@ -7038,6 +7038,10 @@ a:focus {
   shape-outside: circle();
   margin-right: 2rem;
   margin-bottom: .5rem; }
+
+.sidebar-item:nth-child(1) {
+  margin-top: 4rem;
+  margin-bottom: 4rem; }
 
 footer {
   font-size: 0.7rem;
