@@ -31,7 +31,7 @@ class AdminMenuController extends BaseController
         $Pagination->setTotalRowsFound($MenuMapper->foundRows());
         $this->container->view->addExtension($Pagination);
 
-        return $this->container->view->render($response, '@admin/menuList.html', ['menus' => $menus]);
+        return $this->container->view->render($response, '@admin/pages/menuList.html', ['menus' => $menus]);
     }
 
     /**
@@ -57,7 +57,7 @@ class AdminMenuController extends BaseController
         }
 
 
-        return $this->container->view->render($response, '@admin/menu.html', ['menu' => $menu]);
+        return $this->container->view->render($response, '@admin/pages/menu.html', ['menu' => $menu]);
     }
 
     /**
@@ -84,7 +84,7 @@ class AdminMenuController extends BaseController
         // Get defaults
         $menu->defaults = $MenuItemDefaultMapper->find();
 
-        return $this->container->view->render($response, '@admin/editMenu.html', ['menu' => $menu]);
+        return $this->container->view->render($response, '@admin/pages/editMenu.html', ['menu' => $menu]);
     }
 
     /**
@@ -119,7 +119,7 @@ class AdminMenuController extends BaseController
         // Get defaults
         $menu->defaults = $MenuItemDefaultMapper->find();
 
-        return $this->container->view->render($response, '@admin/editMenu.html', ['menu' => $menu]);
+        return $this->container->view->render($response, '@admin/pages/editMenu.html', ['menu' => $menu]);
     }
 
     /**
@@ -291,7 +291,7 @@ class AdminMenuController extends BaseController
             $defaults[] = $MenuItemDefaultMapper->make();
         }
 
-        return $this->container->view->render($response, '@admin/editMenuItemDefaults.html', ['defaults' => $defaults]);
+        return $this->container->view->render($response, '@admin/pages/editMenuItemDefaults.html', ['defaults' => $defaults]);
     }
 
     /**

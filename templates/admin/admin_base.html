@@ -8,53 +8,82 @@
     <title>MyPie Admin Dashboard</title>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
         crossorigin="anonymous"></script>
-
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Open+Sans+Condensed:300" rel="stylesheet">
     <link href="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ basePath() }}/assets/css/admin-main.css">
 </head>
 
 <body>
+    <div class="logo">
+        <img src="/assets/img/brand.svg" alt="">
+    </div>
+    <!-- HEADER -->
+    <header>
+        <h1> {% block title %}
+            <h1>MYPIE ADMIN DEFAULT TITLE</h1>{% endblock %}</h1>
 
+        {% block blurb %}
+      <p>Blurb Here</p>
+        {% endblock %}
+
+    </header>
+    <!-- NAVBAR -->
     <div class="navbar-wrapper">
         <ul class="nav">
             <li class="nav-item">
                 <a href="{{ pathFor('adminHome') }}" class="nav-link">
-                    <i class="center fas fa-home fa-2x"></i>
+                    <div class="nav-icon">
+                        <i class="fas fa-home fa-2x"></i>
+                    </div>
+
                     <div class="nav-description">Home</div>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ pathFor('showMenus') }}">
-                    <i class="center fas fa-edit fa-2x"></i>
+                    <div class="nav-icon">
+                        <i class="fas fa-edit fa-2x"></i>
+                    </div>
                     <div class="nav-description">Menu</div>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ pathFor('showPages') }}">
-               
-                    <i class="center fas fa-wrench fa-2x"></i>
-                    <div class="nav-description">Pages</div>
+                    <div class="nav-icon">
+                        <i class="fas fa-wrench fa-2x"></i>
+                    </div>
 
+                    <div class="nav-description">Pages</div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ pathFor('showUsers') }}">
+                    <div class="nav-icon">
+                        <i class="fas fa-user fa-2x"></i>
+                    </div>
+                    <div class="nav-description">Users</div>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <i class="center fas fa-question fa-2x"></i>
+                    <div class="nav-icon">
+                        <i class="fas fa-question fa-2x"></i>
+                    </div>
+
                     <div class="nav-description">Help</div>
                 </a>
             </li>
         </ul>
     </div>
-    <!-- <li class="nav-item">
-            <a class="nav-link" href="{{ pathFor('showMenuItemDefaults') }}">Menu Defaults</a>
-        </li> -->
-    <div class="right-container">
-        {% block body %}
-        
-        
-        {% endblock %}
-    </div>
+
+
+    <section id="{% block id %}{% endblock %}">
+        <div class="right-container">
+            {% block body %}
+            <p>This is where the main body content appears</p> {% endblock %}
+        </div>
+    </section>
+
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

@@ -28,7 +28,7 @@ class AdminPageController extends BaseController
             }
         }
 
-        return $this->container->view->render($response, '@admin/pages.html', ['pages' => $pages]);
+        return $this->container->view->render($response, '@admin/pages/pages.html', ['pages' => $pages]);
     }
 
     /**
@@ -49,7 +49,7 @@ class AdminPageController extends BaseController
             $page = $PageMapper->make();
         }
 
-        return $this->container->view->render($response, '@admin/editPage.html', ['page' => $page]);
+        return $this->container->view->render($response, '@admin/pages/editPage.html', ['page' => $page]);
     }
 
     /**
@@ -127,7 +127,7 @@ class AdminPageController extends BaseController
             $pagelet->page_id = $request->getQueryParam('page_id');
         }
 
-        return $this->container->view->render($response, '@admin/editPagelet.html', ['pagelet' => $pagelet]);
+        return $this->container->view->render($response, '@admin/pages/editPagelet.html', ['pagelet' => $pagelet]);
     }
 
     /**

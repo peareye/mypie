@@ -30,7 +30,7 @@ class AdminController extends BaseController
         // Get the top most recent menus by date
         $page['menus'] = $MenuMapper->getMenusInDescDateOrder(4);
 
-        return $this->container->view->render($response, '@admin/home.html', $page);
+        return $this->container->view->render($response, '@admin/pages/home.html', $page);
     }
 
     /**
@@ -57,7 +57,7 @@ class AdminController extends BaseController
             }
         }
 
-        return $this->container->view->render($response, '@admin/users.html', ['users' => $users]);
+        return $this->container->view->render($response, '@admin/pages/users.html', ['users' => $users]);
     }
 
     /**
