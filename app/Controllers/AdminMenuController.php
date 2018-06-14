@@ -17,6 +17,7 @@ class AdminMenuController extends BaseController
         $mapper = $this->container->dataMapper;
         $MenuMapper = $mapper('MenuMapper');
         $Pagination = $this->container->get('adminPagination');
+        $MenuItemDefaultMapper = $mapper('MenuItemDefaultMapper');
 
         // Get the page number and setup pagination
         $pageNumber = ($request->getParam('page')) ?: 1;
@@ -25,13 +26,21 @@ class AdminMenuController extends BaseController
         $Pagination->setCurrentPageNumber($pageNumber);
 
         // Fetch menus
-        $menus = $MenuMapper->getMenusInDescDateOrder($Pagination->getRowsPerPage(), $Pagination->getOffset());
+        $data['menus'] = $MenuMapper->getMenusInDescDateOrder($Pagination->getRowsPerPage(), $Pagination->getOffset());
 
         // Get total row count and add extension
         $Pagination->setTotalRowsFound($MenuMapper->foundRows());
         $this->container->view->addExtension($Pagination);
 
-        return $this->container->view->render($response, '@admin/pages/menuList.html', ['menus' => $menus]);
+        // Fetch menu defaults
+        $data['defaults'] = $MenuItemDefaultMapper->find();
+
+        // If menu default rows were not found, create at least one record
+        if (!isset($data['defaults'])) {
+            $data['defaults'][] = $MenuItemDefaultMapper->make();
+        }
+
+        return $this->container->view->render($response, '@admin/pages/menuList.html', $data);
     }
 
     /**
@@ -286,7 +295,7 @@ class AdminMenuController extends BaseController
         // Fetch menu defaults
         $defaults = $MenuItemDefaultMapper->find();
 
-        // If rows were found, create at least one record
+        // If rows were not found, create at least one record
         if (!$defaults) {
             $defaults[] = $MenuItemDefaultMapper->make();
         }
