@@ -43,7 +43,7 @@ class AdminPageController extends BaseController
         $PageMapper = $mapper('PageMapper');
 
         // Fetch page, or create blank array
-        if ($args['id']) {
+        if (isset($args['id'])) {
             $page = $PageMapper->findById($args['id']);
         } else {
             $page = $PageMapper->make();
@@ -116,7 +116,7 @@ class AdminPageController extends BaseController
         $PageletMapper = $mapper('PageletMapper');
 
         // Fetch page, or create blank array
-        if ($args['id']) {
+        if (isset($args['id'])) {
             $pagelet = $PageletMapper->findById($args['id']);
         } else {
             $pagelet = $PageletMapper->make();
