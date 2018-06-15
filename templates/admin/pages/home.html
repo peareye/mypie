@@ -11,11 +11,20 @@ Dashboard - Home
 {% block id %}admin-home{% endblock %}
 
 {% block body %}
+<div class="grid-cell span">
+    <!-- Add a New Menu  -->
+    <div class="menu-link span">
+            <a href="{{ pathFor('editMenu') }}" data-toggle="tooltip" title="Create a new menu.">
+                    <i class="fas fa-plus" alt="Create Menu"></i> Add New Menu</a>
+    </div>
+  
+</div>
 <div class="grid-cell">
 {% include 'admin/includes/_currentMenu.html' %}
 </div>
 <div class="grid-cell">
 {% include '@admin/includes/_menuListAll.html' %}
+<a href="{{ pathFor('showMenus') }}" class="btn btn-primary btn-sm">More Menus</a>
 </div>
 {% endblock %}
 

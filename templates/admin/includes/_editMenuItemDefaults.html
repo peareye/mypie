@@ -3,8 +3,8 @@
     <h3 class="page-title">Menu Item Defaults</h3>
     
     <form class="menu-item-defaults" action="{{ pathFor('saveMenuItemDefaults') }}" method="post" accept-charset="utf-8">
-      <a class="btn btn-warning" href="{{ pathFor('showMenus') }}">Cancel</a>
-      <button class="btn btn-success" type="submit" name="button">Save All</button>
+      <a class="btn btn-warning btn-sm" href="{{ pathFor('showMenus') }}">Cancel</a>
+      <button class="btn btn-success btn-sm" type="submit" name="button">Save All</button>
       <hr>
       {% for d in defaults %}
       <div class="border rounded p-2 mb-1 item-default">
@@ -22,9 +22,9 @@
         </div>
       </div>
       {% endfor %}
-      <button class="btn btn-success btn-block add-item-default-row" type="button">Add New Default</button>
+      <button class="btn btn-success btn-sm add-item-default-row" type="button">Add New Default</button>
       <hr>
-      <a class="btn btn-warning" href="{{ pathFor('showMenus') }}">Cancel</a>
-      <button class="btn btn-success" type="submit" name="button">Save All</button>
+      <a class="btn btn-warning btn-sm" href="{{ pathFor('showMenus') }}">Cancel</a>
+      <button class="btn btn-success btn-sm" type="submit" name="button">Save All</button>
     </form>
  

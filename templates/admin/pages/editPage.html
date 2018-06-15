@@ -40,8 +40,8 @@ MYPIE Dashboard
         <input type="text" name="meta_description" maxlength="320" placeholder="Description to appear in search results" value="{{ page.meta_description }}">
       </div>
 
-      <a href="{{ pathFor('showPages') }}">Cancel</a>
-      <button type="submit" name="button">Save</button>
+      <a href="{{ pathFor('showPages') }}" class="btn btn-warnning btn-sm">Cancel</a>
+      <button class="btn btn-success btn-sm" type="submit" name="button">Save</button>
       {% if page.id %}
       <a href="{{ pathFor('deletePage', {'id': page.id}) }}">Delete</a>
       {% endif %}

@@ -20,10 +20,10 @@ MYPIE Dashboard - Edit Menu
         {% endfor %}
       </script>
 
-      <a class="btn btn-warning" href="{{ pathFor('showMenus') }}">Cancel</a>
-      <button class="btn btn-success" type="submit" name="button">Save</button>
+      <a class="btn btn-warning btn-sm" href="{{ pathFor('showMenus') }}">Cancel</a>
+      <button class="btn btn-success btn-sm" type="submit" name="button">Save</button>
       {% if menu.id %}
-      <a class="btn btn-danger deleteButton" href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a>
+      <a class="btn btn-danger btn-sm deleteButton" href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a>
       {% endif %}
       <hr>
 
@@ -97,10 +97,10 @@ MYPIE Dashboard - Edit Menu
       </div>
       <hr>
 
-      <a class="btn btn-warning" href="{{ pathFor('showMenus') }}">Cancel</a>
-      <button class="btn btn-success" type="submit" name="button">Save</button>
+      <a class="btn btn-warning btn-sm" href="{{ pathFor('showMenus') }}">Cancel</a>
+      <button class="btn btn-success btn-sm" type="submit" name="button">Save</button>
       {% if menu.id %}
-      <a class="btn btn-danger deleteButton" href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a>
+      <a class="btn btn-danger btn-sm deleteButton" href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a>
       {% endif %}
     </form>
 
@@ -125,7 +125,7 @@ MYPIE Dashboard - Edit Menu
           <input class="form-control" type="text" name="items[price][]" maxlength="20" placeholder="Price" value="{{ value.price }}">
         </div>
         <div class="col-sm-2 optional-button">
-          <a class="btn btn-danger delete-menu-item" href="#">Delete</a>
+          <a class="btn btn-danger btn-sm delete-menu-item" href="#">Delete</a>
         </div>
       </div>
     </div>

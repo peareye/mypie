@@ -23,10 +23,10 @@ h1,h2,h3,h4,h5,h6{
     border-bottom: solid 1px #efefef;
     @include margin(.5rem null);
 }
-.span2{
+.span{
     grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    // display: grid;
+    // grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 // Logo Container
 .logo{
@@ -97,6 +97,7 @@ header {
 }
 
 .grid-cell{
+
     background-color: var(--mypie-light);
     border: solid 1px rgba(0,0,0,.25);
     border-radius: 5px;
@@ -104,6 +105,7 @@ header {
     @include margin(.5rem .25rem);
 }
 .grid-cell-inner{
+    
     @include padding(.5rem .25rem);
     @include margin(1rem .25rem); 
     border: solid 1px rgba(0,0,0,.25);
@@ -139,25 +141,52 @@ header {
 }
 
 
-// Archive Style
-.archive-container{
+// Menu Lists Style
+.menu-list-container{
     border: solid 1px rgba(0,0,0,.25);
     border-radius: 5px;
     @include margin(.5rem null);
 }
-.menu-link{
-
+.menu-list-container a{
+    color: var(--mypie-accent-red);
+}
+.menu-date{
     @include padding(.25rem null);
     text-align: center;
 }
-.menu-icons{
-    display: flex;
-    flex-flow: row nowrap;
-    align-content: center;
+.menu-list-icons{
+    display: grid;
+   grid-template-columns: repeat(3, min-content);
+    justify-items: center;
     align-items: center;
     justify-content: space-around;
+
+}
+.menu-list-icon > a{
+
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+  
+    @include padding(.5rem null);
    
-    @include padding(.25rem null);
+}
+// Page Content Management Styles
+.blurb{
+    max-width: 25vw;
+    margin-top: 1.25rem;
+}
+.menu-link {
+    font-size: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+  
+    width: 100%;
 }
 
 // Sections
@@ -166,7 +195,7 @@ header {
     .right-container {
        @media screen and (min-width: 576px) {
            display: grid;
-           grid-template-columns: 2fr 1fr;
+           grid-template-columns:repeat(2,max-content);
            grid-gap: .25rem;
        }
    }
@@ -176,30 +205,10 @@ header {
  .right-container {
     @media screen and (min-width: 576px) {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:repeat(2,max-content);
+       
         grid-gap: 10px;
     }
 }
 }
 
-#pages-home{
-   
-    .right-container {
-        @media screen and (min-width: 576px) {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 1rem;
-        }
-    }
-}
-#users-home{
- 
-    .right-container {
-
-        @media screen and (min-width: 576px) {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 1rem;
-        }
-    }
-}
