@@ -10,28 +10,36 @@ User Management
 {% block id %}users-home{% endblock %}
 
 {% block body %}
-<div class="grid-cell">
-    <h2 class="page-title">Main Admin</h2>
-  <strong>{{ users.default }}</strong>
-  <p>* This user cannot be deleted. To change this email address, please contact Moritz Media.</p>
+<div class="grid-cell span">
+  <div class="grid-cell-inner">
+      <h2 class="page-title">Main Administrator</h2>
+      <strong>{{ users.default }}</strong>
+      <p>* This user cannot be deleted. 
+        To change this email address,
+        please contact Moritz Media.</p>
+  </div>
+ 
    
  
 </div>
 <div class="grid-cell">
-  <h2 class="page-title">Add a User</h2>
-    <form action="{{ pathFor('saveUsers') }}" id="user-emails" method="post" accept-charset="utf-8">
-        {% for user in users.other %}
-        <div>
-          <input type="email" name="email[]" maxlength="60" value="{{ user.email }}" autocomplete="off">
-          <a href="{{ pathFor('removeUser', {'id': user.id}) }}" class="btn btn-danger">Remove</a>
-        </div>
-        {% endfor %}
-        <div class="addEmail">
-          <input type="email" name="email[]" maxlength="60" value="" autocomplete="off" placeholder="Email address">
-        </div>
-        <button type="submit" name="button">Save</button>
-      </form>
-      
-      <p>* Add an email address of a user you would like to give access to the admin space. Note that they will have full access to everything.</p>
-</div>
+  <div class="grid-cell-inner">
+      <h2 class="page-title">Add a User</h2>
+      <form action="{{ pathFor('saveUsers') }}" id="user-emails" method="post" accept-charset="utf-8">
+          {% for user in users.other %}
+          <div>
+            <input type="email" name="email[]" maxlength="60" value="{{ user.email }}" autocomplete="off">
+            <a href="{{ pathFor('removeUser', {'id': user.id}) }}" class="btn btn-danger">Remove</a>
+          </div>
+          {% endfor %}
+          <div class="addEmail">
+            <input type="email" name="email[]" maxlength="60" value="" autocomplete="off" placeholder="Email address">
+          </div>
+          <button class="btn btn-success btn-sm" type="submit" name="button">Save</button>
+        </form>
+        
+        <p>* Add an email address of a user you would like to give access to the admin space. Note that they will have full access to everything.</p>
+  </div>
+  </div>
+  
 {% endblock %}

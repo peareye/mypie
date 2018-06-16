@@ -1,57 +1,52 @@
-{% extends '@admin/admin_base.html' %} 
-{% block title %}
-Page Content Management
-{% endblock %}
-
-{% block blurb %}
+{% extends '@admin/admin_base.html' %} {% block title %} Page Content Management {% endblock %} {% block blurb %}
 <p>Add Page Content Here</p>
-{% endblock %}
-{% block id %}pages-home{% endblock %}
-{% block body %}
-<div class="grid-cell">
-        <div class="menu-link">
-                <a href="{{ pathFor('editPage') }}">
-                    <i class="fas fa-plus" alt="Create Page"></i> Add New Page</a>
-            </div>
+{% endblock %} {% block id %}pages-home{% endblock %} {% block body %}
+<div class="grid-cell span">
+    <div class="menu-link ">
+        <a href="{{ pathFor('editPage') }}">
+            <i class="fas fa-plus fa-2x" alt="Create Page"></i> Add New Page</a>
+    </div>
+    <div class="blurb">
+        <p>Here you can manage static content on the website.</p>
+    </div>
 </div>
 <div class="grid-cell">
+   
         <h2 class="page-title">Current Pages</h2>
         {% for p in pages %}
-        
+        <div class="grid-cell-inner">
+            <h4 class="page-title">{{ p.title }} Page</h4>
+            <a class="btn btn-sm btn-primary" href="{{ pathFor('editPage', {'id': p.id}) }}">Edit {{ p.title }}</a>
             <ul>
-                <li>
-                    <h4>{{ p.title }} Page</h4>
-                </li>
-                <li>
-                    <a href="{{ pathFor('editPage', {'id': p.id}) }}">Edit {{ p.title }}</a>
-                </li>
-                <li>URL: {{ p.url }}</li>
-                <li>Template: {{ p.template|default('
-                    <none>') }}</li>
-                <li> Meta Desc: {{ p.meta_description }}</li>
+                <li class=""><strong>URL: </strong> {{ p.url }}</li>
+                <li><strong>Template: </strong> {{ p.template|default('<none>') }}</li>
+                <li> <strong>Meta Desc: </strong>{{ p.meta_description }}</li>
             </ul>
 
-            <div class>
-
-                <li>
-                    <a href="{{ pathFor('editPagelet') }}?page_id={{ p.id }}">Add Content</a>
-                </li>
+           
+                    <a class="btn btn-info btn-sm mb-2" href="{{ pathFor('editPagelet') }}?page_id={{ p.id }}">Add Content</a>
+                    <ul>
                 {% for pl in p.pagelets %}
                 <li>
                     <a href="{{ pathFor('editPagelet', {'id': pl.id}) }}">Edit {{ pl.name }}</a>
                 </li>
                 {% endfor %}
-            </div>
-  
-        <hr> {% else %}
+            </ul>
+        </div>
+
+
+
+        {% else %}
         <strong>No pages found</strong>
         {% endfor %}
+    
+
 </div>
 
-        
-         
 
 
-       
+
+
+
 
 {% endblock %}

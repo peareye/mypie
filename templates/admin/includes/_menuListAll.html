@@ -1,27 +1,27 @@
 <h3 class="page-title">All Menus</h3>
 {% for m in menus %}
 
-<div class="archive-container">
-    <div class="menu-link">
+<div class="menu-list-container">
+    <div class="menu-date">
             <h4> <a href="{{ pathFor('showSingleMenu', {'id': m.id}) }}">
             {% if m.location %} {{ m.location }}{% else %} No Location{% endif %}
             {{ m.date|date('j  F, Y') }} 
             </a></h4> 
       </div>
-    <ul class="menu-icons">
-        <li class="menu-icon">
+    <ul class="menu-list-icons">
+        <li class="menu-list-icon">
             <a href="{{ pathFor('editMenu', {'id': m.id}) }}" data-toggle="tooltip" title="Edit this menu">
                 <i class="fas fa-edit" alt="Edit Menu"></i>
                 <div class="nav-description">Edit</div>
             </a>
         </li>
-        <li class="menu-icon">
+        <li class="menu-list-icon">
             <a href="{{ pathFor('copyEditMenu', {'id': m.id}) }}" data-toggle="tooltip" title="Copy this menu">
                 <i class="fas fa-copy" alt="Copy Menu"></i>
                 <div class="nav-description">Copy</div>
             </a>
         </li>
-        <li class="menu-icon">
+        <li class="menu-list-icon">
             <a class="deleteButton" href="{{ pathFor('deleteMenu', {'id': m.id}) }}" data-toggle="tooltip" title="Delete this menu">
                 <i class="fas fa-trash-alt" alt="Delete Menu"></i>
                 <div class="nav-description">Delete</div>
@@ -35,4 +35,3 @@
 <h3>No menus found</h3>
 
 {% endfor %}
-<a href="{{ pathFor('showMenus') }}" class="btn btn-primary btn-sm">More Menus</a>

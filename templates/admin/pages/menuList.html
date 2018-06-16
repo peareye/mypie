@@ -8,16 +8,13 @@
 {% block id %}menu-home{% endblock %} 
 
 {% block body %}
-<div class="grid-cell span2">
+<div class="grid-cell span">
                 <!-- Add a New Menu  -->
-                <div class="menu-link">
+                <div class="menu-link span">
                         <a href="{{ pathFor('editMenu') }}" data-toggle="tooltip" title="Create a new menu.">
                                 <i class="fas fa-plus" alt="Create Menu"></i> Add New Menu</a>
                 </div>
-                <div class="menu-link">
-                        <a href="{{ pathFor('showMenuItemDefaults') }}" data-toggle="tooltip" title="Create a new menu.">
-                                <i class="fas fa-plus" alt="Edit Defaults"></i> Manage Menu Price</a>
-                </div>
+              
         </div>
 <div class="grid-cell">
        
