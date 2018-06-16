@@ -217,7 +217,7 @@ class TwigExtension extends \Twig_Extension
     {
         $available = [];
         foreach ($menuItems as $menu) {
-            $available[$menu['section']] = true;
+            $available[$menu->section] = true;
         }
 
         return $available;
