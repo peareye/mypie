@@ -3,8 +3,10 @@
 <h3 class="page-title">Menu not found</h3>
 {% else %}
 <!-- Start Current Menu -->
+{% if menu.date %}
 <h3 class="page-title">{{ menu.date|date('l, j F, Y') }}</h3>
 <a class="btn btn-primary btn-sm m-2" href="{{ pathFor('editMenu', {'id': menu.id}) }}">Edit This Menu</a>{% endif %}
+{% endif %}
 <div id="current-menu">
     {% if menu.items %}
     <div class="current-menu">
@@ -29,7 +31,7 @@
         <h3 class="page-title">Sides</h3>
         {% for m in menu.items if m.section == 'sides' %}
         <div class="menu-item-wrapper">
-    
+
           <div class="menu-item-each">
             {{ m.type }}
           </div>
@@ -46,7 +48,7 @@
         <h3 class="page-title"> Sausage Rolls</h3>
         {% for m in menu.items if m.section == 'rolls' %}
         <div class="menu-item-wrapper">
-    
+
           <div class="menu-item-each">
             {{ m.type }}
           </div>
@@ -63,7 +65,7 @@
         <h3 class="page-title">Puds</h3>
         {% for m in menu.items if m.section == 'puds' %}
         <div class="menu-item-wrapper">
-    
+
           <div class="menu-item-each">
             {{ m.type }}
           </div>
@@ -80,7 +82,7 @@
         <h3 class="page-title">Takeaway</h3>
         {% for m in menu.items if m.section == 'takeawaypies' %}
         <div class="menu-item-wrapper">
-    
+
           <div class="menu-item-each">
             {{ m.type }}
           </div>
