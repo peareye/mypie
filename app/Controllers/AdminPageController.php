@@ -147,6 +147,7 @@ class AdminPageController extends BaseController
         $page->id = $request->getParsedBodyParam('id');
         $page->page_id = $request->getParsedBodyParam('page_id');
         $page->name = $request->getParsedBodyParam('name');
+        $page->title = $request->getParsedBodyParam('title');
         $page->content = $request->getParsedBodyParam('content');
         $page->content_html = $markdown->text($request->getParsedBodyParam('content'));
 

@@ -7,7 +7,7 @@ namespace Piton\Models;
 class PageletMapper extends DataMapperAbstract
 {
     protected $table = 'pagelet';
-    protected $modifiableColumns = ['page_id', 'name', 'content', 'content_html'];
+    protected $modifiableColumns = ['page_id', 'title', 'name', 'content', 'content_html'];
 
     /**
      * Get Pagelets by Page ID
