@@ -112,9 +112,7 @@ $('.edit-menu').on('change', 'select[name="items[type][]"]', function() {
 // Make sure element name is one word
 $('form input.jsRefNameValidate').on('blur', function() {
     var elementName = $(this).val();
-    if (elementName.match(/[^a-zA-Z0-9_]/g)) {
-        elementName = elementName.replace(/[^a-zA-Z0-9_]/g, '_');
-        elementName = elementName.toLowerCase();
-        $(this).val(elementName);
-    }
+    elementName = elementName.replace(/[^a-zA-Z0-9_]/g, '_');
+    elementName = elementName.toLowerCase();
+    $(this).val(elementName);
 });
