@@ -21,7 +21,13 @@ Page Management - Add / Edit Content
 
               <div class="form-group">
                 <label><h6>Section Name</h6></label>
-                <input class="form-control" type="text" name="name" maxlength="60" placeholder="Section name" value="{{ pagelet.name }}" required>
+                <input class="form-control jsRefNameValidate" type="text" name="name" maxlength="60" placeholder="Element name" value="{{ pagelet.name }}" required>
+                <p>Internal name for reference in application code.</p>
+              </div>
+
+              <div class="form-group">
+                <label><h6>Title</h6></label>
+                <input class="form-control" type="text" name="title" maxlength="60" placeholder="Title" value="{{ pagelet.title }}">
               </div>
 
               <div class="form-group">

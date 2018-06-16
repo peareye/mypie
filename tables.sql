@@ -42,6 +42,7 @@ CREATE TABLE IF NOT EXISTS `pagelet` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `page_id` int(11) NOT NULL,
   `name` varchar(60) NOT NULL,
+  `title` varchar(60) NULL DEFAULT NULL,
   `content` text,
   `content_html` text,
   `created_by` int(11) NOT NULL DEFAULT '1',
