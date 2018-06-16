@@ -61,10 +61,7 @@ class AdminMenuController extends BaseController
         if (isset($menu->id)) {
             // Fetch menu iems
             $menu->items = $MenuItemMapper->findItemsByMenuId($args['id']);
-        } else {
-            $menu->menuNotFound = true;
         }
-
 
         return $this->container->view->render($response, '@admin/pages/menu.html', ['menu' => $menu]);
     }
@@ -333,8 +330,8 @@ class AdminMenuController extends BaseController
             }
         }
 
-        // Redirect back to show menus
-        return $response->withRedirect($this->container->router->pathFor('showMenus'));
+        // Redirect post save
+        return $response->withRedirect($this->container->router->pathFor('adminHome'));
     }
 
     /**
