@@ -1,17 +1,19 @@
-{% extends '_sidebar_layout.html' %} {% block main %}
-<div class="mb-5">
-    {{ page.pagelets.Title.content_html }}
-<hr>
+{% extends '_sidebar_layout.html' %} 
 
-{% for p in page.pagelets %}
-{{ p.content_html|raw }}
-{% endfor %}  
- 
 
-  {# {{ page.pagelets.suppliers_desc.content_html }} #}
+{% block main %}
+{{ page.pagelets.title.content_html }}
 
-</div>
-
+<section id="suppliers-main">
+    <div class="supplier-wrapper">
+      {% for p in page.pagelets if p.name != 'title' %}
+        <div class="supplier">
+         <h4>{{ p.title }}</h4>
+         {{ p.content_html}}
+        </div>
+       {% endfor %}
+      </div>
+</section>
 
 
 {% endblock %}

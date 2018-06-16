@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text:400,700");
 button, [type='button'], [type='reset'], [type='submit'] {
   appearance: none;
   background-color: #1565c0;
@@ -6941,16 +6942,16 @@ a.text-dark:hover, a.text-dark:focus {
   font-weight: normal;
   font-style: normal; }
 :root {
-  font-size: 14px; }
+  font-size: 16px; }
 
 @media (min-width: 576px) and (max-width: 991px) {
   :root {
-    font-size: calc( 14px + (16 - 14) * ( (100vw - 576px) / ( 991 - 576) )); } }
+    font-size: calc( 16px + (18 - 16) * ( (100vw - 576px) / ( 991 - 576) )); } }
 @media (min-width: 991px) {
   :root {
-    font-size: 16px; } }
+    font-size: 18px; } }
 body {
-  font-family: ""; }
+  font-family: 'Montserrat', sans-serif; }
 
 h1,
 h2,
@@ -7000,7 +7001,7 @@ h6 {
 
 body {
   color: var(--mypie-dark-grey);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Crimson Text', serif;
   margin-top: 80px; }
   @media (min-width: 768px) {
     body {
@@ -7041,11 +7042,35 @@ a:focus {
   margin-top: 4rem;
   margin-bottom: 4rem; }
 
-.card-image-top {
-  width: 200px;
-  object-fit: cover;
-  height: 100px;
-  overflow: hidden; }
+#suppliers-main h4 {
+  border-bottom: solid 1px black;
+  background: var(--mypie-accent-red);
+  color: var(--mypie-light);
+  margin: 0;
+  padding: 1rem; }
+#suppliers-main .supplier-wrapper {
+  padding: 2rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-gap: .5rem; }
+#suppliers-main .supplier {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: .25rem;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
+#suppliers-main ul {
+  list-style: none;
+  padding: 0 .25rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%; }
+#suppliers-main li:first-child {
+  margin-bottom: auto;
+  padding-top: 1rem;
+  padding-bottom: 2rem; }
 
 footer {
   font-size: 0.7rem;

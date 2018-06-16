@@ -1,6 +1,41 @@
-.card-image-top{
-  width: 200px;
-  object-fit: cover;
-  height: 100px;
-  overflow: hidden;
+#suppliers-main { 
+  h4 {
+    border-bottom: solid 1px black;
+    background: var(--mypie-accent-red);
+    color: var(--mypie-light);
+    margin: 0;
+    @include padding(1rem);
+  }
+  .supplier-wrapper {
+    padding: 2rem 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: .5rem;
+  }
+  .supplier {
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .08);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  ul {
+    list-style: none;
+    padding: 0 .25rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  li:first-child {
+    margin-bottom: auto;
+    @include padding(1rem null 2rem);
+  
+  }
 }
+
+
+
+
+
