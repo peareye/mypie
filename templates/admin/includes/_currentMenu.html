@@ -1,14 +1,14 @@
 <!-- Menu Not Found -->
-{% if menu.menuNotFound %}
-<h3 class="page-title">Menu not found</h3>
+{% if not menu.id %}
+<h3 class="page-title">No menu for this date</h3>
 {% else %}
+
 <!-- Start Current Menu -->
-{% if menu.date %}
 <h3 class="page-title">{{ menu.date|date('l, j F, Y') }}</h3>
-<a class="btn btn-primary btn-sm m-2" href="{{ pathFor('editMenu', {'id': menu.id}) }}">Edit This Menu</a>{% endif %}
-{% endif %}
+<a class="btn btn-primary btn-sm m-2" href="{{ pathFor('editMenu', {'id': menu.id}) }}">Edit This Menu</a>
+
+{% if menu.items %}
 <div id="current-menu">
-    {% if menu.items %}
     <div class="current-menu">
       <div class="grid-cell-inner">
         <!-- Daily Pies -->
@@ -92,13 +92,15 @@
             <a class="btn btn-sm btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
           </div>
         </div>
-        {% endfor %} {% else %}
-        <h3>No menu items found for this date</h3>
-        {% endif %}
+        {% endfor %} 
+
       </div>
     </div>
 </div>
-
+{% else %}
+<p>This menu has no content</p>
+{% endif %}
+{% endif %}
 
 
  
