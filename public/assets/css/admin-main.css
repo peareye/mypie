@@ -7022,6 +7022,11 @@ h1, h2, h3, h4, h5, h6 {
 .span {
   grid-column: 1 / -1; }
 
+.btn {
+  margin-right: 0.5rem;
+  margin-bottom: 2rem;
+  margin-left: 0.5rem; }
+
 .logo {
   position: fixed;
   top: 0;
@@ -7048,11 +7053,13 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  bottom: 0;
+  height: 100vh;
   width: 70px;
   background: var(--mypie-dark);
   color: var(--mypie-light);
-  padding-top: 80px; }
+  padding-top: 80px;
+  scroll-behavior: auto;
+  overflow: scroll; }
 
 .navbar-wrapper a {
   color: var(--mypie-light); }
@@ -7075,8 +7082,7 @@ header {
 .right-container {
   margin-left: 70px;
   padding-right: 1rem;
-  padding-left: 0.5rem;
-  background: #d9d9d9; }
+  padding-left: 0.5rem; }
 
 @media only screen and (max-width: 600px) {
   body {
@@ -7113,19 +7119,28 @@ header {
   display: flex;
   justify-content: center; }
 
+.current-menu .btn {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem; }
 @media screen and (min-width: 576px) {
   .current-menu {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: max-content auto;
     grid-gap: .5rem; } }
 
 .menu-list-container {
   border: solid 1px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   margin-top: 0.5rem;
-  margin-bottom: 0.5rem; }
+  margin-bottom: 0.5rem;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem; }
 
 .menu-list-container a {
+  color: var(--mypie-red); }
+
+.menu-list-container a:hover {
   color: var(--mypie-accent-red); }
 
 .menu-date {
@@ -7149,8 +7164,7 @@ header {
   align-items: center;
   align-content: center;
   text-align: center;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem; }
+  padding-top: 0.5rem; }
 
 .blurb {
   max-width: 25vw;
@@ -7165,13 +7179,13 @@ header {
 @media screen and (min-width: 576px) {
   #admin-home .right-container {
     display: grid;
-    grid-template-columns: repeat(2, max-content);
-    grid-gap: .25rem; } }
+    grid-template-columns: max-content auto;
+    grid-gap: 1rem; } }
 
 @media screen and (min-width: 576px) {
   #menu-home .right-container {
     display: grid;
-    grid-template-columns: repeat(2, max-content);
-    grid-gap: 10px; } }
+    grid-template-columns: max-content 1fr;
+    grid-gap: 1rem; } }
 
 /*# sourceMappingURL=admin-main.css.map */

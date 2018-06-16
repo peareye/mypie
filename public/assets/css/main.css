@@ -7016,9 +7016,7 @@ img {
 
 @media (min-width: 768px) {
   #main {
-    border-top: solid 4px black;
-    padding-top: 2rem;
-    padding-bottom: 2rem; } }
+    border-top: solid 4px black; } }
 
 section {
   padding-top: 3rem;
@@ -7042,6 +7040,12 @@ a:focus {
 .sidebar-item:nth-child(1) {
   margin-top: 4rem;
   margin-bottom: 4rem; }
+
+.card-image-top {
+  width: 200px;
+  object-fit: cover;
+  height: 100px;
+  overflow: hidden; }
 
 footer {
   font-size: 0.7rem;

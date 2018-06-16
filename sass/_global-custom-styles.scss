@@ -19,7 +19,7 @@ img {
 #main{
   @media(min-width: 768px){
     border-top: solid 4px black;
-    @include padding(2rem null);
+    // @include padding(2rem null);
   }
 
 }

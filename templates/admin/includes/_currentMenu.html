@@ -4,94 +4,99 @@
 {% else %}
 <!-- Start Current Menu -->
 <h3 class="page-title">{{ menu.date|date('l, j F, Y') }}</h3>
-
-<a class="btn btn-primary btn-sm m-2" href="{{ pathFor('editMenu', {'id': menu.id}) }}">Edit This Menu</a>
-{% endif %} {% if menu.items %}
-<div class="current-menu">
-  <div class="grid-cell-inner">
-    <!-- Daily Pies -->
-    <h3 class="page-title">Pies</h3>
-    {% for m in menu.items if m.section == 'dailypies' %}
-    <div class="menu-item-wrapper">
-      <div class="menu-item-each">
-        {{ m.type }}
+<a class="btn btn-primary btn-sm m-2" href="{{ pathFor('editMenu', {'id': menu.id}) }}">Edit This Menu</a>{% endif %}
+<div id="current-menu">
+    {% if menu.items %}
+    <div class="current-menu">
+      <div class="grid-cell-inner">
+        <!-- Daily Pies -->
+        <h3 class="page-title">Pies</h3>
+        {% for m in menu.items if m.section == 'dailypies' %}
+        <div class="menu-item-wrapper">
+          <div class="menu-item-each">
+            {{ m.type }}
+          </div>
+          <div class="menu-item-each">
+            {% if m.sold_out == 'N' %} {% set status, label = 'Y', 'Sell Out' %} {% else %} {% set status, label = 'N', 'Sell In' %}
+            {% endif %}
+            <a class="btn btn-sm btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
+          </div>
+        </div>
+        {% endfor %}
       </div>
-      <div class="menu-item-each">
-        {% if m.sold_out == 'N' %} {% set status, label = 'Y', 'Sell Out' %} {% else %} {% set status, label = 'N', 'Sell In' %}
+      <div class="grid-cell-inner">
+        <!-- Sides -->
+        <h3 class="page-title">Sides</h3>
+        {% for m in menu.items if m.section == 'sides' %}
+        <div class="menu-item-wrapper">
+    
+          <div class="menu-item-each">
+            {{ m.type }}
+          </div>
+          <div class="menu-item-each">
+            {% if m.sold_out == 'N' %} {% set status, label = 'Y', 'Sell Out' %} {% else %} {% set status, label = 'N', 'Sell In' %}
+            {% endif %}
+            <a class="btn btn-sm btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="grid-cell-inner">
+        <!-- Sausage Rolls -->
+        <h3 class="page-title"> Sausage Rolls</h3>
+        {% for m in menu.items if m.section == 'rolls' %}
+        <div class="menu-item-wrapper">
+    
+          <div class="menu-item-each">
+            {{ m.type }}
+          </div>
+          <div class="menu-item-each">
+            {% if m.sold_out == 'N' %} {% set status, label = 'Y', 'Sell Out' %} {% else %} {% set status, label = 'N', 'Sell In' %}
+            {% endif %}
+            <a class="btn btn-sm btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="grid-cell-inner">
+        <!-- Puds -->
+        <h3 class="page-title">Puds</h3>
+        {% for m in menu.items if m.section == 'puds' %}
+        <div class="menu-item-wrapper">
+    
+          <div class="menu-item-each">
+            {{ m.type }}
+          </div>
+          <div class="menu-item-each">
+            {% if m.sold_out == 'N' %} {% set status, label = 'Y', 'Sell Out' %} {% else %} {% set status, label = 'N', 'Sell In' %}
+            {% endif %}
+            <a class="btn btn-sm btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="grid-cell-inner">
+        <!-- Takeaway Pies -->
+        <h3 class="page-title">Takeaway</h3>
+        {% for m in menu.items if m.section == 'takeawaypies' %}
+        <div class="menu-item-wrapper">
+    
+          <div class="menu-item-each">
+            {{ m.type }}
+          </div>
+          <div class="menu-item-each">
+            {% if m.sold_out == 'N' %} {% set status, label = 'Y', 'Sell Out' %} {% else %} {% set status, label = 'N', 'Sell In' %}
+            {% endif %}
+            <a class="btn btn-sm btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
+          </div>
+        </div>
+        {% endfor %} {% else %}
+        <h3>No menu items found for this date</h3>
         {% endif %}
-        <a class="btn btn-sm btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
       </div>
     </div>
-    {% endfor %}
-  </div>
-  <div class="grid-cell-inner">
-    <!-- Sides -->
-    <h3 class="page-title">Sides</h3>
-    {% for m in menu.items if m.section == 'sides' %}
-    <div class="menu-item-wrapper">
-
-      <div class="menu-item-each">
-        {{ m.type }}
-      </div>
-      <div class="menu-item-each">
-        {% if m.sold_out == 'N' %} {% set status, label = 'Y', 'Sell Out' %} {% else %} {% set status, label = 'N', 'Sell In' %}
-        {% endif %}
-        <a class="btn btn-sm btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-  <div class="grid-cell-inner">
-    <!-- Sausage Rolls -->
-    <h3 class="page-title"> Sausage Rolls</h3>
-    {% for m in menu.items if m.section == 'rolls' %}
-    <div class="menu-item-wrapper">
-
-      <div class="menu-item-each">
-        {{ m.type }}
-      </div>
-      <div class="menu-item-each">
-        {% if m.sold_out == 'N' %} {% set status, label = 'Y', 'Sell Out' %} {% else %} {% set status, label = 'N', 'Sell In' %}
-        {% endif %}
-        <a class="btn btn-sm btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-  <div class="grid-cell-inner">
-    <!-- Puds -->
-    <h3 class="page-title">Puds</h3>
-    {% for m in menu.items if m.section == 'puds' %}
-    <div class="menu-item-wrapper">
-
-      <div class="menu-item-each">
-        {{ m.type }}
-      </div>
-      <div class="menu-item-each">
-        {% if m.sold_out == 'N' %} {% set status, label = 'Y', 'Sell Out' %} {% else %} {% set status, label = 'N', 'Sell In' %}
-        {% endif %}
-        <a class="btn btn-sm btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-  <div class="grid-cell-inner">
-    <!-- Takeaway Pies -->
-    <h3 class="page-title">Takeaway</h3>
-    {% for m in menu.items if m.section == 'takeawaypies' %}
-    <div class="menu-item-wrapper">
-
-      <div class="menu-item-each">
-        {{ m.type }}
-      </div>
-      <div class="menu-item-each">
-        {% if m.sold_out == 'N' %} {% set status, label = 'Y', 'Sell Out' %} {% else %} {% set status, label = 'N', 'Sell In' %}
-        {% endif %}
-        <a class="btn btn-sm btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
-      </div>
-    </div>
-    {% endfor %} {% else %}
-    <h3>No menu items found for this date</h3>
-    {% endif %}
-  </div>
 </div>
+
+
+
+ 

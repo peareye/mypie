@@ -1,9 +1,8 @@
-
         {% if menu.menuNotFound %}
-        <h2 class="section-title">Menu not found</h>
+        <h2 class="">Menu not found</h>
         {% else %}
-        <h2 class="section-title">Menu</h2>
-        <h3 class="section-title">{{ menu.date|date('l, j F, Y') }} at {{ menu.location }}</h3>
+      
+        <h3 class="">{{ menu.date|date('l, j F, Y') }} at {{ menu.location }}</h3>
 
         {% endif %}
 

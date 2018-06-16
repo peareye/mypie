@@ -11,13 +11,13 @@ User Management
 
 {% block body %}
 <div class="grid-cell span">
-  <div class="grid-cell-inner">
+
       <h2 class="page-title">Main Administrator</h2>
       <strong>{{ users.default }}</strong>
       <p>* This user cannot be deleted. 
         To change this email address,
         please contact Moritz Media.</p>
-  </div>
+  
  
    
  
@@ -27,9 +27,9 @@ User Management
       <h2 class="page-title">Add a User</h2>
       <form action="{{ pathFor('saveUsers') }}" id="user-emails" method="post" accept-charset="utf-8">
           {% for user in users.other %}
-          <div>
+          <div class="grid-cell ">
             <input type="email" name="email[]" maxlength="60" value="{{ user.email }}" autocomplete="off">
-            <a href="{{ pathFor('removeUser', {'id': user.id}) }}" class="btn btn-danger">Remove</a>
+            <a href="{{ pathFor('removeUser', {'id': user.id}) }}" class="btn btn-danger btn-sm">Remove User</a>
           </div>
           {% endfor %}
           <div class="addEmail">

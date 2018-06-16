@@ -1,6 +1,5 @@
 html {
     box-sizing: border-box;
-   
 }
 
 *,
@@ -11,12 +10,9 @@ html {
 body{
     font-family: 'Montserrat', sans-serif;
     margin: 0;
-
-
 }
 h1,h2,h3,h4,h5,h6{
     font-family: 'Open Sans Condensed', sans-serif;
-
 }
 .page-title {
     color: var(--mypie-dark);
@@ -25,8 +21,9 @@ h1,h2,h3,h4,h5,h6{
 }
 .span{
     grid-column: 1 / -1;
-    // display: grid;
-    // grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+.btn{
+    @include margin(null .5rem 2rem);
 }
 // Logo Container
 .logo{
@@ -41,9 +38,7 @@ h1,h2,h3,h4,h5,h6{
 }
 // Header & Navbar Styles
 header {
-
     width: 100%;
-    
     @include margin(0 null null 67px);
     @include padding(null null null 1rem);
     @include border-style(null null solid solid);
@@ -55,11 +50,14 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    bottom: 0;
+    // bottom: 0;
+    height: 100vh;
     width: 70px;
     background: var(--mypie-dark);
     color: var(--mypie-light);
     @include padding(80px null null);
+    scroll-behavior: auto;
+    overflow: scroll;
 }
 
 .navbar-wrapper a {
@@ -87,7 +85,6 @@ header {
     @include margin(null null null 70px);
     @include padding(null 1rem null .5rem);
 
-    background: #d9d9d9;
 }
 
 @media only screen and (max-width: 600px) {
@@ -131,23 +128,30 @@ header {
     justify-content: center;
 }
 // Current Menu Style
-.current-menu{
 
+.current-menu{
+   
+    .btn{
+        @include margin(.2rem null);
+    }
     @media screen and (min-width: 576px){
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: max-content auto;
         grid-gap: .5rem;
     }
 }
-
 
 // Menu Lists Style
 .menu-list-container{
     border: solid 1px rgba(0,0,0,.25);
     border-radius: 5px;
     @include margin(.5rem null);
+    @include padding(1rem 1rem null);
 }
 .menu-list-container a{
+    color: var(--mypie-red);
+}
+.menu-list-container a:hover {
     color: var(--mypie-accent-red);
 }
 .menu-date{
@@ -173,7 +177,7 @@ header {
     align-content: center;
     text-align: center;
   
-    @include padding(.5rem null);
+    @include padding(.5rem null null);
    
 }
 // Page Content Management Styles
@@ -195,8 +199,9 @@ header {
     .right-container {
        @media screen and (min-width: 576px) {
            display: grid;
-           grid-template-columns:repeat(2,max-content);
-           grid-gap: .25rem;
+        //    grid-template-columns:repeat(2,max-content);
+        grid-template-columns: max-content auto;
+           grid-gap: 1rem;
        }
    }
    }
@@ -205,10 +210,10 @@ header {
  .right-container {
     @media screen and (min-width: 576px) {
         display: grid;
-        grid-template-columns:repeat(2,max-content);
+        grid-template-columns: max-content 1fr;
        
-        grid-gap: 10px;
+        grid-gap: 1rem;
     }
 }
-}
+} 
 

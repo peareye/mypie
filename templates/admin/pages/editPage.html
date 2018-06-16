@@ -1,12 +1,10 @@
 {% extends '@admin/admin_base.html' %}
 {% block title %}
-MYPIE Dashboard
+Page Management - Add / Edit
 {% endblock %}
 
 {% block blurb %}
-<p>Add a new menu, or if you prefer, you can copy a previous menu. By clicking the second icon below the menu you want to duplicate, it will take you to a page that you can update the date and location of the particular menu. You can also edit and delete a menu.</p>
-<p>If you just want to add an event to the calendar, Add a New Menu but only select a location and date. It will appear on the calendar. </p>
-
+<p>Add/Edit a Page</p>
 {% endblock %}
 
 
@@ -40,7 +38,7 @@ MYPIE Dashboard
         <input type="text" name="meta_description" maxlength="320" placeholder="Description to appear in search results" value="{{ page.meta_description }}">
       </div>
 
-      <a href="{{ pathFor('showPages') }}" class="btn btn-warnning btn-sm">Cancel</a>
+      <a href="{{ pathFor('showPages') }}" class="btn btn-warning btn-sm">Cancel</a>
       <button class="btn btn-success btn-sm" type="submit" name="button">Save</button>
       {% if page.id %}
       <a href="{{ pathFor('deletePage', {'id': page.id}) }}">Delete</a>

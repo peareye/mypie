@@ -1,11 +1,17 @@
 {% extends '_sidebar_layout.html' %} {% block main %}
-<div class="container">
-  <h1>MYPIE Suppliers</h1>
+<div class="mb-5">
+    {{ page.pagelets.Title.content_html }}
+<hr>
 
-{#   {{ page.pagelets.suppliers_desc.content_html }} 
-  
-  {{ page.pagelets.supplier_list.content_html }} #}
+{% for p in page.pagelets %}
+{{ p.content_html|raw }}
+{% endfor %}  
+ 
+
+  {# {{ page.pagelets.suppliers_desc.content_html }} #}
 
 </div>
+
+
 
 {% endblock %}
