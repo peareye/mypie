@@ -89,6 +89,7 @@ class TwigExtension extends \Twig_Extension
             new \Twig_SimpleFunction('inUrl', array($this, 'isInUrl')),
             new \Twig_SimpleFunction('checked', array($this, 'checked')),
             new \Twig_SimpleFunction('displayMenu', array($this, 'displayMenu'), array('is_safe' => array('html'))),
+            new \Twig_SimpleFunction('availableMenuSections', array($this, 'availableMenuSections')),
         ];
     }
 
@@ -203,5 +204,22 @@ class TwigExtension extends \Twig_Extension
         }
 
         return $this->environment->render('includes/_menu.html', ['menu' => $todaysMenu]);
+    }
+
+    /**
+     * Available Menu Sections
+     *
+     * Process list of menu items, and returns array of available sections
+     * @param array
+     * @return array
+     */
+    public function availableMenuSections($menuItems)
+    {
+        $available = [];
+        foreach ($menuItems as $menu) {
+            $available[$menu['section']] = true;
+        }
+
+        return $available;
     }
 }
