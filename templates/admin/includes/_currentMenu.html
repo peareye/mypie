@@ -3,6 +3,7 @@
 <h3 class="page-title">No menu for this date</h3>
 {% else %}
 
+{% set available = availableMenuSections(menu.items) %}
 <!-- Start Current Menu -->
 <h3 class="page-title">{{ menu.date|date('l, j F, Y') }}</h3>
 <a class="btn btn-primary btn-sm m-2" href="{{ pathFor('editMenu', {'id': menu.id}) }}">Edit This Menu</a>
@@ -10,8 +11,10 @@
 {% if menu.items %}
 <div id="current-menu">
     <div class="current-menu">
+
+         <!-- Daily Pies -->
+      {% if available.dailypies %}
       <div class="grid-cell-inner">
-        <!-- Daily Pies -->
         <h3 class="page-title">Pies</h3>
         {% for m in menu.items if m.section == 'dailypies' %}
         <div class="menu-item-wrapper">
@@ -26,12 +29,14 @@
         </div>
         {% endfor %}
       </div>
+      {% endif %}
+
+     <!-- Sides -->
+     {% if available.sides %}
       <div class="grid-cell-inner">
-        <!-- Sides -->
         <h3 class="page-title">Sides</h3>
         {% for m in menu.items if m.section == 'sides' %}
         <div class="menu-item-wrapper">
-
           <div class="menu-item-each">
             {{ m.type }}
           </div>
@@ -43,12 +48,15 @@
         </div>
         {% endfor %}
       </div>
+      {% endif %}
+ 
+
+   <!-- Sausage Rolls -->
+   {% if available.rolls %}
       <div class="grid-cell-inner">
-        <!-- Sausage Rolls -->
-        <h3 class="page-title"> Sausage Rolls</h3>
+      <h3 class="page-title"> Sausage Rolls</h3>
         {% for m in menu.items if m.section == 'rolls' %}
         <div class="menu-item-wrapper">
-
           <div class="menu-item-each">
             {{ m.type }}
           </div>
@@ -60,12 +68,14 @@
         </div>
         {% endfor %}
       </div>
+      {% endif %}
+   <!-- Puds -->
+   {% if available.puds %}
       <div class="grid-cell-inner">
-        <!-- Puds -->
+     
         <h3 class="page-title">Puds</h3>
         {% for m in menu.items if m.section == 'puds' %}
         <div class="menu-item-wrapper">
-
           <div class="menu-item-each">
             {{ m.type }}
           </div>
@@ -77,12 +87,14 @@
         </div>
         {% endfor %}
       </div>
+      {% endif %}
+
+  <!-- Takeaway Pies -->
+  {% if available.takeawaypies %}
       <div class="grid-cell-inner">
-        <!-- Takeaway Pies -->
         <h3 class="page-title">Takeaway</h3>
         {% for m in menu.items if m.section == 'takeawaypies' %}
         <div class="menu-item-wrapper">
-
           <div class="menu-item-each">
             {{ m.type }}
           </div>
@@ -95,9 +107,13 @@
         {% endfor %} 
 
       </div>
+      {% endif %}
     </div>
 </div>
+
+
 {% else %}
+
 <p>This menu has no content</p>
 {% endif %}
 {% endif %}

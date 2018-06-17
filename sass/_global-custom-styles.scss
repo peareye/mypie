@@ -2,8 +2,7 @@
 
 body {
   color: var(--mypie-dark-grey);
-  font-family: 'Crimson Text', serif;
-  margin-top: 80px;
+  margin-top: 79px;
   @media (min-width: 768px) {
       margin-top: 50px;
   }
@@ -19,13 +18,14 @@ img {
 #main{
   @media(min-width: 768px){
     border-top: solid 4px black;
-    // @include padding(2rem null);
-  }
 
+  }
 }
 section{
-
-  @include padding(3rem null);
+@include padding(2rem null);
+}
+section#insta-feed {
+  @include margin(null null 100px);
 }
 .section-title{
   text-align: center;
@@ -44,4 +44,8 @@ a:focus{
 }
 .sidebar-item:nth-child(1){
   @include margin(4rem null);
+}
+h2.section-title{
+  margin: 0;
+  padding: 0;
 }
