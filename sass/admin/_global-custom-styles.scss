@@ -14,6 +14,9 @@ body{
 h1,h2,h3,h4,h5,h6{
     font-family: 'Open Sans Condensed', sans-serif;
 }
+.fa a{
+    color: black !important;
+}
 .page-title {
     color: var(--mypie-dark);
     border-bottom: solid 1px #efefef;
@@ -32,7 +35,7 @@ h1,h2,h3,h4,h5,h6{
     left: 0;
     width: 67px;
     height: 70px;
-    background: var(--mypie-light);
+    background: var(--mypie-red);
     @include padding(2px);
     z-index: 2;
 }
@@ -54,14 +57,16 @@ header {
     height: 100vh;
     width: 70px;
     background: var(--mypie-dark);
-    color: var(--mypie-light);
+    color: var(--mypie-red);
     @include padding(80px null null);
     scroll-behavior: auto;
     overflow: scroll;
 }
-
+button{
+    color: black !important;
+}
 .navbar-wrapper a {
-    color: var(--mypie-light);
+    color: var(--mypie-red);
 }
 
 .nav-item {
@@ -95,7 +100,7 @@ header {
 
 .grid-cell{
 
-    background-color: var(--mypie-light);
+    background-color: var(--mypie-red);
     border: solid 1px rgba(0,0,0,.25);
     border-radius: 5px;
     @include padding(.5rem .25rem);
