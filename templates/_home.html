@@ -1,6 +1,4 @@
- {% extends 'base_layout.html' %} 
- 
- {% block body %}
+ {% extends 'base_layout.html' %} {% block body %}
 
 <!-- Hero Section -->
 {% include '/includes/_hero.html' %}
@@ -14,11 +12,7 @@
   </div>
   <div class="container">
     <div class="slider single-item">
-      {% for cal in page.calendar %} 
-    
-      {{ calendar.schedule(cal.month, cal.days) }} 
-      
-      {% endfor %}
+      {% for cal in page.calendar %} {{ calendar.schedule(cal.month, cal.days) }} {% endfor %}
     </div>
   </div>
 </section>
@@ -46,24 +40,21 @@
     </div>
   </div>
 </div>
-
-<div class="jarallax">
+<div class="container hero-container">
+  <div class="jarallax">
     <img class="jarallax-img" src="{{ basePath() }}assets/img/mypie-pie1600x1068.jpg">
-     <div class="hero-inner">
-       <div data-jarallax-element="0" class="hero-content">
-           
-       </div>
+    <div class="hero-inner">
+      <div data-jarallax-element="" class="hero-content1">
+        <p class="lead">Award winning pies &amp; sausage rolls freshly baked every day. Served up with awesome sides and real gravy.</p>
       
-     </div>
- 
- </div>
-
-
+        <p class="lead">Served to you from our custom vintage airstream caravan or pie truck.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Newsletter Subscription -->
 {% include '/includes/_newsletter.html' %}
 
 <!-- Get Social & Instragram Feed Section -->
-{% include '/includes/_insta-feed.html' %}
-
-{% endblock %}
+{% include '/includes/_insta-feed.html' %} {% endblock %}
