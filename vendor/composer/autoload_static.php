@@ -409,6 +409,7 @@ class ComposerStaticInit97d2d9d100b1138cfd987a784b54cdba
         'Piton\\Controllers\\BaseController' => __DIR__ . '/../..' . '/app/Controllers/BaseController.php',
         'Piton\\Controllers\\IndexController' => __DIR__ . '/../..' . '/app/Controllers/IndexController.php',
         'Piton\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Controllers/LoginController.php',
+        'Piton\\Extensions\\MDParser' => __DIR__ . '/../..' . '/app/Extensions/MDParser.php',
         'Piton\\Extensions\\PaginationExtension' => __DIR__ . '/../..' . '/app/Extensions/PaginationExtension.php',
         'Piton\\Extensions\\TwigExtension' => __DIR__ . '/../..' . '/app/Extensions/TwigExtension.php',
         'Piton\\Library\\ErrorHandler' => __DIR__ . '/../..' . '/app/Library/ErrorHandler.php',
