@@ -2,9 +2,11 @@
 
 
 {% block main %}
-{{ page.pagelets.title.content_html }}
+
+
 
 <section id="suppliers-main">
+    {{ page.pagelets.title.content_html }}
     <div class="supplier-wrapper">
       {% for p in page.pagelets if p.name != 'title' %}
         <div class="supplier">

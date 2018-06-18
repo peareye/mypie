@@ -36,7 +36,7 @@
 
 .hero-content {
   color: var(--mypie-light);
-  text-shadow: var(--mypie-text-shadow);
+  text-shadow: var(--text-shadow);
   width: 90%;
   position: absolute;
   top: 20px;
@@ -48,18 +48,23 @@
 .hero-content1 {
   color: var(--mypie-light);
   text-align: center;
-  text-shadow: var(--mypie-text-shadow);
+  text-shadow: var(---text-shadow);
   width: 90%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  @media(min-width: 576px){
+  height: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  @media screen and (min-width: 576px){
     width: 50%;
   }
+
 }
 
 .hero-content h1, .hero-content1 h1 {
   color: var(--mypie-light);
-  text-shadow: var(--mypie-text-shadow);
+  text-shadow: var(--text-shadow);
 }
