@@ -7014,6 +7014,9 @@ img {
   width: 100%;
   display: block; }
 
+.span {
+  grid-column: 1 / -1; }
+
 @media (min-width: 768px) {
   #main {
     border-top: solid 4px black; } }
@@ -7022,23 +7025,12 @@ section {
   padding-top: 2rem;
   padding-bottom: 2rem; }
 
-section#insta-feed {
-  margin-bottom: 100px; }
-
 .section-title {
   text-align: center;
   margin-bottom: .5rem; }
 
 a:focus {
   outline: none; }
-
-.headshot {
-  width: 10rem;
-  border-radius: 100%;
-  float: left;
-  shape-outside: circle();
-  margin-right: 2rem;
-  margin-bottom: .5rem; }
 
 .sidebar-item:nth-child(1) {
   margin-top: 4rem;
@@ -7087,6 +7079,14 @@ h2.section-title {
     margin-bottom: auto;
     padding-top: 0;
     padding-bottom: 2rem; }
+
+@media screen and (min-width: 768px) {
+  #about-main .about-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem; } }
+#about-main .headshot {
+  box-shadow: var(--box-shadow); }
 
 footer {
   font-size: 0.7rem;

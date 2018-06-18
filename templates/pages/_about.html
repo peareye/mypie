@@ -1,13 +1,15 @@
-{% extends '_sidebar_layout.html' %}
+{% extends '_sidebar_layout.html' %} 
+
 
 {% block main %}
 
-<div id="about" class="container">
-      
-<img class="headshot" src="assets/img/cBrumbly.jpg" alt="Chris Brumbly">
-        
-{{ page.pagelets.about.content_html }} 
-
-</div>
+<section id="about-main">
+        <div class="about-wrapper">
+                        <div class="span"> {{ page.pagelets.title.content_html }}</div>
+                     
+                        <div class="about-content">{{ page.pagelets.about_us.content_html }}</div>
+        </div>
+    
+</section>
 
 {% endblock %}

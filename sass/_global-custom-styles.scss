@@ -14,7 +14,9 @@ img {
   width: 100%;
   display: block;
 }
-
+.span{
+  grid-column:  1 / -1;
+}
 #main{
   @media(min-width: 768px){
     border-top: solid 4px black;
@@ -24,9 +26,9 @@ img {
 section{
 @include padding(2rem null);
 }
-section#insta-feed {
-  @include margin(null null 100px);
-}
+// section#insta-feed {
+//   @include margin(null null 100px);
+// }
 .section-title{
   text-align: center;
   margin-bottom: .5rem;
@@ -34,14 +36,7 @@ section#insta-feed {
 a:focus{
   outline: none;
 }
-.headshot{
-  width: 10rem;
-  @include border-radius(100%);
-  float: left;
-  shape-outside: circle();
- margin-right: 2rem;
- margin-bottom: .5rem;
-}
+
 .sidebar-item:nth-child(1){
   @include margin(4rem null);
 }
