@@ -1,0 +1,30 @@
+#about-main {
+
+  .about-wrapper{
+    padding: .5rem;
+    margin-bottom: 1rem;
+    position: relative;
+
+     @media screen and(min-width: 768px){
+   
+     }
+     img{
+       @include padding(.5rem null null);
+       box-shadow: var(--box-shadow);
+       border-radius: 30px;
+       @include margin(null null 1rem);
+     
+       @media screen and (min-width: 576px){
+        float: left;
+        width: 40vw;
+        margin: 0 1rem 1rem 0;
+       }
+     }
+     img:nth-child(even){
+       float: right;
+       margin: 0 0 1rem 1rem;
+     }
+  }
+
+
+}

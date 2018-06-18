@@ -6942,11 +6942,11 @@ a.text-dark:hover, a.text-dark:focus {
   font-weight: normal;
   font-style: normal; }
 :root {
-  font-size: 14px; }
+  font-size: 16px; }
 
 @media (min-width: 576px) and (max-width: 991px) {
   :root {
-    font-size: calc( 14px + (18 - 14) * ( (100vw - 576px) / ( 991 - 576) )); } }
+    font-size: calc( 16px + (18 - 16) * ( (100vw - 576px) / ( 991 - 576) )); } }
 @media (min-width: 991px) {
   :root {
     font-size: 18px; } }
@@ -7080,13 +7080,23 @@ h2.section-title {
     padding-top: 0;
     padding-bottom: 2rem; }
 
-@media screen and (min-width: 768px) {
-  #about-main .about-wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1rem; } }
-#about-main .headshot {
-  box-shadow: var(--box-shadow); }
+#about-main .about-wrapper {
+  padding: .5rem;
+  margin-bottom: 1rem;
+  position: relative; }
+  #about-main .about-wrapper img {
+    padding-top: 0.5rem;
+    box-shadow: var(--box-shadow);
+    border-radius: 30px;
+    margin-bottom: 1rem; }
+    @media screen and (min-width: 576px) {
+      #about-main .about-wrapper img {
+        float: left;
+        width: 40vw;
+        margin: 0 1rem 1rem 0; } }
+  #about-main .about-wrapper img:nth-child(even) {
+    float: right;
+    margin: 0 0 1rem 1rem; }
 
 footer {
   font-size: 0.7rem;

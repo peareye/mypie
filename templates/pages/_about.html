@@ -1,15 +1,18 @@
 {% extends '_sidebar_layout.html' %} 
 
-
 {% block main %}
 
 <section id="about-main">
+        
+        {% for p in page.pagelets %}
+        
+        <h2>{{ p.title }}</h2>
         <div class="about-wrapper">
-                        <div class="span"> {{ page.pagelets.title.content_html }}</div>
-                     
-                        <div class="about-content">{{ page.pagelets.about_us.content_html }}</div>
+                {{ p.content_html}}
         </div>
-    
+        
+        {% endfor %}
+
 </section>
 
 {% endblock %}

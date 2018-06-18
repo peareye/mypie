@@ -1,33 +1,10 @@
 {% extends 'base_layout.html' %} {% block body %}
 <!-- Sub Pages Layout -->
-<div id="main">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                {% block main %} {% endblock %}
-            </div>
-            <!-- <div class="col-md-4">
-                <div class="sidebar-item">
-                    <h4>News</h4>
-                 <ul>
-                     <li>Talking Pies With MYPIE London For British Pie Week <a href="http://www.biopac.co.uk/blog/my-pie-london/"> here</a></li>
-                 </ul>
-                 <a href="{{ basePath() }}/news"> read more</a>
-                </div>
-                <div class="sidebar-item">
-                    <h4>Awards</h4>
-                    <ul>
-                        <li>2018 Gold Medal Best Chicken</li>
-                        <li>2017 Gold Medal Best Veggie</li>
-                    </ul>
-                
-                </div>
-              
 
-            </div> -->
-        </div>
-    </div>
+ <div class="container">
 
-</div>
+        {% block main %} {% endblock %}
+ </div>
+
 
 {% endblock %}
