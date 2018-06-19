@@ -80,7 +80,7 @@ class AdminMenuController extends BaseController
         $MenuItemDefaultMapper = $mapper('MenuItemDefaultMapper');
 
         // Fetch menu, or create new menu
-        if ($args['id']) {
+        if (isset($args['id'])) {
             $menu = $MenuMapper->findById($args['id']);
             $menu->items = $MenuItemMapper->findItemsByMenuId($args['id']);
         } else {
