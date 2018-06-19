@@ -7067,7 +7067,7 @@ header {
   scroll-behavior: auto;
   overflow: scroll; }
 
-button {
+#admin button {
   color: black !important; }
 
 .navbar-wrapper a {
@@ -7129,7 +7129,6 @@ button {
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); }
 #menu-home .grid-cell {
-  background: pink;
   padding-right: 0.5rem;
   padding-left: 0.5rem; }
 
@@ -7147,7 +7146,6 @@ button {
   border: initial; }
 
 #admin-home .page-section {
-  background: green;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem; }

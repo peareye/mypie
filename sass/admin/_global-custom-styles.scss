@@ -71,8 +71,10 @@ header {
     overflow: scroll;
 }
 
-button {
+#admin{
+    button {
     color: black !important;
+}
 }
 
 .navbar-wrapper a {
@@ -146,7 +148,7 @@ button {
         grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     }
     .grid-cell {
-        background: pink;
+      
         @include padding(null .5rem);
     }
 }
@@ -170,7 +172,7 @@ button {
 // Admin Home Styles
 #admin-home{
     .page-section {
-   background: green;
+  
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 1rem;
