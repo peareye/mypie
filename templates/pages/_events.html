@@ -1,0 +1,19 @@
+{% extends '_sidebar_layout.html' %} 
+
+{% block main %}
+
+<section id="events-main">
+    <div class="container">
+        <div class="events-card">
+                {% for p in page.pagelets %}
+                <h2>{{ p.title }}</h2>
+                <div class="events-content">
+                {{ p.content_html}}
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

@@ -4,16 +4,18 @@
 {% block main %}
 
 <section id="suppliers-main">
-    {{ page.pagelets.title.content_html }}
-    <div class="supplier-wrapper">
-      {% for p in page.pagelets if p.name != 'title' %}
-        <div class="supplier">
-         <h4>{{ p.title }}</h4>
-         {{ p.content_html}}
+  <div class="container">
+      {{ page.pagelets.title.content_html }}
+      <div class="supplier-wrapper">
+        {% for p in page.pagelets if p.name != 'title' %}
+          <div class="supplier">
+           <h4>{{ p.title }}</h4>
+           {{ p.content_html}}
+          </div>
+         {% endfor %}
         </div>
-       {% endfor %}
-      </div>
-</section>
+  </div>
 
+</section>
 
 {% endblock %}
