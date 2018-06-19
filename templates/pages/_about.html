@@ -4,15 +4,16 @@
 
 <section id="about-main">
         <div class="container">
-                <div class="about-card">
                         {% for p in page.pagelets %}
+                <div class="about-card">
+                       
                                 <h2>{{ p.title }}</h2>
                                 <div class="about-content">
                                 {{ p.content_html}}
                         </div>
-                        {% endfor %}
+                        
         </div>
-
+        {% endfor %}
 </section>
 
 {% endblock %}

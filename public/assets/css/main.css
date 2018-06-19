@@ -7080,6 +7080,34 @@ h2.section-title {
     padding-top: 0;
     padding-bottom: 2rem; }
 
+#about-main h2 {
+  clear: both;
+  background: var(--mypie-dark-grey);
+  color: var(--mypie-light);
+  padding: 0.5rem 1rem; }
+#about-main h5 {
+  clear: both;
+  border-radius: 7px; }
+#about-main img {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--box-shadow);
+  object-fit: cover;
+  float: left; }
+  @media screen and (min-width: 768px) {
+    #about-main img {
+      width: 55vw;
+      margin-right: 1rem;
+      margin-bottom: 1rem; } }
+  @media screen and (min-width: 992px) {
+    #about-main img {
+      width: 30vw; } }
+#about-main .about-content {
+  overflow: hidden;
+  clear: both;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem; }
+
 footer {
   font-size: 0.7rem;
   line-height: 1.2rem;

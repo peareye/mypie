@@ -28,8 +28,43 @@
 
 // }
 #about-main{
+   
  .about-card {
+ }
+ p{
+  
+ }
+ h2{
+     clear: both;
+     background: var(--mypie-dark-grey);
+     color: var(--mypie-light);
+     @include padding(.5rem 1rem);
 
+ }
+ h5{
+     clear: both;
+     border-radius: 7px;
+ }
+ img{
+     @include margin(1rem null);
+     box-shadow: var(--box-shadow);
+     object-fit: cover;
+     float: left;
+     @media screen and(min-width: 768px){
+        width: 55vw;
+        @include margin(null 1rem 1rem null);
+     }
+     @media screen and(min-width: 992px){
+        width: 30vw;
+        
+     }
+
+ }
+ .about-content{
+     overflow: hidden;
+  
+     clear: both;
+     @include margin(1rem null 2.5rem);
  }
  
 }
