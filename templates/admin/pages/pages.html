@@ -8,7 +8,7 @@
 
 <!-- visible to super admin -->
 <div class="page-section add-link">
-    <a class="span" href="{{ pathFor('editPage') }}">
+    <ahref="{{ pathFor('editPage') }}">
         <i class="fas fa-plus" alt="Create Page"></i> Add New Page</a>
 </div>
 
@@ -30,7 +30,6 @@
       </ul>
       <!-- visible to super admins -->
       <a class="btn btn-info btn-sm" href="{{ pathFor('editPagelet') }}?page_id={{ p.id }}">Add {{ p.title }} Page Elements</a>
-  
       <ul class="fa-ul">
           {% for pl in p.pagelets %}
           <li><span class="fa-li"><i class="fas fa-pencil-alt"></i></span><a href="{{ pathFor('editPagelet', {'id': pl.id}) }}"> Edit {{ pl.name }}</a></li>

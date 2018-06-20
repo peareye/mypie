@@ -1,21 +1,28 @@
 {% extends '@admin/admin_base.html' %} 
+
 {% block title %} Menu &amp; Calendar{% endblock %} 
 {% block blurb %}<p>Manage Calendar and Daily Menus.</p>{% endblock %} 
 {% block id %}menu-home{% endblock %} 
 
 {% block body %}
+
 <!-- visible to super admin -->
-<div class=" add-link">
-    <a class="span" href="{{ pathFor('editMenu') }}" data-toggle="tooltip" title="Create a new menu.">
-        <i class="fas fa-plus" alt="Create Menu"></i> Add New Menu</a>
+<div class="page-section">
+    <div class="grid-cell add-link">
+            <a href="{{ pathFor('editMenu') }}">
+                    <i class="fas fa-plus" alt="Create Page"></i> Add New Menu</a>
+    </div>
+ 
 </div>
-<div class="">
-    <div class="grid-cell">
-        {% include '@admin/includes/_menuListAll.html' %} {{ pagination() }}
-      </div>
-      
-      <div class="grid-cell">
-        {% include '@admin/includes/_editMenuItemDefaults.html' %}
-      </div>
+<div class="page-section">
+        <div class="grid-cell">
+                {% include '@admin/includes/_editMenuItemDefaults.html' %}
+              </div>
+        <div class="grid-cell">
+                {% include '@admin/includes/_menuListAll.html' %} {{ pagination() }}
+              </div>
+              
+          
 </div>
+
 {% endblock %}
