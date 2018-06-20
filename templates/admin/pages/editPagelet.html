@@ -37,7 +37,7 @@ Page Management - Add / Edit Content
             <div class="form-group">
               <button class="btn btn-warning btn-sm"><a href="{{ pathFor('showPages') }}">Cancel</a></button>
               
-              <button class="btn btn-success btn-sm" type="submit" name="button"><a href="#">Save</a></button>
+              <button class="btn btn-success btn-sm" type="submit" name="button">Save</button>
               {% if pagelet.id %}
               <button class="btn btn-danger btn-sm"> <a href="{{ pathFor('deletePagelet', {'id': pagelet.id}) }}">Delete</a></button>
              
