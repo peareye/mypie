@@ -35,7 +35,12 @@ a {
 }
 
 .btn {
-    @include margin(null .5rem 2rem);
+    @include margin(.25rem .5rem);
+    
+}
+.btn a{
+    color: var(--mypie-light) !important;
+    font-weight: 700;
 }
 
 // Logo Container
@@ -150,16 +155,28 @@ header {
 // Daily Menu Page Styles
 #menu-home {
     .page-section {
-        background: pink;
-        @media screen and (min-width: 800px){
-            background: green;
+        @media screen and (min-width: 768px){
             display: grid;
             grid-gap: 1rem;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
         }
     }
     .grid-cell {
         @include padding(null .5rem);
+    }
+    .element-section{
+        width: 100%;
+  @include padding(.5rem);
+        display: grid;
+        grid: auto-flow / repeat(2, 1fr) .5fr;
+        grid-gap: .5rem;
+        justify-content: center;
+        align-content: center;
+        justify-items: center;
+        align-items: center;
+    }
+    input{
+        margin: 0;
     }
 }
 

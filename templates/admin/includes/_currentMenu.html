@@ -8,7 +8,8 @@
 {% set available = availableMenuSections(menu.items) %}
 <!-- Start Current Menu -->
 <h3 class="page-title">{{ menu.date|date('l, j F, Y') }}</h3>
-<a class="btn btn-primary btn-sm m-2" href="{{ pathFor('editMenu', {'id': menu.id}) }}">Edit This Menu</a>
+<button class="btn btn-primary btn-sm m-2"><a href="{{ pathFor('editMenu', {'id': menu.id}) }}">Edit This Menu</a></button>
+
 
 {% if menu.items %}
 <div id="current-menu">
@@ -26,7 +27,8 @@
           <div class="menu-item-each">
             {% if m.sold_out == 'N' %} {% set status, label = 'Y', 'Sell Out' %} {% else %} {% set status, label = 'N', 'Sell In' %}
             {% endif %}
-            <a class="btn btn-sm btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
+            <button class="btn btn-sm btn-info soldout-menu-item"> <a  href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a></button>
+           
           </div>
         </div>
         {% endfor %}
@@ -45,7 +47,8 @@
           <div class="menu-item-each">
             {% if m.sold_out == 'N' %} {% set status, label = 'Y', 'Sell Out' %} {% else %} {% set status, label = 'N', 'Sell In' %}
             {% endif %}
-            <a class="btn btn-sm btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
+            <button class="btn btn-sm btn-info soldout-menu-item" ><a href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a></button>
+            
           </div>
         </div>
         {% endfor %}
@@ -65,7 +68,8 @@
           <div class="menu-item-each">
             {% if m.sold_out == 'N' %} {% set status, label = 'Y', 'Sell Out' %} {% else %} {% set status, label = 'N', 'Sell In' %}
             {% endif %}
-            <a class="btn btn-sm btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
+            <button class="btn btn-sm btn-info soldout-menu-item"><a href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a></button>
+           
           </div>
         </div>
         {% endfor %}
@@ -84,7 +88,8 @@
           <div class="menu-item-each">
             {% if m.sold_out == 'N' %} {% set status, label = 'Y', 'Sell Out' %} {% else %} {% set status, label = 'N', 'Sell In' %}
             {% endif %}
-            <a class="btn btn-sm btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
+            <button class="btn btn-sm btn-info soldout-menu-item" ><a href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a></button>
+            
           </div>
         </div>
         {% endfor %}
@@ -103,7 +108,8 @@
           <div class="menu-item-each">
             {% if m.sold_out == 'N' %} {% set status, label = 'Y', 'Sell Out' %} {% else %} {% set status, label = 'N', 'Sell In' %}
             {% endif %}
-            <a class="btn btn-sm btn-info soldout-menu-item" href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a>
+            <button class="btn btn-sm btn-info soldout-menu-item"> <a href="{{ pathFor('soldOutMenuItem', {'id': m.id}) }}?status={{ status }}">{{ label }}</a></button>
+           
           </div>
         </div>
         {% endfor %} 

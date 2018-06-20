@@ -29,13 +29,13 @@ User Management
             {% for user in users.other %}
           
             <input type="email" name="email[]" maxlength="60" value="{{ user.email }}" autocomplete="off">
-            <a href="{{ pathFor('removeUser', {'id': user.id}) }}" class="btn btn-danger btn-sm">Remove User</a>
+            <button class="btn btn-danger btn-sm"><a href="{{ pathFor('removeUser', {'id': user.id}) }}">Remove User</a></button>
             
             {% endfor %}
             <div class="addEmail">
             <input type="email" name="email[]" maxlength="60" value="" autocomplete="off" placeholder="Email address">
             </div>
-            <button class="btn btn-success btn-sm" type="submit" name="button">Save</button>
+            <button class="btn btn-success btn-sm" type="submit" name="button"><a href="#">Save</a></button>
             </form>
             
     </div>

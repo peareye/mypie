@@ -1,32 +1,25 @@
-
-<div class="">
     <h3 class="page-title">Menu Item Defaults</h3>
     
     <form class="menu-item-defaults" action="{{ pathFor('saveMenuItemDefaults') }}" method="post" accept-charset="utf-8">
-      <a class="btn btn-warning btn-sm" href="{{ pathFor('showMenus') }}">Cancel</a>
+      <!-- <a class="btn btn-warning btn-sm" href="{{ pathFor('showMenus') }}">Cancel</a>
       <button class="btn btn-success btn-sm" type="submit" name="button">Save All</button>
-      <hr>
+      <hr> -->
+     
       {% for d in defaults %}
-      <div class="border rounded p-2 mb-1 item-default">
+     
+      <div class="form-group element-section item-default">
         <input class="form-control" type="hidden" name="defaults[menu_item_default_id][]" value="{{ d.id }}">
-        <div class="form-row">
-          <div class="col-sm-4">
-            <input class="form-control" type="text" name="defaults[kind][]" maxlength="20" placeholder="Type" value="{{ d.kind }}">
-          </div>
-          <div class="col-sm-4">
-            <input class="form-control" type="text" name="defaults[price][]" maxlength="40" placeholder="Price" value="{{ d.price }}">
-          </div>
-          <div class="col-sm-4 optional-button">
-            <a class="btn btn-danger delete-menu-item-default" href="#">Delete</a>
-          </div>
-        </div>
+        <input class="form-control" type="text" name="defaults[kind][]" maxlength="20" placeholder="Type" value="{{ d.kind }}">
+        <input class="form-control" type="text" name="defaults[price][]" maxlength="40" placeholder="Price" value="{{ d.price }}">
+        <button class="btn btn-danger delete-menu-item-default"><a href="#">Delete</a></button>
+        
       </div>
       {% endfor %}
-      <button class="btn btn-info btn-sm add-item-default-row" type="button">Add New Default</button>
-     
-      <a class="btn btn-warning btn-sm" href="{{ pathFor('showMenus') }}">Cancel</a>
-      <button class="btn btn-success btn-sm" type="submit" name="button">Save All</button>
+      <button class="btn btn-info btn-sm add-item-default-row" type="button"><a href="#">Add</a></button>
+     <button class="btn btn-warning btn-sm"><a href="{{ pathFor('showMenus') }}">Cancel</a></button>
+      
+      <button class="btn btn-success btn-sm" type="submit" name="button"><a href="#">Save All</a></button>
     </form>
-</div>
+
    
  

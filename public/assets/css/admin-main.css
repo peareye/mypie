@@ -7032,9 +7032,11 @@ a {
   grid-column: 1 / -1; }
 
 .btn {
-  margin-right: 0.5rem;
-  margin-bottom: 2rem;
-  margin-left: 0.5rem; }
+  margin: 0.25rem 0.5rem; }
+
+.btn a {
+  color: var(--mypie-light) !important;
+  font-weight: 700; }
 
 .logo {
   position: fixed;
@@ -7130,17 +7132,26 @@ header {
   padding-right: 0.5rem;
   padding-left: 0.5rem; }
 
-#menu-home .page-section {
-  background: pink; }
-  @media screen and (min-width: 800px) {
-    #menu-home .page-section {
-      background: green;
-      display: grid;
-      grid-gap: 1rem;
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); } }
+@media screen and (min-width: 768px) {
+  #menu-home .page-section {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(2, 1fr); } }
 #menu-home .grid-cell {
   padding-right: 0.5rem;
   padding-left: 0.5rem; }
+#menu-home .element-section {
+  width: 100%;
+  padding: 0.5rem;
+  display: grid;
+  grid: auto-flow/repeat(2, 1fr) 0.5fr;
+  grid-gap: .5rem;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center; }
+#menu-home input {
+  margin: 0; }
 
 #users-home .page-section {
   display: grid;

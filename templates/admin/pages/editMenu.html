@@ -20,11 +20,11 @@ MYPIE Dashboard - Edit Menu
           priceList['{{ pl.kind }}'] = '{{ pl.price }}';
           {% endfor %}
         </script>
-  
-        <a class="btn btn-warning btn-sm" href="{{ pathFor('showMenus') }}">Cancel</a>
-        <button class="btn btn-success btn-sm" type="submit" name="button">Save</button>
+        <button class="btn btn-warning btn-sm"><a href="{{ pathFor('showMenus') }}">Cancel</a></button>
+        <button class="btn btn-success btn-sm" type="submit" name="button"><a href="#">Save</a></button>
         {% if menu.id %}
-        <a class="btn btn-danger btn-sm deleteButton" href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a>
+        <button class="btn btn-danger btn-sm deleteButton"><a href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a></button>
+        
         {% endif %}
         <hr>
   
@@ -50,7 +50,7 @@ MYPIE Dashboard - Edit Menu
           {% else %}
             {{ forms.menuItem('dailypies', x, menu.defaults) }}
           {% endfor %}
-          <button class="btn btn-info btn-sm add-item-row" type="button">Add Row</button>
+          <button class="btn btn-info btn-sm add-item-row" type="button"><a href="#">Add Row</a></button>
         </div>
   
         <!-- Sides -->
@@ -61,7 +61,7 @@ MYPIE Dashboard - Edit Menu
           {% else %}
             {{ forms.menuItem('sides', x, menu.defaults) }}
           {% endfor %}
-          <button class="btn btn-info btn-sm add-item-row" type="button">Add Row</button>
+          <button class="btn btn-info btn-sm add-item-row" type="button"><a href="#">Add Row</a></button>
         </div>
   
         <!-- Sausage Rolls -->
@@ -72,7 +72,7 @@ MYPIE Dashboard - Edit Menu
           {% else %}
             {{ forms.menuItem('rolls', x, menu.defaults) }}
           {% endfor %}
-          <button class="btn btn-info btn-sm add-item-row" type="button">Add Row</button>
+          <button class="btn btn-info btn-sm add-item-row" type="button"><a href="#">Add Row</a></button>
         </div>
   
         <!-- Puds -->
@@ -83,7 +83,7 @@ MYPIE Dashboard - Edit Menu
           {% else %}
             {{ forms.menuItem('puds', x, menu.defaults) }}
           {% endfor %}
-          <button class="btn btn-info btn-sm add-item-row" type="button">Add Row</button>
+          <button class="btn btn-info btn-sm add-item-row" type="button"><a href="#">Add Row</a></button>
         </div>
   
         <!-- Takeaway Pies -->
@@ -94,14 +94,14 @@ MYPIE Dashboard - Edit Menu
           {% else %}
             {{ forms.menuItem('takeawaypies', x, menu.defaults) }}
           {% endfor %}
-          <button class="btn btn-info btn-sm add-item-row" type="button">Add Row</button>
+          <button class="btn btn-info btn-sm add-item-row" type="button"><a href="#">Add Row</a></button>
         </div>
         <hr>
-  
-        <a class="btn btn-warning btn-sm" href="{{ pathFor('showMenus') }}">Cancel</a>
-        <button class="btn btn-success btn-sm" type="submit" name="button">Save</button>
+  <button class="btn btn-warning btn-sm"><a href="{{ pathFor('showMenus') }}">Cancel</a></button>
+        <button class="btn btn-success btn-sm" type="submit" name="button"><a href="#">Save</a></button>
         {% if menu.id %}
-        <a class="btn btn-danger btn-sm deleteButton" href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a>
+        <button class="btn btn-danger btn-sm deleteButton"> <a href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a></button>
+       
         {% endif %}
       </form>
   
@@ -126,7 +126,8 @@ MYPIE Dashboard - Edit Menu
             <input class="form-control" type="text" name="items[price][]" maxlength="20" placeholder="Price" value="{{ value.price }}">
           </div>
           <div class="col-sm-2 optional-button">
-            <a class="btn btn-danger btn-sm delete-menu-item" href="#">Delete</a>
+            <button class="btn btn-danger btn-sm delete-menu-item"><a href="#">Delete</a></button>
+           
           </div>
         </div>
       </div>

@@ -9,8 +9,11 @@
 <div class="page-section">
     <!-- Add a New Menu  -->
     <div class="grid-cell add-link">
-            <a href="{{ pathFor('editMenu') }}" data-toggle="tooltip" title="Create a new menu.">
-            <i class="fas fa-plus" alt="Create Menu"></i> Add New Menu</a>
+        <button class="btn btn-info btn-lg">
+                <a href="{{ pathFor('editMenu') }}" data-toggle="tooltip" title="Create a new menu.">
+                        <i class="fas fa-plus" alt="Create Menu"></i> New Menu</a>
+        </button>
+          
     </div>
 </div>
 
@@ -20,7 +23,8 @@
     </div>
     <div class="grid-cell">
         {% include '@admin/includes/_menuListAll.html' %}
-        <a href="{{ pathFor('showMenus') }}" class="btn btn-primary btn-sm">More Menus</a>
+        <button class="btn btn-primary btn-sm"> <a href="{{ pathFor('showMenus') }}">More Menus</a></button>
+       
     </div>
 </div>
 

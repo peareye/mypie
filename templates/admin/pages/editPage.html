@@ -37,11 +37,12 @@ Page Management - Add / Edit
         <label>Meta Description</label>
         <input type="text" name="meta_description" maxlength="320" placeholder="Description to appear in search results" value="{{ page.meta_description }}">
       </div>
-
-      <a href="{{ pathFor('showPages') }}" class="btn btn-warning btn-sm">Cancel</a>
-      <button class="btn btn-success btn-sm" type="submit" name="button">Save</button>
+<button class="btn btn-warning btn-sm"><a href="{{ pathFor('showPages') }}">Cancel</a></button>
+      
+      <button class="btn btn-success btn-sm" type="submit" name="button"><a href="#">Save</a></button>
       {% if page.id %}
-      <a href="{{ pathFor('deletePage', {'id': page.id}) }}">Delete</a>
+      <button class="btn btn-danger btn-sm><a href="{{ pathFor('deletePage', {'id': page.id}) }}">Delete</a></button>
+     
       {% endif %}
     </form>
 

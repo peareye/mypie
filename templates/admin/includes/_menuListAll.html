@@ -1,30 +1,29 @@
-<div class="cl">
-        <h3 class="page-title">All Menus</h3>
+        <h2 class="page-title">All Menus</h2>
         {% for m in menus %}
         
         <div class="menu-list-container">
             <div class="menu-date">
-                    <h4> <a href="{{ pathFor('showSingleMenu', {'id': m.id}) }}">
+                    <h3> <a href="{{ pathFor('showSingleMenu', {'id': m.id}) }}">
                     {% if m.location %} {{ m.location }}{% else %} No Location{% endif %}
                     {{ m.date|date('j  F, Y') }} 
-                    </a></h4> 
+                    </a></h3> 
               </div>
             <ul class="menu-list-icons">
                 <li class="menu-list-icon">
                     <a href="{{ pathFor('editMenu', {'id': m.id}) }}" data-toggle="tooltip" title="Edit this menu">
-                        <i class="fas fa-edit" alt="Edit Menu"></i>
+                        <i class="fas fa-2x fa-edit" alt="Edit Menu"></i>
                         <div class="nav-description">Edit</div>
                     </a>
                 </li>
                 <li class="menu-list-icon">
                     <a href="{{ pathFor('copyEditMenu', {'id': m.id}) }}" data-toggle="tooltip" title="Copy this menu">
-                        <i class="fas fa-copy" alt="Copy Menu"></i>
+                        <i class="fas fa-2x fa-copy" alt="Copy Menu"></i>
                         <div class="nav-description">Copy</div>
                     </a>
                 </li>
                 <li class="menu-list-icon">
                     <a class="deleteButton" href="{{ pathFor('deleteMenu', {'id': m.id}) }}" data-toggle="tooltip" title="Delete this menu">
-                        <i class="fas fa-trash-alt" alt="Delete Menu"></i>
+                        <i class="fas fa-2x fa-trash-alt" alt="Delete Menu"></i>
                         <div class="nav-description">Delete</div>
                     </a>
                 </li>
@@ -36,5 +35,4 @@
         <h3>No menus found</h3>
         
         {% endfor %}
-        
-</div>
+
