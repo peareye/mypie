@@ -6961,9 +6961,10 @@ h5,
 h6 {
   font-family: "franchise_freebold", sans-serif;
   color: var(--mypie-dark);
-  font-weight: 700;
   margin-bottom: 0;
-  letter-spacing: .0625em; }
+  letter-spacing: .1em;
+  font-weight: 700;
+  line-height: 1.1; }
 
 h1 {
   font-size: 2.8rem; }
@@ -6983,6 +6984,9 @@ h5 {
 h6 {
   font-size: 0.75rem; }
 
+p {
+  font-weight: 400; }
+
 :root {
   --mypie-red: #ed1c24;
   --mypie-dark: #333;
@@ -6998,6 +7002,14 @@ h6 {
   --muted-white: rgba(255,255,255,.6);
   --muted-grey: rgba(167,167,167,.8);
   --muted-accent-border: solid 0.1rem rgba(110,30,33,.5); }
+
+html {
+  box-sizing: border-box; }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; }
 
 body {
   color: var(--mypie-dark-grey);

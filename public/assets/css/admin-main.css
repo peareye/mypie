@@ -6961,9 +6961,10 @@ h5,
 h6 {
   font-family: "franchise_freebold", sans-serif;
   color: var(--mypie-dark);
-  font-weight: 700;
   margin-bottom: 0;
-  letter-spacing: .0625em; }
+  letter-spacing: .1em;
+  font-weight: 700;
+  line-height: 1.1; }
 
 h1 {
   font-size: 2.8rem; }
@@ -6982,6 +6983,9 @@ h5 {
 
 h6 {
   font-size: 0.75rem; }
+
+p {
+  font-weight: 400; }
 
 :root {
   --mypie-red: #ed1c24;

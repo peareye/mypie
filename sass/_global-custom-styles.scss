@@ -1,5 +1,14 @@
 // Global Settings
 
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
   color: var(--mypie-dark-grey);
   margin-top: 79px;
