@@ -1,0 +1,20 @@
+#events-main {
+
+    .events-card{
+        @include margin(3rem null);
+    }
+    .events-content{
+        display: flex;
+        flex-direction: column;  
+    }
+ 
+    img{
+        box-shadow: var(--box-shadow);
+        object-fit: cover;
+        border-radius: 5px;
+    }
+    hr{
+        @include margin(null 5rem);
+    }
+}
+

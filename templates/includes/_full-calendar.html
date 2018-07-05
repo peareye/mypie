@@ -7,29 +7,29 @@
 
   <div class="calendar-wrapper">
     <div class="box days">
-      <h5>Mon</h5>
+      <div class="day">Mon</div>
     </div>
     <div class="box days">
-      <h5>Tue</h5>
+      <div class="day">Tue</div>
     </div>
     <div class="box days">
-      <h5>Wed</h5>
+      <div class="day">Wed</div>
     </div>
     <div class="box days">
-      <h5>Thu</h5>
+      <div class="day">Thu</div>
     </div>
     <div class="box days">
-      <h5>Fri</h5>
+      <div class="day">Fri</div>
     </div>
     <div class="box days">
-      <h5>Sat</h5>
+      <div class="day">Sat</div>
     </div>
     <div class="box days">
-      <h5>Sun</h5>
+      <div class="day">Sun</div>
     </div>
     {% for d in date %}
     <div class="box {{ d.dateBoxClass }}">
-      <h6 class="{{ d.dateClass }}">{{ d.date }}</h6>
+      <div class="{{ d.dateClass }}">{{ d.date }}</div>
       <div class="day-content" data-toggle="modal" data-target="#locationModal">
         {% if d.content %}
         <a href="#calendar">{{ d.content }}</a>

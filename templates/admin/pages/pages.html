@@ -1,14 +1,14 @@
 {% extends '@admin/admin_base.html' %} 
 
-{% block title %}Page Content Management{% endblock %} 
-{% block blurb %}<p>Add Page Content Here</p> {% endblock %} 
+{% block title %}Page Content{% endblock %} 
+{% block blurb %} {% endblock %} 
 {% block id %}pages-home{% endblock %} 
 
 {% block body %}
 
 <!-- visible to super admin -->
 <div class="page-section add-link">
-    <ahref="{{ pathFor('editPage') }}">
+    <a href="{{ pathFor('editPage') }}">
         <i class="fas fa-plus" alt="Create Page"></i> Add New Page</a>
 </div>
 

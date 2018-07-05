@@ -1,19 +1,45 @@
-{% extends '_sidebar_layout.html' %} 
+{% extends '_sidebar_layout.html' %} {% block main %}
 
-{% block main %}
 
 <section id="events-main">
     <div class="container">
-        <div class="events-card">
-                {% for p in page.pagelets %}
-                <h2 class="page-title">{{ p.title }}</h2>
-                <div class="events-content">
-                {{ p.content_html}}
+      <div class="row">
+        <div class="col">
+            {{ page.pagelets.title.content_html }}
+            <hr>
         </div>
-        {% endfor %}
+   
+      </div>
+      
+        <div class="row events-card">
+            <div class="col-md-6 events-content">{{ page.pagelets.catering.content_html }}</div>
+            <div class="col-md-6">
+                <img  class="img-fluid mx-auto" src="/assets/img/insta/mypie-pie1.jpg" alt="">
+            </div>
         </div>
+        <hr>
+        <div class="row events-card">
+            <div class="col-md-6 events-content order-md-2"> 
+              {{ page.pagelets.festivals.content_html }}
+            </div>
+            <div class="col-md-6 order-md-1"> 
+              <img  class="img-fluid mx-auto" src="/assets/img/insta/mypie-sm-truck.jpg" alt="">
+            </div>
+        </div>
+        <hr>
+        <div class="row events-card">
+            <div class="col-md-6 events-content"> 
+              {{ page.pagelets.weddings.content_html }}
+            </div>
+            <div class="col-md-6"> 
+              <img  class="img-fluid mx-auto" src="/assets/img/insta/wedding.png" alt="Wedding Catered by MYPIE">
+            </div>
+        </div>
+
+
+
     </div>
 </section>
 
-
 {% endblock %}
+

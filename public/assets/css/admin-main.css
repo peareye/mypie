@@ -6942,12 +6942,12 @@ a.text-dark:hover, a.text-dark:focus {
   font-weight: normal;
   font-style: normal; }
 :root {
-  font-size: 16px; }
+  font-size: 12px; }
 
-@media (min-width: 576px) and (max-width: 991px) {
+@media (min-width: 576px) and (max-width: 768px) {
   :root {
-    font-size: calc( 16px + (18 - 16) * ( (100vw - 576px) / ( 991 - 576) )); } }
-@media (min-width: 991px) {
+    font-size: calc( 12px + (18 - 12) * ( (100vw - 576px) / ( 768 - 576) )); } }
+@media (min-width: 768px) {
   :root {
     font-size: 18px; } }
 body {
