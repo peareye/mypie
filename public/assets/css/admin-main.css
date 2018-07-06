@@ -6950,42 +6950,49 @@ a.text-dark:hover, a.text-dark:focus {
 @media (min-width: 768px) {
   :root {
     font-size: 18px; } }
+html {
+  font-size: 1em; }
+
 body {
-  font-family: 'Montserrat', sans-serif; }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "franchise_freebold", sans-serif;
-  color: var(--mypie-dark);
-  margin-bottom: 0;
-  letter-spacing: .1em;
-  font-weight: 700;
-  line-height: 1.1; }
-
-h1 {
-  font-size: 2.8rem; }
-
-h2 {
-  font-size: 2.5rem; }
-
-h3 {
-  font-size: 1.8rem; }
-
-h4 {
-  font-size: 1.25rem; }
-
-h5 {
-  font-size: 1rem; }
-
-h6 {
-  font-size: 0.75rem; }
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--mypie-dark); }
 
 p {
-  font-weight: 400; }
+  margin-bottom: 1.3em; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "franchise_freebold", sans-serif;
+  color: var(--mypie-dark);
+  margin: 1.414em 0 0.5em;
+  font-weight: inherit;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: .1em; }
+
+h1 {
+  margin-top: 0;
+  font-size: 3.998em; }
+
+h2 {
+  font-size: 2.827em; }
+
+h3 {
+  font-size: 1.999em; }
+
+h4 {
+  font-size: 1.414em; }
+
+h5 {
+  font-size: 1em; }
+
+h6 {
+  font-size: .8em; }
+
+small, .font_small {
+  font-size: 0.707em; }
 
 :root {
   --mypie-red: #ed1c24;
