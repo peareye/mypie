@@ -35,9 +35,7 @@ img {
 section{
 @include padding(2rem null);
 }
-// section#insta-feed {
-//   @include margin(null null 100px);
-// }
+
 .section-title{
   text-align: center;
   margin-bottom: .5rem;
@@ -52,4 +50,8 @@ a:focus{
 h2.section-title{
   margin: 0;
   padding: 0;
+}
+
+.form-group{
+  position: relative;
 }
