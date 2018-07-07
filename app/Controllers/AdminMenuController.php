@@ -280,28 +280,6 @@ class AdminMenuController extends BaseController
     }
 
     /**
-     * Show All Menu Item Default
-     *
-     * Show all menu item default values
-     */
-    public function showMenuItemDefaults($request, $response, $args)
-    {
-        // Get dependencies
-        $mapper = $this->container->dataMapper;
-        $MenuItemDefaultMapper = $mapper('MenuItemDefaultMapper');
-
-        // Fetch menu defaults
-        $defaults = $MenuItemDefaultMapper->find();
-
-        // If rows were not found, create at least one record
-        if (!$defaults) {
-            $defaults[] = $MenuItemDefaultMapper->make();
-        }
-
-        return $this->container->view->render($response, '@admin/pages/editMenuItemDefaults.html', ['defaults' => $defaults]);
-    }
-
-    /**
      * Save Menu Item Defaults
      *
      * Save menu item default array
@@ -332,7 +310,7 @@ class AdminMenuController extends BaseController
         }
 
         // Redirect post save
-        return $response->withRedirect($this->container->router->pathFor('adminHome'));
+        return $response->withRedirect($this->container->router->pathFor('showMenus'));
     }
 
     /**
@@ -341,6 +319,11 @@ class AdminMenuController extends BaseController
      */
     public function deleteMenuItemDefault($request, $response, $args)
     {
+        // If there is no ID set, just return
+        if (empty($args['id'])) {
+            return $response->withRedirect($this->container->router->pathFor('showMenus'));
+        }
+
         // Get dependencies
         $mapper = $this->container->dataMapper;
         $MenuItemDefaultMapper = $mapper('MenuItemDefaultMapper');
@@ -350,13 +333,7 @@ class AdminMenuController extends BaseController
         $menuItem->id = $args['id'];
         $MenuItemDefaultMapper->delete($menuItem);
 
-        if ($request->isXhr()) {
-            // Set the response XHR type and return
-            $r = $response->withHeader('Content-Type', 'application/json');
-            return $r->write(json_encode(['status' => 'success']));
-        } else {
-            // Redirect back to show menus
-            return $response->withRedirect($this->container->router->pathFor('showMenus'));
-        }
+        // Redirect back to show menus
+        return $response->withRedirect($this->container->router->pathFor('showMenus'));
     }
 }

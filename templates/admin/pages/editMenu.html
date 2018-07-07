@@ -23,7 +23,7 @@ MYPIE Dashboard - Edit Menu
         <button class="btn btn-warning btn-sm"><a href="{{ pathFor('showMenus') }}">Cancel</a></button>
         <button class="btn btn-success btn-sm" type="submit" name="button">Save</button>
         {% if menu.id %}
-        <button class="btn btn-danger btn-sm deleteButton"><a href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a></button>
+        <button class="btn btn-danger btn-sm jsDeleteButton"><a href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a></button>
 
         {% endif %}
         <hr>
@@ -103,7 +103,7 @@ MYPIE Dashboard - Edit Menu
   <button class="btn btn-warning btn-sm"><a href="{{ pathFor('showMenus') }}">Cancel</a></button>
         <button class="btn btn-success btn-sm" type="submit" name="button">Save</button>
         {% if menu.id %}
-        <button class="btn btn-danger btn-sm deleteButton"> <a href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a></button>
+        <button class="btn btn-danger btn-sm jsDeleteButton"> <a href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a></button>
 
         {% endif %}
       </form>

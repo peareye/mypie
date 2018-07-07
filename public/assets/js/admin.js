@@ -1,5 +1,5 @@
 // Delete prompt
-$('body').on('click', '.deleteButton', function() {
+$('body').on('click', '.jsDeleteButton', function() {
   var reply = confirm('Are you sure you want to delete?');
   return reply;
 });
@@ -57,50 +57,14 @@ $('.menu-section').on('click', '.delete-menu-item', function(e) {
     }
 });
 
-//
-// Manage Item Defaults
-//
 // Add menu item form rows
-$('.menu-item-defaults').on('click', '.add-item-default-row', function() {
+$('.menu-item-defaults').on('click', '.add-item-default-row', function(e) {
+    e.preventDefault();
     var $row = $(this).prev('.item-default').clone();
     $row.find('input[name="defaults[menu_item_default_id][]"]').val('');
     $row.find('input[name="defaults[kind][]"]').val('');
     $row.find('input[name="defaults[price][]"]').val('');
     $(this).before($row);
-});
-
-// Delete menu item default
-$('.menu-item-defaults').on('click', '.delete-menu-item-default', function(e) {
-    e.preventDefault();
-    var menuItemId = $(this).parents('.item-default').find('input[name="defaults[menu_item_default_id][]"]').val();
-    var $menuItemRow = $(this).parents('.item-default');
-
-    if (confirm('Are you sure you want to delete?')) {
-        // If no ID has been set, just remove row
-        if (!Number.isInteger(parseInt(menuItemId))) {
-            $menuItemRow.fadeOut(function() {
-                $(this).slideUp().remove();
-            });
-            return;
-        }
-        // Otherwise hard delete
-        $.ajax({
-            url: '/admin/deletemenuitemdefault/' + menuItemId,
-            method: 'GET',
-            success: function(r) {
-                if (r.status === 'success') {
-                    $menuItemRow.fadeOut(function() {
-                        $(this).slideUp().remove();
-                    });
-                } else {
-                    alert('There was an error. Please contact Moritz Media.')
-                }
-            },
-            error: function(r) {
-                alert('Error, something unexpected happened.');
-            }
-        });
-    }
 });
 
 // Set the default price on change of kind
