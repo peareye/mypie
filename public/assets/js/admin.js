@@ -116,3 +116,25 @@ $('form input.jsRefNameValidate').on('blur', function() {
     elementName = elementName.toLowerCase();
     $(this).val(elementName);
 });
+
+// Date picker
+$( ".datepicker" ).datepicker({
+    dateFormat: 'dd-mm-yy'
+});
+
+// Form validation
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      var forms = document.getElementsByClassName('validate-form');
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();

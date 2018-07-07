@@ -1,4 +1,4 @@
-{% extends '@admin/admin_base.html' %} 
+{% extends '@admin/admin_base.html' %}
 {% block title %}
 MYPIE Dashboard - Edit Menu
 {% endblock %}
@@ -11,9 +11,9 @@ MYPIE Dashboard - Edit Menu
 <div class="grid-cell">
   <div class="grid-cell-inner">
       <h2 class="page-title">{% if menu.id %}Edit{% else %}Add{% endif %} Menu</h2>
-      <form class="edit-menu" action="{{ pathFor('saveMenu') }}" method="post" accept-charset="utf-8">
+      <form class="edit-menu validate-form" action="{{ pathFor('saveMenu') }}" method="post" accept-charset="utf-8" novalidate>
         <input type="hidden" name="id" value="{{ menu.id }}">
-  
+
         <script type="text/javascript">
           var priceList = {};
           {% for pl in menu.defaults %}
@@ -24,15 +24,18 @@ MYPIE Dashboard - Edit Menu
         <button class="btn btn-success btn-sm" type="submit" name="button">Save</button>
         {% if menu.id %}
         <button class="btn btn-danger btn-sm deleteButton"><a href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a></button>
-        
+
         {% endif %}
         <hr>
-  
+
         <!-- Menu Header Date & Location -->
         <p class="form-text text-muted font-weight-light">Select the date and location when this menu will be available.</p>
         <div class="form-row">
           <div class="col-sm-3">
-            <input class="form-control" type="date" name="date" placeholder="Menu date" value="{{ menu.date }}" required>
+            <div class="form-group">
+              <input class="form-control datepicker" type="text" name="date" placeholder="Menu date" value="{{ menu.date|date('d-m-Y') }}" required autocomplete="off">
+            </div>
+            <div class="invalid-tooltip">Please select a date.</div>
           </div>
           <div class="col-sm-9">
             <input class="form-control" type="text" name="location" maxlength="60" placeholder="Location" value="{{ menu.location }}">
@@ -41,7 +44,7 @@ MYPIE Dashboard - Edit Menu
         <hr>
         {# This loads the macro functions at the bottom of this template. Each section has an extra blank row #}
         {% import _self as forms %}
-  
+
         <!-- Daily Pies -->
         <div class="menu-section">
           <h3>Daily Pies</h3>
@@ -52,7 +55,7 @@ MYPIE Dashboard - Edit Menu
           {% endfor %}
           <button class="btn btn-info btn-sm add-item-row" type="button"><a href="#">Add Row</a></button>
         </div>
-  
+
         <!-- Sides -->
         <div class="menu-section">
           <h3>Sides</h3>
@@ -63,7 +66,7 @@ MYPIE Dashboard - Edit Menu
           {% endfor %}
           <button class="btn btn-info btn-sm add-item-row" type="button"><a href="#">Add Row</a></button>
         </div>
-  
+
         <!-- Sausage Rolls -->
         <div class="menu-section">
           <h3>Sausage Rolls &amp; Other</h3>
@@ -74,7 +77,7 @@ MYPIE Dashboard - Edit Menu
           {% endfor %}
           <button class="btn btn-info btn-sm add-item-row" type="button"><a href="#">Add Row</a></button>
         </div>
-  
+
         <!-- Puds -->
         <div class="menu-section">
           <h3>Puds</h3>
@@ -85,7 +88,7 @@ MYPIE Dashboard - Edit Menu
           {% endfor %}
           <button class="btn btn-info btn-sm add-item-row" type="button"><a href="#">Add Row</a></button>
         </div>
-  
+
         <!-- Takeaway Pies -->
         <div class="menu-section">
           <h3>Takeaway Pies</h3>
@@ -101,10 +104,10 @@ MYPIE Dashboard - Edit Menu
         <button class="btn btn-success btn-sm" type="submit" name="button">Save</button>
         {% if menu.id %}
         <button class="btn btn-danger btn-sm deleteButton"> <a href="{{ pathFor('deleteMenu', {'id': menu.id}) }}">Delete</a></button>
-       
+
         {% endif %}
       </form>
-  
+
       {# Special custom Twig functions for the two types of form sections (pie and other) so we don't repeat ourselves #} {% macro menuItem(section, value, defaults) %}
       <div class="border rounded p-2 mb-1 menu-item">
         <input class="form-control" type="hidden" name="items[menu_item_id][]" value="{{ value.id }}">
@@ -127,7 +130,7 @@ MYPIE Dashboard - Edit Menu
           </div>
           <div class="col-sm-2 optional-button">
             <button class="btn btn-danger btn-sm delete-menu-item"><a href="#">Delete</a></button>
-           
+
           </div>
         </div>
       </div>
@@ -135,6 +138,6 @@ MYPIE Dashboard - Edit Menu
   </div>
 
 </div>
-   
+
 
 {% endblock %}
