@@ -12,7 +12,8 @@ $('#user-emails').on('click', '.addEmail', function () {
 });
 
 // Add menu item form rows
-$('.menu-section').on('click', '.add-item-row', function() {
+$('.menu-section').on('click', '.add-item-row', function(e) {
+    e.preventDefault();
     var $row = $(this).prev('.menu-item').clone();
     $row.find('input[name="items[menu_item_id][]"]').val('');
     $row.find('select').val('default');
