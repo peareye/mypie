@@ -7259,4 +7259,11 @@ header {
   display: flex;
   justify-content: center; }
 
+.form-check-label {
+  color: var(--mypie-dark);
+  font-size: .8rem;
+  padding-top: 0.25rem;
+  padding-left: 0.25rem;
+  font-weight: 400; }
+
 /*# sourceMappingURL=admin-main.css.map */

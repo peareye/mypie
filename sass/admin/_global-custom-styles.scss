@@ -283,7 +283,10 @@ header {
     display: flex;
     justify-content: center;
 }
-.form-check-input{
+.form-check-label{
     color: var(--mypie-dark);
+    font-size: .8rem;
+    @include padding(.25rem null null .25rem);
+    font-weight: 400;
 }
 
