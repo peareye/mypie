@@ -282,18 +282,17 @@ class AdminMenuController extends BaseController
     /**
      * Save Menu Item Defaults
      *
-     * Save menu item default array
      */
     public function saveMenuItemDefaults($request, $response, $args)
     {
         // Get dependencies
-        $mapper = $this->container->dataMapper;
+        $mapper = $this->container->get('dataMapper');
         $MenuItemDefaultMapper = $mapper('MenuItemDefaultMapper');
 
         // Get items to save
         $defaults = $request->getParsedBodyParam('defaults');
 
-        // Loop through defaults array
+        // Loop through defaults array to save all rows
         foreach ($defaults['kind'] as $key => $row) {
             // Only save if there is at least a kind description
             if (!empty(trim($row))) {
@@ -309,31 +308,17 @@ class AdminMenuController extends BaseController
             }
         }
 
-        // Redirect post save
-        return $response->withRedirect($this->container->router->pathFor('showMenus'));
-    }
-
-    /**
-     * Delete Menu Item Default Value
-     *
-     */
-    public function deleteMenuItemDefault($request, $response, $args)
-    {
-        // If there is no ID set, just return
-        if (empty($args['id'])) {
-            return $response->withRedirect($this->container->router->pathFor('showMenus'));
+        // Loop through deletable array last
+        // If we delete first, the save loop may reinsert a deleted row
+        foreach ($defaults['deletable'] as $value) {
+            // Create menu item default object
+            $menuItemDefault = $MenuItemDefaultMapper->make();
+            $menuItemDefault->id = $value;
+            $MenuItemDefaultMapper->delete($menuItemDefault);
+            unset($menuItemDefault);
         }
 
-        // Get dependencies
-        $mapper = $this->container->dataMapper;
-        $MenuItemDefaultMapper = $mapper('MenuItemDefaultMapper');
-
-        // Delete item default
-        $menuItem = $MenuItemDefaultMapper->make();
-        $menuItem->id = $args['id'];
-        $MenuItemDefaultMapper->delete($menuItem);
-
-        // Redirect back to show menus
+        // Redirect
         return $response->withRedirect($this->container->router->pathFor('showMenus'));
     }
 }
