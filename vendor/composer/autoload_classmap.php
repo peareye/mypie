@@ -285,6 +285,7 @@ return array(
     'Piton\\Controllers\\AdminMenuController' => $baseDir . '/app/Controllers/AdminMenuController.php',
     'Piton\\Controllers\\AdminPageController' => $baseDir . '/app/Controllers/AdminPageController.php',
     'Piton\\Controllers\\BaseController' => $baseDir . '/app/Controllers/BaseController.php',
+    'Piton\\Controllers\\ContactController' => $baseDir . '/app/Controllers/ContactController.php',
     'Piton\\Controllers\\IndexController' => $baseDir . '/app/Controllers/IndexController.php',
     'Piton\\Controllers\\LoginController' => $baseDir . '/app/Controllers/LoginController.php',
     'Piton\\Extensions\\MDParser' => $baseDir . '/app/Extensions/MDParser.php',
