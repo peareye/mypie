@@ -5,14 +5,24 @@
       <input class="form-control" type="hidden" name="defaults[menu_item_default_id][]" value="{{ d.id }}">
       <input class="form-control" type="text" name="defaults[kind][]" maxlength="20" placeholder="Type" value="{{ d.kind }}" required>
       <input class="form-control" type="text" name="defaults[price][]" maxlength="40" placeholder="Price" value="{{ d.price }}">
-      <a class="btn btn-danger jsDeleteButton" href="{{ pathFor('deleteMenuItemDefault', {'id': d.id}) }}">Delete</a>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="delete-{{ loop.index }}" name="deletable">
+        <label class="form-check-label" for="delete-{{ loop.index }}">
+          Delete
+        </label>
+      </div>
     </div>
     {% else %}
     <div class="form-group element-section item-default">
       <input class="form-control" type="hidden" name="defaults[menu_item_default_id][]" value="{{ d.id }}">
       <input class="form-control" type="text" name="defaults[kind][]" maxlength="20" placeholder="Type" value="{{ d.kind }}" required>
       <input class="form-control" type="text" name="defaults[price][]" maxlength="40" placeholder="Price" value="{{ d.price }}">
-      <a class="btn btn-danger jsDeleteButton" href="{{ pathFor('deleteMenuItemDefault', {'id': ''}) }}">Delete</a>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="delete-{{ loop.index }}" name="deletable">
+        <label class="form-check-label" for="delete-{{ loop.index }}">
+          Delete
+        </label>
+      </div>
     </div>
     {% endfor %}
     <button class="btn btn-info btn-sm add-item-default-row" type="button">Add</button>
