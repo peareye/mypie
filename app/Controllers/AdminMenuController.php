@@ -136,7 +136,7 @@ class AdminMenuController extends BaseController
     public function saveMenu($request, $response, $args)
     {
         // Get dependencies
-        $mapper = $this->container->dataMapper;
+        $mapper = $this->container->get('dataMapper');
         $MenuMapper = $mapper('MenuMapper');
         $MenuItemMapper = $mapper('MenuItemMapper');
 
@@ -147,46 +147,48 @@ class AdminMenuController extends BaseController
         $menu->date = date("Y-m-d", strtotime($menu->date));
         $menu->location = filter_var($request->getParsedBodyParam('location'), FILTER_SANITIZE_STRING);
 
-        // Was there a date provided? If not, reload page
-        if (!$menu->date) {
-            // TODO Reload page with validation error
-            die('TODO validation no date');
-        }
-
         // Save menu record and get menu ID
         $menu = $MenuMapper->save($menu);
-
-        // Verify id is set
-        if (!$menu->id) {
-            // TODO Reload page with validation error
-            die('TODO validation no menu ID');
-        }
 
         // Get items to save
         $items = $request->getParsedBodyParam('items');
 
-        // Loop through items array
+        // Loop through items array and process records
         $sectionSortKey = [];
-        foreach ($items['description'] as $key => $row) {
+        foreach ($items as $row) {
+            // If delete flag set without an ID, then ignore
+            if (isset($row['deletable']) && $row['deletable'] === 'delete' && empty($row['menu_item_id'])) {
+                continue;
+            }
+
+            // Create menu item object
+            $menuItem = $MenuItemMapper->make();
+
+            // If delete flag is set with an ID, then delete row from database
+            if (isset($row['deletable']) && $row['deletable'] === 'delete' && is_numeric($row['menu_item_id'])) {
+                $menuItem->id = (int) $row['menu_item_id'];
+                $MenuItemMapper->delete($menuItem);
+                unset($menuItem);
+                continue;
+            }
+
             // Only save if there is at least a description
-            if (!empty(trim($row))) {
+            if (!empty(trim($row['description']))) {
                 // Set sort index by section to keep entered rows in order
-                if (!array_key_exists($items['section'][$key], $sectionSortKey)) {
-                    $sectionSortKey[$items['section'][$key]] = 1;
+                if (!array_key_exists($row['section'], $sectionSortKey)) {
+                    $sectionSortKey[$row['section']] = 1;
                 } else {
-                    $sectionSortKey[$items['section'][$key]] += 1;
+                    $sectionSortKey[$row['section']] += 1;
                 }
 
-                // Create menu item object
-                $menuItem = $MenuItemMapper->make();
-                $menuItem->id = $items['menu_item_id'][$key];
+                $menuItem->id = $row['menu_item_id'];
                 $menuItem->menu_id = $menu->id;
-                $menuItem->section = $items['section'][$key];
-                $menuItem->sort = $sectionSortKey[$items['section'][$key]];
-                $menuItem->type = $items['type'][$key];
-                $menuItem->description = $items['description'][$key];
-                $menuItem->price = $items['price'][$key];
-                $menuItem->sold_out = $items['sold_out'][$key];
+                $menuItem->section = $row['section'];
+                $menuItem->sort = $sectionSortKey[$row['section']];
+                $menuItem->type = $row['type'];
+                $menuItem->description = $row['description'];
+                $menuItem->price = $row['price'];
+                $menuItem->sold_out = $row['sold_out'];
 
                 // Save item
                 $MenuItemMapper->save($menuItem);
@@ -195,7 +197,8 @@ class AdminMenuController extends BaseController
         }
 
         // Redirect back to show menus
-        return $response->withRedirect($this->container->router->pathFor('adminHome'));
+        // return $response->withRedirect($this->container->router->pathFor('adminHome'));
+        return $response->withRedirect($this->container->router->pathFor('editMenu', ['id' => $menu->id]));
     }
 
     /**
@@ -216,32 +219,6 @@ class AdminMenuController extends BaseController
 
         // Redirect back to show menus
         return $response->withRedirect($this->container->router->pathFor('adminHome'));
-    }
-
-    /**
-     * Delete Menu Item
-     *
-     * Delete menu item
-     */
-    public function deleteMenuItem($request, $response, $args)
-    {
-        // Get dependencies
-        $mapper = $this->container->dataMapper;
-        $MenuItemMapper = $mapper('MenuItemMapper');
-
-        // Delete item
-        $menuItem = $MenuItemMapper->make();
-        $menuItem->id = $args['id'];
-        $MenuItemMapper->delete($menuItem);
-
-        if ($request->isXhr()) {
-            // Set the response XHR type and return
-            $r = $response->withHeader('Content-Type', 'application/json');
-            return $r->write(json_encode(['status' => 'success']));
-        } else {
-            // Redirect back to show menus
-            return $response->withRedirect($this->container->router->pathFor('showMenus'));
-        }
     }
 
     /**
