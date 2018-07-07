@@ -407,6 +407,7 @@ class ComposerStaticInit97d2d9d100b1138cfd987a784b54cdba
         'Piton\\Controllers\\AdminMenuController' => __DIR__ . '/../..' . '/app/Controllers/AdminMenuController.php',
         'Piton\\Controllers\\AdminPageController' => __DIR__ . '/../..' . '/app/Controllers/AdminPageController.php',
         'Piton\\Controllers\\BaseController' => __DIR__ . '/../..' . '/app/Controllers/BaseController.php',
+        'Piton\\Controllers\\ContactController' => __DIR__ . '/../..' . '/app/Controllers/ContactController.php',
         'Piton\\Controllers\\IndexController' => __DIR__ . '/../..' . '/app/Controllers/IndexController.php',
         'Piton\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Controllers/LoginController.php',
         'Piton\\Extensions\\MDParser' => __DIR__ . '/../..' . '/app/Extensions/MDParser.php',
