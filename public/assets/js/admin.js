@@ -58,13 +58,19 @@ $('.menu-section').on('click', '.delete-menu-item', function(e) {
 });
 
 // Add menu item default form rows
+var newMenuItemDefaultIndex = 1;
 $('.menu-item-defaults').on('click', '.add-item-default-row', function(e) {
     e.preventDefault();
     var $row = $(this).prev('.item-default').clone();
-    $row.find('input[name="defaults[menu_item_default_id][]"]').val('');
-    $row.find('input[name="defaults[kind][]"]').val('');
-    $row.find('input[name="defaults[price][]"]').val('');
-    $row.find('input[name="defaults[deletable][]"]').prop('checked', false);
+    $row.find('input:not([type="checkbox"])').val('');
+    $row.find('input:checked').prop('checked', false);
+    var $fields = $row.find('input');
+    for (var i = $fields.length - 1; i >= 0; i--) {
+        var oldName = $($fields[i]).attr('name');
+        var newName = oldName.replace(/x?[0-9]+/, 'x'+newMenuItemDefaultIndex);
+        $($fields[i]).attr('name', newName);
+    }
+    newMenuItemDefaultIndex++;
     $(this).before($row);
 });
 

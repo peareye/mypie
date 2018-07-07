@@ -292,30 +292,34 @@ class AdminMenuController extends BaseController
         // Get items to save
         $defaults = $request->getParsedBodyParam('defaults');
 
-        // Loop through defaults array to save all rows
-        foreach ($defaults['kind'] as $key => $row) {
+        // Loop through defaults and process rows
+        foreach ($defaults as $row) {
+            // If delete flag set without an ID, then ignore
+            if (isset($row['deletable']) && $row['deletable'] === 'delete' && empty($row['menu_item_default_id'])) {
+                continue;
+            }
+
+            // Create menu item default object
+            $menuItemDefault = $MenuItemDefaultMapper->make();
+
+            // If delete flag is set with an ID, then delete row from database
+            if (isset($row['deletable']) && $row['deletable'] === 'delete' && is_numeric($row['menu_item_default_id'])) {
+                $menuItemDefault->id = (int) $row['menu_item_default_id'];
+                $MenuItemDefaultMapper->delete($menuItemDefault);
+                unset($menuItemDefault);
+                continue;
+            }
+
             // Only save if there is at least a kind description
-            if (!empty(trim($row))) {
-                // Create menu item default object
-                $menuItemDefault = $MenuItemDefaultMapper->make();
-                $menuItemDefault->id = $defaults['menu_item_default_id'][$key];
-                $menuItemDefault->kind = trim($defaults['kind'][$key]);
-                $menuItemDefault->price = $defaults['price'][$key];
+            if (!empty(trim($row['kind']))) {
+                $menuItemDefault->id = $row['menu_item_default_id'];
+                $menuItemDefault->kind = trim($row['kind']);
+                $menuItemDefault->price = $row['price'];
 
                 // Save item default
                 $MenuItemDefaultMapper->save($menuItemDefault);
                 unset($menuItemDefault);
             }
-        }
-
-        // Loop through deletable array last
-        // If we delete first, the save loop may reinsert a deleted row
-        foreach ($defaults['deletable'] as $value) {
-            // Create menu item default object
-            $menuItemDefault = $MenuItemDefaultMapper->make();
-            $menuItemDefault->id = $value;
-            $MenuItemDefaultMapper->delete($menuItemDefault);
-            unset($menuItemDefault);
         }
 
         // Redirect

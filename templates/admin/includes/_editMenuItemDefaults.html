@@ -2,23 +2,23 @@
   <form class="menu-item-defaults" action="{{ pathFor('saveMenuItemDefaults') }}" method="post" accept-charset="utf-8">
     {% for d in defaults %}
     <div class="form-group element-section item-default">
-      <input class="form-control" type="hidden" name="defaults[menu_item_default_id][]" value="{{ d.id }}">
-      <input class="form-control" type="text" name="defaults[kind][]" maxlength="20" placeholder="Type" value="{{ d.kind }}" required>
-      <input class="form-control" type="text" name="defaults[price][]" maxlength="40" placeholder="Price" value="{{ d.price }}">
+      <input class="form-control" type="hidden" name="defaults[{{ loop.index }}][menu_item_default_id]" value="{{ d.id }}">
+      <input class="form-control" type="text" name="defaults[{{ loop.index }}][kind]" maxlength="20" placeholder="Type" value="{{ d.kind }}">
+      <input class="form-control" type="text" name="defaults[{{ loop.index }}][price]" maxlength="40" placeholder="Price" value="{{ d.price }}">
       <div class="form-check form-check-inline">
         <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" name="defaults[deletable][]" value="{{ d.id }}"> Delete
+          <input class="form-check-input" type="checkbox" name="defaults[{{ loop.index }}][deletable]" value="delete"> Delete
         </label>
       </div>
     </div>
     {% else %}
     <div class="form-group element-section item-default">
-      <input class="form-control" type="hidden" name="defaults[menu_item_default_id][]" value="">
-      <input class="form-control" type="text" name="defaults[kind][]" maxlength="20" placeholder="Type" value="" required>
-      <input class="form-control" type="text" name="defaults[price][]" maxlength="40" placeholder="Price" value="">
+      <input class="form-control" type="hidden" name="defaults[0][menu_item_default_id]" value="">
+      <input class="form-control" type="text" name="defaults[0][kind]" maxlength="20" placeholder="Type" value="">
+      <input class="form-control" type="text" name="defaults[0][price]" maxlength="40" placeholder="Price" value="">
       <div class="form-check form-check-inline">
         <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" name="defaults[deletable][]" value=""> Delete
+          <input class="form-check-input" type="checkbox" name="defaults[0][deletable]" value="delete"> Delete
         </label>
       </div>
     </div>
