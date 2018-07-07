@@ -72,6 +72,7 @@ $('.menu-item-defaults').on('click', '.add-item-default-row', function(e) {
     }
     newMenuItemDefaultIndex++;
     $(this).before($row);
+    $row.find("input[name$='[kind]']").focus();
 });
 
 // Set the default price on change of kind
