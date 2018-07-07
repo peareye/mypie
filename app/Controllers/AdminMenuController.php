@@ -143,8 +143,9 @@ class AdminMenuController extends BaseController
         // Create menu and get the menu ID, if provided
         $menu = $MenuMapper->make();
         $menu->id = $request->getParsedBodyParam('id');
-        $menu->date = $request->getParsedBodyParam('date');
-        $menu->location = $request->getParsedBodyParam('location');
+        $menu->date = filter_var($request->getParsedBodyParam('date'), FILTER_SANITIZE_STRING);
+        $menu->date = date("Y-m-d", strtotime($menu->date));
+        $menu->location = filter_var($request->getParsedBodyParam('location'), FILTER_SANITIZE_STRING);
 
         // Was there a date provided? If not, reload page
         if (!$menu->date) {
