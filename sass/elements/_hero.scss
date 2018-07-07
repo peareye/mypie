@@ -35,7 +35,8 @@
 }
 
 .hero-content {
-  color: var(--mypie-light);
+  color: #fff;
+  color: #fff; color: var(--mypie-light);
   text-shadow: var(--text-shadow);
   width: 90%;
   position: absolute;
@@ -46,7 +47,7 @@
   }
 }
 .hero-content1 {
-  color: var(--mypie-light);
+  color: #fff; color: var(--mypie-light);
   text-align: center;
   text-shadow: var(---text-shadow);
   width: 90%;
@@ -65,6 +66,6 @@
 }
 
 .hero-content h1, .hero-content1 h1 {
-  color: var(--mypie-light);
+  color: #fff; color: var(--mypie-light);
   text-shadow: var(--text-shadow);
 }

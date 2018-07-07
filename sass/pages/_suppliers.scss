@@ -28,8 +28,9 @@
   h4 {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 400;
+    background: #ed1c24;
     background: var(--mypie-red);
-    color: var(--mypie-light);
+    color: #fff; color: var(--mypie-light);
     margin: 0;
     @include padding(.5rem 1rem);
   }

@@ -3,7 +3,7 @@
  h2{
      clear: both;
      background: var(--mypie-dark-grey);
-     color: var(--mypie-light);
+     color: #fff; color: var(--mypie-light);
      @include padding(.5rem 1rem);
 
  }

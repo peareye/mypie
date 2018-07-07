@@ -40,6 +40,7 @@ nav {
 }
 
 .bg-dark {
+  background: #ed1c24 !important;
   background: var(--mypie-red) !important;
 }
 
@@ -71,6 +72,7 @@ button:hover,
 [type='button']:hover,
 [type='reset']:hover,
 [type='submit']:hover {
+  background-color: #ed1c24;
   background-color: var(--mypie-red);
 
 }

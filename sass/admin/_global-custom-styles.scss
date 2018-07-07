@@ -23,12 +23,12 @@ h6 {
 }
 
 .page-title {
-    color: var(--mypie-dark);
+    color: #231f20; color: var(--mypie-dark);
     border-bottom: solid 1px #efefef;
     @include margin(.5rem null);
 }
 a {
-    color: var(--mypie-dark);
+    color: #231f20; color: var(--mypie-dark);
 }
 .span {
     grid-column: 1 / -1;
@@ -39,7 +39,7 @@ a {
     
 }
 .btn a{
-    color: var(--mypie-light) !important;
+    color: #fff; color: var(--mypie-light) !important;
     font-weight: 700;
 }
 
@@ -72,7 +72,7 @@ header {
     height: 100vh;
     width: 70px;
     background: var(--mypie-dark);
-    color: var(--mypie-light);
+    color: #fff; color: var(--mypie-light);
     @include padding(80px null null);
     scroll-behavior: auto;
     overflow: scroll;
@@ -85,7 +85,7 @@ header {
 }
 
 .navbar-wrapper a {
-    color: var(--mypie-light);
+    color: #fff; color: var(--mypie-light);
 }
 
 .nav-item {
@@ -115,7 +115,7 @@ header {
     border-radius: 5px;
     @include padding(.5rem .25rem);
     @include margin(.5rem .25rem);
-    background-color: var(--mypie-light);
+    background-color: #fff; color: var(--mypie-light);
     box-shadow: var(--box-shadow);
 }
 
@@ -132,10 +132,11 @@ header {
 }
 
 .add-link a {
-    color: var(--mypie-dark);
+    color: #231f20; color: var(--mypie-dark);
 }
 
 .add-link a:hover {
+    color: #ed1c24;
     color: var(--mypie-red);
 }
 
@@ -222,11 +223,12 @@ header {
 }
 
 .menu-list-container a {
-    color: var(--mypie-dark);
+    color: #231f20; color: var(--mypie-dark);
     ;
 }
 
 .menu-list-container a:hover {
+    color: #ed1c24;
     color: var(--mypie-red);
 }
 

@@ -58,8 +58,9 @@
 // menu items
 .menu-title {
   @include border-top-radius(4px);
+  background: #ed1c24;
   background: var(--mypie-red);
-  color: var(--mypie-light);
+  color: #fff; color: var(--mypie-light);
   @include padding(0.5rem);
   font-weight: 700;
 }
@@ -68,7 +69,7 @@
   flex-flow: row nowrap;
   font-size: .9rem;
   &:nth-child(odd){
-    background-color: var(--mypie-light-grey);
+    background-background-color: #efefef; background-color: var(--mypie-light-grey);
   }
 }
 .menu-item {

@@ -45,8 +45,8 @@
         <script src="{{ basePath() }}/assets/jarallax/dist/jarallax-element.min.js"></script>
      <script src="{{ basePath() }}/assets/js/javascript.js"></script>
 
-    <!-- Default Statcounter code for Moritz Media
-http://moritzmedia.com -->
+    <!-- Default Statcounter code for Moritz Media http://moritzmedia.com -->
+    {% if setting.production %}
 <script type="text/javascript">
     var sc_project=9291428;
     var sc_invisible=1;
@@ -60,6 +60,7 @@ http://moritzmedia.com -->
     class="statcounter"
     src="//c.statcounter.com/9291428/0/23e3a822/1/" alt="Web
     Analytics"></a></div></noscript>
+    {% endif %}
     <!-- End of Statcounter Code -->
 
 
