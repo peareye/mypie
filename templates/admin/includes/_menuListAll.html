@@ -1,12 +1,12 @@
         <h2 class="page-title">All Menus</h2>
         {% for m in menus %}
-        
+
         <div class="menu-list-container">
             <div class="menu-date">
                     <h3> <a href="{{ pathFor('showSingleMenu', {'id': m.id}) }}">
                     {% if m.location %} {{ m.location }}{% else %} No Location{% endif %}
-                    {{ m.date|date('j  F, Y') }} 
-                    </a></h3> 
+                    {{ m.date|date('j  F, Y') }}
+                    </a></h3>
               </div>
             <ul class="menu-list-icons">
                 <li class="menu-list-icon">
@@ -22,17 +22,17 @@
                     </a>
                 </li>
                 <li class="menu-list-icon">
-                    <a class="deleteButton" href="{{ pathFor('deleteMenu', {'id': m.id}) }}" data-toggle="tooltip" title="Delete this menu">
+                    <a class="jsDeleteButton" href="{{ pathFor('deleteMenu', {'id': m.id}) }}" data-toggle="tooltip" title="Delete this menu">
                         <i class="fas fa-2x fa-trash-alt" alt="Delete Menu"></i>
                         <div class="nav-description">Delete</div>
                     </a>
                 </li>
             </ul>
-        
+
         </div>
-        
+
         {% else %}
         <h3>No menus found</h3>
-        
+
         {% endfor %}
 
