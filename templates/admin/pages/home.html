@@ -1,4 +1,4 @@
-{% extends '@admin/admin_base.html' %} 
+{% extends '@admin/admin_base.html' %}
 
 {% block title %}Dashboard - Home{% endblock %}
 {% block blurb %}<p>Pulling back the curtain!</p>{% endblock %}
@@ -13,18 +13,17 @@
                 <a href="{{ pathFor('editMenu') }}" data-toggle="tooltip" title="Create a new menu.">
                         <i class="fas fa-plus" alt="Create Menu"></i> New Menu</a>
         </button>
-          
+
     </div>
 </div>
 
 <div class="page-section">
     <div class="grid-cell">
-            {% include 'admin/includes/_currentMenu.html' %}
+        {% include 'admin/includes/_currentMenu.html' %}
     </div>
     <div class="grid-cell">
         {% include '@admin/includes/_menuListAll.html' %}
-        <button class="btn btn-primary btn-sm"> <a href="{{ pathFor('showMenus') }}">More Menus</a></button>
-       
+        <a class="btn btn-primary btn-sm" href="{{ pathFor('showMenus') }}">More Menus</a>
     </div>
 </div>
 

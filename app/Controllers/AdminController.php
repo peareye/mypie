@@ -13,24 +13,26 @@ class AdminController extends BaseController
     public function home($request, $response, $args)
     {
         // Get dependencies
-        $mapper = $this->container->dataMapper;
+        $mapper = $this->container->get('dataMapper');
         $MenuMapper = $mapper('MenuMapper');
         $MenuItemMapper = $mapper('MenuItemMapper');
 
-        // Get most recently updated menu and assign to data array
-        $menu = $MenuMapper->getCurrentActiveMenu();
+        // Get today's menus
+        $todaysMenus = $MenuMapper->getTodaysMenus();
 
         // Did we find a menu to display?
-        if (isset($menu->id)) {
-            $menu->items = $MenuItemMapper->findItemsByMenuId($menu->id);
+        if (is_array($todaysMenus)) {
+            foreach ($todaysMenus as $key => $menu) {
+                $todaysMenus[$key]->items = $MenuItemMapper->findItemsByMenuId($menu->id);
+            }
         }
 
-        $page['menu'] = $menu;
+        $page['todaysMenus'] = $todaysMenus;
 
         // Get the top most recent menus by date
-        $page['menus'] = $MenuMapper->getMenusInDescDateOrder(4);
+        $page['newMenus'] = $MenuMapper->getMenusInDescDateOrder(4);
 
-        return $this->container->view->render($response, '@admin/pages/home.html', $page);
+        return $this->container->view->render($response, '@admin/pages/home.html', ['page' => $page]);
     }
 
     /**

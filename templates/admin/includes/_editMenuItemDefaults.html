@@ -1,6 +1,6 @@
   <h3 class="page-title">Menu Item Defaults</h3>
   <form class="menu-item-defaults" action="{{ pathFor('saveMenuItemDefaults') }}" method="post" accept-charset="utf-8">
-    {% for d in defaults %}
+    {% for d in page.defaults %}
     <div class="form-group element-section item-default">
       <input class="form-control" type="hidden" name="defaults[{{ loop.index }}][menu_item_default_id]" value="{{ d.id }}">
       <input class="form-control" type="text" name="defaults[{{ loop.index }}][kind]" maxlength="20" placeholder="Type" value="{{ d.kind }}">

@@ -26,7 +26,7 @@ class AdminMenuController extends BaseController
         $Pagination->setCurrentPageNumber($pageNumber);
 
         // Fetch menus
-        $data['menus'] = $MenuMapper->getMenusInDescDateOrder($Pagination->getRowsPerPage(), $Pagination->getOffset());
+        $data['newMenus'] = $MenuMapper->getMenusInDescDateOrder($Pagination->getRowsPerPage(), $Pagination->getOffset());
 
         // Get total row count and add extension
         $Pagination->setTotalRowsFound($MenuMapper->foundRows());
@@ -40,7 +40,7 @@ class AdminMenuController extends BaseController
             $data['defaults'][] = $MenuItemDefaultMapper->make();
         }
 
-        return $this->container->view->render($response, '@admin/pages/menuList.html', $data);
+        return $this->container->view->render($response, '@admin/pages/menuList.html', ['page' => $data]);
     }
 
     /**

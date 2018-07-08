@@ -26,6 +26,23 @@ class MenuMapper extends DataMapperAbstract
     }
 
     /**
+     * Get Todays Menus
+     *
+     * Returns menus with today's date
+     * @param none
+     * @return array
+     */
+    public function getTodaysMenus()
+    {
+        // Make select
+        $this->makeSelect();
+        $this->sql .= ' where date = ? order by location';
+        $this->bindValues[] = date('Y-m-d');
+
+        return $this->find();
+    }
+
+    /**
      * Get Menus in Descending Ordery by Date
      *
      * Returns an array of Domain Objects (one for each record)
@@ -37,7 +54,7 @@ class MenuMapper extends DataMapperAbstract
     {
         // Make select
         $this->makeSelect();
-        $this->sql .= ' order by date desc';
+        $this->sql .= ' order by date desc, location';
 
         if ($limit) {
             $this->sql .= " limit ?";
