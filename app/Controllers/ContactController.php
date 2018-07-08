@@ -32,7 +32,7 @@ class ContactController extends BaseController
         $contact = new \stdClass();
         $contact->name = filter_var($request->getParsedBodyParam('fullname'), FILTER_SANITIZE_STRING);
         $contact->email = filter_var($request->getParsedBodyParam('email'), FILTER_SANITIZE_EMAIL);
-        $contact->subject = 'MyPie Website Enquiry';
+        $contact->subject = filter_var($request->getParsedBodyParam('subject'), FILTER_SANITIZE_STRING);
         $contact->message = filter_var($request->getParsedBodyParam('message'), FILTER_SANITIZE_STRING);
 
         // Send email to admin
@@ -58,9 +58,9 @@ class ContactController extends BaseController
 
         // Send message
         $email->setFrom($config['site']['sendFromEmail'], $config['site']['title'])
-            ->setTo($contact->email, '')
+            ->setTo($config['site']['sendToEmail'], $config['site']['sendToEmail'])
             ->setSubject($contact->subject)
-            ->setMessage($contact->message)
+            ->setMessage("From: {$contact->email}\n\n" . $contact->message)
             ->send();
 
         $log->info('Contact message: ' . print_r($email, true));

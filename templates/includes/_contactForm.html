@@ -1,5 +1,6 @@
   <h4>Message us:</h4>
   <form id="contact-us" class="contact-form" action="{{ pathFor('submitMessage') }}" method="post" accept-charset="utf-8" novalidate>
+      <input type="hidden" name="subject" value="{{ emailSubjectLine|default('MyPie Website Enquiry') }}">
       <div class="form-group">
           <input type="text" class="form-control" id="contact-name" name="fullname" placeholder="Full Name" required>
           <div class="invalid-tooltip">Please enter your name.</div>
