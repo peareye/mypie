@@ -57,7 +57,7 @@ class ContactController extends BaseController
         $config = $this->container->get('settings');
 
         // Send message
-        $email->setFrom($config['site']['senderEmail'], $config['site']['title'])
+        $email->setFrom($config['site']['sendFromEmail'], $config['site']['title'])
             ->setTo($contact->email, '')
             ->setSubject($contact->subject)
             ->setMessage($contact->message)
