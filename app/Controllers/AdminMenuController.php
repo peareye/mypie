@@ -197,8 +197,7 @@ class AdminMenuController extends BaseController
         }
 
         // Redirect back to show menus
-        // return $response->withRedirect($this->container->router->pathFor('adminHome'));
-        return $response->withRedirect($this->container->router->pathFor('editMenu', ['id' => $menu->id]));
+        return $response->withRedirect($this->container->router->pathFor('adminHome'));
     }
 
     /**
@@ -300,6 +299,6 @@ class AdminMenuController extends BaseController
         }
 
         // Redirect
-        return $response->withRedirect($this->container->router->pathFor('showMenus'));
+        return $response->withRedirect($this->container->router->pathFor('adminHome'));
     }
 }
