@@ -43,23 +43,16 @@ class AdminController extends BaseController
     {
         // Get dependencies
         $config = $this->container->get('settings');
-        $mapper = $this->container->dataMapper;
+        $mapper = $this->container->get('dataMapper');
         $UserMapper = $mapper('UserMapper');
 
-        // Get default user account
-        $users['default'] = $config['user']['email'];
+        // Get super admin users from config
+        $users['superAdmins'] = $config['user']['adminEmail'];
 
         // Fetch users
-        $userList = $UserMapper->find();
+        $users['other'] = $UserMapper->find();
 
-        // Reduce array
-        if ($userList) {
-            foreach ($userList as $row) {
-                $users['other'][] = ['id' => $row->id, 'email' => $row->email];
-            }
-        }
-
-        return $this->container->view->render($response, '@admin/pages/users.html', ['users' => $users]);
+        return $this->container->view->render($response, '@admin/pages/users.html', ['page' => $users]);
     }
 
     /**
@@ -70,16 +63,48 @@ class AdminController extends BaseController
     public function saveUsers($request, $response, $args)
     {
         // Get dependencies
-        $mapper = $this->container->dataMapper;
+        $mapper = $this->container->get('dataMapper');
         $UserMapper = $mapper('UserMapper');
-        $users = $request->getParsedBodyParam('email');
+        $allUsers = $request->getParsedBodyParam('user');
 
-        // Save users
-        foreach ($users as $user) {
-            if (!empty($user)) {
-                $User = $UserMapper->make();
-                $User->email = strtolower(trim($user));
-                $UserMapper->save($User);
+        // Loop through users and process rows
+        foreach ($allUsers as $row) {
+            // If delete flag set without an ID, then ignore
+            if (isset($row['deletable']) && $row['deletable'] === 'delete' && empty($row['id'])) {
+                continue;
+            }
+
+            // Create user object
+            $user = $UserMapper->make();
+
+            // If delete flag is set with an ID, then delete row from database
+            if (isset($row['deletable']) && $row['deletable'] === 'delete' && is_numeric($row['id'])) {
+                // Do not delete record #1 to avoid locking out of the application
+                if ($row['id'] == 1) {
+                    continue;
+                }
+
+                $user->id = (int) $row['id'];
+                $UserMapper->delete($user);
+                unset($user);
+                continue;
+            }
+
+
+            // Save row if there is an email
+            if (!empty(trim($row['email']))) {
+                $user->id = $row['id'];
+                $user->email = strtolower(trim($row['email']));
+                $user->admin = isset($row['admin']) ? 'Y' : 'N';
+
+                // Keep user #1 as admin
+                if ($row['id'] == 1) {
+                    $user->admin = 'Y';
+                }
+
+                // Save
+                $UserMapper->save($user);
+                unset($user);
             }
         }
 

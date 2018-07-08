@@ -19,7 +19,7 @@ $config['baseUrl'] = '';
 /**
  * Administration Email Address
  */
-$config['user']['email'] = '';
+$config['user']['adminEmail'] = [];
 
 /**
  * Basics

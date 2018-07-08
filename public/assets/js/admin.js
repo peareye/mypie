@@ -4,14 +4,25 @@ $('body').on('click', '.jsDeleteButton', function() {
   return reply;
 });
 
-// Auto grow user list
-$('#user-emails').on('click', '.addEmail', function () {
-    var newRow = $(this).clone();
-    $(this).removeClass('addEmail');
-    $(this).after(newRow);
-});
+var newFormRowIndex = 1;
 
-var newMenuItemIndex = 1;
+// Add user row
+$('#user-emails').on('click', '.jsAddUser', function (e) {
+    e.preventDefault();
+    var $row = $(this).prev('.user-row').clone();
+    $row.find('input:not([type="checkbox"])').val('');
+    $row.find('input:checked').prop('checked', false);
+
+    var $fields = $row.find('input');
+    for (var i = $fields.length - 1; i >= 0; i--) {
+        var oldName = $($fields[i]).attr('name');
+        var newName = oldName.replace(/x?[0-9]+/, 'x'+newFormRowIndex);
+        $($fields[i]).attr('name', newName);
+    }
+    newFormRowIndex++;
+    $(this).before($row);
+    $row.find("select[name$='[email]']").focus();
+});
 
 // Add menu item form rows
 $('.menu-section').on('click', '.add-item-row', function(e) {
@@ -26,10 +37,10 @@ $('.menu-section').on('click', '.add-item-row', function(e) {
     var $fields = $row.find('input, select');
     for (var i = $fields.length - 1; i >= 0; i--) {
         var oldName = $($fields[i]).attr('name');
-        var newName = oldName.replace(/x?[0-9]+/, 'x'+newMenuItemIndex);
+        var newName = oldName.replace(/x?[0-9]+/, 'x'+newFormRowIndex);
         $($fields[i]).attr('name', newName);
     }
-    newMenuItemIndex++;
+    newFormRowIndex++;
     $(this).before($row);
     $row.find("select[name$='[type]']").focus();
 });
@@ -43,10 +54,10 @@ $('.menu-item-defaults').on('click', '.add-item-default-row', function(e) {
     var $fields = $row.find('input');
     for (var i = $fields.length - 1; i >= 0; i--) {
         var oldName = $($fields[i]).attr('name');
-        var newName = oldName.replace(/x?[0-9]+/, 'x'+newMenuItemIndex);
+        var newName = oldName.replace(/x?[0-9]+/, 'x'+newFormRowIndex);
         $($fields[i]).attr('name', newName);
     }
-    newMenuItemIndex++;
+    newFormRowIndex++;
     $(this).before($row);
     $row.find("input[name$='[kind]']").focus();
 });
