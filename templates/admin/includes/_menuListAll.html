@@ -3,10 +3,10 @@
 
         <div class="menu-list-container">
             <div class="menu-date">
-                    <h3> <a href="{{ pathFor('showSingleMenu', {'id': m.id}) }}">
+                    <h3>
                     {% if m.location %} {{ m.location }}{% else %} No Location{% endif %}
                     {{ m.date|date('j  F, Y') }}
-                    </a></h3>
+                    </h3>
               </div>
             <ul class="menu-list-icons">
                 <li class="menu-list-icon">

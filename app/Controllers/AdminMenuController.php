@@ -44,29 +44,6 @@ class AdminMenuController extends BaseController
     }
 
     /**
-     * Show Single Menus
-     *
-     * Show menu archive
-     */
-    public function showSingleMenu($request, $response, $args)
-    {
-        // Get dependencies
-        $mapper = $this->container->dataMapper;
-        $MenuMapper = $mapper('MenuMapper');
-        $MenuItemMapper = $mapper('MenuItemMapper');
-
-        // Fetch menu header
-        $menu = $MenuMapper->findById($args['id']);
-
-        if (isset($menu->id)) {
-            // Fetch menu iems
-            $menu->items = $MenuItemMapper->findItemsByMenuId($args['id']);
-        }
-
-        return $this->container->view->render($response, '@admin/pages/menu.html', ['menu' => $menu]);
-    }
-
-    /**
      * Edit Menu
      *
      * Create new menu, or edit existing menu

@@ -69,11 +69,6 @@ $app->group('/admin', function () {
         return (new Piton\Controllers\AdminMenuController($this))->showMenus($request, $response, $args);
     })->setName('showMenus');
 
-    // Show Single Menu
-    $this->get('/menu/{id:[0-9]{0,}}', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminMenuController($this))->showSingleMenu($request, $response, $args);
-    })->setName('showSingleMenu');
-
     // Edit Menu
     $this->get('/editmenu[/{id:[0-9]{0,}}]', function ($request, $response, $args) {
         return (new Piton\Controllers\AdminMenuController($this))->editMenu($request, $response, $args);
