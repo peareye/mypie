@@ -98,6 +98,11 @@ $app->group('/admin', function () {
     $this->post('/savemenuitemdefaults', function ($request, $response, $args) {
         return (new Piton\Controllers\AdminMenuController($this))->saveMenuItemDefaults($request, $response, $args);
     })->setName('saveMenuItemDefaults');
+
+    // Change super user status for admins
+    $this->get('/userrole/{role:[A,S]}', function ($request, $response, $args) {
+        return (new Piton\Controllers\AdminController($this))->changeUserRole($request, $response, $args);
+    })->setName('changeUserRole');
 })->add(function ($request, $response, $next) {
     // Authentication
     $security = $this->securityHandler;

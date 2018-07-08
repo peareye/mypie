@@ -20,6 +20,12 @@ User Management
     {% endfor %}
   </div>
   <div class="grid-cell">
+    {% if currentRole() == 'A' %}
+    <a href="{{ pathFor('changeUserRole', {'role': 'S'}) }}" class="btn btn-danger btn-sm">Enable Super User</a>
+    {% elseif currentRole() == 'S' %}
+    <a href="{{ pathFor('changeUserRole', {'role': 'A'}) }}" class="btn btn-danger btn-sm">Disable Super User</a>
+    {% endif %}
+
     <p>* These super users are set in <i>config/config.local.php</i> on the hosting server. To modify these users, please contact Moritz Media or your web administrator.</p>
   </div>
 </div>

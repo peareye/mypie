@@ -131,4 +131,30 @@ class AdminController extends BaseController
         // Redirect back to list of users
         return $response->withRedirect($this->container->router->pathFor('showUsers'));
     }
+
+    /**
+     * Change User Role
+     *
+     * Elevate or demote user role in session
+     */
+    public function changeUserRole($request, $response, $args)
+    {
+        // Dependencies
+        $session = $this->container->get('sessionHandler');
+
+        // Get current role, should be at least an Admin
+        $currentRole = $session->getData('role');
+
+        if (!($currentRole === 'A' || $currentRole === 'S')) {
+            return $response->withRedirect($this->container->router->pathFor('showUsers'));
+        }
+
+        // Request should also be only A or S
+        if (isset($args['role']) && !($args['role'] === 'A' || $args['role'] === 'S')) {
+            return $response->withRedirect($this->container->router->pathFor('showUsers'));
+        }
+
+        $session->setData('role', $args['role']);
+        return $response->withRedirect($this->container->router->pathFor('showUsers'));
+    }
 }

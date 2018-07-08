@@ -91,6 +91,7 @@ class TwigExtension extends \Twig_Extension
             new \Twig_SimpleFunction('displayMenu', array($this, 'displayMenu'), array('is_safe' => array('html'))),
             new \Twig_SimpleFunction('availableMenuSections', array($this, 'availableMenuSections')),
             new \Twig_SimpleFunction('authorized', array($this, 'authorizedUser')),
+            new \Twig_SimpleFunction('currentRole', array($this, 'userCurrentRole')),
         ];
     }
 
@@ -242,5 +243,17 @@ class TwigExtension extends \Twig_Extension
         }
 
         return ($permissions[$requiredPermission] <= $permissions[$userRole]);
+    }
+
+    /**
+     * Current User Role
+     *
+     * Returns current role from session
+     * @return mixed
+     */
+    public function userCurrentRole()
+    {
+        $session = $this->container->get('sessionHandler');
+        return $session->getData('role');
     }
 }
