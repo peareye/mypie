@@ -26,7 +26,7 @@ $('.menu-section').on('click', '.add-item-row', function(e) {
     var $fields = $row.find('input, select');
     for (var i = $fields.length - 1; i >= 0; i--) {
         var oldName = $($fields[i]).attr('name');
-        var newName = oldName.replace(/x?a?b?c?d?e?[0-9]+/, 'x'+newMenuItemIndex);
+        var newName = oldName.replace(/x?[0-9]+/, 'x'+newMenuItemIndex);
         $($fields[i]).attr('name', newName);
     }
     newMenuItemIndex++;
