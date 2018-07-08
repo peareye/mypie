@@ -32,7 +32,7 @@
 // Navbar Custom Styles
 nav {
   @include padding(.1px);
-  box-shadow: var(--box-shadow);
+  box-shadow: $box-shadow;
 }
 
 .navbar {
@@ -41,7 +41,7 @@ nav {
 
 .bg-dark {
   background: #ed1c24 !important;
-  background: var(--mypie-red) !important;
+  background: $mypie-red !important;
 }
 
 //Navbar Brand Sizing
@@ -73,7 +73,7 @@ button:hover,
 [type='reset']:hover,
 [type='submit']:hover {
   background-color: #ed1c24;
-  background-color: var(--mypie-red);
+  background-color: $mypie-red
 
 }
 

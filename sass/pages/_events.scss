@@ -9,7 +9,7 @@
     }
  
     img{
-        box-shadow: var(--box-shadow);
+        box-shadow: $box-shadow;
         object-fit: cover;
         border-radius: 5px;
     }

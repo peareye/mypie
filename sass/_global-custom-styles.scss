@@ -27,7 +27,7 @@ img {
 }
 #main{
   @media(min-width: 768px){
-    border-top: solid 4px black;
+    border-top: solid 4px $mypie-dark;
 
   }
 }

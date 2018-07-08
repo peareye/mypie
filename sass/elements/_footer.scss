@@ -3,21 +3,17 @@
 footer {
   font-size: 0.7rem;
   line-height: 1.2rem;
-  color: #fff;
-  color: var(--mypie-light);
-  box-shadow: 0 2px 2px rgba(0,0,0,.5);
-  box-shadow: var(--box-shadow);
+  color: $mypie-light;
+  box-shadow: $box-shadow;
 }
 
 footer a {
-  color: #fff;
-  color: var(--mypie-light);
+  color: $mypie-light;
   text-decoration: none;
 }
 
 footer a:hover {
-  color: #231f20;
-  color: var(--mypie-dark);
+  color: $mypie-dark;
 }
 
 //Top Footer Styles
@@ -28,6 +24,7 @@ footer a:hover {
   background-size: cover;
   @include padding(1rem null null);
   margin-bottom: -2px;
+  color: $mypie-light;
 }
 
 #contact-us,
@@ -47,8 +44,8 @@ footer a:hover {
 
 // Footer Form Styles
 .form-control {
-  border: rgba(255, 255, 255, .6);
-  border: var(--muted-accent-border);
+  background: $muted-white;
+  border: $muted-accent-border;
 }
 
 .form-group textarea {
@@ -58,26 +55,22 @@ footer a:hover {
 
 // Submit Button
 input[type="submit"] {
-  background: #ed1c24;
-  background: var(--mypie-red);
-  color: #fff;
-  color: var(--mypie-light);
-  border: solid 0.1rem rgba(110,30,33,.5);
-  border: var(--muted-accent-border);
+  background: $mypie-red;
+  color: $mypie-light;
+  border: solid 0.1rem rgba($mypie-dark,.5);
+  border: $muted-accent-border;
   text-transform: uppercase;
-  border-radius: var(--border-radius);
+  border-radius: $border-radius;
 }
 
 input[type="submit"]:hover {
-  background: #6e1e21;
-  background: var(--mypie-accent-red);
-  color: rgba(255,255,255,.6);
-  color: var(--muted-white);
+  background: $mypie-accent-red;
+  color: rgba($mypie-light,.6);
+  color: $muted-white;
 }
 
 input[type="submit"]:active {
-  background: #231f20;
-  background: var(--mypie-dark);
+  background: $mypie-dark;
   outline: none;
 }
 
@@ -85,7 +78,7 @@ input[type="submit"]:active {
 #contact-name::-webkit-input-placeholder,
 #contact-email::-webkit-input-placeholder,
 #contact-message::-webkit-input-placeholder {
-  color: var(--muted-white);
+  color: $muted-white;
   -webkit-transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
   transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
 }
@@ -93,8 +86,8 @@ input[type="submit"]:active {
 #contact-name:focus::-webkit-input-placeholder,
 #contact-email:focus::-webkit-input-placeholder,
 #contact-message:focus::-webkit-input-placeholder {
-  color: rgba(167,167,167,.8);
-  color: var(--muted-grey);
+  color: rgba($mypie-light-grey,.8);
+  color: $muted-grey;
   opacity: .3;
 }
 
@@ -102,8 +95,8 @@ input[type="submit"]:active {
 #contact-name:-moz-placeholder,
 #contact-email:-moz-placeholder,
 #contact-message:-moz-placeholder {
-  color: rgba(255,255,255,.6);
-  color: var(--muted-white);
+  color: rgba($mypie-light,.6);
+  color: $muted-white;
   -webkit-transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
   transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
 }
@@ -111,8 +104,8 @@ input[type="submit"]:active {
 #contact-name:focus:-moz-placeholder,
 #contact-email:focus:-moz-placeholder,
 #contact-message:focus:-moz-placeholder {
-  color: rgba(167,167,167,.8);
-  color: var(--muted-grey);
+  color: rgba($mypie-light-grey,.8);
+  color: $muted-grey;
   opacity: .3;
 }
 
@@ -121,8 +114,8 @@ input[type="submit"]:active {
 #contact-email::-moz-placeholder,
 #contact-message::-moz-placeholder {
   opacity: 1;
-  color: rgba(255,255,255,.6);
-  color: var(--muted-white);
+  color: rgba($mypie-light,.6);
+  color: $muted-white;
   transition: opacity 500ms;
 }
 
@@ -130,7 +123,7 @@ input[type="submit"]:active {
 #contact-email:focus::-moz-placeholder,
 #contact-message:focus::-moz-placeholder {
   color: rgba(167,167,167,.8);
-  color: var(--muted-grey);
+  color: $muted-grey;
   opacity: .3;
 }
 
@@ -138,8 +131,8 @@ input[type="submit"]:active {
 #contact-name:-ms-input-placeholder,
 #contact-email:-ms-input-placeholder,
 #contact-message:-ms-input-placeholder {
-  color: rgba(255,255,255,.6);
-  color: var(--muted-white);
+  color: rgba($mypie-light,.6);
+  background-color: $muted-white;
   -webkit-transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
   transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
 }
@@ -148,7 +141,7 @@ input[type="submit"]:active {
 #contact-email:focus:-ms-input-placeholder,
 #contact-message:focus:-ms-input-placeholder {
   color: rgba(167,167,167,.8);
-  color: var(--muted-grey);
+  color: $muted-grey;
   opacity: .3;
 }
 
@@ -157,9 +150,9 @@ input[type="submit"]:active {
 // Secondary Footer Styles
 .box-footer2 {
   background: #231f20;
-  background: var(--mypie-dark);
+  background: $mypie-dark;
   color: #756d6e;
-  color: var(--mypie-dark-grey);
+  color: $mypie-dark-grey;
   font-weight: bold;
   @include padding(1rem null);
   text-align: center;
@@ -167,7 +160,7 @@ input[type="submit"]:active {
     @include margin(0);
     a {
       color: #8b9399;
-      color: var(--mypie-md-grey);
+      color: $mypie-md-grey;
     }
   }
 }

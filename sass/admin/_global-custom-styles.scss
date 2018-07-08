@@ -23,23 +23,25 @@ h6 {
 }
 
 .page-title {
-    color: #231f20; color: var(--mypie-dark);
+    color: $mypie-dark;
     border-bottom: solid 1px #efefef;
     @include margin(.5rem null);
 }
+
 a {
-    color: #231f20; color: var(--mypie-dark);
+    color: mypie-dark;
 }
+
 .span {
     grid-column: 1 / -1;
 }
 
 .btn {
     @include margin(.25rem .5rem);
-    
 }
-.btn a{
-    color: #fff; color: var(--mypie-light) !important;
+
+.btn a {
+    color: $mypie-light !important;
     font-weight: 700;
 }
 
@@ -50,7 +52,7 @@ a {
     left: 0;
     width: 67px;
     height: 70px;
-    background: var(--mypie-light);
+    background: $mypie-light;
     @include padding(2px);
     z-index: 2;
 }
@@ -71,8 +73,8 @@ header {
     left: 0;
     height: 100vh;
     width: 70px;
-    background: var(--mypie-dark);
-    color: #fff; color: var(--mypie-light);
+    background: $mypie-dark;
+    color: $mypie-light;
     @include padding(80px null null);
     scroll-behavior: auto;
     overflow: scroll;
@@ -80,12 +82,12 @@ header {
 
 #admin {
     button {
-        color: black !important;
+        color: $mypie-dark !important;
     }
 }
 
 .navbar-wrapper a {
-    color: #fff; color: var(--mypie-light);
+    color: $mypie-light;
 }
 
 .nav-item {
@@ -115,8 +117,8 @@ header {
     border-radius: 5px;
     @include padding(.5rem .25rem);
     @include margin(.5rem .25rem);
-    background-color: #fff; color: var(--mypie-light);
-    box-shadow: var(--box-shadow);
+    background-color: $mypie-light;
+    box-shadow: $box-shadow;
 }
 
 .add-link {
@@ -132,12 +134,11 @@ header {
 }
 
 .add-link a {
-    color: #231f20; color: var(--mypie-dark);
+    color: $mypie-dark;
 }
 
 .add-link a:hover {
-    color: #ed1c24;
-    color: var(--mypie-red);
+    color: $mypie-red;
 }
 
 // Page Content Management Styles
@@ -156,7 +157,7 @@ header {
 // Daily Menu Page Styles
 #menu-home {
     .page-section {
-        @media screen and (min-width: 768px){
+        @media screen and (min-width: 768px) {
             display: grid;
             grid-gap: 1rem;
             grid-template-columns: repeat(2, 1fr);
@@ -165,9 +166,10 @@ header {
     .grid-cell {
         @include padding(null .5rem);
     }
-    .element-section{
+    .element-section {
         width: 100%;
-  @include padding(.5rem);
+        @include margin(null null .25em null);
+        @include padding(null .5rem);
         display: grid;
         grid: auto-flow / repeat(2, 1fr) .5fr;
         grid-gap: .5rem;
@@ -176,8 +178,11 @@ header {
         justify-items: center;
         align-items: center;
     }
-    input{
+    input {
         margin: 0;
+    }
+    .form-control {
+        @include padding(.25em null);
     }
 }
 
@@ -201,8 +206,7 @@ header {
 // Admin Home Styles
 #admin-home {
     .page-section {
-       
-        @media screen and (min-width: 768px){
+        @media screen and (min-width: 768px) {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-gap: 1rem;
@@ -223,13 +227,12 @@ header {
 }
 
 .menu-list-container a {
-    color: #231f20; color: var(--mypie-dark);
-    ;
+    color: $mypie-dark;
 }
 
 .menu-list-container a:hover {
-    color: #ed1c24;
-    color: var(--mypie-red);
+ 
+    color: $mypie-red
 }
 
 .menu-date {
@@ -283,10 +286,10 @@ header {
     display: flex;
     justify-content: center;
 }
-.form-check-label{
-    color: var(--mypie-dark);
+
+.form-check-label {
+    color: $mypie-dark;
     font-size: .8rem;
     @include padding(.25rem null null .25rem);
     font-weight: 400;
 }
-
