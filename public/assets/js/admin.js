@@ -12,6 +12,8 @@ $('#user-emails').on('click', '.jsAddUser', function (e) {
     var $row = $(this).prev('.user-row').clone();
     $row.find('input:not([type="checkbox"])').val('');
     $row.find('input:checked').prop('checked', false);
+    $row.find('input[name$="[admin]"]').prop('disabled',false);
+    $row.find('input[name$="[admin]"]').prop('checked',false);
 
     var $fields = $row.find('input');
     for (var i = $fields.length - 1; i >= 0; i--) {
