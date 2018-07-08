@@ -93,7 +93,7 @@ class LoginController extends BaseController
             $link = $scheme . '://' . $host . $this->container->router->pathFor('processLoginToken', ['token' => $token]);
 
             // Send message
-            $email->setFrom($config['site']['senderEmail'], $config['site']['title'])
+            $email->setFrom($config['site']['sendFromEmail'], $config['site']['title'])
                 ->setTo($providedEmail, '')
                 ->setSubject($config['site']['title'] . ' Login')
                 ->setMessage("Click to login\n\n {$link}")

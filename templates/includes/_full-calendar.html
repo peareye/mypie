@@ -3,7 +3,7 @@
 <div class="calendar-container">
 
     <h2 class="section-title">{{ month|date('F Y') }}</h2>
- 
+
 
   <div class="calendar-wrapper">
     <div class="box days">
@@ -31,9 +31,9 @@
     <div class="box {{ d.dateBoxClass }}">
       <div class="{{ d.dateClass }}">{{ d.date }}</div>
       <div class="day-content" data-toggle="modal" data-target="#locationModal">
-        {% if d.content %}
-        <a href="#calendar">{{ d.content }}</a>
-        {% endif %}
+        {% for l in d.content %}
+        <a href="#calendar">{{ l }}</a><br>
+        {% endfor %}
       </div>
     </div>
     {% endfor %}

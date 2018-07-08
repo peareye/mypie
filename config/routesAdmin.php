@@ -94,11 +94,6 @@ $app->group('/admin', function () {
         return (new Piton\Controllers\AdminMenuController($this))->deleteMenu($request, $response, $args);
     })->setName('deleteMenu');
 
-    // Delete Menu Item
-    $this->get('/deletemenuitem/{id:[0-9]{0,}}', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminMenuController($this))->deleteMenuItem($request, $response, $args);
-    })->setName('deleteMenuItem');
-
     // Set Sold Out Menu Item Flag
     $this->get('/soldoutmenuitem/{id:[0-9]{0,}}', function ($request, $response, $args) {
         return (new Piton\Controllers\AdminMenuController($this))->soldOutMenuItemStatus($request, $response, $args);

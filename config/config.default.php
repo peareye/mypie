@@ -25,7 +25,8 @@ $config['user']['email'] = '';
  * Basics
  */
 $config['site']['title'] = '';
-$config['site']['senderEmail'] = '';
+$config['site']['sendFromEmail'] = '';
+$config['site']['sendToEmail'] = '';
 
 /**
  * Database Settings

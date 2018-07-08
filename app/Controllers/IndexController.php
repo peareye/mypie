@@ -121,12 +121,14 @@ class IndexController extends BaseController
     protected function mergeMenuDatesIntoCalendar($menuDates)
     {
         // Merge menus, start by looping this/next months then days
-        foreach ($this->calendar as $month => $row) {
-            foreach ($this->calendar[$month]['days'] as $dateKey => $day) {
+        foreach ($this->calendar as $monthKey => $row) {
+            foreach ($this->calendar[$monthKey]['days'] as $dateKey => $day) {
+                // Initialize daily content array
+                $this->calendar[$monthKey]['days'][$dateKey]['content'] = [];
                 // Find matching menu dates
                 foreach ($menuDates as $menu) {
                     if ($menu->date === $day['canonicalDate'] && !empty($menu->location)) {
-                        $this->calendar[$month]['days'][$dateKey]['content'] = $menu->location;
+                        $this->calendar[$monthKey]['days'][$dateKey]['content'][] = $menu->location;
                     }
                 }
             }

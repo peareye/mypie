@@ -11,68 +11,51 @@ $('#user-emails').on('click', '.addEmail', function () {
     $(this).after(newRow);
 });
 
+var newMenuItemIndex = 1;
+
 // Add menu item form rows
 $('.menu-section').on('click', '.add-item-row', function(e) {
     e.preventDefault();
     var $row = $(this).prev('.menu-item').clone();
-    $row.find('input[name="items[menu_item_id][]"]').val('');
+    $row.find('input[name$="[menu_item_id]"]').val('');
     $row.find('select').val('default');
-    $row.find('input[name="items[description][]"]').val('');
-    $row.find('input[name="items[price][]"]').val('');
-    $row.find('.optional-button').remove();
-    $(this).before($row);
-});
+    $row.find('input[name$="[description]"]').val('');
+    $row.find('input[name$="[price]"]').val('');
+    $row.find('input:checked').prop('checked', false);
 
-// Delete menu item
-$('.menu-section').on('click', '.delete-menu-item', function(e) {
-    e.preventDefault();
-    var menuItemId = $(this).parents('.menu-item').find('input[name="items[menu_item_id][]"]').val();
-    var $menuItemRow = $(this).parents('.menu-item');
-
-    if (confirm('Are you sure you want to delete?')) {
-        // If no ID has been set, just remove row
-        if (!Number.isInteger(parseInt(menuItemId))) {
-            $menuItemRow.fadeOut(function() {
-                $(this).slideUp().remove();
-            });
-            return;
-        }
-        // Otherwise hard delete
-        $.ajax({
-            url: '/admin/deletemenuitem/' + menuItemId,
-            method: 'GET',
-            success: function(r) {
-                if (r.status === 'success') {
-                    $menuItemRow.fadeOut(function() {
-                        $(this).slideUp().remove();
-                    });
-                } else {
-                    alert('There was an error. Please contact Moritz Media.')
-                }
-            },
-            error: function(r) {
-                alert('Error, something unexpected happened.');
-            }
-        });
+    var $fields = $row.find('input, select');
+    for (var i = $fields.length - 1; i >= 0; i--) {
+        var oldName = $($fields[i]).attr('name');
+        var newName = oldName.replace(/x?a?b?c?d?e?[0-9]+/, 'x'+newMenuItemIndex);
+        $($fields[i]).attr('name', newName);
     }
+    newMenuItemIndex++;
+    $(this).before($row);
+    $row.find("select[name$='[type]']").focus();
 });
 
 // Add menu item default form rows
 $('.menu-item-defaults').on('click', '.add-item-default-row', function(e) {
     e.preventDefault();
     var $row = $(this).prev('.item-default').clone();
-    $row.find('input[name="defaults[menu_item_default_id][]"]').val('');
-    $row.find('input[name="defaults[kind][]"]').val('');
-    $row.find('input[name="defaults[price][]"]').val('');
-    $row.find('input[name="defaults[deletable][]"]').prop('checked', false);
+    $row.find('input:not([type="checkbox"])').val('');
+    $row.find('input:checked').prop('checked', false);
+    var $fields = $row.find('input');
+    for (var i = $fields.length - 1; i >= 0; i--) {
+        var oldName = $($fields[i]).attr('name');
+        var newName = oldName.replace(/x?[0-9]+/, 'x'+newMenuItemIndex);
+        $($fields[i]).attr('name', newName);
+    }
+    newMenuItemIndex++;
     $(this).before($row);
+    $row.find("input[name$='[kind]']").focus();
 });
 
-// Set the default price on change of kind
-$('.edit-menu').on('change', 'select[name="items[type][]"]', function() {
+// Set the menu item price on change of type
+$('.edit-menu').on('change', "select[name$='[type]']", function() {
     var newKind = $(this).val();
     var price = priceList[newKind];
-    $(this).parents('.menu-item').find('input[name="items[price][]"]').val(price);
+    $(this).parents('.menu-item').find("input[name$='[price]']").val(price);
 });
 
 // Make sure element name is one word

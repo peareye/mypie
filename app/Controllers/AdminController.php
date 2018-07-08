@@ -40,7 +40,7 @@ class AdminController extends BaseController
     public function showUsers($request, $response, $args)
     {
         // Get dependencies
-        $config = $this->container->settings;
+        $config = $this->container->get('settings');
         $mapper = $this->container->dataMapper;
         $UserMapper = $mapper('UserMapper');
 
