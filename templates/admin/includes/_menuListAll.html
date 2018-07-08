@@ -21,12 +21,14 @@
                         <div class="nav-description">Copy</div>
                     </a>
                 </li>
+                {% if authorized('A') %}
                 <li class="menu-list-icon">
                     <a class="jsDeleteButton" href="{{ pathFor('deleteMenu', {'id': m.id}) }}" data-toggle="tooltip" title="Delete this menu">
                         <i class="fas fa-2x fa-trash-alt" alt="Delete Menu"></i>
                         <div class="nav-description">Delete</div>
                     </a>
                 </li>
+                {% endif %}
             </ul>
 
         </div>

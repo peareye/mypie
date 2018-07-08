@@ -48,6 +48,7 @@
                     <div class="nav-description">Menu</div>
                 </a>
             </li>
+            {% if authorized('A') %}
             <li class="nav-item">
                 <a class="nav-link" href="{{ pathFor('showPages') }}">
                     <div class="nav-icon">
@@ -65,6 +66,7 @@
                     <div class="nav-description">Users</div>
                 </a>
             </li>
+            {% endif %}
             <li class="nav-item">
                 <a class="nav-link" href="#">
                     <div class="nav-icon">

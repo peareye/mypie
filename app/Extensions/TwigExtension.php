@@ -90,6 +90,7 @@ class TwigExtension extends \Twig_Extension
             new \Twig_SimpleFunction('checked', array($this, 'checked')),
             new \Twig_SimpleFunction('displayMenu', array($this, 'displayMenu'), array('is_safe' => array('html'))),
             new \Twig_SimpleFunction('availableMenuSections', array($this, 'availableMenuSections')),
+            new \Twig_SimpleFunction('authorized', array($this, 'authorizedUser')),
         ];
     }
 
@@ -221,5 +222,25 @@ class TwigExtension extends \Twig_Extension
         }
 
         return $available;
+    }
+
+    /**
+     * Authorized User
+     *
+     * Returns true|false if authorized to requested role level
+     * @param str N: No privileges, Y: Admin privileges, S: Super User
+     * @return bool
+     */
+    public function authorizedUser($requiredPermission)
+    {
+        $session = $this->container->get('sessionHandler');
+        $userRole = $session->getData('role');
+        $permissions = ['N' => 1, 'A' => 2, 'S' => 3];
+
+        if (empty($userRole)) {
+            return false;
+        }
+
+        return ($permissions[$requiredPermission] <= $permissions[$userRole]);
     }
 }

@@ -40,25 +40,39 @@ class LoginController extends BaseController
     public function requestLoginToken($request, $response, $args)
     {
         // Get dependencies
-        $session = $this->container->sessionHandler;
-        $email = $this->container->emailHandler;
-        $config = $this->container->settings;
-        $security = $this->container->securityHandler;
-        $mapper = $this->container->dataMapper;
+        $session = $this->container->get('sessionHandler');
+        $email = $this->container->get('emailHandler');
+        $config = $this->container->get('settings');
+        $security = $this->container->get('securityHandler');
+        $mapper = $this->container->get('dataMapper');
         $UserMapper = $mapper('UserMapper');
         $body = $request->getParsedBody();
 
-        // Create primary admin user from config file (user ID = 1)
-        $primaryUser = $UserMapper->make();
-        $primaryUser->id = 1;
-        $primaryUser->email = $config['user']['email'];
+        // Load super admin users from config file
+        $userList = [];
+        $superUserId = -1;
+        foreach ($config['user']['adminEmail'] as $superAdmin) {
+            $superUser = $UserMapper->make();
+            $superUser->id = $superUserId;
+            $superUser->email = $superAdmin;
+            $superUser->admin = 'S';
 
-        // Fetch other users, and append primary admin user to array
-        $userList = $UserMapper->find();
-        $userList[] = $primaryUser;
+            $userList[] = $superUser;
+            unset($superUser);
+            $superUserId--;
+        }
+
+        // Fetch other users from database and add to user list
+        $usersFromDb = $UserMapper->find();
+        if (!empty($usersFromDb)) {
+            foreach ($usersFromDb as $value) {
+                $userList[] = $value;
+            }
+        }
 
         // Clean provided email
-        $providedEmail = strtolower(trim($body['email']));
+        $providedEmail = filter_var($body['email'], FILTER_SANITIZE_EMAIL);
+        $providedEmail = strtolower(trim($providedEmail));
 
         $foundValidUser = false;
         foreach ($userList as $user) {
@@ -84,17 +98,17 @@ class LoginController extends BaseController
                 $this->loginTokenKey => $token,
                 $this->loginTokenExpiresKey => time() + 120,
                 'user_id' => $foundValidUser->id,
-                'email' => $foundValidUser->email
+                'email' => $foundValidUser->email,
+                'role' => ($foundValidUser->admin === 'Y') ? 'A' : $foundValidUser->admin
             ]);
 
             // Get request details to create login link and email to user
-            $scheme = $request->getUri()->getScheme();
-            $host = $request->getUri()->getHost();
-            $link = $scheme . '://' . $host . $this->container->router->pathFor('processLoginToken', ['token' => $token]);
+            $link = $request->getUri()->getScheme() . '://' . $request->getUri()->getHost();
+            $link .= $this->container->router->pathFor('processLoginToken', ['token' => $token]);
 
             // Send message
             $email->setFrom($config['site']['sendFromEmail'], $config['site']['title'])
-                ->setTo($providedEmail, '')
+                ->setTo($foundValidUser->email, $foundValidUser->email)
                 ->setSubject($config['site']['title'] . ' Login')
                 ->setMessage("Click to login\n\n {$link}")
                 ->send();
