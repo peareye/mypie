@@ -1,23 +1,14 @@
-{% extends '@admin/admin_base.html' %}
+{% extends '@admin/admin_base.html' %} {% block title %}Dashboard - Home{% endblock %} {% block blurb %}
+<p>Pulling back the curtain!</p>{% endblock %} {% block id %}admin-home{% endblock %} {% block body %}
 
-{% block title %}Dashboard - Home{% endblock %}
-{% block blurb %}<p>Pulling back the curtain!</p>{% endblock %}
-{% block id %}admin-home{% endblock %}
+<!-- Visible to All Users -->
 
-{% block body %}
 
 <div class="page-section">
-    <!-- Add a New Menu  -->
     <div class="grid-cell add-link">
-        <button class="btn btn-info btn-lg">
-                <a href="{{ pathFor('editMenu') }}" data-toggle="tooltip" title="Create a new menu.">
-                        <i class="fas fa-plus" alt="Create Menu"></i> New Menu</a>
-        </button>
-
+            <a href="{{ pathFor('editMenu') }}" data-toggle="tooltip" title="Create a new menu.">
+                    <i class="fas fa-plus" alt="Create Menu"></i> New Menu</a>
     </div>
-</div>
-
-<div class="page-section">
     <div class="grid-cell">
         {% include 'admin/includes/_currentMenu.html' %}
     </div>
@@ -28,4 +19,3 @@
 </div>
 
 {% endblock %}
-

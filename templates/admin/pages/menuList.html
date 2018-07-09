@@ -1,30 +1,26 @@
-{% extends '@admin/admin_base.html' %} 
-
-{% block title %} Menu &amp; Calendar{% endblock %} 
-{% block blurb %}<p>Manage Calendar and Daily Menus.</p>{% endblock %} 
-{% block id %}menu-home{% endblock %} 
-
-{% block body %}
+{% extends '@admin/admin_base.html' %} {% block title %} Menu &amp; Calendar{% endblock %} {% block blurb %}
+<p>Manage Calendar and Daily Menus.</p>{% endblock %} {% block id %}menu-home{% endblock %} {% block body %}
 
 <!-- visible to super admin -->
 <div class="page-section">
-    <div class="grid-cell add-link">
-                <button class="btn btn-info btn-lg">
-                                <a href="{{ pathFor('editMenu') }}" data-toggle="tooltip" title="Create a new menu.">
-                                        <i class="fas fa-plus" alt="Create Menu"></i> New Menu</a>
-                        </button>
-    </div>
- 
+
+
 </div>
 <div class="page-section">
-        <div class="grid-cell">
-                {% include '@admin/includes/_editMenuItemDefaults.html' %}
-              </div>
-        <div class="grid-cell">
-                {% include '@admin/includes/_menuListAll.html' %} {{ pagination() }}
-              </div>
-              
-          
+                <div class="grid-cell add-link">
+
+                                <a href="{{ pathFor('editMenu') }}" data-toggle="tooltip" title="Create a new menu.">
+                                <i class="fas fa-plus" alt="Create Menu"></i> New Menu</a>
+                                
+                                </div>
+<div class="grid-cell">
+{% include '@admin/includes/_editMenuItemDefaults.html' %}
+</div>
+<div class="grid-cell">
+{% include '@admin/includes/_menuListAll.html' %} {{ pagination() }}
+</div>
+
+
 </div>
 
 {% endblock %}

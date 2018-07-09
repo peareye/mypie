@@ -1,16 +1,23 @@
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *:before,
 *:after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Global Styles */
+
+a {
+  color: mypie-dark;
 }
 
 h1,
@@ -19,277 +26,284 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Open Sans Condensed', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0;
 }
 
-.page-title {
-    color: $mypie-dark;
-    border-bottom: solid 1px #efefef;
-    @include margin(.5rem null);
+h1 {
+  font-size: 2rem;
 }
 
-a {
-    color: mypie-dark;
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: .75rem;
+}
+
+/* Custom Styles */
+
+.grid-cell {
+  border-radius: $border-radius;
+  border-radius: 10px;
+  @include padding(.25rem);
+  @include margin(.25rem);
+  background-color: $mypie-light-grey; 
 }
 
 .span {
-    grid-column: 1 / -1;
+  grid-column: 1 / -1;
+}
+
+.page-title {
+  color: $mypie-dark;
+  @include margin(.5rem null);
 }
 
 .btn {
-    @include margin(.25rem .5rem);
+  @include margin(.25rem .5rem);
 }
 
 .btn a {
-    color: $mypie-light !important;
-    font-weight: 700;
+  color: $mypie-light !important;
+  font-weight: 700;
+}
+
+.add-link {
+  font-size: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  border-radius: $border-radius;
+  @include margin(.5rem null);
+  @include padding(.5rem);
+  grid-column: 1 / -1;
+  // background: $mypie-light;
+}
+.add-link a{
+  background: $mypie-light;
+  @include padding( null 1rem);
+}
+
+/* Main Page Layout */
+
+// Navbar - Vertical
+.navbar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 70px;
+  background: rgba($mypie-dark-grey, .5);
+  color: $mypie-light;
+  @include padding(80px null null);
+  scroll-behavior: auto;
+  overflow: scroll;
+}
+
+.navbar-wrapper a {
+  color: $mypie-accent-red;
+}
+
+.nav-item {
+  width: 100%;
+  text-align: center;
+}
+
+.nav-link {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  @include padding(0);
+  @include margin(.5rem null);
 }
 
 // Logo Container
 .logo {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 67px;
-    height: 70px;
-    background: $mypie-light;
-    @include padding(2px);
-    z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 67px;
+  height: 70px;
+  background: $mypie-light;
+  @include padding(2px);
+  z-index: 2;
 }
 
-// Header & Navbar Styles
+// Header Styles
 header {
-    width: 100%;
-    @include margin(0 null null 67px);
-    @include padding(null null null 1rem);
-    @include border-style(null null solid solid);
-    @include border-color(null null black black);
-    @include border-width(null null 3px 3px);
-}
-
-.navbar-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 70px;
-    background: $mypie-dark;
-    color: $mypie-light;
-    @include padding(80px null null);
-    scroll-behavior: auto;
-    overflow: scroll;
-}
-
-#admin {
-    button {
-        color: $mypie-dark !important;
-    }
-}
-
-.navbar-wrapper a {
-    color: $mypie-light;
-}
-
-.nav-item {
-    width: 100%;
-    text-align: center;
-}
-
-.nav-link {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
-    @include padding(0);
-    @include margin(.5rem null);
+  width: 100%;
+  @include margin(0 null null 70px);
+  @include padding(1rem null null 2rem null);
 }
 
 // Right Container
 .right-container {
-    @include margin(null null null 70px);
-    @include padding(null 1rem null .5rem);
-}
-
-.grid-cell {
-    border: solid 1px rgba(0, 0, 0, .25);
-    border-radius: $border-radius;
-    @include padding(.5rem .25rem);
-    @include margin(.5rem .25rem);
-    background-color: $mypie-light;
-    box-shadow: $box-shadow;
-}
-
-.add-link {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2rem;
-    display: grid;
-    grid-template-columns: 1fr;
-    border: solid 1px rgba(0, 0, 0, .25);
-    border-radius: $border-radius;
-    @include margin(.5rem null);
-    @include padding(.5rem);
-    grid-column: 1 / -1;
-}
-
-.add-link a {
-    color: $mypie-dark;
-}
-
-.add-link a:hover {
-    color: $mypie-red;
-}
-
-// Page Content Management Styles
-#pages-home {
-    .page-section {
-        display: grid;
-        grid-gap: 1rem;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    }
-    .grid-cell {
-        @include padding(null .5rem);
-    }
-}
-
-// General Sections Style
-// Daily Menu Page Styles
-#menu-home {
-    .page-section {
-        @media screen and (min-width: 768px) {
-            display: grid;
-            grid-gap: 1rem;
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-    .grid-cell {
-        @include padding(null .5rem);
-    }
-    .element-section {
-        width: 100%;
-        @include margin(null null .25em null);
-        @include padding(null .5rem);
-        display: grid;
-        grid: auto-flow / repeat(2, 1fr) .5fr;
-        grid-gap: .5rem;
-        justify-content: center;
-        align-content: center;
-        justify-items: center;
-        align-items: center;
-    }
-    input {
-        margin: 0;
-    }
-    .form-control {
-        @include padding(.25em null);
-    }
-}
-
-// Users Page Styles
-#users-home {
-    .page-section {
-        display: grid;
-        grid-gap: 1rem;
-        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-        border: solid 1px rgba(0, 0, 0, .25);
-        border-radius: $border-radius;
-        @include padding(.5rem .25rem);
-        @include margin(.5rem .25rem);
-    }
-    .grid-cell {
-        @include padding(null .5rem);
-        border: initial;
-    }
+  @include margin(null null null 70px);
+  @include padding(null 1rem null .5rem);
 }
 
 // Admin Home Styles
 #admin-home {
-    .page-section {
-        @media screen and (min-width: 768px) {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 1rem;
-        }
+  .page-section {
+    @media screen and (min-width: 768px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 1rem;
     }
-    .grid-cell {
-        @include padding(null .5rem);
-        background: white;
+  }
+  .grid-cell {
+    @include padding(null .5rem);
+  }
+  .daily-menu-each{
+    background: $mypie-light;
+    @include padding(.5rem);
+    @include margin(.5rem null);
+    border-radius: $border-radius;
+  }
+}
+
+// Menus Page
+// Menu Management Section
+.menu-item-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  @include margin(.25rem null);
+  justify-content: center;
+  background: $mypie-light;
+  border-radius: $border-radius;
+  position: relative;
+}
+
+.menu-item-each {
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+.form-check-label {
+  color: $mypie-dark;
+  font-size: .8rem;
+  @include padding(.25rem null null .25rem);
+  font-weight: 400;
+}
+
+#menu-home {
+  .page-section {
+    @media screen and (min-width: 768px) {
+      display: grid;
+      grid-gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
     }
+  }
+  .grid-cell {
+    @include padding(null .5rem);
+  }
+  .element-section {
+    width: 100%;
+    @include margin(null null .25em null);
+    @include padding(null .5rem);
+    display: grid;
+    grid: auto-flow / repeat(2, 1fr) .5fr;
+    grid-gap: .5rem;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+  }
+  input {
+    margin: 0;
+  }
+  .form-control {
+    @include padding(.25em null);
+  }
 }
 
 // Menu Lists Style
 .menu-list-container {
-    border: solid 1px rgba(0, 0, 0, .25);
-    border-radius: $border-radius;
-    @include margin(.5rem null);
-    @include padding(1rem 1rem null);
+  
+  background: $mypie-light;
+  border-radius: $border-radius;
+  @include margin(.5rem null);
+  @include padding(1rem 1rem null);
 }
 
 .menu-list-container a {
-    color: $mypie-dark;
+  color: $mypie-dark;
 }
 
 .menu-list-container a:hover {
- 
-    color: $mypie-red
+  color: $mypie-red
 }
 
 .menu-date {
-    @include padding(.25rem null);
-    text-align: center;
+  @include padding(.25rem null);
+  text-align: center;
 }
 
 .menu-list-icons {
-    display: grid;
-    grid-template-columns: repeat(3, min-content);
-    justify-items: center;
-    align-items: center;
-    justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(3, min-content);
+  justify-items: center;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .menu-list-icon>a {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    align-content: center;
-    text-align: center;
-    @include padding(.5rem null null);
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  @include padding(.5rem null null);
 }
 
 // Current Menu Style
 .current-menu {
-    .btn {
-        @include margin(.2rem null);
-    }
-    @media screen and (min-width: 576px) {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: .5rem;
-    }
-}
-
-// Menu Management Section
-.menu-item-wrapper {
+  .btn {
+    @include margin(.2rem null);
+  }
+  @media screen and (min-width: 576px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1rem;
-    @include margin(.25rem null);
-    justify-content: center;
+    grid-gap: .5rem;
+  }
 }
 
-.menu-item-each {
-    @include padding(null .25rem);
-    display: flex;
-    justify-content: center;
+// Pages Page
+#pages-home {
+  .page-section {
+    display: grid;
+    grid-gap: .5rem;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+  .grid-cell {
+    @include padding(null .5rem);
+  }
 }
 
-.form-check-label {
-    color: $mypie-dark;
-    font-size: .8rem;
-    @include padding(.25rem null null .25rem);
-    font-weight: 400;
+// Users Page
+#users-home {
+  .page-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    border-radius: $border-radius;
+  }
+  .grid-cell {
+    @include padding(null .5rem);
+    border: initial;
+  }
 }
+
+// Help Page

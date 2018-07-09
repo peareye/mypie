@@ -5,10 +5,10 @@
   {% set available = availableMenuSections(menu.items) %}
 
   <!-- Start Menu Header -->
-  <h3 class="page-title">{{ menu.location }} {{ menu.date|date('j F, Y') }}</h3>
-  <a class="btn btn-primary btn-sm m-2" href="{{ pathFor('editMenu', {'id': menu.id}) }}">Edit This Menu</a>
-
-  <div id="current-menu">
+  <div class="daily-menu-each">
+    <h2 class="page-title">{{ menu.location }} {{ menu.date|date('j F, Y') }}</h2>
+    <a class="btn btn-primary btn-sm m-2" href="{{ pathFor('editMenu', {'id': menu.id}) }}">Edit This Menu</a>
+    <div id="current-menu">
       <div class="current-menu">
 
         <!-- Daily Pies -->
@@ -109,6 +109,11 @@
         {% endif %}
       </div>
   </div>
+
+  </div>
+ 
+
+
 
 {% else %}
   <h3 class="page-title">No menus for this date</h3>
