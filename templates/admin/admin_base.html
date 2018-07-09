@@ -20,8 +20,7 @@
     </div>
     <!-- HEADER -->
     <header>
-        <h1> {% block title %}
-            <h1>MYPIE ADMIN DEFAULT TITLE</h1>{% endblock %}</h1>
+        <h1> {% block title %} MYPIE ADMIN DEFAULT TITLE{% endblock %}</h1>
 
         {% block blurb %}
       <p>Blurb Here</p>
@@ -48,6 +47,7 @@
                     <div class="nav-description">Menu</div>
                 </a>
             </li>
+            {# For For user levels A=Admin, S=SuperAdmin #}
             {% if authorized('A') %}
             <li class="nav-item">
                 <a class="nav-link" href="{{ pathFor('showPages') }}">
@@ -76,9 +76,17 @@
                     <div class="nav-description">Help</div>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ pathFor('logout') }}">
+                    <div class="nav-icon">
+                        <i class="fas fa-sign-out-alt fa-2x"></i>
+                    </div>
+
+                    <div class="nav-description">Exit</div>
+                </a>
+            </li>
         </ul>
     </div>
-
 
     <section id="{% block id %}{% endblock %}">
         <div class="right-container">

@@ -12,9 +12,11 @@ User Management
 
 {% block body %}
 <div class="page-section">
-  <div class="grid-cell span"><h2 class=" page-title">Site Administrators</h2></div>
+  <div class="grid-cell span">
+    <h2 class=" page-title">Site Administrators</h2>
+  </div>
   <div class="grid-cell">
-    <strong>Super Admins</strong><br>
+    <h3>Super Admins</h3>
     {% for u in page.superAdmins %}
     {{ u }}
     {% endfor %}
@@ -36,6 +38,7 @@ User Management
   <div class="grid-cell">
     <form action="{{ pathFor('saveUsers') }}" id="user-emails" method="post" accept-charset="utf-8">
       {% for user in page.other %}
+     
       <div class="user-row">
         <input type="hidden" name="user[{{ loop.index }}][id]" value="{{ user.id }}">
         <div class="form-group">
@@ -60,13 +63,13 @@ User Management
       </div>
 
       {% endfor %}
-      <button class="btn btn-info btn-sm jsAddUser" type="button">Add</button>
+      <button class="btn btn-info btn-sm jsAddUser" type="button">Add New User</button>
       <button class="btn btn-success btn-sm" type="submit" name="button">Save</button>
     </form>
   </div>
   <div class="grid-cell">
-    <p>* Add an email address of a user you would like to give access to the admin space. Admin users can modify menus.</p>
-    <p>The first admin user cannot be deleted to avoid locking yourself out.</p>
+    <p>* Add an email address of a user you would like to give access to the admin space. Admin users can modify menus and update content in the Pages section.</p>
+    <p><strong> The first admin user cannot be deleted to avoid locking yourself out.</strong></p>
   </div>
 </div>
 

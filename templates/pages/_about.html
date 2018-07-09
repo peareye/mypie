@@ -4,17 +4,24 @@
 
 <section id="about-main">
         <div class="container">
-                        {% for p in page.pagelets %}
-                <div class="about-card">
-                       
-                                <h2>{{ p.title }}</h2>
-                                <div class="about-content">
-                                {{ p.content_html}}
-                        </div>
-                        
+      
+            {% for p in page.pagelets if p.name == 'title' %}
+      <h1 class="page-title">{{ p.title }}</h1>
+      {{ p.content_html }}
+
+      {% endfor %}
+   
+            <div class="about-wrapper">
+              {% for p in page.pagelets if p.name != 'title' %}
+                <div class="about-content">
+                 <h2 class="section-title">{{ p.title }}</h2>
+                 {{ p.content_html}}
+                </div>
+               {% endfor %}
+              </div>
         </div>
-        {% endfor %}
-</section>
+      
+      </section>
 
 {% endblock %}
 
