@@ -67,4 +67,23 @@ class SecurityHandler
     {
         return hash('sha256', microtime() . mt_rand());
     }
+
+    /**
+     * Is Authorized
+     *
+     * Validates that the user has the required role in session
+     * @param str Required permission: A: Admin, S: Super Admin
+     * @return bool
+     */
+    public function isAuthorized($requiredRole)
+    {
+        $userRole = $this->session->getData('role');
+        $permissions = ['N' => 1, 'A' => 2, 'S' => 3];
+
+        if (!($requiredRole === 'A' || $requiredRole === 'S')) {
+            return false;
+        }
+
+        return ($permissions[$requiredRole] <= $permissions[$userRole]);
+    }
 }

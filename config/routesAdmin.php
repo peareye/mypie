@@ -17,7 +17,14 @@ $app->group('/admin', function () {
     // Show Users
     $this->get('/users', function ($request, $response, $args) {
         return (new Piton\Controllers\AdminController($this))->showUsers($request, $response, $args);
-    })->setName('showUsers');
+    })->setName('showUsers')->add(function ($request, $response, $next) {
+        $security = $this->securityHandler;
+        if (!$security->isAuthorized('A')) {
+            return $response->withRedirect($this->router->pathFor('adminHome'));
+        }
+        // Next call
+        return $next($request, $response);
+    });
 
     // Save Users
     $this->post('/saveusers', function ($request, $response, $args) {
@@ -32,7 +39,14 @@ $app->group('/admin', function () {
     // Show All Pages
     $this->get('/pages', function ($request, $response, $args) {
         return (new Piton\Controllers\AdminPageController($this))->showPages($request, $response, $args);
-    })->setName('showPages');
+    })->setName('showPages')->add(function ($request, $response, $next) {
+        $security = $this->securityHandler;
+        if (!$security->isAuthorized('A')) {
+            return $response->withRedirect($this->router->pathFor('adminHome'));
+        }
+        // Next call
+        return $next($request, $response);
+    });
 
     // Edit Page, or Create Page
     $this->get('/editpage[/{id:[0-9]{0,}}]', function ($request, $response, $args) {
@@ -102,7 +116,14 @@ $app->group('/admin', function () {
     // Change super user status for admins
     $this->get('/userrole/{role:[A,S]}', function ($request, $response, $args) {
         return (new Piton\Controllers\AdminController($this))->changeUserRole($request, $response, $args);
-    })->setName('changeUserRole');
+    })->setName('changeUserRole')->add(function ($request, $response, $next) {
+        $security = $this->securityHandler;
+        if (!$security->isAuthorized('A')) {
+            return $response->withRedirect($this->router->pathFor('adminHome'));
+        }
+        // Next call
+        return $next($request, $response);
+    });
 })->add(function ($request, $response, $next) {
     // Authentication
     $security = $this->securityHandler;
