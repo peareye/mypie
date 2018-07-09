@@ -48,6 +48,7 @@
                     <div class="nav-description">Menu</div>
                 </a>
             </li>
+            {# For For user levels A=Admin, S=SuperAdmin #}
             {% if authorized('A') %}
             <li class="nav-item">
                 <a class="nav-link" href="{{ pathFor('showPages') }}">
@@ -74,6 +75,15 @@
                     </div>
 
                     <div class="nav-description">Help</div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ pathFor('logout') }}">
+                    <div class="nav-icon">
+                        <i class="fas fa-sign-out-alt fa-2x"></i>
+                    </div>
+
+                    <div class="nav-description">Exit</div>
                 </a>
             </li>
         </ul>

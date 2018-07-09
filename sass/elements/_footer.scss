@@ -149,9 +149,7 @@ input[type="submit"]:active {
 // ********* SECONDARY FOOTER ***********
 // Secondary Footer Styles
 .box-footer2 {
-  background: #231f20;
   background: $mypie-dark;
-  color: #756d6e;
   color: $mypie-dark-grey;
   font-weight: bold;
   @include padding(1rem null);
@@ -159,7 +157,6 @@ input[type="submit"]:active {
   p {
     @include margin(0);
     a {
-      color: #8b9399;
       color: $mypie-md-grey;
     }
   }

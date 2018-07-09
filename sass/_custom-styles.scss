@@ -1,0 +1,761 @@
+// Global Styles
+// HTML Styles
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin-top: 79px;
+    @media (min-width: 768px) {
+        margin-top: 50px;
+    }
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+section .container,
+section .container-fluid {
+    padding-top: 2rem;
+    @include padding(1rem null);
+}
+
+a:focus {
+    outline: none;
+}
+
+// Custom Styles
+.container {
+    background: $mypie-light;
+}
+
+.span {
+    grid-column: 1 / -1;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+.form-group {
+    position: relative;
+}
+
+#main {
+    @media(min-width: 768px) {
+        border-top: solid 4px $mypie-dark;
+    }
+}
+
+// Header & Nav Styles
+// Logo Styles
+.logo-container {
+    width: 100vw;
+    @include margin(25px null null);
+    @include padding(null null 7px null);
+    background: white;
+    border-bottom: solid 7px black;
+}
+
+.lg-logo-wrapper {
+    width: 100%;
+    height: 225px;
+    margin: auto;
+    @include padding(null null 7px);
+    background: url("../img/myPieLogoWide.svg") no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: cover;
+    position: relative;
+}
+
+@media screen and (min-width: 700px) {}
+
+@media screen and (min-width: 1750px) {
+    .lg-logo-wrapper {
+        height: 330px;
+    }
+}
+
+.lg-logo-wraper img {
+    width: 100%;
+}
+
+// Navbar Custom Styles
+nav {
+    @include padding(.1px);
+    box-shadow: $box-shadow;
+}
+
+.navbar {
+    @include padding(0 null);
+}
+
+.bg-dark {
+    background: $mypie-red !important;
+}
+
+//Navbar Brand Sizing
+.navbar-brand img {
+    height: 70px;
+    width: auto;
+    @include padding(3px null null);
+}
+
+/* Hamburger Styles Credit: http://w3bits.com/animated-hamburger-icons/    */
+
+.hamburger {
+    font-size: 1.5rem;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    padding: 0;
+    cursor: pointer;
+    transition: transform .2s ease-in-out;
+    -moz-transition: transform .2s ease-in-out;
+    -webkit-transition: transform .2s ease-in-out;
+    vertical-align: middle;
+    border: 0 none;
+    background: transparent;
+}
+
+button:hover,
+[type='button']:hover,
+[type='reset']:hover,
+[type='submit']:hover {
+    background-color: $mypie-red
+}
+
+/* Button height fix for Firefox */
+
+.hamburger::-moz-focus-inner {
+    padding: 0;
+    border: 0 none;
+}
+
+/* Focus fix for Chrome */
+
+.hamburger:focus {
+    outline: 0;
+}
+
+/* Styling the icon */
+
+.hamburger:before,
+.hamburger:after {
+    content: "";
+}
+
+.hamburger:before,
+.hamburger .icon,
+.hamburger:after {
+    display: block;
+    width: 100%;
+    height: .2em;
+    margin: 0 0 .2em;
+    transition: transform .2s ease-in-out;
+    -moz-transition: transform .2s ease-in-out;
+    -webkit-transition: transform .2s ease-in-out;
+    border-radius: .25em;
+    -moz-border-radius: 25em;
+    -webkit-border-radius: .25em;
+    background: rgba(255, 255, 255, 1);
+}
+
+/* Styles for the active `.hamburger` icon */
+
+.hamburger.active:before,
+.hamburger.active .icon,
+.hamburger.active:after {
+    background: white;
+}
+
+/* VERTICAL HAMBURGER */
+
+.hamburger.hamburger-vertical.active {
+    transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+}
+
+/*  CLOSE/CANCEL/CROSS   */
+
+.hamburger.hamburger-cancel.active .icon {
+    transform: scale(0);
+    -moz-transform: scale(0);
+    -webkit-transform: scale(0);
+}
+
+.hamburger.hamburger-cancel.active:before {
+    transform: translateY(.4em) rotate(135deg);
+    -moz-transform: translateY(.4em) rotate(135deg);
+    -webkit-transform: translateY(.4em) rotate(135deg);
+}
+
+.hamburger.hamburger-cancel.active:after {
+    transform: translateY(-.4em) rotate(-135deg);
+    -moz-transform: translateY(-.4em) rotate(-135deg);
+    -webkit-transform: translateY(-.4em) rotate(-135deg);
+} // Footer Styles
+footer {
+    font-size: 0.7rem;
+    line-height: 1.2rem;
+    color: $mypie-light;
+    box-shadow: $box-shadow;
+}
+
+footer .container {
+    background: transparent;
+}
+
+footer a {
+    color: $mypie-light;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: $mypie-dark;
+} //Top Footer Styles
+.box-footer1 {
+    background-image: url(../img/aboutbg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include padding(1rem null null);
+    margin-bottom: -2px;
+    color: $mypie-light;
+}
+
+#contact-us,
+#message-us,
+#our-story {
+    @include padding(null null 20px);
+}
+
+.get-social {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.social-item {
+    @include padding(10px);
+} // Footer Form Styles
+.form-control {
+    background: $muted-white;
+    border: $muted-accent-border;
+}
+
+.form-group textarea {
+    resize: none;
+    height: 84px;
+} // Submit Button
+input[type="submit"] {
+    background: $mypie-red;
+    color: $mypie-light;
+    border: solid 0.1rem rgba($mypie-dark, .5);
+    border: $muted-accent-border;
+    text-transform: uppercase;
+    border-radius: $border-radius;
+}
+
+input[type="submit"]:hover {
+    background: $mypie-accent-red;
+    color: rgba($mypie-light, .6);
+    color: $muted-white;
+}
+
+input[type="submit"]:active {
+    background: $mypie-dark;
+    outline: none;
+} // Placeholder Text
+#contact-name::-webkit-input-placeholder,
+#contact-email::-webkit-input-placeholder,
+#contact-message::-webkit-input-placeholder {
+    color: $muted-white;
+    -webkit-transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
+    transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
+}
+
+#contact-name:focus::-webkit-input-placeholder,
+#contact-email:focus::-webkit-input-placeholder,
+#contact-message:focus::-webkit-input-placeholder {
+    color: rgba($mypie-light-grey, .8);
+    color: $muted-grey;
+    opacity: .3;
+} // *********************
+#contact-name:-moz-placeholder,
+#contact-email:-moz-placeholder,
+#contact-message:-moz-placeholder {
+    color: rgba($mypie-light, .6);
+    color: $muted-white;
+    -webkit-transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
+    transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
+}
+
+#contact-name:focus:-moz-placeholder,
+#contact-email:focus:-moz-placeholder,
+#contact-message:focus:-moz-placeholder {
+    color: rgba($mypie-light-grey, .8);
+    color: $muted-grey;
+    opacity: .3;
+} // *********************
+#contact-name::-moz-placeholder,
+#contact-email::-moz-placeholder,
+#contact-message::-moz-placeholder {
+    opacity: 1;
+    color: rgba($mypie-light, .6);
+    color: $muted-white;
+    transition: opacity 500ms;
+}
+
+#contact-name:focus::-moz-placeholder,
+#contact-email:focus::-moz-placeholder,
+#contact-message:focus::-moz-placeholder {
+    color: rgba(167, 167, 167, .8);
+    color: $muted-grey;
+    opacity: .3;
+} // *********************
+#contact-name:-ms-input-placeholder,
+#contact-email:-ms-input-placeholder,
+#contact-message:-ms-input-placeholder {
+    color: rgba($mypie-light, .6);
+    background-color: $muted-white;
+    -webkit-transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
+    transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
+}
+
+#contact-name:focus:-ms-input-placeholder,
+#contact-email:focus:-ms-input-placeholder,
+#contact-message:focus:-ms-input-placeholder {
+    color: rgba(167, 167, 167, .8);
+    color: $muted-grey;
+    opacity: .3;
+} // ********* SECONDARY FOOTER ***********
+// Secondary Footer Styles
+.box-footer2 {
+    background: $mypie-dark;
+    color: $mypie-dark-grey;
+    font-weight: bold;
+    @include padding(1rem null);
+    text-align: center;
+    p {
+        @include margin(0);
+        a {
+            color: $mypie-md-grey;
+        }
+    }
+}
+
+/* Home Page */
+
+// Hero Section(s) 
+@supports(display: grid) {
+    .jarallax {
+        position: relative;
+        z-index: 0;
+    }
+    .jarallax>.jarallax-img {
+        position: absolute;
+        object-fit: cover;
+        /* support for plugin https://github.com/bfred-it/object-fit-images */
+        font-family: 'object-fit: cover;';
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+}
+
+.hero-container {
+    padding: 0 !important;
+    @media (min-width: 768px) {
+        padding: unset;
+        position: relative;
+        overflow: hidden;
+    }
+}
+
+.hero-inner {
+    width: 100%;
+    height: 450px;
+    background-color: rgba(0, 0, 0, .2);
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-content {
+    color: $mypie-light;
+    text-shadow: $text-shadow;
+    width: 90%;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    @media(min-width: 576px) {
+        width: 50%;
+    }
+}
+
+.hero-content1 {
+    color: $mypie-light;
+    text-align: center;
+    text-shadow: $text-shadow;
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    @media screen and (min-width: 576px) {
+        width: 50%;
+    }
+}
+
+.hero-content h1,
+.hero-content1 h1 {
+    color: $mypie-light;
+    text-shadow: $text-shadow;
+}
+
+// Grid Fallback Support
+#calendar {
+    .box {
+        width: calc(100% / 7);
+        height: calc(50vh / 6);
+        float: left;
+    }
+    @supports(display: grid) {
+        .calendar-wrapper {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-auto-rows: minmax(70px, auto);
+            grid-gap: 2px;
+        }
+        .box {
+            width: initial;
+            height: initial;
+        }
+    } // MON TUE WED etc....
+    .days {
+        display: flex;
+        margin-top: auto;
+        justify-content: center;
+        border: none;
+        text-align: center;
+    } // Style for all Boxes of calendar
+    .box {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: $border-radius;
+        padding: 3px;
+        font-size: .7rem;
+    }
+    .calendar-day {
+        font-weight: bold;
+    }
+    .prev-month {
+        color: $mypie-light-grey;
+    }
+    .day-content {
+        display: block;
+        text-align: center;
+    }
+    .day-content a {
+        font-size: .7rem;
+    }
+    .today {
+        background: rgba($mypie-red, .8);
+        color: $mypie-light;
+        display: block;
+    }
+    .today a {
+        color: $mypie-light;
+    }
+    /* Slick Arrows */
+    .slick-prev,
+    .slick-next {
+        font-size: 0;
+        position: absolute;
+        border: none;
+        background: none;
+        z-index: 1;
+        line-height: 1;
+        color: rgba($mypie-dark, .3);
+        top: 7px;
+        transition: all 100ms ease-in-out;
+        @media screen and (min-width: 768px) {
+            top: 12px;
+        }
+    }
+    .slick-prev:hover,
+    .slick-next:hover {
+        color: $mypie-red;
+        transform: scale(1.3);
+    }
+    .slick-prev {
+        left: .25rem;
+    }
+    .slick-next {
+        right: .25rem;
+    }
+    .slick-prev::before {
+        content: '\f104';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        font-size: 40px;
+        border: none;
+    }
+    .slick-next::after {
+        content: '\f105';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        font-size: 40px;
+        border: none;
+    }
+    button:focus,
+        {
+        outline: none;
+        color: $mypie-red;
+    }
+}
+
+// Instragram Feed Styles
+#instagram {
+    margin: auto;
+    width: 100%;
+    padding: 0;
+}
+
+/* Section: _newsletter.html */
+
+#newsletter {
+    form>div:first-child {
+        display: none;
+    }
+    .newsletter-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: center;
+        align-items: center;
+    }
+    .newsletter-signup-content {
+        @include padding(null 10px);
+        @include margin(null null -35px);
+    } // Media Query 
+    @media screen and (min-width: 768px) {
+        .newsletter-box {
+            @include margin(-20px null null);
+        }
+        .newsletter-wrapper {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1rem;
+        }
+    }
+}
+
+// Suppliers
+#suppliers-main {
+    .supplier-wrapper {
+        width: 100%;
+        position: relative;
+        clear: both;
+    }
+    @supports(display: grid) {
+        .supplier-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 1.25rem;
+            @media screen and (min-width: 576px) {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                grid-gap: 1rem;
+            }
+        }
+    }
+    .supplier {
+        border: 1px solid rgba($mypie-dark, .125);
+        border-radius: .25rem;
+        box-shadow: $box-shadow;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        @include margin(null null 1rem null);
+    }
+    h4 {
+        // font-family: Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        background: $mypie-red;
+        color: $mypie-light;
+        @include margin(0);
+        @include padding(.5rem 1rem);
+    }
+    ul {
+        list-style: none;
+        @include padding(.25rem .75rem null);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    li:first-child {
+        margin-bottom: auto;
+        @include padding(0 null 2rem);
+    }
+}
+
+// About
+#about-main {
+    h2 {
+        clear: both;
+    }
+    h5 {
+        clear: both;
+        border-radius: $border-radius;
+    }
+    img {
+        @include margin(1rem null);
+        box-shadow: $box-shadow;
+        object-fit: cover;
+        float: left;
+        @media screen and(min-width: 768px) {
+            width: 55vw;
+            @include margin(null 1rem 1rem null);
+        }
+        @media screen and(min-width: 992px) {
+            width: 40vw;
+        }
+    }
+    .about-content {
+        overflow: hidden;
+        clear: both;
+        @include margin(1rem null 2.5rem);
+    }
+}
+
+// Events
+#events-main {
+    .events-card {
+        @include margin(3rem null);
+    }
+    .events-content {
+        display: flex;
+        flex-direction: column;
+    }
+    img {
+        box-shadow: $box-shadow;
+        object-fit: cover;
+        border-radius: $border-radius;
+    }
+    hr {
+        @include margin(null 5rem);
+    }
+}
+
+// Menu
+// Menu Grid
+@supports(display: grid) {
+    .menu-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
+        grid-template-areas: "pie" "sides" "sausage" "puds" "takeaway";
+    }
+    @media screen and (min-width: 768px) {
+        .menu-wrapper {
+            grid-template-areas: "pie pie" "sides sausage" "puds takeaway";
+        }
+    }
+    @media screen and (min-width: 992px) {
+        .menu-wrapper {
+            grid-template-areas: "pie pie sides" "puds sausage takeaway";
+        }
+    }
+} // 
+.pie-box,
+.sides-box,
+.sausage-box,
+.puds-box,
+.takeaway-box {
+    border-radius: $border-radius;
+    border: solid 1px rgba(167, 167, 167, .5);
+    @include margin(null null 1rem);
+}
+
+.pie-box {
+    grid-area: pie;
+}
+
+.sides-box {
+    grid-area: sides;
+}
+
+.sausage-box {
+    grid-area: sausage;
+}
+
+.puds-box {
+    grid-area: puds;
+}
+
+.takeaway-box {
+    grid-area: takeaway;
+} // menu items
+.menu-title {
+    @include border-top-radius(4px);
+    background: $mypie-red;
+    color: $mypie-light;
+    @include padding(0.5rem);
+    font-weight: 700;
+}
+
+.menu-items {
+    display: flex;
+    flex-flow: row nowrap;
+    font-size: .9rem;
+    &:nth-child(odd) {
+        background-color: $mypie-light-grey;
+    }
+}
+
+.menu-item {
+    @include padding(0.4rem);
+    line-height: 1.2;
+}
+
+.menu-item-title {
+    flex: 1.2;
+    text-align: left;
+    font-weight: bold;
+}
+
+.menu-item-description {
+    flex: 4;
+    text-align: left;
+}
+
+.menu-item-price {
+    flex: 0.75;
+    font-style: italic;
+    text-align: right;
+}
+
+.sold-out {
+    text-decoration: line-through;
+    color: $mypie-accent-red;
+}
+
+// Menu Board
+#menu-board {
+    background: purple;
+}
+
+// Calendar

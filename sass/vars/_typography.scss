@@ -13,7 +13,7 @@
 
 // These values are the minimum and maximum viewport sizes to apply the font scaling
 $min_width: 576;
-$max_width: 768;
+$max_width: 992;
 // These values represent the range of fon-tsize to apply
 // These values effect the base font-size, headings and other elements will scale proportionally
 $min_font: 16;
@@ -36,14 +36,13 @@ $max_font: 18;
 html {font-size: 1em;}
 
 body {
-  background-color: white;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   line-height: 1.45;
   color: $mypie-dark;
 }
 
-p {margin-bottom: 1.3em;}
+p {margin-bottom: 1.2em;}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "franchise_freebold", sans-serif;
@@ -56,12 +55,12 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   margin-top: 0;
-  font-size: 3.998em;
+  font-size: 3em;
 }
 
-h2 {font-size: 2.827em;}
+h2 {font-size: 2.5em;}
 
-h3 {font-size: 1.999em;}
+h3 {font-size: 2em;}
 
 h4 {font-size: 1.414em;}
 

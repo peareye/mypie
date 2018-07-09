@@ -5,7 +5,11 @@
 
 <section id="suppliers-main">
   <div class="container">
-      {{ page.pagelets.title.content_html }}
+    {% for p in page.pagelets if p.name == 'title' %}
+      <h1 class="page-title">{{ p.title }}</h1>
+      {{ p.content_html }}
+
+      {% endfor %}
       <div class="supplier-wrapper">
         {% for p in page.pagelets if p.name != 'title' %}
           <div class="supplier">
