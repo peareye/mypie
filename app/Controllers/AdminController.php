@@ -58,7 +58,7 @@ class AdminController extends BaseController
     /**
      * Save Users
      *
-     * Save all email addresses, ignoring duplicates
+     * Process user record changes, including updates and deletes
      */
     public function saveUsers($request, $response, $args)
     {
@@ -113,26 +113,6 @@ class AdminController extends BaseController
     }
 
     /**
-     * Remove User
-     *
-     * Remove user email to deny access
-     */
-    public function removeUser($request, $response, $args)
-    {
-        // Get dependencies
-        $mapper = $this->container->dataMapper;
-        $UserMapper = $mapper('UserMapper');
-
-        // Delete user
-        $User = $UserMapper->make();
-        $User->id = $args['id'];
-        $UserMapper->delete($User);
-
-        // Redirect back to list of users
-        return $response->withRedirect($this->container->router->pathFor('showUsers'));
-    }
-
-    /**
      * Change User Role
      *
      * Elevate or demote user role in session
@@ -142,14 +122,7 @@ class AdminController extends BaseController
         // Dependencies
         $session = $this->container->get('sessionHandler');
 
-        // Get current role, should be at least an Admin
-        $currentRole = $session->getData('role');
-
-        if (!($currentRole === 'A' || $currentRole === 'S')) {
-            return $response->withRedirect($this->container->router->pathFor('showUsers'));
-        }
-
-        // Request should also be only A or S
+        // Request should be only A or S
         if (isset($args['role']) && !($args['role'] === 'A' || $args['role'] === 'S')) {
             return $response->withRedirect($this->container->router->pathFor('showUsers'));
         }

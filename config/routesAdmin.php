@@ -14,115 +14,133 @@ $app->group('/admin', function () {
         return (new Piton\Controllers\AdminController($this))->home($request, $response, $args);
     })->setName('adminHome');
 
-    // Show Users
-    $this->get('/users', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminController($this))->showUsers($request, $response, $args);
-    })->setName('showUsers')->add(function ($request, $response, $next) {
+    // User routes
+    $this->group('/user', function () {
+        // Show Users
+        $this->get('[/]', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminController($this))->showUsers($request, $response, $args);
+        })->setName('showUsers');
+
+        // Save Users
+        $this->post('/save', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminController($this))->saveUsers($request, $response, $args);
+        })->setName('saveUsers');
+
+        // Change super user status for admins
+        $this->get('/changerole/{role:[A,S]}', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminController($this))->changeUserRole($request, $response, $args);
+        })->setName('changeUserRole');
+
+        // Validate user does not exist
+        $this->get('/validateemail', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminController($this))->validateUserEmail($request, $response, $args);
+        })->setName('validateUserEmail');
+    })->add(function ($request, $response, $next) {
         $security = $this->securityHandler;
+
         if (!$security->isAuthorized('A')) {
             return $response->withRedirect($this->router->pathFor('adminHome'));
         }
+
         // Next call
         return $next($request, $response);
     });
 
-    // Save Users
-    $this->post('/saveusers', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminController($this))->saveUsers($request, $response, $args);
-    })->setName('saveUsers');
+    // Page routes
+    $this->group('/page', function () {
+        // Show All Pages
+        $this->get('[/]', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminPageController($this))->showPages($request, $response, $args);
+        })->setName('showPages');
 
-    // Remove User
-    $this->get('/removeuser/{id:[0-9]{1,}}', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminController($this))->removeUser($request, $response, $args);
-    })->setName('removeUser');
+        // Edit Page, or Create Page
+        $this->get('/edit[/{id:[0-9]{0,}}]', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminPageController($this))->editPage($request, $response, $args);
+        })->setName('editPage');
 
-    // Show All Pages
-    $this->get('/pages', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminPageController($this))->showPages($request, $response, $args);
-    })->setName('showPages')->add(function ($request, $response, $next) {
+        // Save Page
+        $this->post('/save', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminPageController($this))->savePage($request, $response, $args);
+        })->setName('savePage');
+
+        // Edit Pagelet, or Create Pagelet
+        $this->get('/editpagelet[/{id:[0-9]{0,}}]', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminPageController($this))->editPagelet($request, $response, $args);
+        })->setName('editPagelet');
+
+        // Save Pagelet
+        $this->post('/savepagelet', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminPageController($this))->savePagelet($request, $response, $args);
+        })->setName('savePagelet');
+
+        // Delete page routes
+        $this->group('/delete', function () {
+            // Delete Page
+            $this->get('/{id:[0-9]{0,}}', function ($request, $response, $args) {
+                return (new Piton\Controllers\AdminPageController($this))->deletePage($request, $response, $args);
+            })->setName('deletePage');
+
+            // Delete Pagelet
+            $this->get('/pagelet/{id:[0-9]{0,}}', function ($request, $response, $args) {
+                return (new Piton\Controllers\AdminPageController($this))->deletePagelet($request, $response, $args);
+            })->setName('deletePagelet');
+        })->add(function ($request, $response, $next) {
+            $security = $this->securityHandler;
+
+            if (!$security->isAuthorized('S')) {
+                return $response->withRedirect($this->router->pathFor('adminHome'));
+            }
+
+            // Next call
+            return $next($request, $response);
+        });
+    })->add(function ($request, $response, $next) {
         $security = $this->securityHandler;
+
         if (!$security->isAuthorized('A')) {
             return $response->withRedirect($this->router->pathFor('adminHome'));
         }
+
         // Next call
         return $next($request, $response);
     });
 
-    // Edit Page, or Create Page
-    $this->get('/editpage[/{id:[0-9]{0,}}]', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminPageController($this))->editPage($request, $response, $args);
-    })->setName('editPage');
+    // Menu routes
+    $this->group('/menu', function () {
+        // Show list of Menus
+        $this->get('[/]', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminMenuController($this))->showMenus($request, $response, $args);
+        })->setName('showMenus');
 
-    // Save Page
-    $this->post('/savepage', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminPageController($this))->savePage($request, $response, $args);
-    })->setName('savePage');
+        // Edit Menu
+        $this->get('/edit[/{id:[0-9]{0,}}]', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminMenuController($this))->editMenu($request, $response, $args);
+        })->setName('editMenu');
 
-    // Delete Page
-    $this->get('/deletepage/{id:[0-9]{0,}}', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminPageController($this))->deletePage($request, $response, $args);
-    })->setName('deletePage');
+        // Copy Edit Menu
+        $this->get('/copy[/{id:[0-9]{0,}}]', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminMenuController($this))->copyEditMenu($request, $response, $args);
+        })->setName('copyEditMenu');
 
-    // Edit Pagelet, or Create Pagelet
-    $this->get('/editpagelet[/{id:[0-9]{0,}}]', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminPageController($this))->editPagelet($request, $response, $args);
-    })->setName('editPagelet');
+        // Save Menu
+        $this->post('/save', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminMenuController($this))->saveMenu($request, $response, $args);
+        })->setName('saveMenu');
 
-    // Save Pagelet
-    $this->post('/savepagelet', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminPageController($this))->savePagelet($request, $response, $args);
-    })->setName('savePagelet');
+        // Delete Menu
+        $this->get('/delete/{id:[0-9]{0,}}', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminMenuController($this))->deleteMenu($request, $response, $args);
+        })->setName('deleteMenu');
 
-    // Delete Pagelet
-    $this->get('/deletepagelet/{id:[0-9]{0,}}', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminPageController($this))->deletePagelet($request, $response, $args);
-    })->setName('deletePagelet');
+        // Set Sold Out Menu Item Flag
+        $this->get('/soldoutitem/{id:[0-9]{0,}}', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminMenuController($this))->soldOutMenuItemStatus($request, $response, $args);
+        })->setName('soldOutMenuItem');
 
-    // Show list of Menus
-    $this->get('/menus', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminMenuController($this))->showMenus($request, $response, $args);
-    })->setName('showMenus');
-
-    // Edit Menu
-    $this->get('/editmenu[/{id:[0-9]{0,}}]', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminMenuController($this))->editMenu($request, $response, $args);
-    })->setName('editMenu');
-
-    // Copy Edit Menu
-    $this->get('/copyeditmenu[/{id:[0-9]{0,}}]', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminMenuController($this))->copyEditMenu($request, $response, $args);
-    })->setName('copyEditMenu');
-
-    // Save Menu
-    $this->post('/savemenu', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminMenuController($this))->saveMenu($request, $response, $args);
-    })->setName('saveMenu');
-
-    // Delete Menu
-    $this->get('/deletemenu/{id:[0-9]{0,}}', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminMenuController($this))->deleteMenu($request, $response, $args);
-    })->setName('deleteMenu');
-
-    // Set Sold Out Menu Item Flag
-    $this->get('/soldoutmenuitem/{id:[0-9]{0,}}', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminMenuController($this))->soldOutMenuItemStatus($request, $response, $args);
-    })->setName('soldOutMenuItem');
-
-    // Save all menu item defaults
-    $this->post('/savemenuitemdefaults', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminMenuController($this))->saveMenuItemDefaults($request, $response, $args);
-    })->setName('saveMenuItemDefaults');
-
-    // Change super user status for admins
-    $this->get('/userrole/{role:[A,S]}', function ($request, $response, $args) {
-        return (new Piton\Controllers\AdminController($this))->changeUserRole($request, $response, $args);
-    })->setName('changeUserRole')->add(function ($request, $response, $next) {
-        $security = $this->securityHandler;
-        if (!$security->isAuthorized('A')) {
-            return $response->withRedirect($this->router->pathFor('adminHome'));
-        }
-        // Next call
-        return $next($request, $response);
+        // Save all menu item defaults
+        $this->post('/saveitemdefaults', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminMenuController($this))->saveMenuItemDefaults($request, $response, $args);
+        })->setName('saveMenuItemDefaults');
     });
 })->add(function ($request, $response, $next) {
     // Authentication
