@@ -1,8 +1,6 @@
-
 <div id="current-menu">
-{% for menu in page.todaysMenus %}
-  {# This next line summarizes and keeps a handy flag of which menu sections are available #}
-  {% set available = availableMenuSections(menu.items) %}
+  {% for menu in page.todaysMenus %} {# This next line summarizes and keeps a handy flag of which menu sections are available
+  #} {% set available = availableMenuSections(menu.items) %}
 
   <!-- Start Menu Header -->
   <div class="daily-menu-each">
@@ -31,8 +29,8 @@
         </div>
         {% endif %}
 
-       <!-- Sides -->
-       {% if available.sides %}
+        <!-- Sides -->
+        {% if available.sides %}
         <div class="grid-cell-inner">
           <h3 class="page-title">Sides</h3>
           {% for m in menu.items if m.section == 'sides' %}
@@ -51,10 +49,10 @@
         {% endif %}
 
 
-     <!-- Sausage Rolls -->
-     {% if available.rolls %}
+        <!-- Sausage Rolls -->
+        {% if available.rolls %}
         <div class="grid-cell-inner">
-        <h3 class="page-title"> Sausage Rolls</h3>
+          <h3 class="page-title"> Sausage Rolls</h3>
           {% for m in menu.items if m.section == 'rolls' %}
           <div class="menu-item-wrapper">
             <div class="menu-item-each">
@@ -69,8 +67,8 @@
           {% endfor %}
         </div>
         {% endif %}
-     <!-- Puds -->
-     {% if available.puds %}
+        <!-- Puds -->
+        {% if available.puds %}
         <div class="grid-cell-inner">
 
           <h3 class="page-title">Puds</h3>
@@ -89,8 +87,8 @@
         </div>
         {% endif %}
 
-    <!-- Takeaway Pies -->
-    {% if available.takeawaypies %}
+        <!-- Takeaway Pies -->
+        {% if available.takeawaypies %}
         <div class="grid-cell-inner">
           <h3 class="page-title">Takeaway</h3>
           {% for m in menu.items if m.section == 'takeawaypies' %}
@@ -109,14 +107,14 @@
         </div>
         {% endif %}
       </div>
-  </div>
+    </div>
 
   </div>
- 
 
 
 
-{% else %}
+
+  {% else %}
   <h3 class="page-title">No menus for this date</h3>
-{% endfor %}
+  {% endfor %}
 </div>
