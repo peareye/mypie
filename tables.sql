@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `updated_by` int(11) NOT NULL DEFAULT '1',
   `updated_date` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `email_uq` (`email`)
+  KEY `email_idx` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `page` (
