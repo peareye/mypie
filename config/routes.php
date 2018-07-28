@@ -22,6 +22,11 @@ $app->get('/menu/{date:\d\d-[a-zA-Z]{3}-\d\d}', function ($request, $response, $
     return (new Piton\Controllers\IndexController($this))->showMenu($request, $response, $args);
 })->setName('showMenu');
 
+// Show Menu Board
+$app->get('/menuboard/{id:[0-9]+}', function ($request, $response, $args) {
+    return (new Piton\Controllers\IndexController($this))->showMenuBoard($request, $response, $args);
+})->setName('showMenuBoard');
+
 // Home page '/home' in case someone tries to load the home tempate (keyword)
 $app->get('/home', function ($request, $response, $args) {
     return (new Piton\Controllers\IndexController($this))->homePage($request, $response, $args);

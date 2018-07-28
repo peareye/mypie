@@ -113,6 +113,30 @@ class IndexController extends BaseController
     }
 
     /**
+     * Show Menu Board
+     *
+     * @param int menu ID
+     *
+     */
+    public function showMenuBoard($request, $response, $args)
+    {
+        // Get dependencies
+        $mapper = $this->container->dataMapper;
+        $MenuMapper = $mapper('MenuMapper');
+        $MenuItemMapper = $mapper('MenuItemMapper');
+
+        // Fetch menu header
+        $menu = $MenuMapper->getMenuByDate($args['id']);
+
+        // Get menu item details
+        if (isset($menu->id)) {
+            $menu->items = $MenuItemMapper->findItemsByMenuId($menu->id);
+        }
+
+        $this->container->view->render($response, '_menu-feed.html', ['menu' => $menu]);
+    }
+
+    /**
      * Merge Menu Dates into Calendar
      *
      * Builds Calendar and Merges in Menu Dates
