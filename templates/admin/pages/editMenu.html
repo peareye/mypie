@@ -12,6 +12,7 @@ MYPIE Dashboard - Edit Menu
   <div class="grid-cell-inner">
       <h2 class="page-title">{% if menu.id %}Edit{% else %}Add{% endif %} Menu</h2>
       <form class="edit-menu validate-form" action="{{ pathFor('saveMenu') }}" method="post" accept-charset="utf-8" novalidate>
+
         <input type="hidden" name="id" value="{{ menu.id }}">
 
         <script type="text/javascript">
@@ -30,15 +31,29 @@ MYPIE Dashboard - Edit Menu
 
         <!-- Menu Header Date & Location -->
         <p class="form-text text-muted font-weight-light">Select the date and location when this menu will be available.</p>
+
         <div class="form-row">
           <div class="col-sm-3">
-            <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text" id="btnGroupAddon2">
+                      <i class="fas fa-calendar-alt"></i>
+                    </div>
+                  </div>
               <input class="form-control datepicker" type="text" name="date" placeholder="Menu date" value="{{ menu.date|date('d-m-Y') }}" required autocomplete="off">
             </div>
             <div class="invalid-tooltip">Please select a date.</div>
           </div>
           <div class="col-sm-9">
-            <input class="form-control" type="text" name="location" maxlength="60" placeholder="Location" value="{{ menu.location }}">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text" id="btnGroupAddon2">
+                      <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                  </div>
+                <input class="form-control" type="text" name="location" maxlength="60" placeholder="Location" value="{{ menu.location }}">
+            </div>
+           
           </div>
         </div>
         <hr>

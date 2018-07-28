@@ -7041,8 +7041,7 @@ a:focus {
   width: 100vw;
   margin-top: 25px;
   padding-bottom: 7px;
-  background: white;
-  border-bottom: solid 7px black; }
+  background: white; }
 
 .lg-logo-wrapper {
   width: 100%;

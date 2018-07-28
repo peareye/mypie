@@ -2,24 +2,7 @@
 
 <section id="events-main">
     <div class="container">
-            {% for p in page.pagelets if p.name == 'title' %}
-<div class="row">
-<div class="col-xs-12">
-        <h1 class="page-title">{{ p.title }}</h1>
-</div>
-</div>
-<div class="row">
-    <div class="col-md-6">       
-            {{ p.content_html }}</div>
-    <div class="col-md-6">
-            <div id="contact-us">
-                    {% set emailSubjectLine = 'MyPie Events Enquiry' %} {% include 'includes/_contactForm.html' %}
-                  </div>
-    </div>
-
-</div>
-
-{% endfor %}
+          
 
         <div class="row events-card">
             <div class="col-md-6 events-content">{{ page.pagelets.catering.content_html }}</div>
@@ -46,8 +29,33 @@
             </div>
         </div>
 
+        {% for p in page.pagelets if p.name == 'title' %}
+        <div class="row">
+        <div class="col-xs-12">
+               
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">   
+                    {% set emailSubjectLine = 'MyPie Events Enquiry' %} {% include 'includes/_contactForm.html' %}
+                             
+                 
+                
+                </div>
+            <div class="col-md-6">
+                    <div id="contact-us">
+                            <h1 class="page-title">{{ p.title }}</h1>
 
+                            {{ p.content_html }}
+                           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum exercitationem est necessitatibus, magni accusamus suscipit quia quod maiores. Doloremque magnam, eum perspiciatis tempora ipsum aspernatur, provident nulla perferendis eaque sequi sunt fugit quam ad.</p>
+                            </div>
+            </div>
+        
+        </div>
     </div>
+
+    
+    {% endfor %}
 </section>
 
 {% endblock %}
