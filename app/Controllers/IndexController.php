@@ -133,7 +133,7 @@ class IndexController extends BaseController
             $menu->items = $MenuItemMapper->findItemsByMenuId($menu->id);
         }
 
-        $this->container->view->render($response, '_menu-feed.html', ['menu' => $menu]);
+        $this->container->view->render($response, 'pages/_menu-feed.html', ['menu' => $menu]);
     }
 
     /**
