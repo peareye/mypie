@@ -126,7 +126,7 @@ class IndexController extends BaseController
         $MenuItemMapper = $mapper('MenuItemMapper');
 
         // Fetch menu header
-        $menu = $MenuMapper->getMenuByDate($args['id']);
+        $menu = $MenuMapper->findById($args['id']);
 
         // Get menu item details
         if (isset($menu->id)) {

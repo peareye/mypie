@@ -6,7 +6,7 @@
   <div class="daily-menu-each">
     <h2 class="page-title">{{ menu.location }} {{ menu.date|date('j F, Y') }}</h2>
     <a class="btn btn-primary btn-sm m-2" href="{{ pathFor('editMenu', {'id': menu.id}) }}">Edit This Menu</a>
-    <a class="btn btn-success btn-sm m-2" href="{{ pathFor('editMenu', {'id': menu.id}) }}">Menu Board NEEDS A PAGE TO LINK TO</a>
+    <a class="btn btn-success btn-sm m-2" href="{{ pathFor('showMenuBoard', {'id': menu.id}) }}" target="_blank">Open Menu Board</a>
     <div id="current-menu">
       <div class="current-menu">
 
