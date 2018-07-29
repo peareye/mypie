@@ -1,0 +1,115 @@
+// Vendor Tools
+@import "vendor/bourbon/bourbon";
+@import "vendor/base/base";
+@import "vars/vars";
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background: $mypie-light-grey;
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+h4 {
+  font-size: 2.5rem;
+}
+#menu-board-style {
+  position: absolute;
+  margin: 0.25rem;
+  padding: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+}
+.menu-wrapper {
+  min-height: 100vh;
+  display: grid;
+  grid-gap: 0.5rem;
+  justify-content: center;
+  grid-template-areas:
+    "mb-pie mb-pie mb-pie"
+    "mb-sides mb-sausage  mb-takeaway"
+    "mb-sides mb-puds  mb-takeaway";
+}
+.box {
+  font-size: 2rem;
+  background-color: $mypie-light;
+}
+.mb-pie-box {
+  grid-area: mb-pie;
+}
+.mb-sausage-box {
+  grid-area: mb-sausage;
+}
+.mb-sides-box {
+  grid-area: mb-sides;
+}
+.mb-puds-box {
+  grid-area: mb-puds;
+}
+.mb-takeaway-box {
+  grid-area: mb-takeaway;
+}
+.mb-pie-box,
+.mb-sides-box,
+.mb-sausage-box,
+.mb-puds-box,
+.mb-takeaway-box {
+  @include border-top-radius($border-radius);
+  border: solid 2px #000;
+  @include margin(null null 1rem);
+}
+.menu-title {
+  background: $mypie-red;
+  color: $mypie-light;
+  @include padding(null 0.5rem);
+  font-weight: 700;
+  text-align: center;
+  text-shadow: $text-shadow;
+}
+.menu-items {
+  display: flex;
+  flex-flow: row nowrap;
+  font-weight: bolder;
+  color: #000;
+  border-bottom: dashed 1px rgba($mypie-accent-red, 0.3);
+}
+
+.menu-item {
+  @include padding(0.2rem 0.4rem);
+  line-height: 1.2;
+}
+
+.menu-item-title {
+  flex: 1.2;
+  text-align: left;
+  font-weight: bold;
+}
+
+.menu-item-description {
+  flex: 4;
+  text-align: left;
+}
+
+.menu-item-price {
+  flex: 0.75;
+  font-style: italic;
+  text-align: right;
+}
+
+.sold-out {
+  text-decoration: line-through;
+  color: $mypie-accent-red;
+}

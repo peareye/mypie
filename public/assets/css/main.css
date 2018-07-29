@@ -7028,7 +7028,7 @@ a:focus {
 
 .section-title {
   text-align: center;
-  margin-bottom: .5rem; }
+  margin-bottom: 0.5rem; }
 
 .form-group {
   position: relative; }
@@ -7084,17 +7084,17 @@ nav {
   height: 1em;
   padding: 0;
   cursor: pointer;
-  transition: transform .2s ease-in-out;
-  -moz-transition: transform .2s ease-in-out;
-  -webkit-transition: transform .2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  -moz-transition: transform 0.2s ease-in-out;
+  -webkit-transition: transform 0.2s ease-in-out;
   vertical-align: middle;
   border: 0 none;
   background: transparent; }
 
 button:hover,
-[type='button']:hover,
-[type='reset']:hover,
-[type='submit']:hover {
+[type="button"]:hover,
+[type="reset"]:hover,
+[type="submit"]:hover {
   background-color: #ed1c24; }
 
 /* Button height fix for Firefox */
@@ -7116,14 +7116,14 @@ button:hover,
 .hamburger:after {
   display: block;
   width: 100%;
-  height: .2em;
-  margin: 0 0 .2em;
-  transition: transform .2s ease-in-out;
-  -moz-transition: transform .2s ease-in-out;
-  -webkit-transition: transform .2s ease-in-out;
-  border-radius: .25em;
+  height: 0.2em;
+  margin: 0 0 0.2em;
+  transition: transform 0.2s ease-in-out;
+  -moz-transition: transform 0.2s ease-in-out;
+  -webkit-transition: transform 0.2s ease-in-out;
+  border-radius: 0.25em;
   -moz-border-radius: 25em;
-  -webkit-border-radius: .25em;
+  -webkit-border-radius: 0.25em;
   background: white; }
 
 /* Styles for the active `.hamburger` icon */
@@ -7228,7 +7228,7 @@ input[type="submit"]:active {
 #contact-message:focus::-webkit-input-placeholder {
   color: rgba(239, 239, 239, 0.8);
   color: rgba(167, 167, 167, 0.8);
-  opacity: .3; }
+  opacity: 0.3; }
 
 #contact-name:-moz-placeholder,
 #contact-email:-moz-placeholder,
@@ -7243,7 +7243,7 @@ input[type="submit"]:active {
 #contact-message:focus:-moz-placeholder {
   color: rgba(239, 239, 239, 0.8);
   color: rgba(167, 167, 167, 0.8);
-  opacity: .3; }
+  opacity: 0.3; }
 
 #contact-name::-moz-placeholder,
 #contact-email::-moz-placeholder,
@@ -7258,7 +7258,7 @@ input[type="submit"]:active {
 #contact-message:focus::-moz-placeholder {
   color: rgba(167, 167, 167, 0.8);
   color: rgba(167, 167, 167, 0.8);
-  opacity: .3; }
+  opacity: 0.3; }
 
 #contact-name:-ms-input-placeholder,
 #contact-email:-ms-input-placeholder,
@@ -7273,7 +7273,7 @@ input[type="submit"]:active {
 #contact-message:focus:-ms-input-placeholder {
   color: rgba(167, 167, 167, 0.8);
   color: rgba(167, 167, 167, 0.8);
-  opacity: .3; }
+  opacity: 0.3; }
 
 .box-footer2 {
   background: #231f20;
@@ -7297,7 +7297,7 @@ input[type="submit"]:active {
     position: absolute;
     object-fit: cover;
     /* support for plugin https://github.com/bfred-it/object-fit-images */
-    font-family: 'object-fit: cover;';
+    font-family: "object-fit: cover;";
     bottom: 0;
     left: 0;
     width: 100%;
@@ -7376,7 +7376,7 @@ input[type="submit"]:active {
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     padding: 3px;
-    font-size: .7rem; }
+    font-size: 0.7rem; }
   #calendar .calendar-day {
     font-weight: bold; }
   #calendar .prev-month {
@@ -7385,7 +7385,7 @@ input[type="submit"]:active {
     display: block;
     text-align: center; }
   #calendar .day-content a {
-    font-size: .7rem; }
+    font-size: 0.7rem; }
   #calendar .today {
     background: rgba(237, 28, 36, 0.8);
     color: #fff;
@@ -7412,18 +7412,18 @@ input[type="submit"]:active {
     color: #ed1c24;
     transform: scale(1.3); }
   #calendar .slick-prev {
-    left: .25rem; }
+    left: 0.25rem; }
   #calendar .slick-next {
-    right: .25rem; }
+    right: 0.25rem; }
   #calendar .slick-prev::before {
-    content: '\f104';
-    font-family: 'Font Awesome 5 Free';
+    content: "\f104";
+    font-family: "Font Awesome 5 Free";
     font-weight: 900;
     font-size: 40px;
     border: none; }
   #calendar .slick-next::after {
-    content: '\f105';
-    font-family: 'Font Awesome 5 Free';
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
     font-weight: 900;
     font-size: 40px;
     border: none; }
@@ -7470,7 +7470,7 @@ input[type="submit"]:active {
         grid-gap: 1rem; } } }
 #suppliers-main .supplier {
   border: 1px solid rgba(35, 31, 32, 0.125);
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
   height: 100%;
   display: flex;
@@ -7537,7 +7537,6 @@ input[type="submit"]:active {
 @supports (display: grid) {
   .menu-wrapper {
     display: grid;
-    grid-template-columns: 1fr;
     grid-gap: 1rem;
     grid-template-areas: "pie" "sides" "sausage" "puds" "takeaway"; }
 
@@ -7582,7 +7581,7 @@ input[type="submit"]:active {
 .menu-items {
   display: flex;
   flex-flow: row nowrap;
-  font-size: .9rem; }
+  font-size: 0.9rem; }
   .menu-items:nth-child(odd) {
     background-color: #efefef; }
 
@@ -7607,8 +7606,5 @@ input[type="submit"]:active {
 .sold-out {
   text-decoration: line-through;
   color: #6e1e21; }
-
-#menu-board {
-  background: purple; }
 
 /*# sourceMappingURL=main.css.map */

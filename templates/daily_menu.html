@@ -16,14 +16,16 @@
  <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
   crossorigin="anonymous"></script>
  <!-- Add the slick-theme.css if you want default styling -->
- <link rel="stylesheet" href="{{ basePath() }}/assets/slick/slick.css">
- <link rel="stylesheet" href="{{ basePath() }}/assets/css/main.css">
+ <!-- <link rel="stylesheet" href="{{ basePath() }}/assets/slick/slick.css"> -->
+ <link rel="stylesheet" href="{{ basePath() }}/assets/css/menu.css">
 </head>
 
 <body>
 
+ <div id="menu-board-style">
+  {% block body %} {% endblock %}
+ </div>
 
- {% block body %} {% endblock %}
 
  <!-- Bootstrap Script Files -->
  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
