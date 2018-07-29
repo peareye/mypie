@@ -100,3 +100,37 @@ $( ".datepicker" ).datepicker({
       });
     }, false);
   })();
+
+// Menu board
+var menuBoard;
+$('.jsOpenMenuBoard').on('click', function(e) {
+    e.preventDefault();
+    var url = $(this).prop('href');
+    menuBoard = window.open(url, 'menuBoard')
+});
+
+var sellItemOutStates = {
+    'sellIn': {'status': 'N', 'label': 'Sell In'},
+    'sellOut': {'status': 'Y', 'label': 'Sell Out'}
+}
+
+$('.jsSellItemInOut').on('click', function(e) {
+    e.preventDefault();
+    var $link = $(this);
+    var url = $link.prop('href');
+    $.get({
+        url: url,
+        success: function(r) {
+            if (r.menuItem.sold_out === 'N') {
+                newUrl = url.replace(/status=[N,Y]/, 'status='+sellItemOutStates.sellOut.status)
+                $link.prop('href', newUrl);
+                $link.text(sellItemOutStates.sellOut.label)
+            } else {
+                newUrl = url.replace(/status=[N,Y]/, 'status='+sellItemOutStates.sellIn.status)
+                $link.prop('href', newUrl);
+                $link.text(sellItemOutStates.sellIn.label)
+            }
+            menuBoard.location.reload();
+        }
+    });
+});
