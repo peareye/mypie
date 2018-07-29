@@ -10,19 +10,19 @@ class MenuMapper extends DataMapperAbstract
     protected $modifiableColumns = ['date', 'location'];
 
     /**
-     * Get Active Menu By Date
+     * Get Current Menus By Date
      *
-     * Returns the current menu (menu.date >= now)
+     * Returns current menus (menu.date >= today)
      * @return Obj
      */
-    public function getCurrentActiveMenu()
+    public function getCurrentActiveMenus()
     {
         // Make select
         $this->makeSelect();
-        $this->sql .= ' where date >= ? order by date limit 1';
+        $this->sql .= ' where date >= ? order by date, location';
         $this->bindValues[] = date('Y-m-d');
 
-        return $this->findRow();
+        return $this->find();
     }
 
     /**

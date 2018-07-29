@@ -195,18 +195,18 @@ class TwigExtension extends \Twig_Extension
         $MenuMapper = $mapper('MenuMapper');
         $MenuItemMapper = $mapper('MenuItemMapper');
 
-        // Assume menus expire end of today. Get the next active menu as of 'now'
-        $todaysMenu = $MenuMapper->getCurrentActiveMenu();
+        $menuList = $MenuMapper->getCurrentActiveMenus();
 
-        // Did we find a menu to display?
-        if (isset($todaysMenu->id)) {
-            $todaysMenu->items = $MenuItemMapper->findItemsByMenuId($todaysMenu->id);
-        } else {
-            $todaysMenu = new $MenuItemMapper->make();
-            $todaysMenu->menuNotFound = true;
+        // Did we find menus to display?
+        if (is_array($menuList)) {
+            foreach ($menuList as $key => $row) {
+                if (isset($row->id)) {
+                    $menuList[$key]->items = $MenuItemMapper->findItemsByMenuId($row->id);
+                }
+            }
         }
 
-        return $this->environment->render('includes/_menu.html', ['menu' => $todaysMenu]);
+        return $this->environment->render('includes/_menu.html', ['menuList' => $menuList]);
     }
 
     /**
