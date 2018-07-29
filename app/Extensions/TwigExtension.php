@@ -202,6 +202,7 @@ class TwigExtension extends \Twig_Extension
         if (isset($todaysMenu->id)) {
             $todaysMenu->items = $MenuItemMapper->findItemsByMenuId($todaysMenu->id);
         } else {
+            $todaysMenu = new $MenuItemMapper->make();
             $todaysMenu->menuNotFound = true;
         }
 
