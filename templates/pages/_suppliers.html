@@ -8,7 +8,7 @@
     <div class="supplier-wrapper">
       {% for p in page.pagelets if p.name != 'title' %}
       <div class="supplier">
-        <h4>{{ p.title }}</h4>
+        <h2>{{ p.title }}</h2>
         {{ p.content_html}}
       </div>
       {% endfor %}
