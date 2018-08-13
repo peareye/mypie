@@ -1,75 +1,75 @@
- <div class="menu-wrapper">
+<div class="menu-wrapper">
 
-{# This next line summarizes and keeps a handy flag of which menu sections are available #}
-{% set available = availableMenuSections(menu.items) %}
+ {# This next line summarizes and keeps a handy flag of which menu sections are available #} {% set available = availableMenuSections(menu.items)
+ %}
 
-  <!-- Daily Pies -->
-  {% if available.dailypies %}
-  <div class="mb-pie-box box">
-   <h4 class="menu-title">Pie w/mash or salad + gravy</h4>
-   {% for m in menu.items if m.section == 'dailypies' %}
-   <span class="menu-items {% if m.sold_out == 'Y' %} sold-out {% endif %}">
+ <!-- Daily Pies -->
+ {% if available.dailypies %}
+ <div class="mb-pie-box box">
+  <h4 class="menu-title">Pie w/mash or salad + gravy</h4>
+  {% for m in menu.items if m.section == 'dailypies' %}
+  <span class="menu-items {% if m.sold_out == 'Y' %} sold-out {% endif %}">
 
-    <!-- <div class="menu-item menu-item-title">{{ m.type }}</div> -->
-    <div class="menu-item menu-item-description">{{ m.description }}</div>
-    <div class="menu-item menu-item-price"> {{ m.price }}</div>
-   </span>
-   {% endfor %}
-  </div>
-  {% endif %}
-
-  <!-- Sides -->
-  {% if available.sides %}
-  <div class="mb-sides-box box">
-   <h4 class="menu-title">Awesome Sides</h4>
-   {% for m in menu.items if m.section == 'sides' %}
-   <span class="menu-items {% if m.sold_out == 'Y' %} sold-out {% endif %}">
-    <div class="menu-item menu-item-description">{{ m.description }}</div>
-    <div class="menu-item menu-item-price"> {{ m.price }}</div>
-   </span>
-   {% endfor %}
-  </div>
-  {% endif %}
-
-  <!-- Sausage Rolls -->
-  {% if available.rolls %}
-  <div class="mb-sausage-box box">
-   <h4 class="menu-title">Sausage Rolls &amp; More</h4>
-   {% for m in menu.items if m.section == 'rolls' %}
-   <span class="menu-items {% if m.sold_out == 'Y' %} sold-out {% endif %}">
-    <!-- <div class="menu-item menu-item-title">{{ m.type }}</div> -->
-    <div class="menu-item menu-item-description">{{ m.description }}</div>
-    <div class="menu-item menu-item-price"> {{ m.price }}</div>
-   </span>
-   {% endfor %}
-  </div>
-  {% endif %}
-
-  <!-- Puds -->
-  {% if available.puds %}
-  <div class="mb-puds-box box">
-   <h4 class="menu-title">Puds</h4>
-   {% for m in menu.items if m.section == 'puds' %}
-   <span class="menu-items {% if m.sold_out == 'Y' %} sold-out {% endif %}">
-    <div class="menu-item menu-item-description">{{ m.description }}</div>
-    <div class="menu-item menu-item-price"> {{ m.price }}</div>
-   </span>
-   {% endfor %}
-  </div>
-  {% endif %}
-
-  <!-- Takeaway Pies -->
-  {% if available.takeawaypies %}
-  <div class="mb-takeaway-box box">
-   <h4 class="menu-title">Takeaway Pies</h4>
-   {% for m in menu.items if m.section == 'takeawaypies' %}
-   <span class="menu-items {% if m.sold_out == 'Y' %} sold-out {% endif %}">
-    <!-- <div class="menu-item menu-item-title">{{ m.type }}</div> -->
-    <div class="menu-item menu-item-description">{{ m.description }}</div>
-    <div class="menu-item menu-item-price"> {{ m.price }}</div>
-   </span>
-   {% endfor %}
-  </div>
-  {% endif %}
-
+   <div class="menu-item menu-item-title">{{ m.type }}</div>
+   <div class="menu-item menu-item-description">{{ m.description }}</div>
+   <div class="menu-item menu-item-price"> {{ m.price }}</div>
+  </span>
+  {% endfor %}
  </div>
+ {% endif %}
+
+ <!-- Sides -->
+ {% if available.sides %}
+ <div class="mb-sides-box box">
+  <h4 class="menu-title">Awesome Sides</h4>
+  {% for m in menu.items if m.section == 'sides' %}
+  <span class="menu-items {% if m.sold_out == 'Y' %} sold-out {% endif %}">
+   <div class="menu-item menu-item-description">{{ m.description }}</div>
+   <div class="menu-item menu-item-price"> {{ m.price }}</div>
+  </span>
+  {% endfor %}
+ </div>
+ {% endif %}
+
+ <!-- Sausage Rolls -->
+ {% if available.rolls %}
+ <div class="mb-sausage-box box">
+  <h4 class="menu-title">Sausage Rolls &amp; More</h4>
+  {% for m in menu.items if m.section == 'rolls' %}
+  <span class="menu-items {% if m.sold_out == 'Y' %} sold-out {% endif %}">
+   <div class="menu-item menu-item-title">{{ m.type }}</div>
+   <div class="menu-item menu-item-description">{{ m.description }}</div>
+   <div class="menu-item menu-item-price"> {{ m.price }}</div>
+  </span>
+  {% endfor %}
+ </div>
+ {% endif %}
+
+ <!-- Puds -->
+ {% if available.puds %}
+ <div class="mb-puds-box box">
+  <h4 class="menu-title">Puds</h4>
+  {% for m in menu.items if m.section == 'puds' %}
+  <span class="menu-items {% if m.sold_out == 'Y' %} sold-out {% endif %}">
+   <div class="menu-item menu-item-description">{{ m.description }}</div>
+   <div class="menu-item menu-item-price"> {{ m.price }}</div>
+  </span>
+  {% endfor %}
+ </div>
+ {% endif %}
+
+ <!-- Takeaway Pies -->
+ {% if available.takeawaypies %}
+ <div class="mb-takeaway-box box">
+  <h4 class="menu-title">Takeaway Pies</h4>
+  {% for m in menu.items if m.section == 'takeawaypies' %}
+  <span class="menu-items {% if m.sold_out == 'Y' %} sold-out {% endif %}">
+   <!-- <div class="menu-item menu-item-title">{{ m.type }}</div> -->
+   <div class="menu-item menu-item-description">{{ m.description }}</div>
+   <div class="menu-item menu-item-price"> {{ m.price }}</div>
+  </span>
+  {% endfor %}
+ </div>
+ {% endif %}
+
+</div>
