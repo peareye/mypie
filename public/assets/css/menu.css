@@ -297,7 +297,7 @@ h4 {
   display: grid;
   grid-gap: 0.5rem;
   justify-content: center;
-  grid-template-areas: "mb-pie mb-pie mb-pie" "mb-sides mb-sausage  mb-takeaway" "mb-sides mb-puds  mb-takeaway"; }
+  grid-template-areas: "mb-pie mb-pie mb-takeaway" "mb-sides mb-sausage mb-sausage" "mb-sides mb-puds mb-puds"; }
 
 .box {
   font-size: 2rem;

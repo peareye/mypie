@@ -17,7 +17,19 @@
   {% endfor %}
  </div>
  {% endif %}
-
+ <!-- Takeaway Pies -->
+ {% if available.takeawaypies %}
+ <div class="mb-takeaway-box box">
+  <h4 class="menu-title">Takeaway Pies</h4>
+  {% for m in menu.items if m.section == 'takeawaypies' %}
+  <span class="menu-items {% if m.sold_out == 'Y' %} sold-out {% endif %}">
+   <!-- <div class="menu-item menu-item-title">{{ m.type }}</div> -->
+   <div class="menu-item menu-item-description">{{ m.description }}</div>
+   <div class="menu-item menu-item-price"> {{ m.price }}</div>
+  </span>
+  {% endfor %}
+ </div>
+ {% endif %}
  <!-- Sides -->
  {% if available.sides %}
  <div class="mb-sides-box box">
@@ -58,18 +70,6 @@
  </div>
  {% endif %}
 
- <!-- Takeaway Pies -->
- {% if available.takeawaypies %}
- <div class="mb-takeaway-box box">
-  <h4 class="menu-title">Takeaway Pies</h4>
-  {% for m in menu.items if m.section == 'takeawaypies' %}
-  <span class="menu-items {% if m.sold_out == 'Y' %} sold-out {% endif %}">
-   <!-- <div class="menu-item menu-item-title">{{ m.type }}</div> -->
-   <div class="menu-item menu-item-description">{{ m.description }}</div>
-   <div class="menu-item menu-item-price"> {{ m.price }}</div>
-  </span>
-  {% endfor %}
- </div>
- {% endif %}
+
 
 </div>
