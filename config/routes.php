@@ -8,7 +8,7 @@
 //
 
 // Submit contact message
-$app->post('/contact-messge', function ($request, $response, $args) {
+$app->post('/contact-message', function ($request, $response, $args) {
     return (new Piton\Controllers\ContactController($this))->submitMessage($request, $response, $args);
 })->setName('submitMessage');
 

@@ -1,20 +1,93 @@
 {% extends '_sidebar_layout.html' %} {% block main %}
+<section id="suppliers-main1">
+  <div class="container">
+    {% for p in page.pagelets if p.name == 'title' %}
+    <h1 class="page-title">{{ p.title }}</h1>
+    <div class="title-blurb">
+      {{ p.content_html }}
+    </div>
+    {% endfor %}
+    <div class="card-deck">
 
+      <div class="card">
+        <img class="card-img-top" src="assets/img/suppliers/albion.jpeg" alt="{{ p.title }}">
+        <div class="card-body">
+          <h2 class="card-title">Albion Fine Foods</h2>
+        </div>
+
+        <div class="card-footer">
+          <a class="btn btn-primary btn-sm btn-read-more" href="{{ basePath() }}/supplier">Read More</a>
+          <a class="btn btn-success btn-sm btn-visit" target="_blank" href="http://cnn.com">Visit Website</a>
+
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="assets/img/suppliers/biopac.png" alt="{{ p.title }}">
+        <div class="card-body">
+          <h2 class="card-title">Biopac</h2>
+        </div>
+
+        <div class="card-footer">
+          <a class="btn btn-primary btn-sm btn-read-more" href="{{ basePath() }}/supplier">Read More</a>
+          <a class="btn btn-success btn-sm btn-visit" target="_blank" href="http://cnn.com">Visit Website</a>
+
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="assets/img/suppliers/juniperCreative.jpeg" alt="{{ p.title }}">
+        <div class="card-body">
+          <h2 class="card-title">Juniper Creative Packaging</h2>
+        </div>
+
+        <div class="card-footer">
+          <a class="btn btn-primary btn-sm btn-read-more" href="{{ basePath() }}/supplier">Read More</a>
+          <a class="btn btn-success btn-sm btn-visit" target="_blank" href="http://cnn.com">Visit Website</a>
+
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="assets/img/suppliers/owtons.jpg" alt="{{ p.title }}">
+        <div class="card-body">
+          <h2 class="card-title">Owton's</h2>
+        </div>
+
+        <div class="card-footer">
+          <a class="btn btn-primary btn-sm btn-read-more" href="{{ basePath() }}/supplier">Read More</a>
+          <a class="btn btn-success btn-sm btn-visit" target="_blank" href="http://cnn.com">Visit Website</a>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
 <section id="suppliers-main">
   <div class="container">
     {% for p in page.pagelets if p.name == 'title' %}
     <h1 class="page-title">{{ p.title }}</h1>
-    {{ p.content_html }} {% endfor %}
-    <div class="supplier-wrapper">
+    <div class="title-blurb">
+      {{ p.content_html }}
+    </div>
+    {% endfor %}
+    <div class="card-deck">
       {% for p in page.pagelets if p.name != 'title' %}
-      <div class="supplier">
-        <h2>{{ p.title }}</h2>
-        {{ p.content_html}}
+      <div class="card">
+        <img class="card-img-top" src="assets/img/suppliers/juniperCreative.jpeg" alt="{{ p.title }}">
+        <div class="card-body">
+          <h2 class="card-title">{{ p.title }}</h2>
+        </div>
+
+        <div class="card-footer">
+          <a class="btn btn-primary btn-sm btn-read-more" href="{{ basePath() }}/supplier">Read More</a>
+          <a class="btn btn-success btn-sm btn-visit" target="_blank" href="http://cnn.com">Visit Website</a>
+
+        </div>
       </div>
       {% endfor %}
+
     </div>
   </div>
-
 </section>
 
 {% endblock %}

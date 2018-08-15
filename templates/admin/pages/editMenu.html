@@ -1,6 +1,9 @@
-{% extends '@admin/admin_base.html' %} {% block title %} MYPIE Dashboard - Edit Menu {% endblock %} {% block blurb %}
-<p>Add/Edit/Delete a Menu.</p>
-{% endblock %} {% block body %}
+{% extends '@admin/admin_base.html' %} 
+
+{% block title %} MYPIE Dashboard - Edit Menu {% endblock %} 
+{% block blurb %} <p>Add/Edit/Delete a Menu.</p>{% endblock %} 
+
+{% block body %}
 <div class="grid-cell">
   <div class="grid-cell-inner">
     <h2 class="page-title">{% if menu.id %}Edit{% else %}Add{% endif %} Menu</h2>

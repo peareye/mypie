@@ -23,7 +23,7 @@
         <h1> {% block title %} MYPIE ADMIN DEFAULT TITLE{% endblock %}</h1>
 
         {% block blurb %}
-      <p>Blurb Here</p>
+        <p>Blurb Here</p>
         {% endblock %}
 
     </header>
@@ -47,8 +47,7 @@
                     <div class="nav-description">Menu</div>
                 </a>
             </li>
-            {# For For user levels A=Admin, S=SuperAdmin #}
-            {% if authorized('A') %}
+            {# For For user levels A=Admin, S=SuperAdmin #} {% if authorized('A') %}
             <li class="nav-item">
                 <a class="nav-link" href="{{ pathFor('showPages') }}">
                     <div class="nav-icon">
@@ -56,6 +55,16 @@
                     </div>
 
                     <div class="nav-description">Pages</div>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ pathFor('supplierHome') }}">
+                    <div class="nav-icon">
+                        <i class="fas fa-truck fa-2x"></i>
+                    </div>
+
+                    <div class="nav-description">Supplier</div>
                 </a>
             </li>
             <li class="nav-item">
@@ -98,13 +107,13 @@
 
 
 
-    <script src="//code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
         crossorigin="anonymous"></script>
     <script src="//stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
-    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
     <script src="{{ basePath() }}/assets/js/easymde.js"></script>
     <script src="{{ basePath() }}/assets/js/admin.js"></script>
     <script>
@@ -115,7 +124,7 @@
             spellChecker: false
         });
     </script>
-        <!-- Default Statcounter code for Moritz Media
+    <!-- Default Statcounter code for Moritz Media
 http://moritzmedia.com
 <script type="text/javascript">
     var sc_project=9291428;

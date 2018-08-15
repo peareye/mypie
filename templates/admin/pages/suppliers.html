@@ -1,0 +1,15 @@
+{% extends '@admin/admin_base.html' %} 
+
+{% block title %}Suppliers{% endblock %} 
+{% block blurb %}Add Suppliers {% endblock%}
+{% block id %}suppliers-home{% endblock %} 
+
+{% block body %}
+
+<div class="page-section">
+  {% include '@admin/includes/_addSupplier.html' %}
+</div>
+<div class="page-section">
+{% include '@admin/includes/_supplierList.html' %}
+</div>
+{% endblock %}

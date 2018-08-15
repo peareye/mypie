@@ -596,17 +596,53 @@ input[type="submit"]:active {
 }
 // Suppliers
 
-#suppliers-main{
+#suppliers-main, #suppliers-main1{
+  .title-blurb{
+  font-size: 1.2rem;
+    @include margin(null null 1rem);
+    @include padding(1rem null null);
+  }
 
-  .supplier{
-    @include padding(1rem);
-    @include margin(1rem null);
-    border: solid 1px black;
-    h2{
-      background: $mypie-red;
-      color: $mypie-light;
+  .card-deck{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: .5rem;
+  }
+  .card{
+    box-shadow: $box-shadow;
+    @include padding(.25rem);
+  }
+  .card-body{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .card-title{
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .card-footer{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    @include padding(1rem null);
+    .btn:nth-child(1){
+      @include margin(null 5px null null);
     }
   }
+}
+// Supplier
+#supplier-main{
+  
+  .supplier-logo{
+    @include margin(1rem null);
+  }
+
 }
 
 // Events
