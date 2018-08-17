@@ -1,0 +1,30 @@
+// Header 
+
+
+// Logo Styles 
+.logo-container {
+  width: 100vw;
+  @include margin(25px null null);
+  @include padding(null null 7px null);
+  background: white; 
+} 
+  
+  .lg-logo-wrapper { 
+    width: 100%; height: 225px; margin: auto;
+  @include padding(null null 7px);
+  background: url("../img/myPieLogoWide.svg") no-repeat;
+  background-position: center center;
+  background-size: cover;
+  object-fit: cover;
+  position: relative;
+}
+
+@media screen and (min-width: 1750px) {
+  .lg-logo-wrapper {
+    height: 330px;
+  }
+}
+
+.lg-logo-wraper img {
+  width: 100%;
+}

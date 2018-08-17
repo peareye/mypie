@@ -53,7 +53,7 @@ h4 {
   border-radius: 10px;
   @include padding(.25rem);
   @include margin(.25rem);
-  background-color: $mypie-light-grey; 
+  background-color: $mypie-light-grey;
 }
 
 .span {
@@ -81,17 +81,19 @@ h4 {
   border-radius: $border-radius;
   @include margin(.5rem null);
   @include padding(.5rem);
-  grid-column: 1 / -1;
-  // background: $mypie-light;
+  grid-column: 1 / -1; // background: $mypie-light;
 }
-.add-link a{
+
+.add-link a {
   background: $mypie-light;
   @include padding( null 1rem);
 }
+
 .editor-toolbar button {
   background: $mypie-dark-grey;
   margin: 2px;
 }
+
 /* Main Page Layout */
 
 // Navbar - Vertical
@@ -165,7 +167,7 @@ header {
   .grid-cell {
     @include padding(null .5rem);
   }
-  .daily-menu-each{
+  .daily-menu-each {
     background: $mypie-light;
     @include padding(.5rem);
     @include margin(.5rem null);
@@ -232,7 +234,6 @@ header {
 
 // Menu Lists Style
 .menu-list-container {
-  
   background: $mypie-light;
   border-radius: $border-radius;
   @include margin(.5rem null);
@@ -281,6 +282,92 @@ header {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: .5rem;
+  }
+}
+
+// Suppliers Page
+#suppliers-home {
+  .page-section {
+    @media screen and (min-width: 768px) {
+      display: grid;
+      grid-gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .grid-cell {
+    @include padding(null .5rem);
+  }
+  .supplier-list-container {
+    background: $mypie-light;
+    border-radius: $border-radius;
+    @include margin(.5rem null);
+    @include padding(1rem 1rem null);
+  }
+  .supplier-name {
+    @include padding(.25rem null);
+    text-align: center;
+  }
+  .supplier-list-icons {
+    display: grid;
+    grid-template-columns: repeat(4, min-content);
+    justify-items: center;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .supplier-list-icon {}
+  .form-group {
+    @include margin(1rem);
+    @include padding(1rem);
+    border-radius: $border-radius;
+    background: $mypie-light;
+  }
+  .supplier-list-icon>a {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    @include padding(.5rem null null);
+  }
+  .form-text {
+    font-weight: bold;
+    font-style: italic;
+  }
+  .fa-thumbs-up {
+    color: green;
+  }
+  .fa-thumbs-down {
+    color: red;
+  }
+  input[type=checkbox]+label {
+    display: block;
+    cursor: pointer;
+  }
+  input[type=checkbox] {
+    display: none;
+  }
+  input[type=checkbox]+label:before {
+    content: "\2714";
+    border: 0.1rem solid #000;
+    border-radius: 0.2rem;
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    padding: .5rem;
+    vertical-align: bottom;
+    color: transparent;
+    transition: .2s;
+  }
+  input[type=checkbox]+label:active:before {
+    transform: scale(0);
+  }
+  input[type=checkbox]:checked+label:before {
+    background-color: MediumSeaGreen;
+    border-color: MediumSeaGreen;
+    color: #fff;
   }
 }
 
