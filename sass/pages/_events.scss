@@ -1,20 +1,18 @@
+// Events
 #events-main {
-
-    .events-card{
+    .events-card {
         @include margin(3rem null);
     }
-    .events-content{
+    .events-content {
         display: flex;
-        flex-direction: column;  
+        flex-direction: column;
     }
- 
-    img{
+    img {
         box-shadow: $box-shadow;
         object-fit: cover;
         border-radius: $border-radius;
     }
-    hr{
+    hr {
         @include margin(null 5rem);
     }
 }
-

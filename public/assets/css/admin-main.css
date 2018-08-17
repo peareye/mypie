@@ -7069,6 +7069,10 @@ h4 {
   padding-right: 1rem;
   padding-left: 1rem; }
 
+.editor-toolbar button {
+  background: #756d6e;
+  margin: 2px; }
+
 /* Main Page Layout */
 .navbar-wrapper {
   position: fixed;
@@ -7232,6 +7236,77 @@ header {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: .5rem; } }
+
+@media screen and (min-width: 768px) {
+  #suppliers-home .page-section {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(2, 1fr); } }
+#suppliers-home .grid-cell {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem; }
+#suppliers-home .supplier-list-container {
+  background: #fff;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem; }
+#suppliers-home .supplier-name {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  text-align: center; }
+#suppliers-home .supplier-list-icons {
+  display: grid;
+  grid-template-columns: repeat(4, min-content);
+  justify-items: center;
+  align-items: center;
+  justify-content: space-around; }
+#suppliers-home .form-group {
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+  background: #fff; }
+#suppliers-home .supplier-list-icon > a {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  padding-top: 0.5rem; }
+#suppliers-home .form-text {
+  font-weight: bold;
+  font-style: italic; }
+#suppliers-home .fa-thumbs-up {
+  color: green; }
+#suppliers-home .fa-thumbs-down {
+  color: red; }
+#suppliers-home input[type=checkbox] + label {
+  display: block;
+  cursor: pointer; }
+#suppliers-home input[type=checkbox] {
+  display: none; }
+#suppliers-home input[type=checkbox] + label:before {
+  content: "\2714";
+  border: 0.1rem solid #000;
+  border-radius: 0.2rem;
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  padding: .5rem;
+  vertical-align: bottom;
+  color: transparent;
+  transition: .2s; }
+#suppliers-home input[type=checkbox] + label:active:before {
+  transform: scale(0); }
+#suppliers-home input[type=checkbox]:checked + label:before {
+  background-color: MediumSeaGreen;
+  border-color: MediumSeaGreen;
+  color: #fff; }
 
 #pages-home .page-section {
   display: grid;

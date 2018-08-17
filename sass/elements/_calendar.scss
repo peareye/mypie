@@ -1,13 +1,11 @@
-/* Section: Calendars */
-
-// Grid Fallback Support
+// Calendar w/Grid Fallback Support
 #calendar {
   .box {
     width: calc(100% / 7);
     height: calc(50vh / 6);
     float: left;
   }
-  @supports(display: grid) {
+  @supports (display: grid) {
     .calendar-wrapper {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
@@ -18,23 +16,19 @@
       width: initial;
       height: initial;
     }
-  } 
-  
-  // MON TUE WED etc....
+  } // MON TUE WED etc....
   .days {
     display: flex;
     margin-top: auto;
     justify-content: center;
     border: none;
     text-align: center;
-  } 
-  
-  // Style for all Boxes of calendar
+  } // Style for all Boxes of calendar
   .box {
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: $border-radius;
     padding: 3px;
-    font-size: .7rem;
+    font-size: 0.7rem;
   }
   .calendar-day {
     font-weight: bold;
@@ -47,10 +41,10 @@
     text-align: center;
   }
   .day-content a {
-    font-size: .7rem;
+    font-size: 0.7rem;
   }
   .today {
-    background: rgba($mypie-red, .8);
+    background: rgba($mypie-red, 0.8);
     color: $mypie-light;
     display: block;
   }
@@ -66,9 +60,12 @@
     background: none;
     z-index: 1;
     line-height: 1;
-    color: rgba($mypie-dark, .3);
-    top: 0px;
+    color: rgba($mypie-dark, 0.3);
+    top: 7px;
     transition: all 100ms ease-in-out;
+    @media screen and (min-width: 768px) {
+      top: 12px;
+    }
   }
   .slick-prev:hover,
   .slick-next:hover {
@@ -76,27 +73,26 @@
     transform: scale(1.3);
   }
   .slick-prev {
-    left: 3rem;
+    left: 0.25rem;
   }
   .slick-next {
-    right: 3rem;
+    right: 0.25rem;
   }
   .slick-prev::before {
-    content: '\f104';
-    font-family: 'Font Awesome 5 Free';
+    content: "\f104";
+    font-family: "Font Awesome 5 Free";
     font-weight: 900;
     font-size: 40px;
     border: none;
   }
   .slick-next::after {
-    content: '\f105';
-    font-family: 'Font Awesome 5 Free';
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
     font-weight: 900;
     font-size: 40px;
     border: none;
   }
-  button:focus,
-    {
+  button:focus {
     outline: none;
     color: $mypie-red;
   }

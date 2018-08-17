@@ -9,6 +9,11 @@
 
 $app->group('/admin', function () {
 
+        // Supplier edit
+        $this->get('/supplier', function ($request, $response, $args) {
+            return $this->view->render($response, '@admin/pages/suppliers.html');
+        })->setName('supplierHome');
+
     // Admin home
     $this->get('/home', function ($request, $response, $args) {
         return (new Piton\Controllers\AdminController($this))->home($request, $response, $args);

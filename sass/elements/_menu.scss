@@ -1,56 +1,49 @@
+// Menu
 // Menu Grid
-@supports(display: grid){
-  .menu-wrapper{
+@supports (display: grid) {
+  .menu-wrapper {
     display: grid;
-    grid-template-columns: 1fr;
     grid-gap: 1rem;
-    grid-template-areas:
-    "pie"
-    "sides"
-    "sausage"
-    "puds"
-    "takeaway";
+    grid-template-areas: "pie" "sides" "sausage" "puds" "takeaway";
   }
-  @media screen and (min-width: 768px){
-    .menu-wrapper{
-      grid-template-areas: 
-      "pie pie"
-      "sides sausage"
-      "puds takeaway";
+  @media screen and (min-width: 768px) {
+    .menu-wrapper {
+      grid-template-areas: "pie pie" "sides sausage" "puds takeaway";
     }
   }
-  @media screen and (min-width: 992px){
-    .menu-wrapper{
-      grid-template-areas: 
-      "pie pie sides"
-      "puds sausage takeaway";
+  @media screen and (min-width: 992px) {
+    .menu-wrapper {
+      grid-template-areas: "pie pie sides" "puds sausage takeaway";
     }
   }
 }
 
-
-// 
 .pie-box,
 .sides-box,
 .sausage-box,
 .puds-box,
 .takeaway-box {
   border-radius: $border-radius;
-  border: solid 1px rgba(167,167,167,.5);
-  @include margin(null null 1rem);
+  border: solid 1px rgba(167, 167, 167, 0.5);
+  @include margin(null null 0);
 }
-.pie-box{
+
+.pie-box {
   grid-area: pie;
 }
+
 .sides-box {
   grid-area: sides;
 }
+
 .sausage-box {
   grid-area: sausage;
 }
+
 .puds-box {
   grid-area: puds;
 }
+
 .takeaway-box {
   grid-area: takeaway;
 }
@@ -59,22 +52,25 @@
 .menu-title {
   @include border-top-radius(4px);
   background: $mypie-red;
-   color: $mypie-light;
+  color: $mypie-light;
   @include padding(0.5rem);
   font-weight: 700;
 }
-.menu-items{
+
+.menu-items {
   display: flex;
   flex-flow: row nowrap;
-  font-size: .9rem;
-  &:nth-child(odd){
-   background-color: $mypie-light-grey;
+  font-size: 0.9rem;
+  &:nth-child(odd) {
+    background-color: $mypie-light-grey;
   }
 }
+
 .menu-item {
   @include padding(0.4rem);
   line-height: 1.2;
 }
+
 .menu-item-title {
   flex: 1.2;
   text-align: left;
@@ -84,7 +80,6 @@
 .menu-item-description {
   flex: 4;
   text-align: left;
-
 }
 
 .menu-item-price {
@@ -92,7 +87,26 @@
   font-style: italic;
   text-align: right;
 }
+
 .sold-out {
   text-decoration: line-through;
-  color:$mypie-accent-red;
+  color: $mypie-accent-red;
+}
+
+.sidebar-box {
+  max-height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar-box .read-more {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 30px 0;
+  /* "transparent" only works here because == rgba(0,0,0,0) */
+  background-image: linear-gradient(to bottom, transparent, black);
 }
