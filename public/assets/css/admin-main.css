@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text:400,700");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
 button, [type='button'], [type='reset'], [type='submit'] {
   appearance: none;
   background-color: #1565c0;
@@ -7260,7 +7261,7 @@ header {
   text-align: center; }
 #suppliers-home .supplier-list-icons {
   display: grid;
-  grid-template-columns: repeat(4, min-content);
+  grid-template-columns: repeat(3, min-content);
   justify-items: center;
   align-items: center;
   justify-content: space-around; }
@@ -7269,6 +7270,50 @@ header {
   padding: 1rem;
   border-radius: 4px;
   background: #fff; }
+#suppliers-home .form-check {
+  position: relative;
+  background: #fff;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+  /* Hide the browser's default checkbox */
+  /* Create a custom checkbox */
+  /* On mouse-over, add a grey background color */
+  /* When the checkbox is checked, add a blue background */
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Show the checkmark when checked */
+  /* Style the checkmark/indicator */ }
+  #suppliers-home .form-check .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer; }
+  #suppliers-home .form-check .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee; }
+  #suppliers-home .form-check .container:hover input ~ .checkmark {
+    background-color: #ccc; }
+  #suppliers-home .form-check .container input:checked ~ .checkmark {
+    background-color: #2196F3; }
+  #suppliers-home .form-check .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none; }
+  #suppliers-home .form-check .container input:checked ~ .checkmark:after {
+    display: block; }
+  #suppliers-home .form-check .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg); }
 #suppliers-home .supplier-list-icon > a {
   display: flex;
   width: 100%;
@@ -7286,28 +7331,6 @@ header {
   color: green; }
 #suppliers-home .fa-thumbs-down {
   color: red; }
-#suppliers-home input[type=checkbox] + label {
-  display: block;
-  cursor: pointer; }
-#suppliers-home input[type=checkbox] {
-  display: none; }
-#suppliers-home input[type=checkbox] + label:before {
-  content: "\2714";
-  border: 0.1rem solid #000;
-  border-radius: 0.2rem;
-  display: inline-block;
-  width: 2rem;
-  height: 2rem;
-  padding: .5rem;
-  vertical-align: bottom;
-  color: transparent;
-  transition: .2s; }
-#suppliers-home input[type=checkbox] + label:active:before {
-  transform: scale(0); }
-#suppliers-home input[type=checkbox]:checked + label:before {
-  background-color: MediumSeaGreen;
-  border-color: MediumSeaGreen;
-  color: #fff; }
 
 #pages-home .page-section {
   display: grid;

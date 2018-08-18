@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text:400,700");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
 button, [type='button'], [type='reset'], [type='submit'] {
   appearance: none;
   background-color: #1565c0;
@@ -7051,24 +7052,26 @@ a:focus {
     align-content: center;
     align-items: center;
     text-align: center; }
+  #suppliers-main .card .card-title {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+    color: #756d6e; }
   #suppliers-main .card .card-footer {
     text-align: center; }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 800px) {
   #supplier-main .container .supplier-container {
     display: grid;
     grid-template-columns: 350px 1fr;
-    grid-column-gap: 1rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem; } }
-#supplier-main .container .supplier-container h1 {
-  font-family: 'Crimson Text', sans-serif;
-  font-weight: 700; }
+    grid-column-gap: 1rem; } }
+#supplier-main .container .supplier-container .supplier-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  text-transform: capitalize; }
 #supplier-main .container .supplier-container .col-left {
-  background: coral;
   display: flex;
-  flex-flow: row wrap;
-  padding-top: 4.2rem; }
+  flex-flow: row wrap; }
   #supplier-main .container .supplier-container .col-left .logo-wrapper {
     width: 100%;
     display: flex;
@@ -7077,12 +7080,15 @@ a:focus {
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
-    margin-top: auto;
-    padding-top: 2rem;
-    padding-bottom: 2rem; }
+    justify-content: flex-end;
+    color: #756d6e; }
+    #supplier-main .container .supplier-container .col-left .details-wrapper a {
+      color: #756d6e; }
+      #supplier-main .container .supplier-container .col-left .details-wrapper a:hover {
+        color: #ed1c24; }
 #supplier-main .container .supplier-container .col-right {
-  background: purple;
-  color: white; }
+  display: flex;
+  flex-flow: column nowrap; }
 
 #about-main h2 {
   clear: both; }
