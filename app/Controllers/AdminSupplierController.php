@@ -51,7 +51,7 @@ class AdminSupplierController extends BaseController
         $supplier->content = $request->getParsedBodyParam('content');
         $supplier->content_html = $markdown->text($request->getParsedBodyParam('content'));
         $supplier->logo = $request->getParsedBodyParam('logo');
-        $supplier->published = ($request->getParsedBodyParam('published')) ? 'Y' : 'N';
+        // $supplier->published = ($request->getParsedBodyParam('published')) ? 'Y' : 'N';
 
         // Prep supplier URL based on supplier name
         $supplier->url = strtolower(trim($request->getParsedBodyParam('name')));
@@ -84,5 +84,31 @@ class AdminSupplierController extends BaseController
 
         // Redirect
         return $response->withRedirect($this->container->router->pathFor('supplierHome'));
+    }
+
+    /**
+     * Publish / Unpublish Supplier
+     *
+     * Toggle published flag via Ajax for suppliers
+     */
+    public function toggleSupplierPublishedFlag($request, $response, $args)
+    {
+        // Get dependencies
+        $mapper = $this->container->dataMapper;
+        $SupplierMapper = $mapper('SupplierMapper');
+
+        $supplier = $SupplierMapper->make();
+        $supplier->id = $args['id'];
+        $supplier->published = $args['flag'];
+        $supplier = $SupplierMapper->save($supplier);
+
+        if ($request->isXhr()) {
+            // Set the response XHR type and return
+            $r = $response->withHeader('Content-Type', 'application/json');
+            return $r->write(json_encode(['status' => 'success', 'newStatus' => $supplier->published]));
+        } else {
+            // Redirect
+            return $response->withRedirect($this->container->router->pathFor('supplierHome'));
+        }
     }
 }

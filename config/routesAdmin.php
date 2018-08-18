@@ -164,6 +164,11 @@ $app->group('/admin', function () {
         $this->get('/delete/{id:[0-9]{0,}}', function ($request, $response, $args) {
             return (new Piton\Controllers\AdminSupplierController($this))->deleteSupplier($request, $response, $args);
         })->setName('deleteSupplier');
+
+        // Set Supplier Published Flag
+        $this->get('/publish/{id:[0-9]{0,}}/{flag:[YN]{1}}', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminSupplierController($this))->toggleSupplierPublishedFlag($request, $response, $args);
+        })->setName('publishSupplier');
     })->add(function ($request, $response, $next) {
         $security = $this->securityHandler;
 
