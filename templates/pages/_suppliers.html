@@ -5,15 +5,46 @@
     {% for p in page.pagelets if p.name == 'title' %}
     <h1 class="page-title">{{ p.title }}</h1>
     <div class="title-blurb">
-
       {{ p.content_html }}
     </div>
     {% endfor %}
+
+    <!-- Begin Supplier Cards -->
     <div class="card-deck">
       <div class="card">
         <img class="card-img-top" src="http://source.unsplash.com/random/350x150" alt="Card image cap">
         <div class="card-body">
-          <h2 class="card-title">Albion Fine Foods</h2>
+          <h2 class="card-title">p.title</h2>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-primary btn-sm btn-read-more" href="/supplier">Read More</a>
+          <a class="btn btn-success btn-sm btn-visit" target="_blank" href="http://cnn.com">Visit Website</a>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="http://source.unsplash.com/random/351x150" alt="Card image cap">
+        <div class="card-body">
+          <h2 class="card-title">p.title</h2>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-primary btn-sm btn-read-more" href="/supplier">Read More</a>
+          <a class="btn btn-success btn-sm btn-visit" target="_blank" href="http://cnn.com">Visit Website</a>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="http://source.unsplash.com/random/352x200" alt="Card image cap">
+        <div class="card-body">
+          <h2 class="card-title">p.title</h2>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-primary btn-sm btn-read-more" href="/supplier">Read More</a>
+          <a class="btn btn-success btn-sm btn-visit" target="_blank" href="http://cnn.com">Visit Website</a>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="http://source.unsplash.com/random/353x353" alt="Card image cap">
+        <div class="card-body">
+          <h2 class="card-title">p.title</h2>
         </div>
         <div class="card-footer">
           <a class="btn btn-primary btn-sm btn-read-more" href="/supplier">Read More</a>
@@ -21,23 +52,8 @@
         </div>
       </div>
     </div>
-    <div class="card-deck">
-      {% for p in page.pagelets if p.name != 'title' %}
-      <div class="card">
-        <img class="card-img-top" src="assets/img/suppliers/juniperCreative.jpeg" alt="{{ p.title }}">
-        <div class="card-body">
-          <h2 class="card-title">{{ p.title }}</h2>
-        </div>
+    <!-- End Supplier Cards -->
 
-        <div class="card-footer">
-          <a class="btn btn-primary btn-sm btn-read-more" href="{{ basePath() }}/supplier">Read More</a>
-          <a class="btn btn-success btn-sm btn-visit" target="_blank" href="http://cnn.com">Visit Website</a>
-
-        </div>
-      </div>
-      {% endfor %}
-
-    </div>
   </div>
 </section>
 

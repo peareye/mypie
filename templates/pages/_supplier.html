@@ -1,48 +1,45 @@
-{% extends '_sidebar_layout.html' %} {% block main %}
+{% extends '_sidebar_layout.html' %} 
+
+{% block main %}
 <section id="supplier-main">
   <div class="container">
+    <div class="supplier-container">
 
-    <div class="row">
-      <div class="col-4 logo-col">
-        <img class="img-fluid supplier-logo" src="assets/img/suppliers/biopac.png" alt="">
-        <!-- <img class="img-fluid supplier-logo" src="assets/img/suppliers/albion.jpeg" alt=""> -->
-        <!-- <img class="img-fluid supplier-logo" src="assets/img/suppliers/juniperCreative.jpeg" alt=""> -->
-        <!-- <img class="img-fluid supplier-logo" src="assets/img/suppliers/owtons.jpg" alt=""> -->
-        <div class="contact-details">
-          <hr>
-          <!-- URL -->
-          Visit
-          <a href="http://www.biopac.co.uk/" target="_blank">Biopac's website</a>
-
-          <br> Phone:
-          <a href="tel:+441386555777">01386 555 777 </a>
-
+      <!-- Left Column Logo and contact info -->
+      <div class="col-left">
+        <div class="logo-wrapper">
+          <img class="img-fluid" src="http://www.biopac.co.uk/media/wysiwyg/aboutbanner.jpg" alt="Base64 Logo Here">
+        </div>
+        <div class="details-wrapper">
+          <div class="supplier-url">
+              Visit <a href="http://www.biopac.co.uk/" target="_blank">Biopac's website</a>
+          </div>
+          <div class="supplier-phone">
+              Phone: <a href="tel:+441386555777">01386 555 777 </a>
+          </div>
         </div>
       </div>
-      <div class="col-8">
-        <h1>BioPac</h1>
-        <p>Biopac began in 2002 and has seen their company quickly grow to become the UK’s leading developer, manufacturer and
-          supplier of eco-friendly food packaging and catering products.</p>
-
+      <!-- Right Column Title & Blurb -->
+      <div class="col-right">
+        <h1>BIOPAC</h1>
+        <p>Biopac began in 2002 and has seen their company quickly grow to become the UK’s leading developer, manufacturer
+          and supplier of eco-friendly food packaging and catering products.</p>
         <p>They have taken a leading role in the research and development of high performance alternatives to oil-based and
           unsustainable materials and work with a number of leading institutes and research centres to develop new materials,
-          find renewable feedstocks and use innovative new technologies to achieve this objective. To enable them to do this
-          research effectively, they have created a completely separate consultancy, Biopac Technology, which supports sustainability
-          programmes for fast food retailers, fresh produce manufacturers, outdoor events and retailers. Their solution is
-          to use biodegradable disposables and packaging items that decompose naturally with no harmful effects on the environment.</p>
-
-        <p>With the stronger focus on protecting the environment, and the stricter regulations all businesses face today, it’s
-          more important than ever to use 100% biodegradable food packaging. All of their innovative products are designed
-          not to harm the environment, as they can be fully composted alongside their associated food waste.</p>
-
-
-        <br>
-
-
+          find renewable feedstocks and use innovative new technologies to achieve this objective. To enable them to do
+          this research effectively, they have created a completely separate consultancy, Biopac Technology, which supports
+          sustainability programmes for fast food retailers, fresh produce manufacturers, outdoor events and retailers.
+          Their solution is to use biodegradable disposables and packaging items that decompose naturally with no harmful
+          effects on the environment.</p>
+        <p>With the stronger focus on protecting the environment, and the stricter regulations all businesses face today,
+          it’s more important than ever to use 100% biodegradable food packaging. All of their innovative products are
+          designed not to harm the environment, as they can be fully composted alongside their associated food waste.</p>
+          <div class="return-btn">
+            <a class="btn btn-return btn-sm" href="">Back to Suppliers</a>
+          </div>
       </div>
     </div>
-
-
+  </div>
   </div>
 </section>
 
