@@ -97,6 +97,7 @@ CREATE TABLE IF NOT EXISTS `supplier` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(300) NOT NULL,
   `url` varchar(500) NOT NULL,
+  `supplier_url` varchar(500) NULL DEFAULT NULL,
   `phone` varchar(100) DEFAULT NULL,
   `content` text DEFAULT NULL,
   `content_html` text DEFAULT NULL,
@@ -107,7 +108,8 @@ CREATE TABLE IF NOT EXISTS `supplier` (
   `updated_by` int(11) NOT NULL DEFAULT '1',
   `updated_date` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `url_uq` (`url`)
+  UNIQUE KEY `url_uq` (`url`),
+  KEY `created_date_idx` (`created_date`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
 
 ALTER TABLE `pagelet`

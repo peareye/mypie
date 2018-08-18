@@ -156,9 +156,14 @@ $app->group('/admin', function () {
         })->setName('editSupplier');
 
         // Supplier save
-        $this->post('/savesupplier', function ($request, $response, $args) {
+        $this->post('/save', function ($request, $response, $args) {
             return (new Piton\Controllers\AdminSupplierController($this))->saveSupplier($request, $response, $args);
         })->setName('saveSupplier');
+
+        // Supplier delete
+        $this->get('/delete/{id:[0-9]{0,}}', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminSupplierController($this))->deleteSupplier($request, $response, $args);
+        })->setName('deleteSupplier');
     })->add(function ($request, $response, $next) {
         $security = $this->securityHandler;
 

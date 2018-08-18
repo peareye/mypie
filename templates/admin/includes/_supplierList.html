@@ -1,37 +1,47 @@
 <h2 class="page-title">Suppliers</h2>
 
 <div class="supplier-list-container">
+  {% for s in page.supplierList %}
   <div class="supplier-name">
     <h3>
-      Albion
+      {{ s.name }}
     </h3>
   </div>
   <ul class="supplier-list-icons">
+    <li>
+      <div class="supplier-list-checkbox">
 
+        <input type="checkbox" id="published" name="fruit-1" value="">
+        <label for="published">Publish</label>
+
+      </div>
+    </li>
     <li class="supplier-list-icon">
-      <a href="#!" data-toggle="tooltip" title="Edit this supplier">
+      <a href="{{ pathFor('editSupplier', {'id': s.id}) }}" data-toggle="tooltip" title="Edit this supplier">
         <i class="fas fa-2x fa-edit" alt="Edit supplier"></i>
         <div class="nav-description">Edit</div>
       </a>
     </li>
     <li class="supplier-list-icon">
-      <a class="jsDeleteButton" href="#!" data-toggle="tooltip" title="Delete this supplier">
+      <a class="jsDeleteButton" href="{{ pathFor('deleteSupplier', {'id': s.id}) }}" data-toggle="tooltip" title="Delete this supplier">
         <i class="fas fa-2x fa-trash-alt" alt="Delete supplier"></i>
         <div class="nav-description">Delete</div>
       </a>
     </li>
 
     <li class="supplier-list-icon">
-
+      {% if s.published == 'Y' %}
       <i class="fas fa-thumbs-up fa-2x"></i>
-      <div class="nav-description">
-        <div class="nav-description"></div>Active</div>
+      <div class="nav-description">Active</div>
+      {% else %}
       <i class="fas fa-thumbs-down fa-2x"></i>
       <div class="nav-description">Not Active</div>
-
+      {% endif %}
     </li>
   </ul>
-
+  {% else %}
+  <h3>There are no suppliers</h3>
+  {% endfor %}
 </div>
 <div class="delete-this">
   <p>My thought here is that there will be a list of suppliers that have been added using the form. Somehow it would be nice

@@ -92,6 +92,7 @@ class TwigExtension extends \Twig_Extension
             new \Twig_SimpleFunction('availableMenuSections', array($this, 'availableMenuSections')),
             new \Twig_SimpleFunction('authorized', array($this, 'authorizedUser')),
             new \Twig_SimpleFunction('currentRole', array($this, 'userCurrentRole')),
+            new \Twig_SimpleFunction('publishedSuppliers', array($this, 'findPublishedSuppliers')),
         ];
     }
 
@@ -256,5 +257,21 @@ class TwigExtension extends \Twig_Extension
     {
         $session = $this->container->get('sessionHandler');
         return $session->getData('role');
+    }
+
+    /**
+     * Find Suppliers
+     *
+     * Get all published suppliers
+     * @param none
+     * @return mixed
+     */
+    public function findPublishedSuppliers()
+    {
+        // Get dependencies
+        $mapper = $this->container->dataMapper;
+        $SupplierMapper = $mapper('SupplierMapper');
+
+        return $SupplierMapper->findPublishedSuppliers();
     }
 }
