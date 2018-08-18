@@ -7257,11 +7257,12 @@ header {
   padding-left: 1rem; }
 #suppliers-home .supplier-name {
   padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  text-align: center; }
+  padding-bottom: 0.25rem; }
+  #suppliers-home .supplier-name .supplier-title {
+    font-weight: 700; }
 #suppliers-home .supplier-list-icons {
   display: grid;
-  grid-template-columns: repeat(3, min-content);
+  grid-template-columns: repeat(4, min-content);
   justify-items: center;
   align-items: center;
   justify-content: space-around; }
@@ -7275,45 +7276,7 @@ header {
   background: #fff;
   margin: 1rem;
   padding: 1rem;
-  border-radius: 4px;
-  /* Hide the browser's default checkbox */
-  /* Create a custom checkbox */
-  /* On mouse-over, add a grey background color */
-  /* When the checkbox is checked, add a blue background */
-  /* Create the checkmark/indicator (hidden when not checked) */
-  /* Show the checkmark when checked */
-  /* Style the checkmark/indicator */ }
-  #suppliers-home .form-check .container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer; }
-  #suppliers-home .form-check .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee; }
-  #suppliers-home .form-check .container:hover input ~ .checkmark {
-    background-color: #ccc; }
-  #suppliers-home .form-check .container input:checked ~ .checkmark {
-    background-color: #2196F3; }
-  #suppliers-home .form-check .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none; }
-  #suppliers-home .form-check .container input:checked ~ .checkmark:after {
-    display: block; }
-  #suppliers-home .form-check .container .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg); }
+  border-radius: 4px; }
 #suppliers-home .supplier-list-icon > a {
   display: flex;
   width: 100%;

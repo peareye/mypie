@@ -2,53 +2,44 @@
 
 <div class="supplier-list-container">
   {% for s in page.supplierList %}
-  <div class="supplier-name">
-    <h3>
-      {{ s.name }}
-    </h3>
+  <div class="supplier-each">
+      <div class="supplier-name">
+          <h3 class="supplier-title">
+            {{ s.name }}
+          </h3>
+        </div>
+        <ul class="supplier-list-icons">
+       
+          <li class="supplier-list-icon">
+            <a href="{{ pathFor('editSupplier', {'id': s.id}) }}" data-toggle="tooltip" title="Edit this supplier">
+              <i class="fas fa-2x fa-edit" alt="Edit supplier"></i>
+              <div class="nav-description">Edit</div>
+            </a>
+          </li>
+          <li class="supplier-list-icon">
+            <a class="jsDeleteButton" href="{{ pathFor('deleteSupplier', {'id': s.id}) }}" data-toggle="tooltip" title="Delete this supplier">
+              <i class="fas fa-2x fa-trash-alt" alt="Delete supplier"></i>
+              <div class="nav-description">Delete</div>
+            </a>
+          </li>
+          <li>
+              <div class="supplier-list-icon">
+                <div class="btn btn-primary btn-sm">Publish/Unpublish</div>
+              </div>
+               </li>
+          <li class="supplier-list-icon">
+            {% if s.published == 'Y' %}
+            <i class="fas fa-thumbs-up fa-2x"></i>
+            <div class="nav-description">Active</div>
+            {% else %}
+            <i class="fas fa-thumbs-down fa-2x"></i>
+            <div class="nav-description">Not Active</div>
+            {% endif %}
+          </li>
+        </ul>
   </div>
-  <ul class="supplier-list-icons">
-    <li>
-      <div class="supplier-list-checkbox">
-
-        <input type="checkbox" id="published" name="fruit-1" value="">
-        <label for="published">Publish</label>
-
-      </div>
-    </li>
-    <li class="supplier-list-icon">
-      <a href="{{ pathFor('editSupplier', {'id': s.id}) }}" data-toggle="tooltip" title="Edit this supplier">
-        <i class="fas fa-2x fa-edit" alt="Edit supplier"></i>
-        <div class="nav-description">Edit</div>
-      </a>
-    </li>
-    <li class="supplier-list-icon">
-      <a class="jsDeleteButton" href="{{ pathFor('deleteSupplier', {'id': s.id}) }}" data-toggle="tooltip" title="Delete this supplier">
-        <i class="fas fa-2x fa-trash-alt" alt="Delete supplier"></i>
-        <div class="nav-description">Delete</div>
-      </a>
-    </li>
-
-    <li class="supplier-list-icon">
-      {% if s.published == 'Y' %}
-      <i class="fas fa-thumbs-up fa-2x"></i>
-      <div class="nav-description">Active</div>
-      {% else %}
-      <i class="fas fa-thumbs-down fa-2x"></i>
-      <div class="nav-description">Not Active</div>
-      {% endif %}
-    </li>
-  </ul>
+<hr>
   {% else %}
   <h3>There are no suppliers</h3>
   {% endfor %}
-</div>
-<div class="delete-this">
-  <p>My thought here is that there will be a list of suppliers that have been added using the form. Somehow it would be nice
-    to make the supplier not active initially, though this is only an idea and can be chucked out the window easily. I was
-    thinking a checkbox that would 'publish' the supplier to the website somewhere, either on the suppliers list, or the
-    supplier add form.</p>
-  <p>Also, if we do decide to do that, some code that checks to see status and selects the appropriate thumbs up or thumbs down
-    icon.
-  </p>
 </div>
