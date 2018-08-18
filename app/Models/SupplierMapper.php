@@ -24,4 +24,33 @@ class SupplierMapper extends DataMapperAbstract
 
         return $this->find();
     }
+
+    /**
+     * Find Published Suppliers
+     *
+     * @param none
+     * @return mixed
+     */
+    public function findPublishedSuppliers()
+    {
+        $this->makeSelect();
+        $this->sql .= ' where published = \'Y\' order by name';
+
+        return $this->find();
+    }
+
+    /**
+     * Find Named Supplier by URL
+     *
+     * @param str URL
+     * @return mixed
+     */
+    public function findSupplierByName($url)
+    {
+        $this->makeSelect();
+        $this->sql .= ' where url = ?';
+        $this->bindValues[] = $url;
+
+        return $this->findRow();
+    }
 }

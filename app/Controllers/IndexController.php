@@ -222,4 +222,24 @@ class IndexController extends BaseController
 
         return;
     }
+
+
+    /**
+     * Display Supplier Detail
+     *
+     */
+    public function showSupplier($request, $response, $args)
+    {
+        // Get dependencies
+        $mapper = $this->container->dataMapper;
+        $SupplierMapper = $mapper('SupplierMapper');
+
+        $page['supplier'] = $SupplierMapper->findSupplierByName($args['name']);
+
+        if (!isset($page['supplier']->id)) {
+            return $this->notFound($request, $response);
+        }
+
+        $this->container->view->render($response, 'pages/_supplier.html', ['page' => $page]);
+    }
 }
