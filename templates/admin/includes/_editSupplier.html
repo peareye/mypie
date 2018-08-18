@@ -2,25 +2,24 @@
   <form action="{{ pathFor('saveSupplier') }}" method="post" accept-charset="utf-8">
     <input type="hidden" name="id" value="{{ page.supplier.id }}">
 
-
     <div class="form-group">
       <label for="InputSupplierName">Supplier Name</label>
-      <input type="text" class="form-control" name="name" id="InputSupplierName" aria-describedby="supplierHelp" placeholder="Enter supplier name" value="{{ page.supplier.name }}">
+      <input type="text" class="form-control" name="name" id="InputSupplierName" aria-describedby="supplierHelp" placeholder="Enter supplier name" value="{{ page.supplier.name }}" required>
       <small id="supplierNameHelp" class="form-text text-muted">Enter the full name of the supplier here. This will be how it appears on the suppliers and supplier page.</small>
     </div>
     <div class="form-group">
       <label for="InputSupplierURL">Website URL</label>
-      <input type="url" class="form-control jsSupplierUrl" name="url" id="InputSupplierURL" placeholder="http://mypie.london" value="{{ page.supplier.url }}">
+      <input type="url" class="form-control jsSupplierUrl" name="supplier_url" id="InputSupplierURL" placeholder="http://mypie.london" value="{{ page.supplier.supplier_url }}">
       <small id="websiteHelp" class="form-text text-muted">Include the http:// or https:// </small>
     </div>
     <div class="form-group">
       <label for="InputSupplierTelephone">Telephone</label>
-      <input type="url" class="form-control" name="phone" id="InputSupplierTelephone" placeholder="+447999593306" value="{{ page.supplier.phone }}">
+      <input type="text" class="form-control" name="phone" id="InputSupplierTelephone" placeholder="+447999593306" value="{{ page.supplier.phone }}">
       <small id="telephoneHelp" class="form-text text-muted">Enter the telephone number using the country code (+44 for UK).</small>
     </div>
     <div class="form-group">
       <label for="TextAreaSupplierBlurb">Supplier Blurb</label>
-      <textarea class="form-control mde" name="content" id="TextAreaSupplierBlurb" placeholder="Write or paste blurb content here." rows="4">{{ page.supplier.content }}</textarea>
+      <textarea class="form-control mde" name="content" id="mde" placeholder="Write or paste blurb content here." rows="4">{{ page.supplier.content }}</textarea>
       <small id="blurbrHelp" class="form-text text-muted">Write or paste blurb content into this text area. Make sure there is a line space between paragraphs.</small>
     </div>
     <div class="form-group">
@@ -31,6 +30,8 @@
 
     <a href="{{ pathFor('supplierHome') }}" class="btn btn-warning">Cancel</a>
     <button type="submit" class="btn btn-info">Save</button>
-    <a href="" class="btn btn-danger">Delete</a>
+    {% if page.supplier.id %}
+    <a href="{{ pathFor('deleteSupplier', {'id': page.supplier.id }) }}" class="btn btn-danger">Delete</a>
+    {% endif %}
   </form>
 </div>
