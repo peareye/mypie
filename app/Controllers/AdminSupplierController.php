@@ -24,7 +24,8 @@ class AdminSupplierController extends BaseController
             $page['supplier'] = $SupplierMapper->make();
         }
 
-        // TODO Fetch supplier records for sidebar
+        // Fetch supplier records for sidebar
+        $page['supplierList'] = $SupplierMapper->findSuppliersInDescDateOrder();
 
         return $this->container->view->render($response, '@admin/pages/suppliers.html', ['page' => $page]);
     }
@@ -45,14 +46,15 @@ class AdminSupplierController extends BaseController
         $supplier = $SupplierMapper->make();
         $supplier->id = $request->getParsedBodyParam('id');
         $supplier->name = $request->getParsedBodyParam('name');
+        $supplier->supplier_url = $request->getParsedBodyParam('supplier_url');
         $supplier->phone = $request->getParsedBodyParam('phone');
         $supplier->content = $request->getParsedBodyParam('content');
-        $supplier->content_html = $markdown->text($request->getParsedBodyParam('content_html'));
+        $supplier->content_html = $markdown->text($request->getParsedBodyParam('content'));
         $supplier->logo = $request->getParsedBodyParam('logo');
-        $supplier->published = $request->getParsedBodyParam('published');
+        $supplier->published = ($request->getParsedBodyParam('published')) ? 'Y' : 'N';
 
-        // Prep URL
-        $supplier->url = strtolower(trim($request->getParsedBodyParam('url')));
+        // Prep supplier URL based on supplier name
+        $supplier->url = strtolower(trim($request->getParsedBodyParam('name')));
         $supplier->url = preg_replace('/[^a-z0-9\s-]/', '', $supplier->url);
         $supplier->url = preg_replace('/[\s-]+/', ' ', $supplier->url);
         $supplier->url = preg_replace('/[\s]/', '-', $supplier->url);
@@ -65,22 +67,22 @@ class AdminSupplierController extends BaseController
     }
 
     /**
-     * Delete Page
+     * Delete Supplier
      *
-     * Delete page. SQL Foreign Key Constraints cascade to pagelet records
+     * Delete supplier record
      */
-    public function deletePage($request, $response, $args)
+    public function deleteSupplier($request, $response, $args)
     {
         // Get dependencies
         $mapper = $this->container->dataMapper;
-        $PageMapper = $mapper('PageMapper');
+        $SupplierMapper = $mapper('SupplierMapper');
 
         // Delete page
-        $page = $PageMapper->make();
-        $page->id = $args['id'];
-        $page = $PageMapper->delete($page);
+        $supplier = $SupplierMapper->make();
+        $supplier->id = $args['id'];
+        $SupplierMapper->delete($supplier);
 
-        // Redirect back to show pages
-        return $response->withRedirect($this->container->router->pathFor('showPages'));
+        // Redirect
+        return $response->withRedirect($this->container->router->pathFor('supplierHome'));
     }
 }
