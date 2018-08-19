@@ -105,7 +105,7 @@ class AdminSupplierController extends BaseController
         if ($request->isXhr()) {
             // Set the response XHR type and return
             $r = $response->withHeader('Content-Type', 'application/json');
-            return $r->write(json_encode(['status' => 'success', 'newStatus' => $supplier->published]));
+            return $r->write(json_encode(['status' => 'success', 'publishedStatus' => $supplier->published]));
         } else {
             // Redirect
             return $response->withRedirect($this->container->router->pathFor('supplierHome'));

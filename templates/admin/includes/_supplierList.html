@@ -8,8 +8,8 @@
             {{ s.name }}
           </h3>
         </div>
-        <ul class="supplier-list-icons">
-       
+        <ul class="supplier-list-icons jsSupplierParent">
+
           <li class="supplier-list-icon">
             <a href="{{ pathFor('editSupplier', {'id': s.id}) }}" data-toggle="tooltip" title="Edit this supplier">
               <i class="fas fa-2x fa-edit" alt="Edit supplier"></i>
@@ -23,18 +23,11 @@
             </a>
           </li>
           <li>
-              <div class="supplier-list-icon">
-                <div class="btn btn-primary btn-sm">Publish/Unpublish</div>
+            <div class="supplier-list-icon">
+              <div class="btn {% if s.published == 'Y' %}btn-success{% else %}btn-danger{% endif %} btn-sm jsPublishSupplier" data-id="{{ s.id }}" data-flag="{{ s.published }}" data-url="{{ pathFor('publishSupplier') }}">
+                {% if s.published == 'Y' %}Unpublish{% else %}Publish{% endif %}
               </div>
-               </li>
-          <li class="supplier-list-icon">
-            {% if s.published == 'Y' %}
-            <i class="fas fa-thumbs-up fa-2x"></i>
-            <div class="nav-description">Active</div>
-            {% else %}
-            <i class="fas fa-thumbs-down fa-2x"></i>
-            <div class="nav-description">Not Active</div>
-            {% endif %}
+            </div>
           </li>
         </ul>
   </div>
