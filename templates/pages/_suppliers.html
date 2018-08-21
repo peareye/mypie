@@ -11,46 +11,22 @@
 
     <!-- Begin Supplier Cards -->
     <div class="card-deck">
+      {% for s in publishedSuppliers() %}
       <div class="card">
-        <img class="card-img-top" src="http://source.unsplash.com/random/350x150" alt="Card image cap">
+        {% if s.logo %}
+        <img class="card-img-top" src="{{ s.logo }}" alt="Supplier logo image">
+        {% endif %}
         <div class="card-body">
-          <h2 class="card-title">p.title</h2>
+          <h2 class="card-title">{{ s.name }}</h2>
         </div>
         <div class="card-footer">
-          <a class="btn btn-primary btn-sm btn-read-more" href="/supplier">Read More</a>
-          <a class="btn btn-success btn-sm btn-visit" target="_blank" href="http://cnn.com">Visit Website</a>
+          <a class="btn btn-primary btn-sm btn-read-more" href="{{ pathFor('showSupplier', {'name': s.url}) }}">Read More</a>
+          {% if s.supplier_url %}
+          <a class="btn btn-success btn-sm btn-visit" target="_blank" href="{{ s.supplier_url }}">Visit Website</a>
+          {% endif %}
         </div>
       </div>
-      <div class="card">
-        <img class="card-img-top" src="http://source.unsplash.com/random/351x150" alt="Card image cap">
-        <div class="card-body">
-          <h2 class="card-title">p.title</h2>
-        </div>
-        <div class="card-footer">
-          <a class="btn btn-primary btn-sm btn-read-more" href="/supplier">Read More</a>
-          <a class="btn btn-success btn-sm btn-visit" target="_blank" href="http://cnn.com">Visit Website</a>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src="http://source.unsplash.com/random/352x200" alt="Card image cap">
-        <div class="card-body">
-          <h2 class="card-title">p.title</h2>
-        </div>
-        <div class="card-footer">
-          <a class="btn btn-primary btn-sm btn-read-more" href="/supplier">Read More</a>
-          <a class="btn btn-success btn-sm btn-visit" target="_blank" href="http://cnn.com">Visit Website</a>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src="http://source.unsplash.com/random/353x353" alt="Card image cap">
-        <div class="card-body">
-          <h2 class="card-title">p.title</h2>
-        </div>
-        <div class="card-footer">
-          <a class="btn btn-primary btn-sm btn-read-more" href="/supplier">Read More</a>
-          <a class="btn btn-success btn-sm btn-visit" target="_blank" href="http://cnn.com">Visit Website</a>
-        </div>
-      </div>
+      {% endfor %}
     </div>
     <!-- End Supplier Cards -->
 

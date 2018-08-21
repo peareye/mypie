@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text:400,700");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
 button, [type='button'], [type='reset'], [type='submit'] {
   appearance: none;
   background-color: #1565c0;
@@ -7256,8 +7257,9 @@ header {
   padding-left: 1rem; }
 #suppliers-home .supplier-name {
   padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  text-align: center; }
+  padding-bottom: 0.25rem; }
+  #suppliers-home .supplier-name .supplier-title {
+    font-weight: 700; }
 #suppliers-home .supplier-list-icons {
   display: grid;
   grid-template-columns: repeat(4, min-content);
@@ -7269,6 +7271,12 @@ header {
   padding: 1rem;
   border-radius: 4px;
   background: #fff; }
+#suppliers-home .form-check {
+  position: relative;
+  background: #fff;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 4px; }
 #suppliers-home .supplier-list-icon > a {
   display: flex;
   width: 100%;
@@ -7286,28 +7294,6 @@ header {
   color: green; }
 #suppliers-home .fa-thumbs-down {
   color: red; }
-#suppliers-home input[type=checkbox] + label {
-  display: block;
-  cursor: pointer; }
-#suppliers-home input[type=checkbox] {
-  display: none; }
-#suppliers-home input[type=checkbox] + label:before {
-  content: "\2714";
-  border: 0.1rem solid #000;
-  border-radius: 0.2rem;
-  display: inline-block;
-  width: 2rem;
-  height: 2rem;
-  padding: .5rem;
-  vertical-align: bottom;
-  color: transparent;
-  transition: .2s; }
-#suppliers-home input[type=checkbox] + label:active:before {
-  transform: scale(0); }
-#suppliers-home input[type=checkbox]:checked + label:before {
-  background-color: MediumSeaGreen;
-  border-color: MediumSeaGreen;
-  color: #fff; }
 
 #pages-home .page-section {
   display: grid;

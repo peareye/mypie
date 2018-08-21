@@ -1,6 +1,5 @@
 //Suppliers Page
 #suppliers-main {
-
   .card-deck {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -21,6 +20,12 @@
       align-items: center;
       text-align: center;
     }
+    .card-title {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 400;
+      font-size: 1.8rem;
+      color: $mypie-dark-grey;
+    }
     .card-footer {
       text-align: center;
     }
@@ -28,43 +33,37 @@
 }
 
 // Supplier Details Page
-#supplier-main{
-  .container {
-    .supplier-container {
-        @media screen and (min-width:768px){
-          display: grid;
-          grid-template-columns: 350px 1fr;
-          grid-column-gap: 1rem;
-          @include padding(1rem null);
-        }
-      h1{
-        font-family: 'Crimson Text', sans-serif;
-        font-weight: 700;
-      }
-        .col-left {
-          background: coral;
-          display: flex;
-          flex-flow: row wrap;
-          @include padding(4.2rem null null);
-          .logo-wrapper {
-            width: 100%;
-            display: flex;
-            // justify-content: center;
-            align-items: flex-start;
-          }
-          .details-wrapper {
-            width: 100%;
-            display: flex;
-            flex-flow: column nowrap;
-            // justify-content: center;
-           @include margin(auto null null);
-            @include padding(2rem null);
-          }
-        }
-      .col-right{
-background: purple;
-color: white;
+#supplier-main {
+  .container {}
+  .supplier-title {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    text-transform: capitalize;
+    text-align: center;
+    @include margin(2rem null);
+  }
+  .logo-wrapper {
+    @media screen and (min-width: 768px) {
+      width: 400px;
+      @include padding(1rem);
+      @include margin(null 2rem 1rem null);
+      float: left;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+  .supplier-blurb-wrapper {}
+  .details-wrapper {
+    a {
+      color: $mypie-dark-grey;
+      &:hover {
+        color: $mypie-red;
       }
     }
+  }
+  .return-btn {
+    @include margin(1.5rem null null);
   }
 }

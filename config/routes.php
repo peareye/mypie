@@ -27,6 +27,11 @@ $app->get('/menuboard/{id:[0-9]+}', function ($request, $response, $args) {
     return (new Piton\Controllers\IndexController($this))->showMenuBoard($request, $response, $args);
 })->setName('showMenuBoard');
 
+// Supplier detail
+$app->get('/supplier/{name}', function ($request, $response, $args) {
+    return (new Piton\Controllers\IndexController($this))->showSupplier($request, $response, $args);
+})->setName('showSupplier');
+
 // Home page '/home' in case someone tries to load the home tempate (keyword)
 $app->get('/home', function ($request, $response, $args) {
     return (new Piton\Controllers\IndexController($this))->homePage($request, $response, $args);

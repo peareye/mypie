@@ -47,7 +47,8 @@
                     <div class="nav-description">Menu</div>
                 </a>
             </li>
-            {# For For user levels A=Admin, S=SuperAdmin #} {% if authorized('A') %}
+            {# For user levels A=Admin, S=SuperAdmin #}
+            {% if authorized('A') %}
             <li class="nav-item">
                 <a class="nav-link" href="{{ pathFor('showPages') }}">
                     <div class="nav-icon">

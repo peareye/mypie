@@ -134,3 +134,25 @@ $('.jsSellItemInOut').on('click', function(e) {
         }
     });
 });
+
+// Publish supplier
+var supplierPublishedStates = {
+    'Y': {'newFlag': 'N', 'buttonLabel': 'Unpublish', 'buttonClass': 'btn-danger'},
+    'N': {'newFlag': 'Y', 'buttonLabel': 'Publish', 'buttonClass': 'btn-success'}
+}
+
+$('.jsPublishSupplier').on('click', function(e) {
+    e.preventDefault();
+    var $button = $(this);
+    var flag = $button.data('flag');
+    var id = $button.data('id');
+    var publishUrl = $button.data('url');
+    $.get({
+        url: publishUrl + '/' + id + '/' + supplierPublishedStates[flag].newFlag,
+        success: function(r) {
+            $button.html(supplierPublishedStates[r.publishedStatus].buttonLabel)
+                .data('flag', r.publishedStatus)
+                .toggleClass(supplierPublishedStates[flag].buttonClass + ' ' + supplierPublishedStates[r.publishedStatus].buttonClass);
+        }
+    });
+});

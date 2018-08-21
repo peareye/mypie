@@ -1,8 +1,8 @@
-{% extends '@admin/admin_base.html' %} 
+{% extends '@admin/admin_base.html' %}
 
-{% block title %}Suppliers - Home{% endblock %} 
-{% block blurb %}<p>Add/Edit/Delete Suppliers</p>{% endblock %} 
-{% block id %}suppliers-home{% endblock %} 
+{% block title %}Suppliers - Home{% endblock %}
+{% block blurb %}<p>Add/Edit/Delete Suppliers</p>{% endblock %}
+{% block id %}suppliers-home{% endblock %}
 
 {% block body %}
 
@@ -10,16 +10,16 @@
 
 <div class="page-section">
     <div class="grid-cell add-link">
-            <a href="{{ pathFor('editMenu') }}" data-toggle="tooltip" title="Create a new menu.">
+            <a href="{{ pathFor('supplierHome') }}" data-toggle="tooltip" title="Create a new supplier.">
                     <i class="fas fa-plus" alt="Create Menu"></i> New Supplier</a>
     </div>
     <div class="grid-cell">
         <!--  -->
-        {% include 'admin/includes/_addSupplier.html' %}
+        {% include 'admin/includes/_editSupplier.html' %}
     </div>
     <div class="grid-cell">
         {% include '@admin/includes/_supplierList.html' %}
-        
+
     </div>
 </div>
 

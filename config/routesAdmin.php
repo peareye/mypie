@@ -9,11 +9,6 @@
 
 $app->group('/admin', function () {
 
-        // Supplier edit
-        $this->get('/supplier', function ($request, $response, $args) {
-            return $this->view->render($response, '@admin/pages/suppliers.html');
-        })->setName('supplierHome');
-
     // Admin home
     $this->get('/home', function ($request, $response, $args) {
         return (new Piton\Controllers\AdminController($this))->home($request, $response, $args);
@@ -146,6 +141,43 @@ $app->group('/admin', function () {
         $this->post('/saveitemdefaults', function ($request, $response, $args) {
             return (new Piton\Controllers\AdminMenuController($this))->saveMenuItemDefaults($request, $response, $args);
         })->setName('saveMenuItemDefaults');
+    });
+
+    // Supplier routes
+    $this->group('/supplier', function () {
+        // Supplier management
+        $this->get('[/]', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminSupplierController($this))->editSupplier($request, $response, $args);
+        })->setName('supplierHome');
+
+        // Supplier edit
+        $this->get('/edit/{id:[0-9]{0,}}', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminSupplierController($this))->editSupplier($request, $response, $args);
+        })->setName('editSupplier');
+
+        // Supplier save
+        $this->post('/save', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminSupplierController($this))->saveSupplier($request, $response, $args);
+        })->setName('saveSupplier');
+
+        // Supplier delete
+        $this->get('/delete/{id:[0-9]{0,}}', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminSupplierController($this))->deleteSupplier($request, $response, $args);
+        })->setName('deleteSupplier');
+
+        // Set Supplier Published Flag
+        $this->get('/publish[/{id:[0-9]{0,}}/{flag:[YN]{1}}]', function ($request, $response, $args) {
+            return (new Piton\Controllers\AdminSupplierController($this))->toggleSupplierPublishedFlag($request, $response, $args);
+        })->setName('publishSupplier');
+    })->add(function ($request, $response, $next) {
+        $security = $this->securityHandler;
+
+        if (!$security->isAuthorized('A')) {
+            return $response->withRedirect($this->router->pathFor('adminHome'));
+        }
+
+        // Next call
+        return $next($request, $response);
     });
 })->add(function ($request, $response, $next) {
     // Authentication

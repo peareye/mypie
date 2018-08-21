@@ -93,6 +93,25 @@ CREATE TABLE IF NOT EXISTS `menu_item_default` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE IF NOT EXISTS `supplier` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(300) NOT NULL,
+  `url` varchar(500) NOT NULL,
+  `supplier_url` varchar(500) NULL DEFAULT NULL,
+  `phone` varchar(100) DEFAULT NULL,
+  `content` MEDIUMTEXT DEFAULT NULL,
+  `content_html` MEDIUMTEXT DEFAULT NULL,
+  `logo` MEDIUMTEXT DEFAULT NULL,
+  `published` enum('N','Y') NOT NULL DEFAULT 'N',
+  `created_by` int(11) NOT NULL DEFAULT '1',
+  `created_date` datetime NOT NULL,
+  `updated_by` int(11) NOT NULL DEFAULT '1',
+  `updated_date` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `url_uq` (`url`),
+  KEY `created_date_idx` (`created_date`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
+
 ALTER TABLE `pagelet`
 ADD CONSTRAINT `pagelet_page_id_fk` FOREIGN KEY (`page_id`) REFERENCES `page` (`id`) ON DELETE CASCADE;
 
