@@ -16,14 +16,18 @@
       width: initial;
       height: initial;
     }
-  } // MON TUE WED etc....
+  } 
+    
+// MON TUE WED etc....
   .days {
     display: flex;
     margin-top: auto;
     justify-content: center;
     border: none;
     text-align: center;
-  } // Style for all Boxes of calendar
+  } 
+
+// Style for all Boxes of calendar
   .box {
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: $border-radius;
@@ -66,6 +70,10 @@
     @media screen and (min-width: 768px) {
       top: 12px;
     }
+  }
+  .slick-arrow{
+    background-color: $mypie-light !important;
+    color: $mypie-dark !important;
   }
   .slick-prev:hover,
   .slick-next:hover {

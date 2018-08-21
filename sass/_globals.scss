@@ -1,0 +1,331 @@
+// Global Styles
+
+// HTML Styles
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin-top: 79px;
+  @media (min-width: 768px) {
+    margin-top: 45px;
+  }
+}
+
+section .container,
+section .container-fluid {
+  @include padding(1rem null 2rem);
+}
+
+a:focus {
+  outline: none;
+}
+
+// Custom Styles
+.container {
+  background: $mypie-light;
+}
+
+.span {
+  grid-column: 1 / -1;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.form-group {
+  position: relative;
+}
+
+// Navbar Custom Styles
+
+nav {
+  @include padding(0.1px);
+  box-shadow: $box-shadow;
+}
+.navbar {
+  @include padding(0 null);
+}
+.bg-dark {
+  background-color: $mypie-red !important;
+}
+
+//Navbar Brand Sizing
+.navbar-brand img {
+  height: 70px;
+  width: auto;
+  @include padding(3px null null);
+}
+
+/* Hamburger Styles Credit: http://w3bits.com/animated-hamburger-icons/    */
+
+.hamburger {
+  font-size: 1.5rem;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  -moz-transition: transform 0.2s ease-in-out;
+  -webkit-transition: transform 0.2s ease-in-out;
+  vertical-align: middle;
+  border: 0 none;
+  background: transparent;
+}
+
+button:hover,
+[type="button"]:hover,
+[type="reset"]:hover,
+[type="submit"]:hover {
+  background-color: $mypie-red;
+}
+
+/* Button height fix for Firefox */
+
+.hamburger::-moz-focus-inner {
+  padding: 0;
+  border: 0 none;
+}
+
+/* Focus fix for Chrome */
+
+.hamburger:focus {
+  outline: 0;
+}
+
+/* Styling the icon */
+
+.hamburger:before,
+.hamburger:after {
+  content: "";
+}
+
+.hamburger:before,
+.hamburger .icon,
+.hamburger:after {
+  display: block;
+  width: 100%;
+  height: 0.2em;
+  margin: 0 0 0.2em;
+  transition: transform 0.2s ease-in-out;
+  -moz-transition: transform 0.2s ease-in-out;
+  -webkit-transition: transform 0.2s ease-in-out;
+  border-radius: 0.25em;
+  -moz-border-radius: 25em;
+  -webkit-border-radius: 0.25em;
+  background: rgba(255, 255, 255, 1);
+}
+
+/* Styles for the active `.hamburger` icon */
+
+.hamburger.active:before,
+.hamburger.active .icon,
+.hamburger.active:after {
+  background: white;
+}
+
+/* VERTICAL HAMBURGER */
+
+.hamburger.hamburger-vertical.active {
+  transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+}
+
+/*  CLOSE/CANCEL/CROSS   */
+
+.hamburger.hamburger-cancel.active .icon {
+  transform: scale(0);
+  -moz-transform: scale(0);
+  -webkit-transform: scale(0);
+}
+
+.hamburger.hamburger-cancel.active:before {
+  transform: translateY(0.4em) rotate(135deg);
+  -moz-transform: translateY(0.4em) rotate(135deg);
+  -webkit-transform: translateY(0.4em) rotate(135deg);
+}
+
+.hamburger.hamburger-cancel.active:after {
+  transform: translateY(-0.4em) rotate(-135deg);
+  -moz-transform: translateY(-0.4em) rotate(-135deg);
+  -webkit-transform: translateY(-0.4em) rotate(-135deg);
+}
+
+// Header 
+
+// Logo Styles 
+.logo-container {
+  width: 100vw;
+  @include padding(7px null 7px null);
+  background: $mypie-light; 
+} 
+  
+  .lg-logo-wrapper { 
+    width: 100%; height: 225px; margin: auto;
+  @include padding(null null 7px);
+  background: url("../img/myPieLogoWide.svg") no-repeat;
+  background-position: center center;
+  background-size: cover;
+  object-fit: cover;
+  position: relative;
+}
+
+@media screen and (min-width: 1750px) {
+  .lg-logo-wrapper {
+    height: 330px;
+  }
+}
+
+.lg-logo-wraper img {
+  width: 100%;
+}
+// Footer Styles
+footer {
+  font-size: 0.7rem;
+  line-height: 1.2rem;
+  color: $mypie-light;
+  box-shadow: $box-shadow;
+}
+
+footer .container {
+  background: transparent;
+}
+
+footer a {
+  color: $mypie-light;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: $mypie-dark;
+} 
+
+//Top Footer Styles
+.box-footer1 {
+  background-image: url(../img/aboutbg.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include padding(1rem null null);
+  margin-bottom: -2px;
+  color: $mypie-light;
+}
+
+#contact-us,
+#message-us,
+#our-story {
+  @include padding(null null 20px);
+}
+
+.get-social {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.social-item {
+  @include padding(10px);
+} 
+
+// Footer Form Styles
+.form-control {
+  background: $muted-white;
+  border: $muted-accent-border;
+}
+
+.form-group textarea {
+  resize: none;
+  height: 84px;
+} 
+
+// Placeholder Text
+#contact-name::-webkit-input-placeholder,
+#contact-email::-webkit-input-placeholder,
+#contact-message::-webkit-input-placeholder {
+  color: $muted-white;
+  -webkit-transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
+  transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
+}
+
+#contact-name:focus::-webkit-input-placeholder,
+#contact-email:focus::-webkit-input-placeholder,
+#contact-message:focus::-webkit-input-placeholder {
+  color: rgba($mypie-light-grey, 0.8);
+  color: $muted-grey;
+  opacity: 0.3;
+} 
+#contact-name:-moz-placeholder,
+#contact-email:-moz-placeholder,
+#contact-message:-moz-placeholder {
+  color: rgba($mypie-light, 0.6);
+  color: $muted-white;
+  -webkit-transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
+  transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
+}
+
+#contact-name:focus:-moz-placeholder,
+#contact-email:focus:-moz-placeholder,
+#contact-message:focus:-moz-placeholder {
+  color: rgba($mypie-light-grey, 0.8);
+  color: $muted-grey;
+  opacity: 0.3;
+} 
+
+#contact-name::-moz-placeholder,
+#contact-email::-moz-placeholder,
+#contact-message::-moz-placeholder {
+  opacity: 1;
+  color: rgba($mypie-light, 0.6);
+  color: $muted-white;
+  transition: opacity 500ms;
+}
+
+#contact-name:focus::-moz-placeholder,
+#contact-email:focus::-moz-placeholder,
+#contact-message:focus::-moz-placeholder {
+  color: rgba(167, 167, 167, 0.8);
+  color: $muted-grey;
+  opacity: 0.3;
+} 
+
+#contact-name:-ms-input-placeholder,
+#contact-email:-ms-input-placeholder,
+#contact-message:-ms-input-placeholder {
+  color: rgba($mypie-light, 0.6);
+  background-color: $muted-white;
+  -webkit-transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
+  transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
+}
+
+#contact-name:focus:-ms-input-placeholder,
+#contact-email:focus:-ms-input-placeholder,
+#contact-message:focus:-ms-input-placeholder {
+  color: rgba(167, 167, 167, 0.8);
+  color: $muted-grey;
+  opacity: 0.3;
+} 
+
+// ********* SECONDARY FOOTER ***********
+
+.box-footer2 {
+  background: $mypie-dark;
+  color: $mypie-dark-grey;
+  font-weight: bold;
+  @include padding(1rem null);
+  text-align: center;
+  p {
+    @include margin(0);
+    a {
+      color: $mypie-md-grey;
+    }
+  }
+}

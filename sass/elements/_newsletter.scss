@@ -13,7 +13,9 @@
   .newsletter-signup-content {
     @include padding(null 10px);
     @include margin(null null -35px);
-  } // Media Query
+  } 
+  
+  // Media Query
   @media screen and (min-width: 768px) {
     .newsletter-box {
       @include margin(-20px null null);

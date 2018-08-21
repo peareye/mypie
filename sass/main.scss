@@ -3,11 +3,14 @@
 @import "vendor/base/base";
 @import "bootstrap";
 
-// Variables & Mixins
-@import 'vars/vars';
-@import 'mixins';
+// Variables & Typography
 
-// Custom Styles
-@import 'custom-styles';
-@import 'pages/pages';
+@import 'vars/vars';
+
+// Globals &  Elements
+@import 'globals';
 @import 'elements/elements';
+
+// Page Styles
+@import 'pages/pages';
+

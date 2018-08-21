@@ -1,0 +1,42 @@
+// Submit Button
+
+button, [type='button'], [type='reset'], [type='submit']{
+  appearance: none;
+  background: $mypie-red !important;
+  color: $mypie-light !important;
+  text-transform: uppercase;
+  border: solid 0.1rem rgba($mypie-dark, 0.5);
+  border: $muted-accent-border;
+  border-radius: $border-radius;
+  @include margin(2rem null null);
+  transition: background-color .5s ease;
+  display: inline-block;
+}
+button, [type='button']:hover, [type='reset']:hover, [type='submit']:hover{
+  background-color: $mypie-accent-red !important;
+  color: $muted-white !important;
+}
+.btn{
+  border: none;
+}
+.btn-primary{
+  background-color: $mypie-red;
+  color: $mypie-light;
+}
+.btn-primary:hover,.btn-primary:active{
+  background-color: $mypie-light-grey !important;
+  color: $mypie-dark !important;
+  
+}
+.btn-secondary{
+  background-color: $mypie-secondary;
+}
+.btn-secondary:hover, .btn-secondary:active {
+  background-color: $mypie-light-grey !important;
+  color: $mypie-dark !important;
+}
+.btn-primary:active,.btn-secondary:active, .btn-primary:focus, .btn-secondary:focus{
+  border: none;
+  box-shadow: 0 0 $mypie-dark;
+    
+  }

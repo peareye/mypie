@@ -29,38 +29,24 @@
 .hero-inner {
   width: 100%;
   height: 450px;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, .2);
   overflow: hidden;
   position: relative;
+  text-align: center;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-content {
   color: $mypie-light;
   text-shadow: $text-shadow;
   width: 90%;
-  position: absolute;
-  top: 20px;
-  left: 30px;
+  
   @media (min-width: 576px) {
-    width: 50%;
-  }
-}
-
-.hero-content1 {
-  color: $mypie-light;
-  text-align: center;
-  text-shadow: $text-shadow;
-  width: 90%;
-  height: 100%;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
-  align-content: center;
-  justify-items: center;
-  align-items: center;
-  @media screen and (min-width: 576px) {
-    width: 50%;
+   
   }
 }
 
