@@ -1,40 +1,43 @@
-{% extends '_sidebar_layout.html' %} 
-
-{% block main %}
+{% extends '_sidebar_layout.html' %} {% block main %}
 <section id="supplier-main">
   <div class="container">
-    <h1>MYPIE  Supplier</h1>
+    <h1>MYPIE Supplier </h1>
+    <hr> {% if page.supplier.logo %}
+    <div id="supplier-wrapper">
 
-    <h2 class="supplier-title">{{ page.supplier.name }}</h2>
+      <div class="logo-wrapper">
+          <h2 class="supplier-title">{{ page.supplier.name }}</h2>
+        <div class="supplier-logo-wrapper">
+         
+          <img class="img-fluid supplier-logo" src="{{ page.supplier.logo }}" alt="{{ page.supplier.name }} logo">
+        </div>
+      </div>
+      {% endif %}
 
-    {% if page.supplier.logo %}
-    <div class="supplier-wrapper">
-        <div class="logo-wrapper">
-          <hr>
-            <img class="img-fluid" src="{{ page.supplier.logo }}" alt="{{ page.supplier.name }} logo">
-            <hr>
+      <div class="supplier-blurb-wrapper">
+        <div class="supplier-content-wrapper">
+          {{ page.supplier.content_html }}
+          <p>    <a class="btn btn-primary btn-sm" href="/suppliers">Back to Suppliers</a></p>
+        </div>
+
+        <div class="details-wrapper">
+          {% if page.supplier.supplier_url %}
+          <div class="supplier-url">
+              <i class="fas fa-external-link-alt"></i>
+             <a href="{{ page.supplier.supplier_url }}" target="_blank">{{ page.supplier.name }}</a>
+          </div>
+          {% endif %} {% if page.supplier.phone %}
+          <div class="supplier-phone">
+              <i class="fas fa-phone"></i> 
+            <a href="tel:{{ page.supplier.phone }}">{{ page.supplier.phone }}</a> 
           </div>
           {% endif %}
       
-          <div class="supplier-blurb-wrapper">
-            {{ page.supplier.content_html }}
-          </div>
-          <div class="details-wrapper">
-            {% if page.supplier.supplier_url %}
-            <div class="supplier-url">
-              Visit
-              <a href="{{ page.supplier.supplier_url }}" target="_blank">{{ page.supplier.name }}'s </a> Website
-            </div>
-            {% endif %} {% if page.supplier.phone %}
-            <div class="supplier-phone">
-              Phone:
-              <a href="tel:{{ page.supplier.phone }}">{{ page.supplier.phone }}</a>
-            </div>
-            {% endif %}
-          </div>
-          <div class="return-btn">
-            <a class="btn btn-primary btn-sm" href="/suppliers">Back to Suppliers</a>
-          </div>
+        </div>
+
+      </div>
+
+
     </div>
 
 

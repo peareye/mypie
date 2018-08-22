@@ -33,37 +33,31 @@
 }
 
 // Supplier Details Page
-#supplier-main {
-  .container {}
-  .supplier-title {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 700;
-    text-transform: capitalize;
-    text-align: center;
-    @include margin(2rem null);
-  }
+#supplier-wrapper {
   .logo-wrapper {
-    @media screen and (min-width: 768px) {
-      width: 400px;
-      @include padding(1rem);
-      @include margin(null 2rem 1rem null);
-      float: left;
+    @media screen and (min-width: 376px) {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
     }
-
-    img {
-      width: 100%;
-    }
-  }
-  .supplier-blurb-wrapper {}
-  .details-wrapper {
-    a {
-      color: $mypie-dark-grey;
-      &:hover {
-        color: $mypie-red;
+    .supplier-logo-wrapper {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+      @include padding(1rem null);
+      @media screen and (min-width: 376px) {
+       max-width: 300px;
       }
     }
-  }
-  .return-btn {
-    @include margin(1.5rem null null);
+    .supplier-title {
+      @include margin(null null 1.5rem);
+      @include padding(.5rem null);
+      background-color: $mypie-light-grey;
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
   }
 }

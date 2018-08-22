@@ -31,7 +31,9 @@ a:focus {
 .container {
   background: $mypie-light;
 }
-
+.text-muted{
+  color: $mypie-md-grey; 
+}
 .span {
   grid-column: 1 / -1;
 }
