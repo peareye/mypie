@@ -33,7 +33,7 @@
 }
 
 // Supplier Details Page
-#supplier-wrapper {
+#supplier-main {
   .logo-wrapper {
     @media screen and (min-width: 376px) {
       display: flex;
@@ -51,6 +51,7 @@
        max-width: 300px;
       }
     }
+   
     .supplier-title {
       @include margin(null null 1.5rem);
       @include padding(.5rem null);
@@ -59,5 +60,11 @@
       width: 100%;
       text-align: center;
     }
+   
+  }
+  .supplier-blurb-wrapper{
+      max-width: 900px;
+      @include margin(null auto);
+    
   }
 }

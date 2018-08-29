@@ -20,7 +20,8 @@ body {
 
 section .container,
 section .container-fluid {
-  @include padding(1rem null 2rem);
+  @include padding(100px null 2rem);
+ 
 }
 
 a:focus {
@@ -28,8 +29,11 @@ a:focus {
 }
 
 // Custom Styles
-.container {
+.container, .container-fluid {
   background: $mypie-light;
+}
+.container-fluid {
+  max-width: 1200px;
 }
 .text-muted{
   color: $mypie-md-grey; 
@@ -37,10 +41,13 @@ a:focus {
 .span {
   grid-column: 1 / -1;
 }
+.page-title{
+
+}
+
 
 .section-title {
   text-align: center;
-  margin-bottom: 0.5rem;
 }
 
 .form-group {

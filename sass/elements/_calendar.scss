@@ -74,6 +74,7 @@
   .slick-arrow{
     background-color: $mypie-light !important;
     color: $mypie-dark !important;
+    @include margin(-.5rem null null);
   }
   .slick-prev:hover,
   .slick-next:hover {

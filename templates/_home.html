@@ -3,13 +3,15 @@
 <!-- Hero Section -->
 {% include '/includes/_hero.html' %}
 
+<!-- News Release -->
+{% include '/includes/_news.html' %}
+
 <!-- Full Calendar -->
 {% import '/includes/_full-calendar.html' as calendar %}
 
 <section id="calendar">
-  <div class="container">
-  </div>
-  <div class="container">
+  
+  <div class="container-fluid">
     <div class="slider single-item">
       {% for cal in page.calendar %} 
       
@@ -32,7 +34,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="container">
+        <div class="container-fluid">
           {{ page.pagelets.truck_locations.content_html }}
 
         </div>
@@ -44,7 +46,7 @@
     </div>
   </div>
 </div>
-<div class="container hero-container">
+<div class="container-fluid hero-container">
   <div class="jarallax">
     <img class="jarallax-img" src="{{ basePath() }}assets/img/showcase.jpg">
     <div class="hero-inner">

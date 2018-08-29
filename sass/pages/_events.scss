@@ -1,5 +1,6 @@
 // Events
 #events-main {
+    @include margin(1rem null null);
     .events-card {
         @include margin(3rem null);
     }
