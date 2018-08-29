@@ -41,10 +41,6 @@ a:focus {
 .span {
   grid-column: 1 / -1;
 }
-.page-title{
-
-}
-
 
 .section-title {
   text-align: center;
@@ -53,7 +49,10 @@ a:focus {
 .form-group {
   position: relative;
 }
-
+hr.menu-divider:last-child  {
+  display: none;
+ 
+}
 // Navbar Custom Styles
 
 nav {

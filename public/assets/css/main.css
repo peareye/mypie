@@ -7035,6 +7035,9 @@ a:focus {
 .form-group {
   position: relative; }
 
+hr.menu-divider:last-child {
+  display: none; }
+
 nav {
   padding: 0.1px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5); }
