@@ -205,7 +205,9 @@ footer {
   color: $mypie-light;
   box-shadow: $box-shadow;
 }
-
+.custom-button > button,[type='submit'] {
+  margin-top: 0 !important;
+}
 footer .container {
   background: transparent;
 }
