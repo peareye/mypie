@@ -18,20 +18,16 @@ body {
   }
 }
 
-section .container,
-section .container-fluid {
-  @include padding(100px null 2rem);
- 
-}
-
 a:focus {
   outline: none;
 }
 
 // Custom Styles
-.container, .container-fluid {
+section .container, section .container-fluid {
   background: $mypie-light;
+  @include padding(2rem null);
 }
+
 .container-fluid {
   max-width: 1200px;
 }

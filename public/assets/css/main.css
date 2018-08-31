@@ -7009,16 +7009,13 @@ body {
     body {
       margin-top: 45px; } }
 
-section .container,
-section .container-fluid {
-  padding-top: 100px;
-  padding-bottom: 2rem; }
-
 a:focus {
   outline: none; }
 
-.container, .container-fluid {
-  background: #fff; }
+section .container, section .container-fluid {
+  background: #fff;
+  padding-top: 2rem;
+  padding-bottom: 2rem; }
 
 .container-fluid {
   max-width: 1200px; }
