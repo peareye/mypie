@@ -2,42 +2,36 @@
 
 <div class="calendar-container">
 
-    <h2 class="section-title">{{ month|date('F Y') }}</h2>
-    
-  <div class="calendar-wrapper">
-    <div class="box days">
-      <div class="day">Mon</div>
+  <h2 class="section-title">{{ month|date('F Y') }}</h2>
+
+  <div class="calendar">
+    <div class="calendar__header">
+      <div class="calendar__dayname">Mon</div>
+      <div class="calendar__dayname">Tue</div>
+      <div class="calendar__dayname">Wed</div>
+      <div class="calendar__dayname">Thu</div>
+      <div class="calendar__dayname">Fri</div>
+      <div class="calendar__dayname">Sat</div>
+      <div class="calendar__dayname">Sun</div>
     </div>
-    <div class="box days">
-      <div class="day">Tue</div>
-    </div>
-    <div class="box days">
-      <div class="day">Wed</div>
-    </div>
-    <div class="box days">
-      <div class="day">Thu</div>
-    </div>
-    <div class="box days">
-      <div class="day">Fri</div>
-    </div>
-    <div class="box days">
-      <div class="day">Sat</div>
-    </div>
-    <div class="box days">
-      <div class="day">Sun</div>
-    </div>
-    {% for d in date %}
-    <div class="box {{ d.dateBoxClass }}">
-      <div class="{{ d.dateClass }}">{{ d.date }}</div>
-      <div class="day-content" data-toggle="modal" data-target="#locationModal">
-        {% for l in d.content %}
-        <a href="#calendar">{{ l }}</a><br>
-        {% endfor %}
+
+  
+    <div class="calendar__days">
+        {% for d in date %}
+      <div class="calendar__day {{ d.dateBoxClass }}">
+        <div class="calendar__date {{ d.dateClass }}">
+          {{ d.date }}
+        </div>
+        <div class="calendar__content" data-toggle="modal" data-target="#locationModal">
+          {% for l in d.content %}
+          <a href="#calendar">{{ l }}</a>
+          {% endfor %}
+        </div>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
+
+  
   </div>
 </div>
-
-
 {% endmacro %}

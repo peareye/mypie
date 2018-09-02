@@ -1,60 +1,97 @@
-// Calendar w/Grid Fallback Support
 #calendar {
-  .box {
-    width: calc(100% / 7);
-    height: calc(50vh / 6);
-    float: left;
+  a {
+    text-decoration: none;
+    color: blue;
   }
-  @supports (display: grid) {
-    .calendar-wrapper {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      grid-auto-rows: minmax(70px, auto);
-      grid-gap: 2px;
-    }
-    .box {
-      width: initial;
-      height: initial;
-    }
-  } 
-    
-// MON TUE WED etc....
-  .days {
-    display: flex;
-    margin-top: auto;
-    justify-content: center;
-    border: none;
-    text-align: center;
-  } 
 
-// Style for all Boxes of calendar
-  .box {
-    border: 1px solid rgba(0, 0, 0, 0.1);
+  a:hover {
+    color: red;
+  }
+
+  .calendar {
+    font-size: 8px;
+    padding: 32px 15px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    @media screen and (min-width: 768px){
+      font-size: 16px;
+    }
+  }
+
+  .calendar__header,
+  .calendar__days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+  }
+
+  .calendar__header {
+    padding-bottom: .25rem;
+  }
+
+  .calendar__dayname {
+    font-weight: 700;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .calendar__days {
+    grid-auto-rows: calc(60vh/6);
+    position: relative;
+
+  }
+
+  .calendar__day {
+    border: solid $muted-grey 1px;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     border-radius: $border-radius;
-    padding: 3px;
-    font-size: 0.7rem;
-  }
-  .calendar-day {
-    font-weight: bold;
-  }
-  .prev-month {
-    color: $mypie-light-grey;
-  }
-  .day-content {
-    display: block;
-    text-align: center;
-  }
-  .day-content a {
-    font-size: 0.7rem;
+
+ 
   }
   .today {
     background: rgba($mypie-red, 0.8);
     color: $mypie-light;
-    display: block;
   }
   .today a {
     color: $mypie-light;
+    &:hover{
+      color: $mypie-dark;
+    }
   }
+  .prev-month {
+    color: $mypie-light-grey;
+  }
+  .calendar__date {
+    font-weight: 700;
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .calendar__content {
+  display: flex;
+  flex-flow: column wrap;
+  // width: 100%;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  @include padding(.25rem);
+  @include margin(10px null null);
+  
+  }
+
+
   /* Slick Arrows */
   .slick-prev,
   .slick-next {
@@ -67,26 +104,32 @@
     color: rgba($mypie-dark, 0.3);
     top: 7px;
     transition: all 100ms ease-in-out;
+
     @media screen and (min-width: 768px) {
       top: 12px;
     }
   }
-  .slick-arrow{
+
+  .slick-arrow {
     background-color: $mypie-light !important;
     color: $mypie-dark !important;
     @include margin(-.5rem null null);
   }
+
   .slick-prev:hover,
   .slick-next:hover {
     color: $mypie-red;
     transform: scale(1.3);
   }
+
   .slick-prev {
     left: 0.25rem;
   }
+
   .slick-next {
     right: 0.25rem;
   }
+
   .slick-prev::before {
     content: "\f104";
     font-family: "Font Awesome 5 Free";
@@ -94,6 +137,7 @@
     font-size: 40px;
     border: none;
   }
+
   .slick-next::after {
     content: "\f105";
     font-family: "Font Awesome 5 Free";
@@ -101,6 +145,7 @@
     font-size: 40px;
     border: none;
   }
+
   button:focus {
     outline: none;
     color: $mypie-red;
