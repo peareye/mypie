@@ -7155,8 +7155,7 @@ button:hover,
 footer {
   font-size: 0.8rem;
   line-height: 1.2rem;
-  color: #fff;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5); }
+  color: #fff; }
 
 .custom-button > button, [type='submit'] {
   margin-top: 0 !important; }
@@ -7182,16 +7181,18 @@ footer a:hover {
   margin-bottom: -2px;
   color: #fff; }
 
-.box-logo-footer {
-  display: flex;
-  justify-content: center;
-  padding-top: 1rem;
-  padding-bottom: 1rem; }
-
 #contact-us,
 #message-us,
 #our-story {
   padding-bottom: 20px; }
+
+.footer-title {
+  display: flex;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5); }
 
 .get-social-icons {
   display: grid;
@@ -7211,13 +7212,6 @@ footer a:hover {
 .form-control {
   background: rgba(255, 255, 255, 0.6);
   border: solid 0.1rem rgba(110, 30, 33, 0.5); }
-
-.box-logo-footer {
-  background-color: #fff;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 0;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5); }
 
 .form-group textarea {
   resize: none;

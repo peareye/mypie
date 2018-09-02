@@ -198,7 +198,7 @@ footer {
   font-size: 0.8rem;
   line-height: 1.2rem;
   color: $mypie-light;
-  box-shadow: $box-shadow;
+
 }
 .custom-button > button,[type='submit'] {
   margin-top: 0 !important;
@@ -212,6 +212,7 @@ footer a {
   text-decoration: none;
   @include padding(.5rem);
 }
+
 
 footer a:hover {
   color: $mypie-red;
@@ -227,17 +228,20 @@ footer a:hover {
   @include margin(null null -2px null);
   color: $mypie-light;
 }
-.box-logo-footer{
-  display: flex;
-  justify-content: center;
-  @include padding(1rem null);
-}
+
 #contact-us,
 #message-us,
 #our-story {
   @include padding(null null 20px);
 }
-
+.footer-title{
+  display: flex;
+  justify-content: center;
+  background: $muted-white;
+  @include padding(0);
+  @include margin(null null 1rem);
+  box-shadow: $box-shadow;
+}
 .get-social-icons {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
@@ -263,13 +267,7 @@ footer a:hover {
   background: $muted-white;
   border: $muted-accent-border;
 }
-.box-logo-footer{
-  background-color: $mypie-light;
-  background: rgba($mypie-light, .8);
-  @include padding(0);
-  @include margin(null null 1rem);
-  box-shadow: $box-shadow;
-}
+
 .form-group textarea {
   resize: none;
   height: 84px;
