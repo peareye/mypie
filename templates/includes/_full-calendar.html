@@ -5,7 +5,7 @@
   <h2 class="section-title">{{ month|date('F Y') }}</h2>
 
   <div class="calendar">
-    <div class="calendar__header">
+    <div class="calendar__days">
       <div class="calendar__dayname">Mon</div>
       <div class="calendar__dayname">Tue</div>
       <div class="calendar__dayname">Wed</div>
@@ -13,11 +13,7 @@
       <div class="calendar__dayname">Fri</div>
       <div class="calendar__dayname">Sat</div>
       <div class="calendar__dayname">Sun</div>
-    </div>
-
-  
-    <div class="calendar__days">
-        {% for d in date %}
+      {% for d in date %}
       <div class="calendar__day {{ d.dateBoxClass }}">
         <div class="calendar__date {{ d.dateClass }}">
           {{ d.date }}
@@ -31,7 +27,7 @@
       {% endfor %}
     </div>
 
-  
+
   </div>
 </div>
 {% endmacro %}

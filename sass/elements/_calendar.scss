@@ -10,66 +10,72 @@
 
   .calendar {
     font-size: 8px;
-    padding: 32px 15px;
+   
+    @include padding(2rem 5px);
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    background: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    @media screen and (min-width: 768px){
+  
+    @media screen and (min-width: 768px) {
       font-size: 16px;
     }
   }
 
-  .calendar__header,
   .calendar__days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
+    grid-template-rows: auto repeat(5, calc(50vh/6));
+    grid-auto-rows: calc(50vh/6);
+    grid-gap: 2px;
+    position: relative;
   }
-
-  .calendar__header {
-    padding-bottom: .25rem;
-  }
-
-  .calendar__dayname {
+  .calendar__dayname, {
+    font-size: 10px;
     font-weight: 700;
     display: grid;
     justify-content: center;
     align-items: center;
+    @include padding(.25rem null);
+    border: solid $muted-grey 1px;
+    border-radius: $border-radius;
+
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+    }
   }
 
-  .calendar__days {
-    grid-auto-rows: calc(60vh/6);
-    position: relative;
-
+  h2 {
+    font-size: 2.5rem;
+    @include margin(0);
   }
 
   .calendar__day {
     border: solid $muted-grey 1px;
     position: relative;
-
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-
+    text-align: center;
     border-radius: $border-radius;
-
- 
   }
+
   .today {
     background: rgba($mypie-red, 0.8);
     color: $mypie-light;
   }
+
   .today a {
     color: $mypie-light;
-    &:hover{
+
+    &:hover {
       color: $mypie-dark;
     }
   }
+
   .prev-month {
     color: $mypie-light-grey;
   }
+
   .calendar__date {
     font-weight: 700;
     position: absolute;
@@ -79,18 +85,13 @@
   }
 
   .calendar__content {
-  display: flex;
-  flex-flow: column wrap;
-  // width: 100%;
-  justify-content: center;
-  align-items: center;
-  justify-items: center;
-  align-content: center;
-  @include padding(.25rem);
-  @include margin(10px null null);
-  
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    @include padding(1rem 3px);
   }
-
 
   /* Slick Arrows */
   .slick-prev,
@@ -102,11 +103,11 @@
     z-index: 1;
     line-height: 1;
     color: rgba($mypie-dark, 0.3);
-    top: 7px;
+    top: 9px;
     transition: all 100ms ease-in-out;
 
     @media screen and (min-width: 768px) {
-      top: 12px;
+      top: 11px;
     }
   }
 
@@ -114,6 +115,7 @@
     background-color: $mypie-light !important;
     color: $mypie-dark !important;
     @include margin(-.5rem null null);
+    @include margin(-5px null null);
   }
 
   .slick-prev:hover,

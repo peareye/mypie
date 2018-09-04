@@ -8,7 +8,6 @@ button, [type='button'], [type='reset'], [type='submit']{
   border: solid 0.1rem rgba($mypie-dark, 0.5);
   border: $muted-accent-border;
   border-radius: $border-radius;
-  @include margin(2rem null null);
   transition: background-color .5s ease;
   display: inline-block;
 }

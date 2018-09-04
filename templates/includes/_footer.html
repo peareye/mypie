@@ -1,86 +1,91 @@
-<footer id="footer1">
-  <div class="box-footer1">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="footer-title">
-            <img src="/assets/img/black-ep3.png" alt="MYPIE.LONDON">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-
-        <!-- Contact Form column -->
-        <div id="contact-us" class="col-sm-12 col-lg-6">
-          {% set emailSubjectLine = 'MyPie Website Enquiry' %}
-          {% include 'includes/_contactForm.html' %}
-        </div>
-                <!-- Contact Information & Social Media Icons -->
-                <div class="col-sm-12 col-lg-6">
-                    <div class="row">
-                      <div class="col-6">
-                        <h4 class="footer-title">Contact Us</h4>
-                        <div class="location">
-                          <p>MYPIE
-                            <br /> 60 Fendall Road
-                            <br> Epsom, KT199NZ United Kingdom
-                          </p>
-                        </div>
-          
-                        <div class="phone">
-                          <p>Phone:
-                            <a href="tel:+447590627118">+44 (0)7590 627118</a>
-                          </p>
-          
-                        </div>
-                        <div class="email">
-                          <a href="mailto:pies@mypie.london" title="">pies@mypie.london</a>
-                        </div>
-                      </div>
-                      <div class="col-6">
-                        <h4 class="footer-title">Get Social with Us</h4>
-                        <div class="get-social-icons">
-                          <a class="social-item" target="_blank" href="https://twitter.com/MYPIE_LDN">
-                            <div class="social-link">
-                              <span class="social-icon">
-                                <i class="fab fa-twitter fa-4x"></i>
-                              </span>
-                              <h3 class="social-title d-none">Twitter</h3>
-                              <span class="social-info d-none"> Follow us on twitter</span>
-                            </div>
-                          </a>
-                          <a class="social-item" target="_blank" href="https://www.facebook.com/pages/MYPIE/159272247437186">
-                            <div class="social-link">
-                              <span class="social-icon">
-                                <i class="fab fa-facebook fa-4x"></i>
-                              </span>
-                              <h3 class="social-title d-none">Facebook</h3>
-                              <span class="social-info d-none">Join The Conversation </span>
-                            </div>
-                          </a>
-                          <a class="social-item" target="_blank" href="http://instagram.com/mypie_ldn">
-                            <div class="social-link">
-                              <span class="social-icon">
-                                <i class="fab fa-instagram fa-4x"></i>
-                              </span>
-                              <h3 class="social-title d-none">Instagram</h3>
-                            </div>
-                          </a>
-                        </div>
-          
-                      </div>
-          
-                    </div>
-          
+<footer id="footer">
+  <!-- Primary Footer -->
+  <div class="footer__primary">
+    <div class="container-fluid">
+      <!-- Contact Form, Contact Info, and Social Media Icons -->
+        <div class="row">
+          <!-- Contact Info / Social Icons -->
+          <div class="col-md-6">
+              <!-- Contact-Details -->
+              <div class="footer__contact-details-wrapper">
+                <h4 class="footer__title">Contact Us</h4>
+                <div class="footer__contact-details">
+                  <div class="contact-info">
+                    <p>MYPIE
+                      <br>60 Fendall Road
+                      <br>Epsom, KT199NZ 
+                      <br>United Kingdom
+                    </p>
+                    <p class="phone">Phone:&nbsp;&nbsp;
+                      <a href="tel:+447590627118">+44(0)7590627118</a>
+                    </p>
+                    <p class="email">Email:&nbsp;&nbsp;
+                      <a href="mailto:pies@mypie.london">pies@mypie.london</a>
+                    </p>
                   </div>
-      </div>
+                </div>
+              </div>
+              <!-- End of footer__contact-details -->
+              <!-- Social Icons Container -->
+              <div class="footer__get-social-icons-wrapper">
+                <h4 class="footer__title">Get Social with Us</h4>
+                <!-- Footer get-social-icons Block -->
+                <div class="footer__get-social-icons">
+                  <!-- twitter -->
+                  <a class="social-item" target="_blank" href="https://twitter.com/MYPIE_LDN">
+                    <div class="social-link">
+                      <span class="social-icon">
+                        <i class="fab fa-3x fa-twitter"></i>
+                      </span>
+                      <h3 class="social-title d-none">Twitter</h3>
+                      <span class="social-info d-none"> Follow us on twitter</span>
+                    </div>
+                  </a>
+                  <!-- facebook -->
+                  <a class="social-item" target="_blank" href="https://www.facebook.com/pages/MYPIE/159272247437186">
+                    <div class="social-link">
+                      <span class="social-icon">
+                        <i class="fab fa-3x fa-facebook"></i>
+                      </span>
+                      <h3 class="social-title d-none">Facebook</h3>
+                      <span class="social-info d-none">Join The Conversation </span>
+                    </div>
+                  </a>
+                  <!-- instagram -->
+                  <a class="social-item" target="_blank" href="http://instagram.com/mypie_ldn">
+                    <div class="social-link">
+                      <span class="social-icon">
+                        <i class="fab fa-3x fa-instagram"></i>
+                      </span>
+                      <h3 class="social-title d-none">Instagram</h3>
+                    </div>
+                  </a>
+                </div>
+                <!-- End of get-social-icons Block -->
+              </div>
+              <!-- End of Social Icons Container -->
+          </div>
+          <!-- End of Contact Info / Social Icons -->
+          
+            <!-- Contact Form -->
+            <div class="col-md-6">
+                {% set emailSubjectLine = 'MyPie Website Enquiry' %}
+                {% include 'includes/_contactForm.html' %}
+              </div>
+        </div>
     </div>
+    <!-- End of .container-fluid -->
   </div>
+  <!-- End of footer__primary -->
 
-  <div class="box-footer2">
-    <div class="container">
+  <!-- Secondary Footer 2 Copyright etc -->
+  <div class="footer__secondary">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-12 center-align">
+            <div class="footer__sub-footer">
+                <img src="/assets/img/ep.png" alt="MYPIE.LONDON">
+              </div>
           <p>&copy; 2018 MYPIE. All rights reserved.</p>
           <p> Website designed by
             <a href="http://moritzmedia.com"> Moritz Media</a>.</p>
@@ -88,5 +93,4 @@
       </div>
     </div>
   </div>
-
 </footer>

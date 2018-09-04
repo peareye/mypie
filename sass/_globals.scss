@@ -1,5 +1,4 @@
 // Global Styles
-
 // HTML Styles
 html {
   box-sizing: border-box;
@@ -13,6 +12,7 @@ html {
 
 body {
   margin-top: 79px;
+
   @media (min-width: 768px) {
     margin-top: 45px;
   }
@@ -23,7 +23,8 @@ a:focus {
 }
 
 // Custom Styles
-section .container, section .container-fluid {
+section .container,
+section .container-fluid {
   background: $mypie-light;
   @include padding(2rem null);
 }
@@ -31,9 +32,11 @@ section .container, section .container-fluid {
 .container-fluid {
   max-width: 1200px;
 }
-.text-muted{
-  color: $mypie-md-grey; 
+
+.text-muted {
+  color: $mypie-md-grey;
 }
+
 .span {
   grid-column: 1 / -1;
 }
@@ -45,19 +48,21 @@ section .container, section .container-fluid {
 .form-group {
   position: relative;
 }
-hr.menu-divider:last-child  {
-  display: none;
- 
-}
-// Navbar Custom Styles
 
+hr.menu-divider:last-child {
+  display: none;
+}
+
+// Navbar Custom Styles
 nav {
   @include padding(0.1px);
   box-shadow: $box-shadow;
 }
+
 .navbar {
   @include padding(0 null);
 }
+
 .bg-dark {
   background-color: $mypie-red !important;
 }
@@ -70,7 +75,6 @@ nav {
 }
 
 /* Hamburger Styles Credit: http://w3bits.com/animated-hamburger-icons/    */
-
 .hamburger {
   font-size: 1.5rem;
   display: inline-block;
@@ -94,20 +98,17 @@ button:hover,
 }
 
 /* Button height fix for Firefox */
-
 .hamburger::-moz-focus-inner {
   padding: 0;
   border: 0 none;
 }
 
 /* Focus fix for Chrome */
-
 .hamburger:focus {
   outline: 0;
 }
 
 /* Styling the icon */
-
 .hamburger:before,
 .hamburger:after {
   content: "";
@@ -130,7 +131,6 @@ button:hover,
 }
 
 /* Styles for the active `.hamburger` icon */
-
 .hamburger.active:before,
 .hamburger.active .icon,
 .hamburger.active:after {
@@ -138,7 +138,6 @@ button:hover,
 }
 
 /* VERTICAL HAMBURGER */
-
 .hamburger.hamburger-vertical.active {
   transform: rotate(270deg);
   -moz-transform: rotate(270deg);
@@ -146,7 +145,6 @@ button:hover,
 }
 
 /*  CLOSE/CANCEL/CROSS   */
-
 .hamburger.hamburger-cancel.active .icon {
   transform: scale(0);
   -moz-transform: scale(0);
@@ -166,16 +164,17 @@ button:hover,
 }
 
 // Header 
-
 // Logo Styles 
 .logo-container {
   width: 100vw;
   @include padding(7px null 7px null);
-  background: $mypie-light; 
-} 
-  
-  .lg-logo-wrapper { 
-    width: 100%; height: 225px; margin: auto;
+  background: $mypie-light;
+}
+
+.lg-logo-wrapper {
+  width: 100%;
+  height: 225px;
+  margin: auto;
   @include padding(null null 7px);
   background: url("../img/myPieLogoWide.svg") no-repeat;
   background-position: center center;
@@ -193,165 +192,4 @@ button:hover,
 .lg-logo-wraper img {
   width: 100%;
 }
-// Footer Styles
-footer {
-  font-size: 0.8rem;
-  line-height: 1.2rem;
-  color: $mypie-light;
 
-}
-.custom-button > button,[type='submit'] {
-  margin-top: 0 !important;
-}
-footer .container {
-  background: transparent;
-}
-
-footer a {
-  color: $mypie-light;
-  text-decoration: none;
-  @include padding(.5rem);
-}
-
-
-footer a:hover {
-  color: $mypie-red;
-} 
-
-//Top Footer Styles
-.box-footer1 {
-  background-image: url(../img/aboutbg.jpg);
-  background-position: left bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  @include padding(1rem null);
-  @include margin(null null -2px null);
-  color: $mypie-light;
-}
-
-#contact-us,
-#message-us,
-#our-story {
-  @include padding(null null 20px);
-}
-.footer-title{
-  display: flex;
-  justify-content: center;
-  background: $muted-white;
-  @include padding(0);
-  @include margin(null null 1rem);
-  box-shadow: $box-shadow;
-}
-.get-social-icons {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
-
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-}
-.social-icon {
-  @include padding(10px);
-  a{
-    color: $mypie-light;
-    &:hover{
-      color: $mypie-red;
-    }
-  }
-
-} 
-
-// Footer Form Styles
-.form-control {
-  background: $muted-white;
-  border: $muted-accent-border;
-}
-
-.form-group textarea {
-  resize: none;
-  height: 84px;
-} 
-
-// Placeholder Text
-#contact-name::-webkit-input-placeholder,
-#contact-email::-webkit-input-placeholder,
-#contact-message::-webkit-input-placeholder {
-  color: $muted-white;
-  -webkit-transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
-  transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
-}
-
-#contact-name:focus::-webkit-input-placeholder,
-#contact-email:focus::-webkit-input-placeholder,
-#contact-message:focus::-webkit-input-placeholder {
-  color: rgba($mypie-light-grey, 0.8);
-  color: $muted-grey;
-  opacity: 0.3;
-} 
-#contact-name:-moz-placeholder,
-#contact-email:-moz-placeholder,
-#contact-message:-moz-placeholder {
-  color: rgba($mypie-light, 0.6);
-  color: $muted-white;
-  -webkit-transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
-  transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
-}
-
-#contact-name:focus:-moz-placeholder,
-#contact-email:focus:-moz-placeholder,
-#contact-message:focus:-moz-placeholder {
-  color: rgba($mypie-light-grey, 0.8);
-  color: $muted-grey;
-  opacity: 0.3;
-} 
-
-#contact-name::-moz-placeholder,
-#contact-email::-moz-placeholder,
-#contact-message::-moz-placeholder {
-  opacity: 1;
-  color: rgba($mypie-light, 0.6);
-  color: $muted-white;
-  transition: opacity 500ms;
-}
-
-#contact-name:focus::-moz-placeholder,
-#contact-email:focus::-moz-placeholder,
-#contact-message:focus::-moz-placeholder {
-  color: rgba(167, 167, 167, 0.8);
-  color: $muted-grey;
-  opacity: 0.3;
-} 
-
-#contact-name:-ms-input-placeholder,
-#contact-email:-ms-input-placeholder,
-#contact-message:-ms-input-placeholder {
-  color: rgba($mypie-light, 0.6);
-  background-color: $muted-white;
-  -webkit-transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
-  transition: opacity 500ms ease-in-out, color 500ms ease-in-out;
-}
-
-#contact-name:focus:-ms-input-placeholder,
-#contact-email:focus:-ms-input-placeholder,
-#contact-message:focus:-ms-input-placeholder {
-  color: rgba(167, 167, 167, 0.8);
-  color: $muted-grey;
-  opacity: 0.3;
-} 
-
-// ********* SECONDARY FOOTER ***********
-
-.box-footer2 {
-  background: $mypie-dark;
-  color: $mypie-dark-grey;
-  font-weight: bold;
-  @include padding(1rem null);
-  text-align: center;
-  p {
-    @include margin(0);
-    a {
-      color: $mypie-md-grey;
-    }
-  }
-}
