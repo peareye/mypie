@@ -7499,7 +7499,8 @@ button, [type='button'], [type='reset'], [type='submit'] {
   border: solid 0.1rem rgba(110, 30, 33, 0.5);
   border-radius: 4px;
   transition: background-color .5s ease;
-  display: inline-block; }
+  display: inline-block;
+  margin-bottom: 1rem; }
 
 button, [type='button']:hover, [type='reset']:hover, [type='submit']:hover {
   background-color: #6e1e21 !important;

@@ -10,6 +10,7 @@ button, [type='button'], [type='reset'], [type='submit']{
   border-radius: $border-radius;
   transition: background-color .5s ease;
   display: inline-block;
+  @include margin(null null 1rem);
 }
 button, [type='button']:hover, [type='reset']:hover, [type='submit']:hover{
   background-color: $mypie-accent-red !important;
