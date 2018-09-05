@@ -4,8 +4,13 @@
     <div class="container-fluid">
       <!-- Contact Form, Contact Info, and Social Media Icons -->
         <div class="row">
+             <!-- Contact Form -->
+             <div class="col-md-6 order-md-2">
+                {% set emailSubjectLine = 'MyPie Website Enquiry' %}
+                {% include 'includes/_contactForm.html' %}
+              </div>
           <!-- Contact Info / Social Icons -->
-          <div class="col-md-6">
+          <div class="col-md-6 order-md-1">
               <!-- Contact-Details -->
               <div class="footer__contact-details-wrapper">
                 <h4 class="footer__title">Contact Us</h4>
@@ -67,11 +72,7 @@
           </div>
           <!-- End of Contact Info / Social Icons -->
           
-            <!-- Contact Form -->
-            <div class="col-md-6">
-                {% set emailSubjectLine = 'MyPie Website Enquiry' %}
-                {% include 'includes/_contactForm.html' %}
-              </div>
+         
         </div>
     </div>
     <!-- End of .container-fluid -->
