@@ -7047,6 +7047,9 @@ nav {
 .bg-dark {
   background-color: #ed1c24 !important; }
 
+.dropdown-divider {
+  border-top: 2px solid rgba(255, 255, 255, 0.5) !important; }
+
 .navbar-brand img {
   height: 70px;
   width: auto;
@@ -7582,21 +7585,18 @@ button, [type='button']:hover, [type='reset']:hover, [type='submit']:hover {
   margin-right: auto;
   margin-left: auto; }
 
-#about-main .events-card {
-  margin-top: 3rem;
-  margin-bottom: 3rem; }
-#about-main .events-content {
-  display: flex;
-  flex-direction: column; }
-#about-main .content-wrapper {
-  padding: 1rem; }
+#about-main .container {
+  overflow: hidden; }
 #about-main img {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
-  object-fit: cover;
-  border-radius: 4px; }
-#about-main hr {
-  margin-right: 5rem;
-  margin-left: 5rem; }
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 1rem; }
+  @media screen and (min-width: 992px) {
+    #about-main img {
+      float: left;
+      clip-path: polygon(0% 0px, 90% 0%, 65% 85%, 0px 85%);
+      shape-outside: polygon(0px 0px, 0px 385px, 454px 385px, 620px 0px); } }
 
 #events-main {
   margin-top: 1rem; }

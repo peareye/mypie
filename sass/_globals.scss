@@ -66,7 +66,9 @@ nav {
 .bg-dark {
   background-color: $mypie-red !important;
 }
-
+.dropdown-divider{
+  border-top: 2px solid rgba($mypie-light, .5)!important;
+}
 //Navbar Brand Sizing
 .navbar-brand img {
   height: 70px;
