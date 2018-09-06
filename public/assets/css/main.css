@@ -7588,6 +7588,8 @@ button, [type='button']:hover, [type='reset']:hover, [type='submit']:hover {
 #about-main .events-content {
   display: flex;
   flex-direction: column; }
+#about-main .content-wrapper {
+  padding: 1rem; }
 #about-main img {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
   object-fit: cover;

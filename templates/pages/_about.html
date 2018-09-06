@@ -1,39 +1,45 @@
-{% extends '_sidebar_layout.html' %} {% block main %}
+{% extends '_sidebar_layout.html' %}
 
-<section id="events-main">
-      <div class="container-fluid">
-            <!-- Page Title -->
-            {% for p in page.pagelets if p.name == 'title' %}
-            <h1 class="page-title">{{ p.title }}</h1>
-            {{ p.content_html }} {% endfor %}
+{% block main %}
+
+<section id="about-main">
+    <div class="container-fluid">
+        <!-- Page Title -->
+        {% for p in page.pagelets if p.name == 'title' %}
+        <h1 class="page-title">{{ p.title }}</h1>
+        {{ p.content_html }}
+        {% endfor %}
 
 
-      <!-- Page Content -->
-      <div class="row events-card">
-                  <div class="col-md-6 events-content">
-                              {% for p in page.pagelets if p.name == 'about_us' %}
-                              <h2 class="">{{ p.title }}</h2>
-                                    {{ p.content_html }} {% endfor %}
-                  </div>
-                  <div class="col-md-6">
-                      <img class="img-fluid mx-auto" src="assets/img/mypie-chris.jpg" alt="Chris Brumby serving up delicious pies">
-                  </div>
-              </div>       
-              <hr>
-              <div class="row events-card">
-                  <div class="col-md-6 events-content order-md-2">
-                              {% for p in page.pagelets if p.name == 'philosophy' %}
-                              <h2 class="">{{ p.title }}</h2>
-                                    {{ p.content_html }} {% endfor %}
-                  </div>
-                  <div class="col-md-6 order-md-1">
-                      <img class="img-fluid mx-auto" src="assets/img/mypie-pie.jpg" alt="Hot Pie in biodegradable takeaway container">
-                  </div>
-              </div>
+<!-- Page Content -->
+<div class="row">
+    <div class="col-12">
+            {% for p in page.pagelets if p.name == 'about_us' %}
+            <h2 class="d-none ">{{ p.title }}</h2>   
+            {% endfor %}
+    </div>
+
+
+    <div class="col-xs-12 col-sm-6">
+            <img class="img-fluid mx-auto" src="assets/img/mypie-chris1.jpg" alt="Chris Brumby serving up delicious pies">
+    </div>
+
+    <div class="col-xs-12 col-sm-6">
+            {% for p in page.pagelets if p.name == 'about_us' %}
+            <h2 class="d-none">{{ p.title }}</h2>
+            <div class="content-wrapper">
+                    {{ p.content_html }} 
+            </div>
          
+            {% endfor %}
+    </div>
+</div>
+
+      
 
 
-      </div>
+
+    </div>
 </section>
 
 
