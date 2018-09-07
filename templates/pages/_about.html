@@ -13,19 +13,14 @@
 
         <!-- Page Content -->
         
-                {% for p in page.pagelets if p.name == 'about_us' %}
-                <h2 class="d-none ">{{ p.title }}</h2>
-                {% endfor %}
 
-        <img class="img-fluid mx-auto" src="assets/img/mypie-chris1.jpg" alt="Chris Brumby serving up delicious pies">
+        <img class="about-img" src="assets/img/mypie-chris2.jpg" alt="Chris Brumby serving up delicious pies">
 
              
 
                 {% for p in page.pagelets if p.name == 'about_us' %}
-                <h2 class="d-none">{{ p.title }}</h2>
-              
-                    {{ p.content_html }}
-               
+            
+                    {{ p.content_html }}   
 
                 {% endfor %}
             </div>

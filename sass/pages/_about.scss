@@ -1,36 +1,39 @@
 // About
 #about-main {
-
-    // .events-card {
-    //     @include margin(3rem null);
-    // }
-    // .events-content {
-    //     display: flex;
-    //     flex-direction: column;
-    // }
-    // .content-wrapper {
-    //     @include padding(1rem);
-    // }
-    .container {
-        // background-color: coral;
-        overflow: hidden;
-    }
-
-    img {
-        // width: 100%;
+    .about-img {
+        @include margin(null 1rem .5rem null);
         box-shadow: $box-shadow;
-        border-radius: $border-radius;
-        display: block;
-        @include margin(null null 1rem);
+        width: 100%;
 
-        @media screen and (min-width: 992px) {
+        @supports (clip-path: circle()) {
             float: left;
-            clip-path: polygon(0% 0px, 90% 0%, 65% 85%, 0px 85%);
-            shape-outside: polygon(
-                0px 0px, // top
-                0px 385px, // bottom
-                454px 385px, // bottom
-                620px 0px); // top
+            width: 50%;
+            clip-path: polygon(0% 0%, 86% 0%, 94% 50%, 100% 57%, 100% 100%, 0% 100%);
+            shape-outside: polygon(0% 0%, 86% 0%, 94% 50%, 100% 57%, 100% 100%, 0% 100%);
         }
+    }
+    h1{
+        @supports (clip-path: circle()){
+            @include margin(null null 6rem null);
+        }
+    }
+    p:first-of-type{
+        @supports (clip-path: circle()){
+        @include margin(-5rem null null null);
+        }
+    }
+    @media screen and (max-width: 414px) {
+        .about-img{
+            all: unset;
+            width: 100%;
+            box-shadow: $box-shadow;
+        }
+        h1{
+            @include margin(null null 1rem null);
+        }
+        p:first-of-type{
+            @include margin(1rem null null null);
+        }
+        
     }
 }

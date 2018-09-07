@@ -1,47 +1,69 @@
 #calendar {
   a {
     text-decoration: none;
-    color: blue;
-  }
+    color: $mypie-dark-grey;
 
-  a:hover {
-    color: red;
+    &:hover {
+      color: $mypie-red
+    }
   }
 
   .calendar {
     font-size: 8px;
-   
-    @include padding(2rem 5px);
+    @include padding(1.5rem 5px 1rem);
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  
+
     @media screen and (min-width: 768px) {
       font-size: 16px;
     }
   }
 
-  .calendar__days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: auto repeat(5, calc(50vh/6));
-    grid-auto-rows: calc(50vh/6);
-    grid-gap: 2px;
-    position: relative;
+  .calendar__grid {
+    @supports (display: gridd) {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: auto repeat(5, calc(50vh/6));
+      grid-auto-rows: calc(50vh/6);
+      grid-gap: 2px;
+      position: relative;
+    }
   }
-  .calendar__dayname, {
+
+  .calendar__dayname {
+    float: left;
+    width: calc(100%/7);
+    text-align: center;
     font-size: 10px;
     font-weight: 700;
-    display: grid;
-    justify-content: center;
-    align-items: center;
     @include padding(.25rem null);
     border: solid $muted-grey 1px;
     border-radius: $border-radius;
 
     @media screen and (min-width: 768px) {
       font-size: 16px;
+    }
+
+    @supports (display: gridd) {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .calendar__day {
+    float: left;
+    width: calc(100%/7);
+    height: calc(50vh/6);
+    border: solid $muted-grey 1px;
+    position: relative;
+    text-align: center;
+    border-radius: $border-radius;
+    @supports (display: gridd){
+      width: 100%;
+      display: flex;
     }
   }
 
@@ -50,14 +72,7 @@
     @include margin(0);
   }
 
-  .calendar__day {
-    border: solid $muted-grey 1px;
-    position: relative;
-    width: 100%;
-    display: flex;
-    text-align: center;
-    border-radius: $border-radius;
-  }
+
 
   .today {
     background: rgba($mypie-red, 0.8);

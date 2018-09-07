@@ -7,6 +7,7 @@
 
     &:hover {
       color: $mypie-accent-red;
+      text-shadow: none;
     }
   }
 
@@ -26,7 +27,9 @@
         size: cover;
         repeat: no-repeat;
         color: $mypie-md-grey;
-      };
+      }
+
+      ;
     }
 
     &__title {
@@ -87,14 +90,11 @@
   background: $mypie-dark;
   color: $mypie-dark-grey;
   font-weight: bold;
+  font-size: .7rem;
   @include padding(1rem null);
   text-align: center;
 
   p {
     @include margin(0);
-
-    a {
-      color: $mypie-md-grey;
-    }
   }
 }
