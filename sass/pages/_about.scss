@@ -8,8 +8,8 @@
         @supports (clip-path: circle()) {
             float: left;
             width: 50%;
-            clip-path: polygon(0% 0%, 86% 0%, 94% 50%, 100% 57%, 100% 100%, 0% 100%);
-            shape-outside: polygon(0% 0%, 86% 0%, 94% 50%, 100% 57%, 100% 100%, 0% 100%);
+            // clip-path: polygon(0% 0%, 86% 0%, 94% 50%, 100% 57%, 100% 100%, 0% 100%);
+            // shape-outside: polygon(0% 0%, 86% 0%, 94% 50%, 100% 57%, 100% 100%, 0% 100%);
         }
     }
     h1{

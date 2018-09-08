@@ -7545,6 +7545,11 @@ button, [type='button']:hover, [type='reset']:hover, [type='submit']:hover {
   border: none;
   box-shadow: 0 0 #231f20; }
 
+#suppliers-main .title-blurb {
+  width: 70%;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  margin-left: auto; }
 #suppliers-main .card-deck {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 350px));
@@ -7609,9 +7614,7 @@ button, [type='button']:hover, [type='reset']:hover, [type='submit']:hover {
   @supports (clip-path: circle()) {
     #about-main .about-img {
       float: left;
-      width: 50%;
-      clip-path: polygon(0% 0%, 86% 0%, 94% 50%, 100% 57%, 100% 100%, 0% 100%);
-      shape-outside: polygon(0% 0%, 86% 0%, 94% 50%, 100% 57%, 100% 100%, 0% 100%); } }
+      width: 50%; } }
 @supports (clip-path: circle()) {
   #about-main h1 {
     margin-bottom: 6rem; } }

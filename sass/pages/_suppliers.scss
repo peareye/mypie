@@ -1,5 +1,10 @@
 //Suppliers Page
 #suppliers-main {
+  .title-blurb{
+    width: 70%;
+   
+    @include margin(null auto 2rem);
+  }
   .card-deck {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 350px));
