@@ -1,39 +1,32 @@
 // About
 #about-main {
-    .about-img {
-        @include margin(null 1rem .5rem null);
-        box-shadow: $box-shadow;
-        width: 100%;
-
-        @supports (clip-path: circle()) {
-            float: left;
-            width: 50%;
-            // clip-path: polygon(0% 0%, 86% 0%, 94% 50%, 100% 57%, 100% 100%, 0% 100%);
-            // shape-outside: polygon(0% 0%, 86% 0%, 94% 50%, 100% 57%, 100% 100%, 0% 100%);
-        }
-    }
-    h1{
-        @supports (clip-path: circle()){
+    h1 {
+        @include margin(null null 1rem null);
+      
+        @media screen and (min-width: 768px) {
             @include margin(null null 6rem null);
         }
     }
-    p:first-of-type{
-        @supports (clip-path: circle()){
-        @include margin(-5rem null null null);
+
+    .about-img {
+        width: 100%;
+        box-shadow: $box-shadow;
+        @include margin(auto);
+        box-shadow: $box-shadow;
+  
+        
+        @media screen and (min-width: 768px) {
+            float: left;
+            width: 50%;
+            @include margin(null 1rem 1rem null);
+        
         }
     }
-    @media screen and (max-width: 414px) {
-        .about-img{
-            all: unset;
-            width: 100%;
-            box-shadow: $box-shadow;
+
+    p:first-of-type {
+        @include margin(1rem null null null);
+        @media screen and (min-width: 768px) {
+        @include margin(-5rem null null null);
         }
-        h1{
-            @include margin(null null 1rem null);
-        }
-        p:first-of-type{
-            @include margin(1rem null null null);
-        }
-        
     }
 }

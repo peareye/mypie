@@ -3,29 +3,22 @@
 {% block main %}
 
 <section id="about-main">
-    <div class="container">
+    <div class="container-fluid">
         <!-- Page Title -->
         {% for p in page.pagelets if p.name == 'title' %}
         <h1 class="page-title">{{ p.title }}</h1>
         {{ p.content_html }}
         {% endfor %}
 
-
         <!-- Page Content -->
         
-
         <img class="about-img" src="assets/img/mypie-chris2.jpg" alt="Chris Brumby serving up delicious pies">
-
-             
-
                 {% for p in page.pagelets if p.name == 'about_us' %}
             
                     {{ p.content_html }}   
 
                 {% endfor %}
-            </div>
-      
+            </div>      
 </section>
-
 
 {% endblock %}
