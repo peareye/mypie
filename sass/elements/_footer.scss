@@ -50,8 +50,8 @@
       width: 100%;
       height: 100%;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
-      grid-gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+      grid-gap: 1rem;
     .social-item{
      
       justify-self: center;
