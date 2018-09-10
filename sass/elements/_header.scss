@@ -8,7 +8,7 @@
 .lg-logo-wrapper {
   width: 100%;
   height: 225px;
-  margin: auto;
+  @include margin(.5rem auto);
   @include padding(null null 7px);
   background: url("../img/animate/myPieLogoWide.svg") no-repeat;
   background-position: center center;
