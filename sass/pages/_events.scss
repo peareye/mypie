@@ -1,23 +1,16 @@
 // Events
 #events-main {
+
     // @include margin(1rem null null);
- 
     .events-card {
         @include margin(.5rem null);
-        img{
+
+        img {
             @include margin(null null 1rem);
+            box-shadow: $box-shadow;
+            object-fit: cover;
+            border-radius: $border-radius;
+            width: 100%;
         }
-    }
-    .events-content {
-        // display: flex;
-        // flex-direction: column;
-    }
-    img {
-        box-shadow: $box-shadow;
-        object-fit: cover;
-        border-radius: $border-radius;
-    }
-    hr {
-        // @include margin(null 5rem);
     }
 }
