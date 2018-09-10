@@ -4,7 +4,10 @@
         <!-- Page Title -->
         {% for p in page.pagelets if p.name == 'title' %}
         <h1 class="page-title">{{ p.title }}</h1>
-        {{ p.content_html }}
+        <div class="page-title-blurb">
+                {{ p.content_html }}
+        </div>
+      
         {% endfor %}
         <div class="row">
             <div class="col-12">
