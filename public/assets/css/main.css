@@ -7223,9 +7223,10 @@ button:hover,
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
-    grid-gap: 1rem;
-    justify-items: center; }
+    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+    grid-gap: 2rem; }
+    #footer .footer__get-social-icons .social-item {
+      justify-self: center; }
   #footer .form-control {
     background: #efefef;
     color: #231f20;
