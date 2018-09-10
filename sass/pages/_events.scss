@@ -1,12 +1,16 @@
 // Events
 #events-main {
-    @include margin(1rem null null);
+    // @include margin(1rem null null);
+ 
     .events-card {
-        @include margin(3rem null);
+        @include margin(.5rem null);
+        img{
+            @include margin(null null 1rem);
+        }
     }
     .events-content {
-        display: flex;
-        flex-direction: column;
+        // display: flex;
+        // flex-direction: column;
     }
     img {
         box-shadow: $box-shadow;
@@ -14,6 +18,6 @@
         border-radius: $border-radius;
     }
     hr {
-        @include margin(null 5rem);
+        // @include margin(null 5rem);
     }
 }

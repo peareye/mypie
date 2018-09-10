@@ -1,67 +1,61 @@
 {% extends '_sidebar_layout.html' %} {% block main %}
-
 <section id="events-main">
     <div class="container-fluid">
         <!-- Page Title -->
         {% for p in page.pagelets if p.name == 'title' %}
         <h1 class="page-title">{{ p.title }}</h1>
-        {{ p.content_html }} {% endfor %}
-
-         <!-- Page Content -->
-        <div class="row events-card">
-            <div class="col-md-6 events-content">
-                {{ page.pagelets.catering.content_html }}
+        {{ p.content_html }}
+        {% endfor %}
+        <div class="row">
+            <div class="col-12">
+                {% for p in page.pagelets if p.name == 'catering' %}
+                <h2 class=""> {{ p.title }} </h2>
+                {% endfor %}
             </div>
-            <div class="col-md-6">
+        </div>
+        <div class="row events-card">
+            <div class="col-md-6 order-md-2">
                 <img class="img-fluid mx-auto" src="/assets/img/insta/mypie-pie1.jpg" alt="">
             </div>
-        </div>       
+            <div class="col-md-6 order-md-1">
+                {{ page.pagelets.catering.content_html }}
+            </div>
+        </div>
         <hr>
+        <div class="row">
+            <div class="col-12">
+                {% for p in page.pagelets if p.name == 'festivals' %}
+                <h2 class=""> {{ p.title }} </h2>
+                {% endfor %}
+            </div>
+        </div>
         <div class="row events-card">
-            <div class="col-md-6 events-content order-md-2">
-                {{ page.pagelets.festivals.content_html }}
+            <div class="col-md-6">
+                    <img class="img-fluid mx-auto" src="/assets/img/insta/mypie-sm-truck.jpg" alt="">
+            </div>
+            <div class="col-md-6">
+                    {{ page.pagelets.festivals.content_html }}
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                {% for p in page.pagelets if p.name == 'weddings' %}
+                <h2 class=""> {{ p.title }} </h2>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row events-card">
+            <div class="col-md-6 order-md-2">
+                    <img class="img-fluid mx-auto" src="/assets/img/insta/wedding.png" alt="Wedding Catered by MYPIE">
+
             </div>
             <div class="col-md-6 order-md-1">
-                <img class="img-fluid mx-auto" src="/assets/img/insta/mypie-sm-truck.jpg" alt="">
+                    {{ page.pagelets.weddings.content_html }}
             </div>
         </div>
-        <hr>
-        <div class="row events-card">
-            <div class="col-md-6 events-content">
-                {{ page.pagelets.weddings.content_html }}
-            </div>
-            <div class="col-md-6">
-                <img class="img-fluid mx-auto" src="/assets/img/insta/wedding.png" alt="Wedding Catered by MYPIE">
-            </div>
-        </div>
-
-        {% for p in page.pagelets if p.name == 'title' %}
-        <div class="row">
-            <div class="col-xs-12">
-
-            </div>
-        </div>
-        <!-- <div class="row">
-            <div class="col-md-6">   
-                    {% set emailSubjectLine = 'MyPie Events Enquiry' %} {% include 'includes/_contactForm.html' %}
-                             
-                 
-                
-                </div>
-            <div class="col-md-6">
-                    <div id="contact-us">
-                            <h1 class="page-title">{{ p.title }}</h1>
-
-                            {{ p.content_html }}
-                           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum exercitationem est necessitatibus, magni accusamus suscipit quia quod maiores. Doloremque magnam, eum perspiciatis tempora ipsum aspernatur, provident nulla perferendis eaque sequi sunt fugit quam ad.</p>
-                            </div>
-            </div>
-        
-        </div> -->
     </div>
-
-
-    {% endfor %}
 </section>
+
 
 {% endblock %}
