@@ -53,6 +53,8 @@
 
     <div class="lg-logo-wrapper d-none d-md-block">
         <div class="truck-wrapper">
-            <img class="animated" src="/assets/img/animate/truck.svg" alt="The Little Pie Truck">
+            
+            <img {% if inUrl('/') %} class="animated"{% endif %} src="/assets/img/animate/truck.svg" alt="The Little Pie Truck">
+            
           </div> </div>
   </div>
