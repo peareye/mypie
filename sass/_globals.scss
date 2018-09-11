@@ -15,6 +15,9 @@ body {
   margin-top: 70px;
 
   @media (min-width: 768px) {
+    margin-top: 75px;
+  }
+  @media (min-width: 992px){
     margin-top: 55px;
   }
 }
@@ -59,12 +62,28 @@ hr.menu-divider:last-child {
 nav {
   @include padding(0.1px);
   box-shadow: $box-shadow;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  
 }
 
 .navbar {
   @include padding(0 null);
 }
+.navbar-nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+}
+.nav-link{
+  color: rgba($mypie-light, .9);
+  text-align: center;
+  // font-weight: 700;
+  &:hover{
+    color: rgba($mypie-light, .95);
+  }
+}
 .bg-dark {
   background-color: $mypie-red !important;
 }
