@@ -15,7 +15,7 @@ body {
   margin-top: 70px;
 
   @media (min-width: 768px) {
-    margin-top: 75px;
+    margin-top: 78px;
   }
   @media (min-width: 992px){
     margin-top: 55px;
@@ -32,7 +32,7 @@ section .container-fluid {
   background: $mypie-light;
   @include padding(2rem null);
 }
-
+ 
 .container-fluid {
   max-width: 1200px;
 }

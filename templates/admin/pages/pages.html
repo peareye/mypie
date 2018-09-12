@@ -1,38 +1,38 @@
-{% extends '@admin/admin_base.html' %} 
+{% extends '@admin/admin_base.html' %}
 
-{% block title %}Page Content{% endblock %} 
+{% block title %}Page Content{% endblock %}
 {% block blurb %}Update content here {% endblock %} {% block
 id %}pages-home{% endblock %} {% block body %}
 
 <!-- visible to super admin -->
+
 <div class="page-section">
-  <div class="grid-cell add-link">
-      <a href="{{ pathFor('editPage') }}">
-          <i class="fas fa-plus" alt="Create Page"></i> Add New Page</a>
+  <div class="grid-cell span add-link">
+    <a href="{{ pathFor('editPage') }}">
+      <i class="fas fa-plus" alt="Create Page"></i> Add New Page</a>
   </div>
 
-</div>
-
-<div class="page-section">
   {% for p in pages %}
   <div class="grid-cell">
-    <h2 class="section-title">{{ p.title }}</h2>
+    <h2 class="section-title span">{{ p.title }}</h2>
+
     <!-- visible to super admins -->
     {% if authorized('S') %}
     <button class="btn btn-sm btn-primary">
       <a href="{{ pathFor('editPage', {'id': p.id}) }}">Edit {{ p.title }} Page Details</a>
     </button>
 
-    <ul>
-      <li>
-        <strong>URL: </strong> &nbsp;/{{ p.url }}</li>
-      <li>
-        <strong>Template: </strong> {{ p.template|default('
-        <none>') }}</li>
-      <li>
-        <strong>Meta Desc: </strong>{{ p.meta_description }}</li>
+    <ul class="pages-meta-details">
+      <li><strong>URL:</strong></li>
+      <li>/{{ p.url }}</li>
+
+      <li><strong>Template: </strong></li>
+      <li>{{ p.template|default('<none>') }}</li>
+
+      <li><strong>Meta:</strong>
+       <li> {{ p.meta_description }}</l>
     </ul>
-  
+
     <!-- visible to super admins -->
     <button class="btn btn-sm btn-info">
       <a href="{{ pathFor('editPagelet') }}?page_id={{ p.id }}">Add {{ p.title }} Page Elements</a>

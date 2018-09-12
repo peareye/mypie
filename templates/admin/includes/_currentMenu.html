@@ -1,19 +1,24 @@
 <div id="current-menu">
-  {% for menu in page.todaysMenus %} {# This next line summarizes and keeps a handy flag of which menu sections are available
-  #} {% set available = availableMenuSections(menu.items) %}
+  {% for menu in page.todaysMenus %} 
+  
+  {# This next line summarizes and keeps a handy flag of which menu sections are available #} 
+  {% set available = availableMenuSections(menu.items) %}
 
   <!-- Start Menu Header -->
   <div class="daily-menu-each">
     <h2 class="page-title">{{ menu.location }} {{ menu.date|date('j F, Y') }}</h2>
-    <a class="btn btn-primary btn-sm m-2" href="{{ pathFor('editMenu', {'id': menu.id}) }}">Edit This Menu</a>
-    <a class="btn btn-success btn-sm m-2 jsOpenMenuBoard" href="{{ pathFor('showMenuBoard', {'id': menu.id}) }}" target="_blank">Open Menu Board</a>
+    <div class="btn-wrapper">
+        <a class="btn btn-primary btn-sm m-2" href="{{ pathFor('editMenu', {'id': menu.id}) }}">Edit This Menu</a>
+        <a class="btn btn-success btn-sm m-2 jsOpenMenuBoard" href="{{ pathFor('showMenuBoard', {'id': menu.id}) }}" target="_blank">Open Menu Board</a>
+    </div>
+   
     <div id="current-menu">
       <div class="current-menu">
 
         <!-- Daily Pies -->
         {% if available.dailypies %}
         <div class="grid-cell-inner">
-          <h3 class="page-title">Pies</h3>
+          <h3 class="page-title span">Pies</h3>
           {% for m in menu.items if m.section == 'dailypies' %}
           <div class="menu-item-wrapper">
             <div class="menu-item-each">
@@ -32,7 +37,7 @@
         <!-- Sides -->
         {% if available.sides %}
         <div class="grid-cell-inner">
-          <h3 class="page-title">Sides</h3>
+          <h3 class="page-title span">Sides</h3>
           {% for m in menu.items if m.section == 'sides' %}
           <div class="menu-item-wrapper">
             <div class="menu-item-each">
@@ -52,7 +57,7 @@
         <!-- Sausage Rolls -->
         {% if available.rolls %}
         <div class="grid-cell-inner">
-          <h3 class="page-title"> Sausage Rolls</h3>
+          <h3 class="page-title span"> Sausage Rolls</h3>
           {% for m in menu.items if m.section == 'rolls' %}
           <div class="menu-item-wrapper">
             <div class="menu-item-each">
@@ -71,7 +76,7 @@
         {% if available.puds %}
         <div class="grid-cell-inner">
 
-          <h3 class="page-title">Puds</h3>
+          <h3 class="page-title span">Puds</h3>
           {% for m in menu.items if m.section == 'puds' %}
           <div class="menu-item-wrapper">
             <div class="menu-item-each">
@@ -90,7 +95,7 @@
         <!-- Takeaway Pies -->
         {% if available.takeawaypies %}
         <div class="grid-cell-inner">
-          <h3 class="page-title">Takeaway</h3>
+          <h3 class="page-title span">Takeaway</h3>
           {% for m in menu.items if m.section == 'takeawaypies' %}
           <div class="menu-item-wrapper">
             <div class="menu-item-each">

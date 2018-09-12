@@ -1,12 +1,17 @@
-        <h2 class="page-title">Menus</h2>
+        <h3 class="page-title span">Menus</h3>
         {% for m in page.newMenus %}
 
         <div class="menu-list-container">
             <div class="menu-date">
-                    <h3>
-                    {% if m.location %} {{ m.location }}{% else %} No Location{% endif %}
-                    {{ m.date|date('j  F, Y') }}
-                    </h3>
+                    <h4>
+                    {% if m.location %} 
+                    {{ m.location }}
+                
+                    {% else %} 
+                    No Location
+                    {% endif %}
+                    {{ m.date|date('j  M y') }}
+                    </h4>
               </div>
             <ul class="menu-list-icons">
                 <li class="menu-list-icon">

@@ -10,17 +10,17 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 400;
-  margin: 0;
+  @include margin(0);
 
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: min-content 3px auto;
+    grid-template-rows: min-content 3px auto;
+    // grid-row-gap: .5rem;
+  }
 }
 
 /* Global Styles */
-
-a {
-  color: mypie-dark;
-}
-
 h1,
 h2,
 h3,
@@ -31,27 +31,78 @@ h6 {
   letter-spacing: 0;
 }
 
-h1 {
-  font-size: 2rem;
+a {
+  color: $mypie-accent-red;
 }
 
-h2 {
-  font-size: 1.75rem;
+.btn {
+  @include margin(.5rem null);
+  @include padding(.25rem);
+  display: inline-block;
 }
 
-h3 {
-  font-size: 1.25rem;
+.btn a {
+  color: #fff !important;
+  font-weight: 700;
 }
 
-h4 {
-  font-size: .75rem;
+.white-link {
+  color: $mypie-light;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  &:hover {
+    color: $mypie-dark;
+    text-decoration: none;
+  }
+}
+
+.gap {
+  background-color: rgba($mypie-accent-red, .5);
+}
+
+.btn-wrapper {
+  @include margin(.5rem 1rem);
+}
+
+// Logo
+.logo {
+  @include padding(.25rem .25rem .25rem null);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+}
+
+//header
+header {
+  @include padding(.25rem);
+  @include margin(0);
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+//navbar
+.navbar-wrapper {
+  background-color: $muted-grey;
+
+  .nav-item {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* Custom Styles */
-
 .grid-cell {
   border-radius: $border-radius;
-  border-radius: 10px;
   @include padding(.25rem);
   @include margin(.25rem);
   background-color: $mypie-light-grey;
@@ -66,28 +117,18 @@ h4 {
   @include margin(.5rem null);
 }
 
-.btn {
-  @include margin(.25rem .5rem);
-}
-
-.btn a {
-  color: $mypie-light !important;
-  font-weight: 700;
-}
-
 .add-link {
   font-size: 2rem;
-  display: grid;
-  grid-template-columns: 1fr;
+  width: 100%;
   border-radius: $border-radius;
   @include margin(.5rem null);
   @include padding(.5rem);
-  grid-column: 1 / -1; // background: $mypie-light;
-}
 
-.add-link a {
-  background: $mypie-light;
-  @include padding( null 1rem);
+  a {
+    display: block;
+    background: $mypie-light;
+    @include padding(null 1rem);
+  }
 }
 
 .editor-toolbar button {
@@ -95,69 +136,10 @@ h4 {
   margin: 2px;
 }
 
-/* Main Page Layout */
+// Main Content Area
+section {
+  @include padding(.5rem);
 
-// Navbar - Vertical
-.navbar-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 70px;
-  background: rgba($mypie-dark-grey, .5);
-  color: $mypie-light;
-  @include padding(80px null null);
-  scroll-behavior: auto;
-  overflow: scroll;
-}
-
-.navbar-wrapper a {
-  color: $mypie-accent-red;
-}
-
-.nav-item {
-  width: 100%;
-  text-align: center;
-}
-
-.nav-link {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  text-align: center;
-  @include padding(0);
-  @include margin(.5rem null);
-}
-
-// Logo Container
-.logo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 67px;
-  height: 70px;
-  background: $mypie-light;
-  @include padding(2px);
-  z-index: 2;
-}
-
-// Header Styles
-header {
-  width: 100%;
-  @include margin(0 null null 70px);
-  @include padding(1rem null null 2rem null);
-}
-
-// Right Container
-.right-container {
-  @include margin(null null null 70px);
-  @include padding(null 1rem null .5rem);
-}
-
-// Admin Home Styles
-#admin-home {
   .page-section {
     @media screen and (min-width: 768px) {
       display: grid;
@@ -165,222 +147,190 @@ header {
       grid-gap: 1rem;
     }
   }
-  .grid-cell {
-    @include padding(null .5rem);
-  }
-  .daily-menu-each {
-    background: $mypie-light;
-    @include padding(.5rem);
-    @include margin(.5rem null);
-    border-radius: $border-radius;
-  }
 }
 
-// Menus Page
-// Menu Management Section
-.menu-item-wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1rem;
-  @include margin(.25rem null);
-  justify-content: center;
-  background: $mypie-light;
-  border-radius: $border-radius;
-  position: relative;
-}
-
-.menu-item-each {
-  width: 100%;
-  text-align: center;
-  margin: auto;
-}
-
-.form-check-label {
-  color: $mypie-dark;
-  font-size: .8rem;
-  @include padding(.25rem null null .25rem);
-  font-weight: 400;
-}
-
-#menu-home {
-  .page-section {
-    @media screen and (min-width: 768px) {
-      display: grid;
-      grid-gap: 1rem;
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  .grid-cell {
-    @include padding(null .5rem);
-  }
-  .element-section {
-    width: 100%;
-    @include margin(null null .25em null);
-    @include padding(null .5rem);
-    display: grid;
-    grid: auto-flow / repeat(2, 1fr) .5fr;
-    grid-gap: .5rem;
-    justify-content: center;
-    align-content: center;
-    justify-items: center;
-    align-items: center;
-  }
-  input {
-    margin: 0;
-  }
-  .form-control {
-    @include padding(.25em null);
-  }
-}
-
-// Menu Lists Style
-.menu-list-container {
-  background: $mypie-light;
-  border-radius: $border-radius;
-  @include margin(.5rem null);
-  @include padding(1rem 1rem null);
-}
-
-.menu-list-container a {
-  color: $mypie-dark;
-}
-
-.menu-list-container a:hover {
-  color: $mypie-red
-}
-
-.menu-date {
-  @include padding(.25rem null);
+// Current Daily Menu - Home Page
+.daily-menu-each {
   text-align: center;
 }
 
-.menu-list-icons {
-  display: grid;
-  grid-template-columns: repeat(3, min-content);
-  justify-items: center;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.menu-list-icon>a {
+btn-wrapper {
   display: flex;
-  width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
-  align-content: center;
-  text-align: center;
-  @include padding(.5rem null null);
+  flex-flow: column nowrap;
 }
 
-// Current Menu Style
 .current-menu {
-  .btn {
-    @include margin(.2rem null);
-  }
-  @media screen and (min-width: 576px) {
+  @include padding(.5rem .5rem null);
+  display: grid;
+  grid-gap: 1rem;
+
+  @media screen and(min-width: 768px) {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: .5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-row-gap: 1rem;
   }
 }
 
+.menu-item-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  @include margin(.5rem null);
+  @include padding(.25rem);
+  background: $mypie-light;
+
+  .menu-item-each {
+    @include margin(null .25rem);
+  }
+}
+
+// Menu List 
+.menu-list-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  @include padding(.25rem .5rem null null);
+  background: $mypie-light;
+  @include margin(null null .5rem);
+
+  .menu-date {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    @include padding(null null null .5rem);
+  }
+
+  .menu-list-icons {
+    color: $mypie-accent-red;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    a {
+      color: $mypie-accent-red;
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+.menu-list-container:last-of-type {
+  @include margin(null null 1rem);
+}
+
+.menu-list-icon {
+  @include padding(null .25rem);
+
+  .fa-2x {
+    font-size: 1.5rem !important;
+  }
+}
+
+// Menu Item Defaults
+#menu-home {
+  .element-section {
+    @include margin(0);
+    @include padding(null .25rem);
+    height: 100%;
+    width: 100%;
+    display: grid;
+    // grid-template-columns:  repeat(auto-fit, minmax(75px, 1fr));
+    grid-template-columns: 1fr .75fr .75fr;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+  }
+}
+#pages-home {
+  .page-section {
+    @media screen and (min-width: 768px) {
+      display: grid;
+      grid-gap: .5rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+
+  .grid-cell {
+    @include padding(null .5rem);
+  }
+
+  .pages-meta-details {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-column-gap: 1rem;
+    grid-row-gap: .25rem;
+  }
+}
 // Suppliers Page
 #suppliers-home {
-  .page-section {
-    @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
+    .page-section {
       display: grid;
       grid-gap: 1rem;
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  .grid-cell {
-    @include padding(null .5rem);
-  }
+
   .supplier-list-container {
+    background: $mypie-light-grey;
+    border-radius: $border-radius;
+    @include padding(.5rem);
+  }
+
+  .supplier-each {
     background: $mypie-light;
     border-radius: $border-radius;
-    @include margin(.5rem null);
-    @include padding(1rem 1rem null);
   }
+
   .supplier-name {
-    @include padding(.25rem null);
-    .supplier-title{
-      font-weight: 700;
-    }
-   
+    text-align: center;
+    @include padding(.25rem null null);
   }
+
   .supplier-list-icons {
-    display: grid;
-    grid-template-columns: repeat(4, min-content);
-    justify-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-around;
-    
+    justify-items: center;
   }
-  
+
   .form-group {
-    @include margin(1rem);
-    @include padding(1rem);
+    @include margin(.25rem);
+    margin-bottom: .25rem !important;
+    @include padding(.5rem);
     border-radius: $border-radius;
     background: $mypie-light;
   }
+
   .form-check {
     position: relative;
     background: $mypie-light;
-    @include margin (1rem);
-    @include padding(1rem);
+    @include margin(.25rem);
+    @include padding(.5rem);
     border-radius: $border-radius;
- 
   }
-  .supplier-list-icon>a {
+
+  .supplier-list-icons {
     display: flex;
     width: 100%;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-evenly;
     justify-items: center;
     align-items: center;
     align-content: center;
     text-align: center;
     @include padding(.5rem null null);
   }
+
   .form-text {
     font-weight: bold;
     font-style: italic;
   }
-  .fa-thumbs-up {
-    color: green;
-  }
-  .fa-thumbs-down {
-    color: red;
-  }
- 
 }
-
-// Pages Page
-#pages-home {
-  .page-section {
-    display: grid;
-    grid-gap: .5rem;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  }
-  .grid-cell {
-    @include padding(null .5rem);
-  }
-}
-
-// Users Page
-#users-home {
-  .page-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    border-radius: $border-radius;
-  }
-  .grid-cell {
-    @include padding(null .5rem);
-    border: initial;
-  }
-}
-
-// Help Page
