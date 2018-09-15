@@ -295,6 +295,7 @@ return array(
     'Piton\\Library\\ErrorHandler' => $baseDir . '/app/Library/ErrorHandler.php',
     'Piton\\Library\\NotFoundHandler' => $baseDir . '/app/Library/NotFoundHandler.php',
     'Piton\\Library\\SecurityHandler' => $baseDir . '/app/Library/SecurityHandler.php',
+    'Piton\\Library\\SitemapHandler' => $baseDir . '/app/Library/SitemapHandler.php',
     'Piton\\Models\\DataMapperAbstract' => $baseDir . '/app/Models/DataMapperAbstract.php',
     'Piton\\Models\\DomainObject' => $baseDir . '/app/Models/DomainObject.php',
     'Piton\\Models\\MenuItemDefaultMapper' => $baseDir . '/app/Models/MenuItemDefaultMapper.php',

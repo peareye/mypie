@@ -239,3 +239,8 @@ $app->get('/logintoken/{token:[a-zA-Z0-9]{64}}', function ($request, $response, 
 $app->get('/logout', function ($request, $response, $args) {
     return (new Piton\Controllers\LoginController($this))->logout($request, $response, $args);
 })->setName('logout');
+
+// Command Line Interface
+$app->get('/cli/updatesitemap', function ($request, $response, $args) {
+    return (new Piton\Controllers\AdminController($this))->updateSiteMap($request, $response, $args);
+});

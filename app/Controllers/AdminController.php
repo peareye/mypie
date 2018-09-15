@@ -130,4 +130,51 @@ class AdminController extends BaseController
         $session->setData('role', $args['role']);
         return $response->withRedirect($this->container->router->pathFor('showUsers'));
     }
+
+    /**
+     * CLI Update Sitemap
+     *
+     * Generates and writes sitemap.xml to /public
+     * CLI use only
+     */
+    public function updateSiteMap()
+    {
+        // Get dependencies
+        $sitemap = $this->container->get('sitemapHandler');
+        $baseUrl = $this->container->get('settings')['baseUrl'];
+        $mapper = $this->container->get('dataMapper');
+        $PageMapper = $mapper('PageMapper');
+        $SupplierMapper =  $mapper('SupplierMapper');
+
+        // Create array of page links  starting with home page
+        $SitemapPages[] = ['link' => $baseUrl, 'date' => date('c')];
+
+        // Pages
+        $pages = $PageMapper->find();
+        foreach ($pages as $page) {
+            // Skip a few pages
+            if ($page->url === 'home' || $page->url === 'menuboard') {
+                continue;
+            }
+
+            $SitemapPages[] = [
+                'link' => $baseUrl . $this->container->router->pathFor('showPage', ['url' => $page->url]),
+                'date' => date('c', strtotime($page->updated_date))
+            ];
+        }
+
+        // Suppliers
+        $suppliers = $SupplierMapper->find();
+        foreach ($suppliers as $supplier) {
+            $SitemapPages[] = [
+                'link' => $baseUrl . $this->container->router->pathFor('showSupplier', ['name' => $supplier->url]),
+                'date' => date('c', strtotime($supplier->updated_date))
+            ];
+        }
+
+        // Make sitemap
+        $sitemap->make($SitemapPages);
+
+        return;
+    }
 }

@@ -100,3 +100,12 @@ $container['dataMapper'] = function ($c) {
 $container['markdownParser'] = function ($c) {
     return new Piton\Extensions\MDParser();
 };
+
+// Sitemap
+$container['sitemapHandler'] = function ($c) {
+    return new Piton\Library\SitemapHandler($c->get('logger'), [
+        'sitemapFilePath' => ROOT_DIR . 'public/',
+        'baseUrl' => $c->get('settings')['baseUrl'],
+        'alertSearchEngines' => $c->get('settings')['production'],
+    ]);
+};
