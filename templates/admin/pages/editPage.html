@@ -35,7 +35,7 @@ Page Management - Add / Edit
 
       <div>
         <label>Meta Description <small>Limited to 320 Characters</small></label>
-        <textarea name="meta_description" id="meta_description" maxlength="320" placeholder="Description to appear in search results" cols="30" rows="4"></textarea>
+        <textarea name="meta_description" id="meta_description" maxlength="320" placeholder="Description to appear in search results" cols="30" rows="4">{{ page.meta_description }}</textarea>
         {# <input type="text" name="meta_description" maxlength="320" placeholder="Description to appear in search results" value="{{ page.meta_description }}"> #}
       </div>
 <button class="btn btn-warning btn-sm"><a href="{{ pathFor('showPages') }}">Cancel</a></button>
