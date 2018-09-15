@@ -7049,6 +7049,9 @@ a {
 .btn-wrapper {
   margin: 0.5rem 1rem; }
 
+.btn-wrapper-center {
+  width: 100%; }
+
 .logo {
   padding-top: 0.25rem;
   padding-right: 0.25rem;
@@ -7201,7 +7204,7 @@ btn-wrapper {
   #pages-home .page-section {
     display: grid;
     grid-gap: .5rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); } }
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); } }
 #pages-home .grid-cell {
   padding-right: 0.5rem;
   padding-left: 0.5rem; }

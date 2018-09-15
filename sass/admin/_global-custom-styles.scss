@@ -64,6 +64,13 @@ a {
 .btn-wrapper {
   @include margin(.5rem 1rem);
 }
+.btn-wrapper-center{
+ 
+  width: 100%;
+button{
+ 
+}
+}
 
 // Logo
 .logo {
@@ -252,7 +259,7 @@ btn-wrapper {
     @media screen and (min-width: 768px) {
       display: grid;
       grid-gap: .5rem;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     }
   }
 
