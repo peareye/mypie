@@ -70,6 +70,34 @@ class MenuMapper extends DataMapperAbstract
     }
 
     /**
+     * Get Past Menus in Descending Ordery by Date
+     *
+     * Returns an array of Domain Objects (one for each record)
+     * @param int $limit Limit
+     * @param int $offset Offset
+     * @return Array
+     */
+    public function getPastMenusInDescDateOrder($limit = null, $offset = null)
+    {
+        // Make select
+        $this->makeSelect();
+        $this->sql .= ' where date < ? and location is not null order by date desc';
+        $this->bindValues[] = date('Y-m-d');
+
+        if ($limit) {
+            $this->sql .= " limit ?";
+            $this->bindValues[] = $limit;
+        }
+
+        if ($offset) {
+            $this->sql .= " offset ?";
+            $this->bindValues[] = $offset;
+        }
+
+        return $this->find();
+    }
+
+    /**
      * Get Future Menus as of This Month
      *
      * Returns an array of Domain Objects

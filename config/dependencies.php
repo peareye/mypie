@@ -33,6 +33,11 @@ $container['adminPagination'] = function ($c) {
     return new Piton\Extensions\PaginationExtension($c->get('settings')['pagination']['admin']);
 };
 
+// Twig pagination extension for menus
+$container['menuPagination'] = function ($c) {
+    return new Piton\Extensions\PaginationExtension($c->get('settings')['pagination']['menu']);
+};
+
 // Monolog logging
 $container['logger'] = function ($c) {
     $level = ($c->get('settings')['production']) ? Monolog\Logger::ERROR : Monolog\Logger::DEBUG;

@@ -46,7 +46,9 @@ $config['session']['salt'] = ''; // Salt key to hash
 $config['session']['secondsUntilExpiration'] = 7200;
 
 /**
- * Admin Menu Pagination Options
+ * Pagination Options
  */
 $config['pagination']['admin']['rowsPerPage'] = 10;
 $config['pagination']['admin']['numberOfLinks'] = 2;
+$config['pagination']['menu']['rowsPerPage'] = 5;
+$config['pagination']['menu']['numberOfLinks'] = 2;

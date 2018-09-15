@@ -1,0 +1,42 @@
+{% extends '_sidebar_layout.html' %}
+
+{% block title %}{{ page.title }}{% endblock %}
+{% block metadescription %}Past pie menus{% endblock %}
+
+{% block main %}
+<section id="menu-main">
+    <div class="container-fluid">
+        <h1 class="page-title">Past Pie Menus</h1>
+
+        {% for menu in page.menuList if menu.items %}
+
+        <h3 class="">{{ menu.date|date('l, j F, Y') }} at {{ menu.location }}</h3>
+
+        {# This next line summarizes and keeps a handy flag of which menu sections are available #}
+        {% set available = availableMenuSections(menu.items) %}
+
+        <div class="menu-wrapper">
+            <!-- Daily Pies -->
+            {% if available.dailypies %}
+            <div class="pie-box">
+                <h4 class="menu-title">Pie w/mash or salad + gravy</h4>
+                {% for m in menu.items if m.section == 'dailypies' %}
+                <span class="menu-items">
+                    <div class="menu-item menu-item-description">{{ m.description }}</div>
+                </span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+
+        <hr class="menu-divider">
+
+        {% else %}{# Outer menuList loop #}
+        <h2 class="section-title">No Old Menus Found</h>
+        {% endfor %}
+
+        {{ pagination() }}
+    </div>
+</section>
+
+{% endblock %}

@@ -113,6 +113,49 @@ class IndexController extends BaseController
     }
 
     /**
+     * Show Menu Archive
+     *
+     * @param none
+     *
+     */
+    public function showMenuArchive($request, $response, $args)
+    {
+        // Get dependencies
+        $mapper = $this->container->get('dataMapper');
+        $MenuMapper = $mapper('MenuMapper');
+        $MenuItemMapper = $mapper('MenuItemMapper');
+        $Pagination = $this->container->get('menuPagination');
+
+        // Get the page number and setup pagination
+        $pageNumber = ($request->getParam('page')) ?: 1;
+        $Pagination->setPagePath($this->container->router->pathFor('showMenuArchive'));
+        $Pagination->setPaginationTemplateName('includes/_pagination.html');
+        $Pagination->setCurrentPageNumber($pageNumber);
+
+        // Fetch past menu headers
+        $menus = $MenuMapper->getPastMenusInDescDateOrder($Pagination->getRowsPerPage(), $Pagination->getOffset());
+
+        // Get total row count and add extension
+        $Pagination->setTotalRowsFound($MenuMapper->foundRows());
+        $this->container->view->addExtension($Pagination);
+
+        if (is_array($menus)) {
+            foreach ($menus as $key => $row) {
+                // Verify we have an menu object before fetching items
+                if (isset($menus[$key]->id)) {
+                    // Get menu item details
+                    $menus[$key]->items = $MenuItemMapper->findItemsByMenuId($menus[$key]->id);
+                }
+            }
+        }
+
+        $page['title'] = "Past Menus Page {$pageNumber}";
+        $page['menuList'] = $menus;
+
+        return $this->container->view->render($response, 'pages/_menuArchive.html', ['page' => $page]);
+    }
+
+    /**
      * Show Menu Board
      *
      * @param int menu ID

@@ -1,4 +1,4 @@
-{% extends '_sidebar_layout.html' %} 
+{% extends '_sidebar_layout.html' %}
 
 {% block title %}{{ page.title }}{% endblock %}
 {% block metadescription %}{{ page.meta_description }}{% endblock %}
@@ -10,6 +10,7 @@
         <h1 class="page-title">Menus</h1>
         {{ displayMenu() }}
     </div>
+    <a href="{{ pathFor('showMenuArchive') }}">Old Menus</a>
 </section>
 
 {% endblock %}

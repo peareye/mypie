@@ -22,6 +22,11 @@ $app->get('/menu/{date:\d\d-[a-zA-Z]{3}-\d\d}', function ($request, $response, $
     return (new Piton\Controllers\IndexController($this))->showMenu($request, $response, $args);
 })->setName('showMenu');
 
+// Show Menu Archive
+$app->get('/menu/archive', function ($request, $response, $args) {
+    return (new Piton\Controllers\IndexController($this))->showMenuArchive($request, $response, $args);
+})->setName('showMenuArchive');
+
 // Show Menu Board
 $app->get('/menuboard/{id:[0-9]+}', function ($request, $response, $args) {
     return (new Piton\Controllers\IndexController($this))->showMenuBoard($request, $response, $args);

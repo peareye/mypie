@@ -172,6 +172,12 @@ class AdminController extends BaseController
             ];
         }
 
+        // Add menu archive
+        $SitemapPages[] = [
+                'link' => $baseUrl . $this->container->router->pathFor('showMenuArchive'),
+                'date' => date('c', strtotime($supplier->updated_date))
+            ];
+
         // Make sitemap
         $sitemap->make($SitemapPages);
 
