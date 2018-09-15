@@ -30,10 +30,10 @@ class ContactController extends BaseController
 
         // Create contact message
         $contact = new \stdClass();
-        $contact->name = filter_var($request->getParsedBodyParam('fullname'), FILTER_SANITIZE_STRING);
+        $contact->name = filter_var($request->getParsedBodyParam('fullname'), FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
         $contact->email = filter_var($request->getParsedBodyParam('email'), FILTER_SANITIZE_EMAIL);
-        $contact->subject = filter_var($request->getParsedBodyParam('subject'), FILTER_SANITIZE_STRING);
-        $contact->message = filter_var($request->getParsedBodyParam('message'), FILTER_SANITIZE_STRING);
+        $contact->subject = filter_var($request->getParsedBodyParam('subject'), FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+        $contact->message = filter_var($request->getParsedBodyParam('message'), FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
 
         // Send email to admin
         $this->sendContactEmail($contact);

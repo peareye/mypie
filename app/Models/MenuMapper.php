@@ -12,14 +12,14 @@ class MenuMapper extends DataMapperAbstract
     /**
      * Get Current Menus By Date
      *
-     * Returns current menus (menu.date >= today)
+     * Returns current menus (menu.date >= today) that DO NOT contain a location
      * @return Obj
      */
     public function getCurrentActiveMenus()
     {
         // Make select
         $this->makeSelect();
-        $this->sql .= ' where date >= ? order by date, location';
+        $this->sql .= ' where date >= ? and location is not null order by date';
         $this->bindValues[] = date('Y-m-d');
 
         return $this->find();
