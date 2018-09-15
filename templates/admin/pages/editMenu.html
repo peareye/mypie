@@ -1,7 +1,7 @@
-{% extends '@admin/admin_base.html' %} 
+{% extends '@admin/admin_base.html' %}
 
-{% block title %} MYPIE Dashboard - Edit Menu {% endblock %} 
-{% block blurb %} <p>Add/Edit/Delete a Menu.</p>{% endblock %} 
+{% block title %} MYPIE Dashboard - Edit Menu {% endblock %}
+{% block blurb %} <p>Add/Edit/Delete a Menu.</p>{% endblock %}
 
 {% block body %}
 <div class="grid-cell">
@@ -18,9 +18,9 @@
         {% endfor %}
       </script>
 
-      <a href="{{ pathFor('showMenus') }}" class="btn btn-warning btn-sm">Cancel</a>
+      <a href="{{ pathFor('adminHome') }}" class="btn btn-warning btn-sm">Cancel</a>
       <button class="btn btn-success btn-sm" type="submit" name="button">Save</button>
-      {% if menu.id %}
+      {% if menu.id and authorized('A') %}
       <a href="{{ pathFor('deleteMenu', {'id': menu.id}) }}" class="btn btn-danger btn-sm jsDeleteButton">Delete</a>
       {% endif %}
       <hr>
@@ -102,9 +102,9 @@
       </div>
       <hr>
 
-      <a href="{{ pathFor('showMenus') }}" class="btn btn-warning btn-sm">Cancel</a>
+      <a href="{{ pathFor('adminHome') }}" class="btn btn-warning btn-sm">Cancel</a>
       <button class="btn btn-success btn-sm" type="submit" name="button">Save</button>
-      {% if menu.id %}
+      {% if menu.id and authorized('A') %}
       <a href="{{ pathFor('deleteMenu', {'id': menu.id}) }}" class="btn btn-danger btn-sm jsDeleteButton">Delete</a>
       {% endif %}
     </form>

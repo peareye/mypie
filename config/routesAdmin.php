@@ -130,7 +130,16 @@ $app->group('/admin', function () {
         // Delete Menu
         $this->get('/delete/{id:[0-9]{0,}}', function ($request, $response, $args) {
             return (new Piton\Controllers\AdminMenuController($this))->deleteMenu($request, $response, $args);
-        })->setName('deleteMenu');
+        })->setName('deleteMenu')->add(function ($request, $response, $next) {
+            $security = $this->securityHandler;
+
+            if (!$security->isAuthorized('A')) {
+                return $response->withRedirect($this->router->pathFor('adminHome'));
+            }
+
+            // Next call
+            return $next($request, $response);
+        });
 
         // Set Sold Out Menu Item Flag
         $this->get('/soldoutitem/{id:[0-9]{0,}}', function ($request, $response, $args) {
@@ -140,7 +149,16 @@ $app->group('/admin', function () {
         // Save all menu item defaults
         $this->post('/saveitemdefaults', function ($request, $response, $args) {
             return (new Piton\Controllers\AdminMenuController($this))->saveMenuItemDefaults($request, $response, $args);
-        })->setName('saveMenuItemDefaults');
+        })->setName('saveMenuItemDefaults')->add(function ($request, $response, $next) {
+            $security = $this->securityHandler;
+
+            if (!$security->isAuthorized('A')) {
+                return $response->withRedirect($this->router->pathFor('adminHome'));
+            }
+
+            // Next call
+            return $next($request, $response);
+        });
     });
 
     // Supplier routes
