@@ -6970,8 +6970,8 @@ h1, h2, h3, h4, h5, h6 {
   color: #231f20;
   font-weight: inherit;
   line-height: 1.2;
-  text-transform: uppercase;
-  letter-spacing: .1em; }
+  letter-spacing: .1em;
+  text-align: center; }
 
 h1 {
   margin-top: 0;
@@ -7048,6 +7048,9 @@ a {
 
 .btn-wrapper {
   margin: 0.5rem 1rem; }
+
+.btn-wrapper-center {
+  width: 100%; }
 
 .logo {
   padding-top: 0.25rem;
@@ -7201,7 +7204,7 @@ btn-wrapper {
   #pages-home .page-section {
     display: grid;
     grid-gap: .5rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); } }
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); } }
 #pages-home .grid-cell {
   padding-right: 0.5rem;
   padding-left: 0.5rem; }

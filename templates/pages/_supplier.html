@@ -1,4 +1,10 @@
-{% extends '_sidebar_layout.html' %} {% block main %}
+{% extends '_sidebar_layout.html' %} 
+
+{% block title %}{{ page.supplier.name }} an exclusive supplier {% endblock %}
+{% block metadescription %} {{ page.meta_description }}{% endblock %}
+{% block id %}admin-home{% endblock %} 
+
+{% block main %}
 <section id="supplier-main">
   <div class="container-fluid">
     <h1>MYPIE Supplier </h1>
@@ -25,7 +31,7 @@
             {% if page.supplier.supplier_url %}
             <div class="supplier-url">
                 <i class="fas fa-external-link-alt"></i>
-               <a href="{{ page.supplier.supplier_url }}" target="_blank">{{ page.supplier.name }}</a>
+               <a href="{{ page.supplier.supplier_url }}" rel="nofollow" target="_blank">{{ page.supplier.name }}</a>
             </div>
             {% endif %} {% if page.supplier.phone %}
             <div class="supplier-phone">

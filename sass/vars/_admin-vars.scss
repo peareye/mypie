@@ -49,8 +49,9 @@ h1, h2, h3, h4, h5, h6 {
   color: #231f20; color: $mypie-dark;
   font-weight: inherit;
   line-height: 1.2;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   letter-spacing: .1em;
+  text-align: center;
 }
 
 h1 {

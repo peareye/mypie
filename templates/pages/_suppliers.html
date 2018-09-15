@@ -1,4 +1,7 @@
-{% extends '_sidebar_layout.html' %} {% block main %}
+{% extends '_sidebar_layout.html' %}
+{% block title %}{{ page.title }}{% endblock %}
+{% block metadescription %}{{ page.meta_description }}{% endblock %}
+{% block main %}
 
 <section id="suppliers-main">
   <div class="container-fluid">

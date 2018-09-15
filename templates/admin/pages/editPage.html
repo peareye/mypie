@@ -17,8 +17,8 @@ Page Management - Add / Edit
     <form action="{{ pathFor('savePage') }}" method="post" accept-charset="utf-8">
       <input type="hidden" name="id" value="{{ page.id }}">
       <div>
-        <label>Title</label>
-        <input type="text" name="title" maxlength="60" placeholder="Page title" value="{{ page.title }}" required>
+        <label>Title <small>Limited to 45 characters</small></label>
+        <input type="text" name="title" maxlength="45" placeholder="Page title" value="{{ page.title }}" required>
       </div>
 
       <div>
@@ -34,8 +34,9 @@ Page Management - Add / Edit
       </div>
 
       <div>
-        <label>Meta Description</label>
-        <input type="text" name="meta_description" maxlength="320" placeholder="Description to appear in search results" value="{{ page.meta_description }}">
+        <label>Meta Description <small>Limited to 320 Characters</small></label>
+        <textarea name="meta_description" id="meta_description" maxlength="320" placeholder="Description to appear in search results" cols="30" rows="4">{{ page.meta_description }}</textarea>
+        {# <input type="text" name="meta_description" maxlength="320" placeholder="Description to appear in search results" value="{{ page.meta_description }}"> #}
       </div>
 <button class="btn btn-warning btn-sm"><a href="{{ pathFor('showPages') }}">Cancel</a></button>
       

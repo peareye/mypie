@@ -1,6 +1,10 @@
  {% extends 'base_layout.html' %} 
- 
+
+ {% block title %}{{ page.title }}{% endblock %}
+ {% block metadescription %}{{ page.meta_description }}{% endblock %}
  {% block body %}
+
+
 
 <!-- Hero Section -->
 {% include '/includes/_hero.html' %}
