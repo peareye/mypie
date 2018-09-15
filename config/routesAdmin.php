@@ -184,10 +184,8 @@ $app->group('/admin', function () {
     $security = $this->securityHandler;
 
     if (!$security->isAuthenticated()) {
-        // Failed authentication, redirect away
-        $notFound = $this->notFoundHandler;
-
-        return $notFound($request, $response);
+        // Failed authentication, redirect to login
+        return $response->withRedirect($this->router->pathFor('showLoginForm'));
     }
 
     // Next call
