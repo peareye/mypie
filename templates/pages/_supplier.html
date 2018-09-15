@@ -1,4 +1,10 @@
-{% extends '_sidebar_layout.html' %} {% block main %}
+{% extends '_sidebar_layout.html' %} 
+
+{% block title %}Exclusive Supplier {{ page.supplier.name }}{% endblock %}
+{% block metadescription %} {{ page.meta_description }}{% endblock %}
+{% block id %}admin-home{% endblock %} 
+
+{% block main %}
 <section id="supplier-main">
   <div class="container-fluid">
     <h1>MYPIE Supplier </h1>

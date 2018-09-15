@@ -2,12 +2,16 @@
 <html lang="en">
 
 <head>
+    {% block head %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="{% block metadescription %}{% endblock %}">
+   
     {% include '/includes/_favicon.html' %}
 
-    <title>MYPIE - Home - Epic Pies + Awesome Sides</title>
+    <title>{% block title %}{% endblock %} | MYPIE London</title>
+    {% endblock %}
     <!-- Google Font Base -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto+Condensed:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400" rel="stylesheet">
@@ -17,6 +21,7 @@
     <!-- Add the slick-theme.css if you want default styling -->
     <link rel="stylesheet" href="{{ basePath() }}/assets/slick/slick.css">
     <link rel="stylesheet" href="{{ basePath() }}/assets/css/main.css">
+    
 </head>
 
 <body>
