@@ -23,7 +23,7 @@ $app->get('/menu/{date:\d\d-[a-zA-Z]{3}-\d\d}', function ($request, $response, $
 })->setName('showMenu');
 
 // Show Menu Archive
-$app->get('/menu/archive', function ($request, $response, $args) {
+$app->get('/menu/archive/page[/{page:\d*}]', function ($request, $response, $args) {
     return (new Piton\Controllers\IndexController($this))->showMenuArchive($request, $response, $args);
 })->setName('showMenuArchive');
 

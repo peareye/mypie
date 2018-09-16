@@ -125,9 +125,10 @@ class IndexController extends BaseController
         $MenuMapper = $mapper('MenuMapper');
         $MenuItemMapper = $mapper('MenuItemMapper');
         $Pagination = $this->container->get('menuPagination');
+        $Pagination->useQueryString = false;
 
         // Get the page number and setup pagination
-        $pageNumber = ($request->getParam('page')) ?: 1;
+        $pageNumber = ($args['page']) ?: 1;
         $Pagination->setPagePath($this->container->router->pathFor('showMenuArchive'));
         $Pagination->setPaginationTemplateName('includes/_pagination.html');
         $Pagination->setCurrentPageNumber($pageNumber);
