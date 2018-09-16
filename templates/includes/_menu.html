@@ -80,5 +80,10 @@
         <hr class="menu-divider">
 
         {% else %}{# Outer menuList loop #}
-        <h2 class="section-title">No Menus Found</h>
+        <h2 class="section-title">No Menus Found</h2>
+        <div class="page-title-blurb">
+                {{ p.content_html }}
+            <p>At MYPIE we only source the freshest ingredients to bring you the highest quality British pies, epic sides, and sausage rolls. What this means for you is that we don't always know what our menu is going to be.</p>
+            <p>That being said, as soon as we know, we'll let you know. Check back often to discover the upcoming daily menu for your location. If you are so inclined, click the Past Menus button to see what we've been up to.</p>
+        </div>
         {% endfor %}

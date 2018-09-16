@@ -3,14 +3,16 @@
 {% block title %}{{ page.title }}{% endblock %}
 {% block metadescription %}{{ page.meta_description }}{% endblock %}
 
-
 {% block main %}
+
 <section id="menu-main">
-    <div class="container-fluid">
+    <div class="container">
         <h1 class="page-title">Menus</h1>
         {{ displayMenu() }}
+
+        <a class="btn btn-primary mt-3" href="{{ pathFor('showMenuArchive', {'page':1}) }}">VIEW PAST PIE MENUS</a>
     </div>
-    <!-- <a href="{{ pathFor('showMenuArchive', {'page':1}) }}">Old Menus</a> -->
+   
 </section>
 
 {% endblock %}

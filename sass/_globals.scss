@@ -54,7 +54,7 @@ section .container-fluid {
   position: relative;
 }
 
-hr.menu-divider:last-child {
+.menu-divider:last-of-type{
   display: none;
 }
 

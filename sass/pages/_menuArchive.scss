@@ -1,0 +1,53 @@
+//Menu Archive Page
+#menu-archive {
+
+  .card-deck {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    @include margin(2rem null null);
+*{
+  border:none;
+}
+    .card {
+      background-color: $mypie-light-grey;
+      // box-shadow: $box-shadow;
+    
+      @include margin(0);
+      h4.card-title {
+        background-color: $mypie-red;
+        color: $mypie-light;
+        @include padding(.5rem null);
+        @include border-radius(4px 4px 0px 0px);
+    
+        display: block;
+        text-align: center;
+      }
+      ul{
+  @include padding(0 .5rem);
+        // @include margin(0 .5rem);
+        box-shadow: none;
+      }
+
+      li {
+        border: none;
+        @include margin(null null .25rem);
+        // border-radius: $border-radius;
+        background-color: $mypie-light;
+      }
+    }
+  }
+
+  .pagination {
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  nav {
+    @include margin(2rem null null);
+    box-shadow: none;
+  }
+}

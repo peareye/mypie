@@ -7037,7 +7037,7 @@ section .container-fluid {
 .form-group {
   position: relative; }
 
-hr.menu-divider:last-child {
+.menu-divider:last-of-type {
   display: none; }
 
 nav {
@@ -7730,5 +7730,39 @@ button, [type='button']:hover, [type='reset']:hover, [type='submit']:hover {
   p
   #events-main .page-title-blurb:last-child {
     margin: 0; }
+
+#menu-archive .card-deck {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  margin-top: 2rem; }
+  #menu-archive .card-deck * {
+    border: none; }
+  #menu-archive .card-deck .card {
+    background-color: #efefef;
+    margin: 0; }
+    #menu-archive .card-deck .card h4.card-title {
+      background-color: #ed1c24;
+      color: #fff;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      border-radius: 4px 4px 0px 0px;
+      display: block;
+      text-align: center; }
+    #menu-archive .card-deck .card ul {
+      padding: 0 0.5rem;
+      box-shadow: none; }
+    #menu-archive .card-deck .card li {
+      border: none;
+      margin-bottom: 0.25rem;
+      background-color: #fff; }
+#menu-archive .pagination {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+#menu-archive nav {
+  margin-top: 2rem;
+  box-shadow: none; }
 
 /*# sourceMappingURL=main.css.map */
