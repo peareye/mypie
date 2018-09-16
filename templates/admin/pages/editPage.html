@@ -24,7 +24,7 @@ Page Management - Add / Edit
       <div>
         <label>URL</label>
         /
-        <input type="text" name="url" maxlength="500" placeholder="URL slug" value="{{ page.url }}" required>
+        <input type="text" name="url" maxlength="100" placeholder="URL slug" value="{{ page.url }}" required>
       </div>
 
       <div>
@@ -39,11 +39,11 @@ Page Management - Add / Edit
         {# <input type="text" name="meta_description" maxlength="320" placeholder="Description to appear in search results" value="{{ page.meta_description }}"> #}
       </div>
 <button class="btn btn-warning btn-sm"><a href="{{ pathFor('showPages') }}">Cancel</a></button>
-      
+
       <button class="btn btn-success btn-sm" type="submit" name="button">Save</button>
       {% if page.id %}
       <button class="btn btn-danger btn-sm><a href="{{ pathFor('deletePage', {'id': page.id}) }}">Delete</a></button>
-     
+
       {% endif %}
     </form>
 

@@ -5,7 +5,7 @@
 
     <div class="form-group">
       <label for="InputSupplierName">Supplier Name</label>
-      <input type="text" class="form-control" name="name" id="InputSupplierName" aria-describedby="supplierHelp" placeholder="Enter supplier name" value="{{ page.supplier.name }}" required>
+      <input type="text" class="form-control" name="name" id="InputSupplierName" aria-describedby="supplierHelp" placeholder="Enter supplier name" maxlength="100" value="{{ page.supplier.name }}" required>
       <small id="supplierNameHelp" class="form-text bg-warning p-1">Enter the full name of the supplier here. This will be how it appears on the suppliers and supplier page.</small>
     </div>
     <div class="form-group">
@@ -35,6 +35,6 @@
     <a href="{{ pathFor('deleteSupplier', {'id': page.supplier.id }) }}" class="btn btn-danger">Delete</a>
     {% endif %}
 </div>
-  
+
   </form>
 </div>

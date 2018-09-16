@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 CREATE TABLE IF NOT EXISTS `page` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(60) NOT NULL,
-  `url` varchar(500) NOT NULL,
+  `url` varchar(100) NOT NULL,
   `url_locked` enum('N','Y') NOT NULL DEFAULT 'N',
   `meta_description` varchar(320) DEFAULT NULL,
   `template` varchar(60) DEFAULT NULL,
@@ -95,8 +95,8 @@ CREATE TABLE IF NOT EXISTS `menu_item_default` (
 
 CREATE TABLE IF NOT EXISTS `supplier` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(300) NOT NULL,
-  `url` varchar(500) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `url` varchar(100) NOT NULL,
   `supplier_url` varchar(500) NULL DEFAULT NULL,
   `phone` varchar(100) DEFAULT NULL,
   `content` MEDIUMTEXT DEFAULT NULL,
