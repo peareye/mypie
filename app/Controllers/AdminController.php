@@ -145,6 +145,8 @@ class AdminController extends BaseController
         $mapper = $this->container->get('dataMapper');
         $PageMapper = $mapper('PageMapper');
         $SupplierMapper =  $mapper('SupplierMapper');
+        $MenuMapper = $mapper('MenuMapper');
+        $Pagination = $this->container->get('menuPagination');
 
         // Create array of page links  starting with home page
         $SitemapPages[] = ['link' => $baseUrl, 'date' => date('c')];
@@ -172,13 +174,21 @@ class AdminController extends BaseController
             ];
         }
 
-        // Add menu archive
-        $SitemapPages[] = [
-                'link' => $baseUrl . $this->container->router->pathFor('showMenuArchive'),
-                'date' => date('c', strtotime($supplier->updated_date))
-            ];
+        // Just need to get the first page of archived menus to calculate how many pages to include
+        $Pagination->setCurrentPageNumber(1);
+        $MenuMapper->getPastMenusInDescDateOrder($Pagination->getRowsPerPage(), $Pagination->getOffset());
+        $totalArchiveMenus = $MenuMapper->foundRows();
+        $numberOfArchivePages = ceil($totalArchiveMenus / $Pagination->getRowsPerPage());
 
-        // Make sitemap
+        // Add menu archive pages to sitemap
+        for ($i=1; $i <= $numberOfArchivePages; $i++) {
+            $SitemapPages[] = [
+                    'link' => $baseUrl . $this->container->router->pathFor('showMenuArchive', ['page' => $i]),
+                    'date' => date('c')
+                ];
+        }
+
+        // Make sitemap file
         $sitemap->make($SitemapPages);
 
         return;
