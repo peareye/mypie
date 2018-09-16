@@ -1,4 +1,6 @@
 User-agent: *
-Disallow: /
+Disallow: /menuboard
+Disallow: /contact-message
+Disallow: /thank-you
 
-# Don't index anything for now
+Sitemap: http://mypie.london/sitemap.xml
