@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="{% block metadescription %}{% endblock %}">
-   
+
     {% include '/includes/_favicon.html' %}
 
     <title>{% block title %}{% endblock %} | MYPIE London</title>
@@ -21,7 +21,7 @@
     <!-- Add the slick-theme.css if you want default styling -->
     <link rel="stylesheet" href="{{ basePath() }}/assets/slick/slick.css">
     <link rel="stylesheet" href="{{ basePath() }}/assets/css/main.css">
-    
+
 </head>
 
 <body>
@@ -45,8 +45,8 @@
         <script src="{{ basePath() }}/assets/jarallax/dist/jarallax.js"></script>
         <script src="{{ basePath() }}/assets/jarallax/dist/jarallax-element.min.js"></script>
      <script src="{{ basePath() }}/assets/js/javascript.js"></script>
-     
-     <!-- Cookie Consents -->   
+
+     <!-- Cookie Consents -->
      <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
      <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
      <script>
@@ -66,10 +66,12 @@
      </script>
     <!-- Default Statcounter code for Moritz Media http://moritzmedia.com -->
     {% if setting.production %}
-<script type="text/javascript">
-    var sc_project=9291428;
+    <!-- Default Statcounter code for Mypie.london
+    http://mypie.london -->
+    <script type="text/javascript">
+    var sc_project=11824988;
     var sc_invisible=1;
-    var sc_security="23e3a822";
+    var sc_security="33a81783";
     </script>
     <script type="text/javascript"
     src="https://www.statcounter.com/counter/counter.js"
@@ -77,8 +79,9 @@
     <noscript><div class="statcounter"><a title="Web Analytics"
     href="http://statcounter.com/" target="_blank"><img
     class="statcounter"
-    src="//c.statcounter.com/9291428/0/23e3a822/1/" alt="Web
+    src="//c.statcounter.com/11824988/0/33a81783/1/" alt="Web
     Analytics"></a></div></noscript>
+    <!-- End of Statcounter Code -->
     {% endif %}
     <!-- End of Statcounter Code -->
 
