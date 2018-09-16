@@ -14,8 +14,8 @@ RewriteEngine On
 # Check to see if the user is attempting to access a valid file, such as an image
 # or css document, if this isn't true this sends the request to index.php.
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_URI} !\.(jpe?g|png|gif)$ [NC]
-RewriteRule . index.php [L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?/$1 [L]
 
 # Caching
 #<IfModule mod_expires.c>
