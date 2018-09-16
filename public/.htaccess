@@ -10,12 +10,14 @@ Options -Indexes
 #</Files>
 
 RewriteEngine On
+RewriteBase /
 
 # Check to see if the user is attempting to access a valid file, such as an image
 # or css document, if this isn't true this sends the request to index.php.
+RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?/$1 [L]
+RewriteRule . /index.php [L]
 
 # Caching
 #<IfModule mod_expires.c>
