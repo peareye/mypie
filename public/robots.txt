@@ -3,5 +3,4 @@ Disallow: /menuboard
 Disallow: /contact-message
 Disallow: /thank-you
 
-
 Sitemap: http://mypie.london/sitemap.xml
