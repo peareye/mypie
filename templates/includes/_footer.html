@@ -17,9 +17,9 @@
                 <div class="footer__contact-details">
                   <div class="contact-info">
                     <p>MYPIE
-                     
-                      
-                      <br>Epsom, KT199NZ 
+
+
+                      <br>Epsom, KT199NZ
                       <br>United Kingdom
                     </p>
                     <p class="phone">Phone:&nbsp;&nbsp;
@@ -72,8 +72,8 @@
               <!-- End of Social Icons Container -->
           </div>
           <!-- End of Contact Info / Social Icons -->
-          
-         
+
+
         </div>
     </div>
     <!-- End of .container-fluid -->
@@ -88,7 +88,7 @@
             <div class="footer__sub-footer">
                 <img src="/assets/img/ep.png" alt="MYPIE.LONDON">
               </div>
-          <p>&copy; 2018 MYPIE. All rights reserved.</p>
+          <p>&copy; 2018 {% if 'now'|date('Y') > 2018 %} - {{ 'now'|date('Y') }}{% endif %} MYPIE. All rights reserved.</p>
           <p> Website designed by
             <a href="http://moritzmedia.com"> Moritz Media</a>.</p>
         </div>
