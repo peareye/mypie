@@ -13,14 +13,14 @@
     {% endfor %}
 
     <!-- Begin Supplier Cards -->
-    <div class="card-deck">
+    <div class="card-deck clearfix">
       {% for s in publishedSuppliers() %}
-      <div class="card">
+      <div class="card float-left">
         {% if s.logo %}
         <img class="card-img-top" src="{{ s.logo }}" alt="Supplier logo image">
         {% endif %}
         <div class="card-body">
-          <h2 class="card-title">{{ s.name }}</h2>
+          <h3 class="card-title">{{ s.name }}</h3>
         </div>
         <div class="card-footer">
           <a class="btn btn-primary btn-sm btn-read-more" href="{{ pathFor('showSupplier', {'name': s.url}) }}">Read More</a>

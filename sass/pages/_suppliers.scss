@@ -1,93 +1,75 @@
-//Suppliers Page
+// Suppliers Page
+
 #suppliers-main {
-  .title-blurb{
+  .title-blurb {
     width: 70%;
-   
     @include margin(null auto 2rem);
   }
-  .card-deck {
-    @supports (display: grid){
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 350px));
-      justify-content: center;
-      align-items: center;
-      grid-row-gap: 2rem;
-    }
-   
+
+  * {
+    border: none;
   }
-  .card {
-    min-width: 325px;
-    box-shadow: $box-shadow;
-    height: 100%;
-    .card-img-top {
-      padding: 1rem;
-      border-bottom: solid 2px $mypie-light-grey;
+
+  .card-deck {
+    // background: green;
+    @include margin(0 auto);
+
+
+    @supports (display: grid) {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 300px));
+      grid-column-gap: 1rem;
+      grid-row-gap: 1.5rem;
+      justify-content: center;
     }
-    .card-img-top {
-      display: none;
-      @supports (display: grid){
-        display: block;
+
+    .card {
+
+      min-width: 300px;
+      max-width: 350px;
+      @include margin(.5rem null);
+      @include padding(.25rem);
+      border: solid $mypie-light-grey 1px;
+      box-shadow: $box-shadow;
+
+      @supports (display: grid) {
+        @include margin(0);
       }
-    }
-    .card-body {
-      display: flex;
+
+      .card-img-top {
+        display: none;
+        padding: 1rem;
+      border-bottom: solid 2px $mypie-light-grey;
+        @supports (display: grid){
+          display: block; 
+        } 
+      }
+
+      .card-body {
+        @supports (display: grid){
+           display: flex;
       flex-flow: column nowrap;
+      flex-direction: column;
       justify-content: center;
       align-content: center;
       align-items: center;
       text-align: center;
-    }
-    .card-title {
-      font-family: 'Raleway', sans-serif;
-      font-weight: 400;
-      font-size: 1.8rem;
-      color: $mypie-dark-grey;
-    }
-    .card-footer {
-      text-align: center;
-    }
-  }
-}
+        }
+        .card-title {
+          font-family: 'Raleway', sans-serif;
+          font-weight: 400;
+          font-size: 1.8rem;
+          color: $mypie-dark-grey;
+          text-align: center;
 
-// Supplier Details Page
-#supplier-main {
-  .logo-wrapper {
-    @media screen and (min-width: 376px) {
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: center;
-      align-items: center;
-    }
-    .supplier-logo-wrapper {
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: center;
-      align-items: center;
-      @include padding(1rem null);
-      @media screen and (min-width: 376px) {
-       max-width: 300px;
-      }
-      .supplier-logo{
-        display: none;
-        @supports (display: grid){
-          display: block;
         }
       }
+
+      .card-footer {
+        background: $mypie-light-grey;
+        text-align: center;
+
+      }
     }
-   
-    .supplier-title {
-      @include margin(null null 1.5rem);
-      @include padding(.5rem null);
-      background-color: $mypie-light-grey;
-      display: block;
-      width: 100%;
-      text-align: center;
-    }
-   
-  }
-  .supplier-blurb-wrapper{
-      max-width: 900px;
-      @include margin(null auto);
-    
   }
 }
