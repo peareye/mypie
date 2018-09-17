@@ -7676,8 +7676,42 @@ button, [type='button']:hover, [type='reset']:hover, [type='submit']:hover {
       color: #756d6e;
       text-align: center; }
     #suppliers-main .card-deck .card .card-footer {
-      background: #efefef;
-      text-align: center; }
+      text-align: center;
+      background: transparent; }
+
+@media screen and (min-width: 376px) {
+  #supplier-main .logo-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center; } }
+#supplier-main .logo-wrapper .supplier-logo-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem; }
+  @media screen and (min-width: 376px) {
+    #supplier-main .logo-wrapper .supplier-logo-wrapper {
+      max-width: 300px; } }
+  #supplier-main .logo-wrapper .supplier-logo-wrapper .supplier-logo {
+    display: none; }
+    @supports (display: grid) {
+      #supplier-main .logo-wrapper .supplier-logo-wrapper .supplier-logo {
+        display: block; } }
+#supplier-main .logo-wrapper .supplier-title {
+  margin-bottom: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: #efefef;
+  display: block;
+  width: 100%;
+  text-align: center; }
+#supplier-main .supplier-blurb-wrapper {
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: auto; }
 
 #about-main h1 {
   margin-bottom: 1rem; }

@@ -64,12 +64,53 @@
 
         }
       }
-
       .card-footer {
-        background: $mypie-light-grey;
         text-align: center;
-
+        background: transparent;
       }
     }
+  }
+}
+
+// Supplier Details Page
+#supplier-main {
+  .logo-wrapper {
+    @media screen and (min-width: 376px) {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .supplier-logo-wrapper {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+      @include padding(1rem null);
+      @media screen and (min-width: 376px) {
+       max-width: 300px;
+      }
+      .supplier-logo{
+        display: none;
+        @supports (display: grid){
+          display: block;
+        }
+      }
+    }
+   
+    .supplier-title {
+      @include margin(null null 1.5rem);
+      @include padding(.5rem null);
+      background-color: $mypie-light-grey;
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+   
+  }
+  .supplier-blurb-wrapper{
+      max-width: 900px;
+      @include margin(null auto);
+    
   }
 }
