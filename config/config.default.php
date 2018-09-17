@@ -26,7 +26,7 @@ $config['user']['adminEmail'] = [];
  */
 $config['site']['title'] = '';
 $config['site']['sendFromEmail'] = '';
-$config['site']['sendToEmail'] = '';
+$config['site']['sendToEmail'] = [];
 
 /**
  * Database Settings

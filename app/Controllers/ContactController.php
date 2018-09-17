@@ -59,10 +59,19 @@ class ContactController extends BaseController
         // Send message
         $email->setFrom($config['site']['sendFromEmail'], $config['site']['title'])
             ->setReplyTo($contact->email, $contact->name)
-            ->setTo($config['site']['sendToEmail'], $config['site']['sendToEmail'])
             ->setSubject($contact->subject)
-            ->setMessage("From: {$contact->email}\n\n" . $contact->message)
-            ->send();
+            ->setMessage("From: {$contact->email}\n\n" . $contact->message);
+
+        // Add as many To emails as in the config file
+        if (is_array($config['site']['sendToEmail'])) {
+            foreach ($config['site']['sendToEmail'] as $value) {
+                $email->setTo($value, null);
+            }
+        } elseif (is_string($config['site']['sendToEmail'])) {
+            $email->setTo($config['site']['sendToEmail'], null);
+        }
+
+        $email->send();
 
         $log->info('Contact message: ' . print_r($email, true));
 
