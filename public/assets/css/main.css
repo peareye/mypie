@@ -7290,7 +7290,7 @@ button:hover,
     @media screen and (min-width: 768px) {
       #calendar .calendar {
         font-size: 16px; } }
-  @supports (display: gridd) {
+  @supports (display: grid) {
     #calendar .calendar__grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
@@ -7311,7 +7311,7 @@ button:hover,
     @media screen and (min-width: 768px) {
       #calendar .calendar__dayname {
         font-size: 16px; } }
-    @supports (display: gridd) {
+    @supports (display: grid) {
       #calendar .calendar__dayname {
         width: 100%;
         display: flex;
@@ -7325,7 +7325,7 @@ button:hover,
     position: relative;
     text-align: center;
     border-radius: 4px; }
-    @supports (display: gridd) {
+    @supports (display: grid) {
       #calendar .calendar__day {
         width: 100%;
         display: flex; } }
