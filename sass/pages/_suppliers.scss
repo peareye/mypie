@@ -6,11 +6,14 @@
     @include margin(null auto 2rem);
   }
   .card-deck {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 350px));
-    justify-content: center;
-    align-items: center;
-    grid-row-gap: 2rem;
+    @supports (display: grid){
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 350px));
+      justify-content: center;
+      align-items: center;
+      grid-row-gap: 2rem;
+    }
+   
   }
   .card {
     box-shadow: $box-shadow;
@@ -18,6 +21,12 @@
     .card-img-top {
       padding: 1rem;
       border-bottom: solid 2px $mypie-light-grey;
+    }
+    .card-img-top {
+      display: none;
+      @supports (display: grid){
+        display: block;
+      }
     }
     .card-body {
       display: flex;
@@ -56,6 +65,12 @@
       @include padding(1rem null);
       @media screen and (min-width: 376px) {
        max-width: 300px;
+      }
+      .supplier-logo{
+        display: none;
+        @supports (display: grid){
+          display: block;
+        }
       }
     }
    
