@@ -166,7 +166,7 @@ class AdminController extends BaseController
         }
 
         // Suppliers
-        $suppliers = $SupplierMapper->find();
+        $suppliers = $SupplierMapper->findPublishedSuppliers();
         foreach ($suppliers as $supplier) {
             $SitemapPages[] = [
                 'link' => $baseUrl . $this->container->router->pathFor('showSupplier', ['name' => $supplier->url]),
