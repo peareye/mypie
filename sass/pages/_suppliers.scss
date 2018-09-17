@@ -11,10 +11,12 @@
   }
 
   .card-deck {
-    // background: green;
-    @include margin(0 auto);
-
-
+  
+  display: block;
+  @supports (display: flex){
+    display: flex;
+  }
+    
     @supports (display: grid) {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 300px));
@@ -24,9 +26,10 @@
     }
 
     .card {
-
-      min-width: 300px;
-      max-width: 350px;
+      
+      min-height: 300px;
+      width: 300px;
+     
       @include margin(.5rem null);
       @include padding(.25rem);
       border: solid $mypie-light-grey 1px;
@@ -39,22 +42,30 @@
       .card-img-top {
         display: none;
         padding: 1rem;
-      border-bottom: solid 2px $mypie-light-grey;
-        @supports (display: grid){
-          display: block; 
-        } 
+        max-height: 40%;
+        border-bottom: solid 2px $mypie-light-grey;
+
+        @supports (display: grid) {
+          display: block;
+        }
+      }
+
+      .supplier-logo {
+        object-fit: contain;
+
       }
 
       .card-body {
-        @supports (display: grid){
-           display: flex;
-      flex-flow: column nowrap;
-      flex-direction: column;
-      justify-content: center;
-      align-content: center;
-      align-items: center;
-      text-align: center;
+        @supports (display: grid) {
+          display: flex;
+          flex-flow: column nowrap;
+          flex-direction: column;
+          justify-content: center;
+          align-content: center;
+          align-items: center;
+          text-align: center;
         }
+
         .card-title {
           font-family: 'Raleway', sans-serif;
           font-weight: 400;
@@ -64,6 +75,7 @@
 
         }
       }
+
       .card-footer {
         text-align: center;
         background: transparent;
@@ -81,23 +93,27 @@
       justify-content: center;
       align-items: center;
     }
+
     .supplier-logo-wrapper {
       display: flex;
       flex-flow: column nowrap;
       justify-content: center;
       align-items: center;
       @include padding(1rem null);
+
       @media screen and (min-width: 376px) {
-       max-width: 300px;
+        max-width: 300px;
       }
-      .supplier-logo{
+
+      .supplier-logo {
         display: none;
-        @supports (display: grid){
+
+        @supports (display: grid) {
           display: block;
         }
       }
     }
-   
+
     .supplier-title {
       @include margin(null null 1.5rem);
       @include padding(.5rem null);
@@ -106,11 +122,12 @@
       width: 100%;
       text-align: center;
     }
-   
+
   }
-  .supplier-blurb-wrapper{
-      max-width: 900px;
-      @include margin(null auto);
-    
+
+  .supplier-blurb-wrapper {
+    max-width: 900px;
+    @include margin(null auto);
+
   }
 }

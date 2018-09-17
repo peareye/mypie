@@ -17,7 +17,7 @@
       {% for s in publishedSuppliers() %}
       <div class="card float-left">
         {% if s.logo %}
-        <img class="card-img-top" src="{{ s.logo }}" alt="Supplier logo image">
+        <img class="card-img-top img-fluid supplier-logo" src="{{ s.logo }}" alt="Supplier logo image">
         {% endif %}
         <div class="card-body">
           <h3 class="card-title">{{ s.name }}</h3>

@@ -16,7 +16,7 @@
                 {% set available = availableMenuSections(menu.items) %}
 
                 {% if available.dailypies %}
-                <div class="card" >
+                <div class="card-content" >
                     <ul class="list-group">
                         {% for m in menu.items if m.section == 'dailypies' %}
                         <li class="list-group-item" > <strong>{{m.type }}</strong> | {{ m.description }}</li>
