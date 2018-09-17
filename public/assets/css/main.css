@@ -7639,6 +7639,7 @@ button, [type='button']:hover, [type='reset']:hover, [type='submit']:hover {
     align-items: center;
     grid-row-gap: 2rem; } }
 #suppliers-main .card {
+  min-width: 325px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
   height: 100%; }
   #suppliers-main .card .card-img-top {
