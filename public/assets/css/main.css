@@ -7220,7 +7220,7 @@ button:hover,
     padding-top: 2rem;
     padding-bottom: 1rem;
     object-fit: cover;
-    background-image: url("../img/aboutbg.jpg");
+    background-image: url("../img/compressed/aboutbg-min.jpg");
     background-position: bottom center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -7664,8 +7664,6 @@ button, [type='button']:hover, [type='reset']:hover, [type='submit']:hover {
       @supports (display: grid) {
         #suppliers-main .card-deck .card .card-img-top {
           display: block; } }
-    #suppliers-main .card-deck .card .supplier-logo {
-      object-fit: contain; }
     @supports (display: grid) {
       #suppliers-main .card-deck .card .card-body {
         display: flex;
