@@ -19,7 +19,9 @@
     </div>
     <div class="grid-cell">
         {% include '@admin/includes/_menuListAll.html' %}
+        {% if authorized('A') %}
         <a class="btn btn-primary btn-sm" href="{{ pathFor('showMenus') }}">More Menus</a>
+        {% endif %}
     </div>
 </div>
 
