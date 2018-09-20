@@ -224,11 +224,23 @@ class IndexController extends BaseController
 
             // Start with the last monday in the prior month to start filling full calendar block
             $startDate = clone $month;
-            $startDate->modify('last monday of previous month');
+
+            // Test if the first day of this month falls on a Monday, in which case we do not need an extra row
+            // by extending into the prior month
+            if ($startDate->format('D') !== 'Mon') {
+                $startDate->modify('last monday of previous month');
+            }
 
             // Get the first Sunday of the next month to close our calendar block
             $endDate = clone $month;
-            $endDate->modify('first sunday of next month');
+
+            // Test if the last day of this month falls on a Sunday, in which case we do not need an extra row
+            // by extending into next month
+            $endDate->modify('last day of this month');
+            if ($endDate->format('D') !== 'Sun') {
+                $endDate->modify('first sunday of next month');
+            }
+
             $endDate->modify('+1 day');
 
             // Set interval to 'day' and get iterable date period object
