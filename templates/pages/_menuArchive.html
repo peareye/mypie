@@ -1,6 +1,6 @@
 {% extends '_sidebar_layout.html' %}
 
-{% block title %}{{ page.title }}{% endblock %}
+{% block title %}Past Menus Page {{ page.pageNumber }}{% endblock %}
 {% block metadescription %}Past pies{% endblock %}
 {% block main %}
 
@@ -29,7 +29,7 @@
             <h2 class="section-title">No Old Menus Found</h2>
             {% endfor %}
         </div>
-       
+
         {{ pagination() }}
     </div>
 </section>

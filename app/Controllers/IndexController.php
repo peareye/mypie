@@ -150,7 +150,7 @@ class IndexController extends BaseController
             }
         }
 
-        $page['title'] = "Past Menus Page {$pageNumber}";
+        $page['pageNumber'] = $pageNumber;
         $page['menuList'] = $menus;
 
         return $this->container->view->render($response, 'pages/_menuArchive.html', ['page' => $page]);
