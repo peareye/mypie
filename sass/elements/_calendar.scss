@@ -28,6 +28,7 @@
 
   .calendar__grid {
     background-color: $mypie-light-grey;
+    border-radius: $border-radius;
     @include padding(.25rem);
     @supports (display: grid) {
       display: grid;
