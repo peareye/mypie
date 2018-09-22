@@ -7074,7 +7074,7 @@ header {
   text-align: center; }
 
 .navbar-wrapper {
-  background-color: rgba(210, 210, 210, 0.8); }
+  background-color: rgba(190, 190, 190, 0.8); }
   .navbar-wrapper .nav-item {
     width: 100%;
     text-align: center; }
@@ -7108,7 +7108,7 @@ header {
     padding-left: 1rem; }
 
 .editor-toolbar button {
-  background: #756d6e;
+  background: #4b4b4b;
   margin: 2px; }
 
 section {

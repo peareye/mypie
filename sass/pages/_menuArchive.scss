@@ -20,7 +20,7 @@
     }
 
     .card {
-      background-color: $mypie-md-grey;
+      background-color: $mypie-light-grey;
       box-shadow: $box-shadow;
       
       min-width: 300px;
@@ -28,7 +28,8 @@
 
       .card-title {
         background-color: $mypie-red;
-        color: $mypie-dark;
+        color: $mypie-light;
+        letter-spacing: .15em;
         @include padding(.5rem null);
         @include border-radius(4px 4px 0px 0px);
         display: block;

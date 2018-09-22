@@ -1,4 +1,5 @@
 #calendar {
+  @include margin(5rem null null);
   a {
     text-decoration: none;
     color: $mypie-dark-grey;
@@ -7,9 +8,13 @@
       color: $mypie-red
     }
   }
-
+  h2 {
+    font-size: 2.5rem;
+    @include margin(0);
+  }
   .calendar {
-    font-size: 8px;
+    font-size: .45rem;
+   
     @include padding(1.5rem 5px 1rem);
     width: 100%;
     max-width: 1200px;
@@ -17,11 +22,13 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
     @media screen and (min-width: 768px) {
-      font-size: 16px;
+      font-size: 1rem;
     }
   }
 
   .calendar__grid {
+    background-color: $mypie-light-grey;
+    @include padding(.25rem);
     @supports (display: grid) {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
@@ -31,66 +38,33 @@
       position: relative;
     }
   }
-
-  .calendar__dayname {
+  .calendar__dayname,
+  .calendar__day {
+    background-color: $mypie-light;
     float: left;
     width: calc(100%/7);
+    border-radius: $border-radius;
     text-align: center;
-    font-size: 10px;
+    border: solid $muted-grey 1px;
+    width: 100%;
+    @supports (display: grid){
+display: flex;
+    }
+  }
+
+  .calendar__dayname {
     font-weight: 700;
     @include padding(.25rem null);
-    border: solid $muted-grey 1px;
-    border-radius: $border-radius;
-
-    @media screen and (min-width: 768px) {
-      font-size: 16px;
-    }
-
+   
     @supports (display: grid) {
-      width: 100%;
-      display: flex;
       justify-content: center;
       align-items: center;
     }
   }
   .calendar__day {
-    float: left;
-    width: calc(100%/7);
     height: calc(50vh/6);
-    border: solid $muted-grey 1px;
     position: relative;
-    text-align: center;
-    border-radius: $border-radius;
-    @supports (display: grid){
-      width: 100%;
-      display: flex;
-    }
   }
-
-  h2 {
-    font-size: 2.5rem;
-    @include margin(0);
-  }
-
-
-
-  .today {
-    background: rgba($mypie-red, 0.8);
-    color: $mypie-light;
-  }
-
-  .today a {
-    color: $mypie-light;
-
-    &:hover {
-      color: $mypie-dark;
-    }
-  }
-
-  .prev-month {
-    color: $mypie-light-grey;
-  }
-
   .calendar__date {
     font-weight: 700;
     position: absolute;
@@ -107,7 +81,22 @@
     justify-content: center;
     @include padding(1rem 3px);
   }
+  .today {
+    background: rgba($mypie-red, 0.8);
+    color: $mypie-light;
+  }
 
+  .today a {
+    color: $mypie-light;
+
+    &:hover {
+      color: $mypie-dark;
+    }
+  }
+
+  .prev-month {
+    color: $mypie-md-grey;
+  }
   /* Slick Arrows */
   .slick-prev,
   .slick-next {

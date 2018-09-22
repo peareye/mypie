@@ -20,7 +20,10 @@
         </div>
         <div class="calendar__content" data-toggle="modal" data-target="#locationModal">
           {% for l in d.content %}
-          <a title="Calendar Anchor" href="#calendar">{{ l }}</a>
+          <div class="calendar__link">
+            <a title="Calendar Anchor" href="#calendar">{{ l }}</a>
+          </div>
+         
           {% endfor %}
         </div>
       </div>
