@@ -15,7 +15,7 @@ var el = document.querySelectorAll('.hamburger');
 // Scroll with offset to named anchor
 var smoothScroll = function(hash) {
     $('html, body').animate({
-        scrollTop: $(hash).offset().top - 100
+        scrollTop: $(hash).offset().top - 45
     }, 500, 'easeInOutSine');
 }
 // Close BS4 navbar on in-page links
