@@ -146,9 +146,9 @@ class LoginController extends BaseController
 
         // Not valid, direct home
         $message = $args['token'] . ' saved: ' . $savedToken . ' time: ' . time() . ' expires: ' . $tokenExpires;
-        $this->container->logger->info('Invalid login token, supplied: ' . $message);
+        $this->container->logger->alert('Invalid login token, supplied: ' . $message);
 
-        return $this->notFound($request, $response);
+        return $response->withRedirect($this->container->router->pathFor('showLoginForm'));
     }
 
     /**
