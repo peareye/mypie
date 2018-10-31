@@ -7,6 +7,7 @@ twigcache/
 docker/db/
 public/assets/img/originals/
 *.pdf
+prepros-6.config
 
 # Misc
 *.xml
