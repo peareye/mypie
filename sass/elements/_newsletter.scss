@@ -1,24 +1,24 @@
 /* Section: _newsletter.html */
 
 #newsletter {
-  form>div:first-child {
-    display: none;
-  }
+@include margin(0 null);
+@include padding(0 null);
   .newsletter-wrapper {
     display: grid;
     grid-template-columns: 1fr;
-    justify-content: center;
-    align-items: center;
+    // justify-content: center;
+    // align-items: center;
+    @include padding(2rem null null);
+    
   }
   .newsletter-signup-content {
     @include padding(null 10px);
-    @include margin(null null -35px);
   } 
   
   // Media Query
   @media screen and (min-width: 768px) {
     .newsletter-box {
-      @include margin(-20px null null);
+      // @include margin(-20px null null);
     }
     .newsletter-wrapper {
       grid-template-columns: repeat(2, 1fr);
