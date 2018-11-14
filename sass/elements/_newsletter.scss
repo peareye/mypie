@@ -1,28 +1,44 @@
 /* Section: _newsletter.html */
 
 #newsletter {
-@include margin(0 null);
-@include padding(0 null);
-  .newsletter-wrapper {
-    display: grid;
-    grid-template-columns: 1fr;
-    // justify-content: center;
-    // align-items: center;
-    @include padding(2rem null null);
-    
+
+  .container-fluid {
+    @include padding(null null 0);
   }
-  .newsletter-signup-content {
-    @include padding(null 10px);
-  } 
+
+  .newsletter-wrapper {
   
+    text-align: center;
+    // @include padding(1rem null null);
+
+  }
+
+  .newsletter-signup-content {
+    @include padding(0 10px);
+  }
+
   // Media Query
   @media screen and (min-width: 768px) {
-    .newsletter-box {
-      // @include margin(-20px null null);
-    }
     .newsletter-wrapper {
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 1rem;
+      text-align: left;
+      display: flex;
+      flex-flow: row nowrap;
+      border: solid $mypie-light-grey 2px;
+      border-radius: $border-radius;
+      @include padding(1rem);
     }
+
+    .newsletter-signup-content {
+      flex: 1;
+      @include padding(1rem 10px null)
+    }
+
+    .newsletter-form {
+      flex: 1;
+      
+    }
+  }
+  .newsletter-form > div:nth-last-of-type(2){
+    background-color: red !important;
   }
 }
