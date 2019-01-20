@@ -1,4 +1,4 @@
-{% extends '_sidebar_layout.html' %} 
+{% extends '_sidebar_layout.html' %}
 {% block title %}{{ page.title }}{% endblock %}
 {% block metadescription %} {{ page.meta_description }}{% endblock %}
 
@@ -8,11 +8,13 @@
         <!-- Page Title -->
         {% for p in page.pagelets if p.name == 'title' %}
         <h1 class="page-title">{{ p.title }}</h1>
+
+        {% if p.content_html %}
         <div class="page-title-blurb">
                 {{ p.content_html }}
-            
         </div>
-      
+        {% endif %}
+
         {% endfor %}
         <div class="row">
             <div class="col-12">
