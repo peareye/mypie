@@ -8,7 +8,7 @@
         "erusev/parsedown": "^1.6",
         "intervention/image": "^2.3",
         "eoghanobrien/php-simple-mail": "^1.7",
-        "twbs/bootstrap": "4.1.0"},
+        "twbs/bootstrap": "4.3.1"},
     "autoload": {
       "psr-4": {
           "Piton\\": "app/"
