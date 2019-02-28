@@ -14,14 +14,72 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{ basePath() }}/" target="_blank"><img src="/assets/img/brand.svg" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item {% if inUrl('/home') %}active {% endif %}">
+                        <a href="{{ pathFor('adminHome') }}" class="nav-link">Home</a>
+                    </li>
+                    {# For user levels A=Admin, S=SuperAdmin #}
+                    {% if authorized('A') %}
+                    <li class="nav-item {% if inUrl('/menu') %}active {% endif %}">
+                        <a class="nav-link" href="{{ pathFor('showMenus') }}">Menus</a>
+                    </li>
+                    <li class="nav-item {% if inUrl('/page') %}active {% endif %}">
+                        <a class="nav-link" href="{{ pathFor('showPages') }}">Pages</a>
+                    </li>
+                    <li class="nav-item {% if inUrl('/supplier') %}active {% endif %}">
+                        <a class="nav-link" href="{{ pathFor('supplierHome') }}">Suppliers</a>
+                    </li>
+                    <li class="nav-item {% if inUrl('/user') %}active {% endif %}">
+                        <a class="nav-link" href="{{ pathFor('showUsers') }}">Users</a>
+                    </li>
+                    {% endif %}
+                    {# <li class="nav-item {% if inUrl('/') %}active {% endif %}">
+                        <a class="nav-link" href="#">Support</a>
+                    </li> #}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ pathFor('logout') }}">Exit</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="bg-primary">
+        <div class="container text-white">
+            <h1 class="text-white"> {% block title %} MYPIE ADMIN DEFAULT TITLE{% endblock %}</h1>
+
+            <h5 class="text-white">{% block blurb %}
+            Blurb header
+            {% endblock %}</h5>
+        </div>
 
 
+    </header>
 
 
-    <script src="//code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <section id="{% block id %}{% endblock %}">
+        <div class="container">
+            {% block body %}
+            <p>This is where the main body content appears</p>
+            {% endblock %}
+        </div>
+
+    </section>
+
+    <script src="//code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
         crossorigin="anonymous"></script>
