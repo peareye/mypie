@@ -18,6 +18,11 @@ h5,
 h6 {
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 0;
+  line-height: 1;
+  @include margin(0);
+}
+h1{
+  @include margin(null null .5rem);
 }
 
 a {
@@ -54,7 +59,7 @@ a {
 }
 
 .navbar{
-  @include padding(.25rem null);
+  @include padding(.5rem null);
 }
 .navbar-brand{
   width: 60px;
@@ -63,15 +68,12 @@ a {
   @include margin(0);
 }
 header{
-.container{
-  // width: 100%;
-  
-  // display: flex;
-  // flex-flow: column nowrap;
-  // justify-content: center;
-  // align-items: center;
-  @include padding(1rem null);
-  // @include margin(0 auto);
+.container {
+display: flex;
+flex-flow: column nowrap;
+@include padding(.5rem null);
+
+
 }
 }
 /* Custom Styles */

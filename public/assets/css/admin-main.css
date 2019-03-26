@@ -10003,6 +10003,12 @@ h5,
 h6 {
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 0;
+  line-height: 1;
+  margin: 0;
+}
+
+h1 {
+  margin-bottom: 0.5rem;
 }
 
 a {
@@ -10040,8 +10046,8 @@ a {
 }
 
 .navbar {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .navbar-brand {
@@ -10052,8 +10058,10 @@ a {
 }
 
 header .container {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 /* Custom Styles */
