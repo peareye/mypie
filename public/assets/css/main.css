@@ -10043,136 +10043,6 @@ section .container-fluid {
   display: none;
 }
 
-nav {
-  padding: 0.1px;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
-  font-family: Arial, Helvetica, sans-serif;
-  text-transform: uppercase;
-}
-
-.navbar {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.navbar-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav-link {
-  color: #efefef;
-  text-align: center;
-  font-weight: 700;
-}
-.nav-link:hover {
-  color: #bebebe;
-}
-
-.bg-dark {
-  background-color: #ed1c24 !important;
-}
-
-.dropdown-divider {
-  border-top: 2px solid rgba(255, 255, 255, 0.5) !important;
-}
-
-.navbar-brand img {
-  height: 70px;
-  width: auto;
-  padding-top: 3px;
-}
-
-/* Hamburger Styles Credit: http://w3bits.com/animated-hamburger-icons/    */
-.hamburger {
-  font-size: 1.5rem;
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  padding: 0;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-  -moz-transition: transform 0.2s ease-in-out;
-  -webkit-transition: transform 0.2s ease-in-out;
-  vertical-align: middle;
-  border: 0 none;
-  background: transparent;
-}
-
-button:hover,
-[type=button]:hover,
-[type=reset]:hover,
-[type=submit]:hover {
-  background-color: #ed1c24;
-}
-
-/* Button height fix for Firefox */
-.hamburger::-moz-focus-inner {
-  padding: 0;
-  border: 0 none;
-}
-
-/* Focus fix for Chrome */
-.hamburger:focus {
-  outline: 0;
-}
-
-/* Styling the icon */
-.hamburger:before,
-.hamburger:after {
-  content: "";
-}
-
-.hamburger:before,
-.hamburger .icon,
-.hamburger:after {
-  display: block;
-  width: 100%;
-  height: 0.2em;
-  margin: 0 0 0.2em;
-  transition: transform 0.2s ease-in-out;
-  -moz-transition: transform 0.2s ease-in-out;
-  -webkit-transition: transform 0.2s ease-in-out;
-  border-radius: 0.25em;
-  -moz-border-radius: 25em;
-  -webkit-border-radius: 0.25em;
-  background: white;
-}
-
-/* Styles for the active `.hamburger` icon */
-.hamburger.active:before,
-.hamburger.active .icon,
-.hamburger.active:after {
-  background: white;
-}
-
-/* VERTICAL HAMBURGER */
-.hamburger.hamburger-vertical.active {
-  transform: rotate(270deg);
-  -moz-transform: rotate(270deg);
-  -webkit-transform: rotate(270deg);
-}
-
-/*  CLOSE/CANCEL/CROSS   */
-.hamburger.hamburger-cancel.active .icon {
-  transform: scale(0);
-  -moz-transform: scale(0);
-  -webkit-transform: scale(0);
-}
-
-.hamburger.hamburger-cancel.active:before {
-  transform: translateY(0.4em) rotate(135deg);
-  -moz-transform: translateY(0.4em) rotate(135deg);
-  -webkit-transform: translateY(0.4em) rotate(135deg);
-}
-
-.hamburger.hamburger-cancel.active:after {
-  transform: translateY(-0.4em) rotate(-135deg);
-  -moz-transform: translateY(-0.4em) rotate(-135deg);
-  -webkit-transform: translateY(-0.4em) rotate(-135deg);
-}
-
 .logo-container {
   width: 100vw;
   margin-top: 25px;
@@ -10243,6 +10113,52 @@ button:hover,
     transform: translateZ(0);
   }
 }
+button, [type=button], [type=reset], [type=submit] {
+  appearance: none;
+  background: #ed1c24 !important;
+  color: #fff !important;
+  text-transform: uppercase;
+  border: solid 0.1rem rgba(35, 31, 32, 0.5);
+  border: rgba(110, 30, 33, 0.8);
+  border-radius: 4px;
+  transition: background-color 0.5s ease;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+button, [type=button]:hover, [type=reset]:hover, [type=submit]:hover {
+  background-color: #6e1e21 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.btn {
+  border: none;
+}
+
+.btn-primary {
+  background-color: #ed1c24;
+  color: #fff;
+}
+
+.btn-primary:hover, .btn-primary:active {
+  background-color: #efefef !important;
+  color: #231f20 !important;
+}
+
+.btn-secondary {
+  background-color: #ff7400;
+}
+
+.btn-secondary:hover, .btn-secondary:active {
+  background-color: #efefef !important;
+  color: #231f20 !important;
+}
+
+.btn-primary:active, .btn-secondary:active, .btn-primary:focus, .btn-secondary:focus {
+  border: none;
+  box-shadow: 0 0 #231f20;
+}
+
 #footer {
   color: #fff;
 }
@@ -10366,20 +10282,19 @@ button:hover,
   #calendar .calendar__grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: auto minmax(50px, auto);
-    grid-auto-rows: minmax(50px, auto);
+    grid-template-rows: auto minmax(60px, auto);
+    grid-auto-rows: minmax(60px, auto);
     grid-gap: 2px;
     position: relative;
   }
   @media screen and (min-width: 768px) {
     #calendar .calendar__grid {
-      grid-template-rows: auto minmax(70px, auto);
-      grid-auto-rows: minmax(70px, auto);
+      grid-template-rows: auto minmax(80px, auto);
+      grid-auto-rows: minmax(80px, auto);
     }
   }
 }
-#calendar .calendar__dayname,
-#calendar .calendar__day {
+#calendar .calendar__dayname, #calendar .calendar__day {
   background-color: #fff;
   float: left;
   width: calc(100%/7);
@@ -10389,8 +10304,7 @@ button:hover,
   width: 100%;
 }
 @supports (display: grid) {
-  #calendar .calendar__dayname,
-#calendar .calendar__day {
+  #calendar .calendar__dayname, #calendar .calendar__day {
     display: flex;
   }
 }
@@ -10399,7 +10313,7 @@ button:hover,
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
-@supports (display: grid) {
+@supports (display: flex) {
   #calendar .calendar__dayname {
     justify-content: center;
     align-items: center;
@@ -10413,9 +10327,11 @@ button:hover,
 #calendar .calendar__date {
   font-weight: 700;
   position: absolute;
-  top: 2px;
+  top: 3px;
   left: 3px;
   font-family: "Montserrat", sans-serif;
+  margin: 0;
+  line-height: 1;
 }
 #calendar .calendar__content {
   height: 100%;
@@ -10423,12 +10339,16 @@ button:hover,
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+  align-items: center;
+  padding-right: 0.25px;
+  padding-bottom: 0.5rem;
+  padding-left: 0.25px;
 }
 #calendar .calendar__link {
   border-bottom: solid 1px #efefef;
-  padding: 0 0.25rem 0.25rem;
-  margin-right: 0.25rem;
-  margin-left: 0.25rem;
+  padding-top: 1rem;
+  padding-bottom: 0.25rem;
+  line-height: 1;
 }
 #calendar .calendar__link:last-child {
   border-bottom: none;
@@ -10744,50 +10664,139 @@ button:hover,
   padding: 0;
 }
 
-button, [type=button], [type=reset], [type=submit] {
-  appearance: none;
-  background: #ed1c24 !important;
-  color: #fff !important;
+nav {
+  padding: 0.1px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+  font-family: Arial, Helvetica, sans-serif;
   text-transform: uppercase;
-  border: solid 0.1rem rgba(35, 31, 32, 0.5);
-  border: rgba(110, 30, 33, 0.8);
-  border-radius: 4px;
-  transition: background-color 0.5s ease;
+}
+
+.navbar {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-link {
+  color: #efefef;
+  text-align: center;
+  font-weight: 700;
+  border-top: solid 3px transparent;
+}
+.nav-link:hover {
+  color: #bebebe;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.bg-dark {
+  background-color: #ed1c24 !important;
+}
+
+.dropdown-divider {
+  border-top: 2px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+.navbar-brand img {
+  height: 70px;
+  width: auto;
+  padding-top: 3px;
+}
+
+/* Hamburger Styles Credit: http://w3bits.com/animated-hamburger-icons/    */
+.hamburger {
+  font-size: 1.5rem;
   display: inline-block;
-  margin-bottom: 1rem;
+  width: 1em;
+  height: 1em;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  -moz-transition: transform 0.2s ease-in-out;
+  -webkit-transition: transform 0.2s ease-in-out;
+  vertical-align: middle;
+  border: 0 none;
+  background: transparent;
 }
 
-button, [type=button]:hover, [type=reset]:hover, [type=submit]:hover {
-  background-color: #6e1e21 !important;
-  color: rgba(255, 255, 255, 0.8) !important;
-}
-
-.btn {
-  border: none;
-}
-
-.btn-primary {
+button:hover,
+[type=button]:hover,
+[type=reset]:hover,
+[type=submit]:hover {
   background-color: #ed1c24;
-  color: #fff;
 }
 
-.btn-primary:hover, .btn-primary:active {
-  background-color: #efefef !important;
-  color: #231f20 !important;
+/* Button height fix for Firefox */
+.hamburger::-moz-focus-inner {
+  padding: 0;
+  border: 0 none;
 }
 
-.btn-secondary {
-  background-color: #ff7400;
+/* Focus fix for Chrome */
+.hamburger:focus {
+  outline: 0;
 }
 
-.btn-secondary:hover, .btn-secondary:active {
-  background-color: #efefef !important;
-  color: #231f20 !important;
+/* Styling the icon */
+.hamburger:before,
+.hamburger:after {
+  content: "";
 }
 
-.btn-primary:active, .btn-secondary:active, .btn-primary:focus, .btn-secondary:focus {
-  border: none;
-  box-shadow: 0 0 #231f20;
+.hamburger:before,
+.hamburger .icon,
+.hamburger:after {
+  display: block;
+  width: 100%;
+  height: 0.2em;
+  margin: 0 0 0.2em;
+  transition: transform 0.2s ease-in-out;
+  -moz-transition: transform 0.2s ease-in-out;
+  -webkit-transition: transform 0.2s ease-in-out;
+  border-radius: 0.25em;
+  -moz-border-radius: 25em;
+  -webkit-border-radius: 0.25em;
+  background: white;
+}
+
+/* Styles for the active `.hamburger` icon */
+.hamburger.active:before,
+.hamburger.active .icon,
+.hamburger.active:after {
+  background: white;
+}
+
+/* VERTICAL HAMBURGER */
+.hamburger.hamburger-vertical.active {
+  transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+}
+
+/*  CLOSE/CANCEL/CROSS   */
+.hamburger.hamburger-cancel.active .icon {
+  transform: scale(0);
+  -moz-transform: scale(0);
+  -webkit-transform: scale(0);
+}
+
+.hamburger.hamburger-cancel.active:before {
+  transform: translateY(0.4em) rotate(135deg);
+  -moz-transform: translateY(0.4em) rotate(135deg);
+  -webkit-transform: translateY(0.4em) rotate(135deg);
+}
+
+.hamburger.hamburger-cancel.active:after {
+  transform: translateY(-0.4em) rotate(-135deg);
+  -moz-transform: translateY(-0.4em) rotate(-135deg);
+  -webkit-transform: translateY(-0.4em) rotate(-135deg);
 }
 
 #suppliers-main .title-blurb {

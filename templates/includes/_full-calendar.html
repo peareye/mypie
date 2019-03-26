@@ -18,14 +18,16 @@
         <div class="calendar__date {{ d.dateClass }}">
           {{ d.date }}
         </div>
-        <div class="calendar__content" data-toggle="modal" data-target="#locationModal">
-          {% for l in d.content %}
-          <div class="calendar__link">
-            <a title="Calendar Anchor" href="#calendar">{{ l }}</a>
+  
+          <div class="calendar__content" data-toggle="modal" data-target="#locationModal">
+            {% for l in d.content %}
+            <div class="calendar__link">
+              <a title="Calendar Anchor" href="#calendar">{{ l }}</a>
+            </div>
+
+            {% endfor %}
           </div>
-         
-          {% endfor %}
-        </div>
+
       </div>
       {% endfor %}
     </div>
