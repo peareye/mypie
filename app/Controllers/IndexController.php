@@ -208,12 +208,12 @@ class IndexController extends BaseController
     /**
      * Populate Calendar Array
      *
-     * Populates three full month calendar arrays, including leading/trailing dates
+     * Populates two full month calendar arrays, including leading/trailing dates
      */
     protected function populateCalendar()
     {
-        // Loop through three months for three calendars
-        for ($i=0; $i < 3; $i++) {
+        // Loop through two months for two calendars
+        for ($i=0; $i < 2; $i++) {
             // Start with month
             $month = new \DateTime('first day of this month 00:00:00');
 

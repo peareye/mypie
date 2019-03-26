@@ -50,7 +50,7 @@ $('.menu-section').on('click', '.add-item-row', function(e) {
 // Add menu item default form rows
 $('.menu-item-defaults').on('click', '.add-item-default-row', function(e) {
     e.preventDefault();
-    var $row = $(this).prev('.item-default').clone();
+    var $row = $('.menu-item-defaults > .item-default:last').clone();
     $row.find('input:not([type="checkbox"])').val('');
     $row.find('input:checked').prop('checked', false);
     var $fields = $row.find('input');
@@ -60,7 +60,7 @@ $('.menu-item-defaults').on('click', '.add-item-default-row', function(e) {
         $($fields[i]).attr('name', newName);
     }
     newFormRowIndex++;
-    $(this).before($row);
+    $($row).insertAfter('.menu-item-defaults > .item-default:last');
     $row.find("input[name$='[kind]']").focus();
 });
 

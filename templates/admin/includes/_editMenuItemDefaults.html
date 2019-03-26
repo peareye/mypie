@@ -2,10 +2,8 @@
 
   <form class="menu-item-defaults" action="{{ pathFor('saveMenuItemDefaults') }}" method="post" accept-charset="utf-8">
     {% for d in page.defaults %}
-
-    <div class="form-group element-section">
+    <div class="form-group element-section item-default">
       <input class="form-control" type="hidden" name="defaults[{{ loop.index }}][menu_item_default_id]" value="{{ d.id }}">
-
       <input class="form-control" type="text" name="defaults[{{ loop.index }}][kind]" maxlength="20" placeholder="Type" value="{{ d.kind }}">
       <input class="form-control" type="text" name="defaults[{{ loop.index }}][price]" maxlength="40" placeholder="Price" value="{{ d.price }}">
       <div class="form-check form-check-inline">
@@ -15,8 +13,6 @@
       </div>
     </div>
     {% else %}
-
-
     <div class="form-group element-section item-default">
       <input class="form-control" type="hidden" name="defaults[0][menu_item_default_id]" value="">
       <input class="form-control" type="text" name="defaults[0][kind]" maxlength="20" placeholder="Type" value="">
@@ -32,7 +28,7 @@
         <button class="btn btn-info btn-sm add-item-default-row" type="button">Add</button>
         <button class="btn btn-success btn-sm" type="submit" name="button">Save All</button>
     </div>
-   
+
   </form>
 
 
