@@ -2,7 +2,6 @@
 // HTML Styles
 html {
   box-sizing: border-box;
- 
 }
 
 *,
@@ -17,7 +16,8 @@ body {
   @media (min-width: 768px) {
     margin-top: 78px;
   }
-  @media (min-width: 992px){
+
+  @media (min-width: 992px) {
     margin-top: 55px;
   }
 }
@@ -32,7 +32,7 @@ section .container-fluid {
   background: $mypie-light;
   @include padding(2rem null);
 }
- 
+
 .container-fluid {
   max-width: 1200px;
 }
@@ -54,135 +54,7 @@ section .container-fluid {
   position: relative;
 }
 
-.menu-divider:last-of-type{
+.menu-divider:last-of-type {
   display: none;
 }
 
-// Navbar Custom Styles
-nav {
-  @include padding(0.1px);
-  box-shadow: $box-shadow;
-  font-family: Arial, Helvetica, sans-serif;
-  text-transform: uppercase;
-  
-}
-
-.navbar {
-  @include padding(0 null);
-}
-.navbar-nav{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
-.nav-link{
-  color: rgba($mypie-light-grey, 1);
-  text-align: center;
-  font-weight: 700;
-  &:hover{
-    color: rgba($mypie-md-grey, 1);
-  }
-}
-.bg-dark {
-  background-color: $mypie-red !important;
-
-}
-.dropdown-divider{
-  border-top: 2px solid rgba($mypie-light, .5)!important;
-}
-//Navbar Brand Sizing
-.navbar-brand img {
-  height: 70px;
-  width: auto;
-  @include padding(3px null null);
-}
-
-/* Hamburger Styles Credit: http://w3bits.com/animated-hamburger-icons/    */
-.hamburger {
-  font-size: 1.5rem;
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  padding: 0;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-  -moz-transition: transform 0.2s ease-in-out;
-  -webkit-transition: transform 0.2s ease-in-out;
-  vertical-align: middle;
-  border: 0 none;
-  background: transparent;
-}
-
-button:hover,
-[type="button"]:hover,
-[type="reset"]:hover,
-[type="submit"]:hover {
-  background-color: $mypie-red;
-}
-
-/* Button height fix for Firefox */
-.hamburger::-moz-focus-inner {
-  padding: 0;
-  border: 0 none;
-}
-
-/* Focus fix for Chrome */
-.hamburger:focus {
-  outline: 0;
-}
-
-/* Styling the icon */
-.hamburger:before,
-.hamburger:after {
-  content: "";
-}
-
-.hamburger:before,
-.hamburger .icon,
-.hamburger:after {
-  display: block;
-  width: 100%;
-  height: 0.2em;
-  margin: 0 0 0.2em;
-  transition: transform 0.2s ease-in-out;
-  -moz-transition: transform 0.2s ease-in-out;
-  -webkit-transition: transform 0.2s ease-in-out;
-  border-radius: 0.25em;
-  -moz-border-radius: 25em;
-  -webkit-border-radius: 0.25em;
-  background: rgba(255, 255, 255, 1);
-}
-
-/* Styles for the active `.hamburger` icon */
-.hamburger.active:before,
-.hamburger.active .icon,
-.hamburger.active:after {
-  background: white;
-}
-
-/* VERTICAL HAMBURGER */
-.hamburger.hamburger-vertical.active {
-  transform: rotate(270deg);
-  -moz-transform: rotate(270deg);
-  -webkit-transform: rotate(270deg);
-}
-
-/*  CLOSE/CANCEL/CROSS   */
-.hamburger.hamburger-cancel.active .icon {
-  transform: scale(0);
-  -moz-transform: scale(0);
-  -webkit-transform: scale(0);
-}
-
-.hamburger.hamburger-cancel.active:before {
-  transform: translateY(0.4em) rotate(135deg);
-  -moz-transform: translateY(0.4em) rotate(135deg);
-  -webkit-transform: translateY(0.4em) rotate(135deg);
-}
-
-.hamburger.hamburger-cancel.active:after {
-  transform: translateY(-0.4em) rotate(-135deg);
-  -moz-transform: translateY(-0.4em) rotate(-135deg);
-  -webkit-transform: translateY(-0.4em) rotate(-135deg);
-}

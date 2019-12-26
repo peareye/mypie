@@ -1,6 +1,5 @@
 // Vendor Tools
-@import "vendor/bourbon/bourbon";
-@import "vendor/base/base";
+@import "vendor/vendor";
 @import "vars/vars";
 html,
 body {
@@ -8,7 +7,7 @@ body {
   padding: 0;
   height: 100vh;
   width: 100vw;
-  background: $mypie-light-grey;
+  background: $mypie-light;
   box-sizing: border-box;
 }
 h1,
@@ -22,10 +21,10 @@ h6 {
 }
 h4 {
   font-size: 2.5rem;
+  @include padding(1rem null);
 }
 #menu-board-style {
   position: absolute;
-  margin: 0.25rem;
   padding: 0;
   left: 0;
   top: 0;
@@ -37,12 +36,14 @@ h4 {
   min-height: 100vh;
   min-width: 98vw;
   display: grid;
-  grid-gap: 0.5rem;
+  grid-column-gap: .5rem;
   justify-content: center;
   grid-template-areas:
-    "mb-pie mb-pie mb-takeaway"
-    "mb-sides mb-sausage mb-sausage"
-    "mb-sides mb-puds mb-puds";
+    "mb-pie mb-pie"
+    "mb-sides mb-sides"
+    "mb-sausage mb-puds"
+    "mb-takeaway mb-takeaway";
+    // "mb-drinks mb-drinks"
 }
 .box {
   font-size: 2rem;
@@ -63,15 +64,10 @@ h4 {
 .mb-takeaway-box {
   grid-area: mb-takeaway;
 }
-.mb-pie-box,
-.mb-sides-box,
-.mb-sausage-box,
-.mb-puds-box,
-.mb-takeaway-box {
-  @include border-top-radius($border-radius);
-  border: solid 2px #000;
-  @include margin(null null 1rem);
+.mb-drinks-box {
+  grid-area: mb-drinks;
 }
+
 .menu-title {
   background: $mypie-red;
   color: $mypie-light;
@@ -83,14 +79,18 @@ h4 {
 .menu-items {
   display: flex;
   flex-flow: row nowrap;
-  font-weight: bolder;
+  // font-weight: bolder;
+  font-weight: 700;
   color: #000;
   border-bottom: dashed 1px rgba($mypie-accent-red, 0.3);
 }
+.menu-items:nth-last-child(1){
+  border-bottom: none;
+}
 
 .menu-item {
-  @include padding(0.2rem 0.4rem);
-  line-height: 1.2;
+  @include padding(1rem 1rem);
+  // line-height: 1.2;
 }
 
 .menu-item-title {

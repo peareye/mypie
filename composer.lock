@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6abe2ee73e7f6f6b749ce56830b5f9f4",
+    "content-hash": "ea98dac0a5d847504798ea6ab51ce11f",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -708,16 +708,16 @@
         },
         {
             "name": "twbs/bootstrap",
-            "version": "v4.1.0",
+            "version": "v4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "8f7bd419935adfcd53c471a0202083464800619e"
+                "reference": "8fa0d3010112dca5dd6dd501173415856001ba8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/8f7bd419935adfcd53c471a0202083464800619e",
-                "reference": "8f7bd419935adfcd53c471a0202083464800619e",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/8fa0d3010112dca5dd6dd501173415856001ba8b",
+                "reference": "8fa0d3010112dca5dd6dd501173415856001ba8b",
                 "shasum": ""
             },
             "replace": {
@@ -755,7 +755,7 @@
                 "sass",
                 "web"
             ],
-            "time": "2018-04-09T16:00:23+00:00"
+            "time": "2019-02-13T16:01:40+00:00"
         },
         {
             "name": "twig/twig",
@@ -860,6 +860,7 @@
             "keywords": [
                 "session"
             ],
+            "abandoned": "pitoncms/session",
             "time": "2016-06-21T22:09:54+00:00"
         }
     ],

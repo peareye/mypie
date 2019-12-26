@@ -1,23 +1,12 @@
-html {
-  box-sizing: border-box;
-}
-
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+  box-sizing: border-box;
+  @include margin(0);
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  @include margin(0);
-
-  @supports (display: grid) {
-    display: grid;
-    grid-template-columns: min-content 3px auto;
-    grid-template-rows: min-content 3px auto;
-    // grid-row-gap: .5rem;
-  }
 }
 
 /* Global Styles */
@@ -29,6 +18,11 @@ h5,
 h6 {
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 0;
+  line-height: 1;
+  @include margin(0);
+}
+h1{
+  @include margin(null null .5rem);
 }
 
 a {
@@ -40,7 +34,14 @@ a {
   @include padding(.25rem);
   display: inline-block;
 }
+.btn-wrapper {
+  @include margin(.5rem 1rem);
+}
+.btn-wrapper-center{
+ 
+  width: 100%;
 
+}
 .btn a {
   color: #fff !important;
   font-weight: 700;
@@ -57,56 +58,24 @@ a {
   }
 }
 
-.gap {
-  background-color: rgba($mypie-accent-red, .5);
+.navbar{
+  @include padding(.5rem null);
 }
-
-.btn-wrapper {
-  @include margin(.5rem 1rem);
-}
-.btn-wrapper-center{
- 
-  width: 100%;
-button{
- 
-}
-}
-
-// Logo
-.logo {
-  @include padding(.25rem .25rem .25rem null);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-
-  img {
-    width: 100%;
-  }
-}
-
-//header
-header {
-  @include padding(.25rem);
+.navbar-brand{
+  width: 60px;
+  height: 60px;
+  @include padding(0);
   @include margin(0);
-  display: flex;
-  flex-flow: column nowrap;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
+header{
+.container {
+display: flex;
+flex-flow: column nowrap;
+@include padding(.5rem null);
 
-//navbar
-.navbar-wrapper {
-  background-color: $muted-grey;
 
-  .nav-item {
-    width: 100%;
-    text-align: center;
-  }
 }
-
+}
 /* Custom Styles */
 .grid-cell {
   border-radius: $border-radius;

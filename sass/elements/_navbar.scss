@@ -2,14 +2,40 @@
 nav {
   @include padding(0.1px);
   box-shadow: $box-shadow;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+
 }
 
 .navbar {
   @include padding(0 null);
 }
 
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-link {
+  color: rgba($mypie-light-grey, 1);
+  text-align: center;
+  font-weight: 700;
+  border-top: solid 3px transparent;
+
+  &:hover {
+    color: rgba($mypie-md-grey, 1);
+  }
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, .6);
+}
 .bg-dark {
-  background: $mypie-red !important;
+  background-color: $mypie-red !important;
+}
+
+.dropdown-divider {
+  border-top: 2px solid rgba($mypie-light, .5) !important;
 }
 
 //Navbar Brand Sizing
@@ -20,7 +46,6 @@ nav {
 }
 
 /* Hamburger Styles Credit: http://w3bits.com/animated-hamburger-icons/    */
-
 .hamburger {
   font-size: 1.5rem;
   display: inline-block;
@@ -44,23 +69,20 @@ button:hover,
 }
 
 /* Button height fix for Firefox */
-
 .hamburger::-moz-focus-inner {
   padding: 0;
   border: 0 none;
 }
 
 /* Focus fix for Chrome */
-
 .hamburger:focus {
   outline: 0;
 }
 
 /* Styling the icon */
-
 .hamburger:before,
 .hamburger:after {
-  content: "";
+  content: '';
 }
 
 .hamburger:before,
@@ -80,7 +102,6 @@ button:hover,
 }
 
 /* Styles for the active `.hamburger` icon */
-
 .hamburger.active:before,
 .hamburger.active .icon,
 .hamburger.active:after {
@@ -88,7 +109,6 @@ button:hover,
 }
 
 /* VERTICAL HAMBURGER */
-
 .hamburger.hamburger-vertical.active {
   transform: rotate(270deg);
   -moz-transform: rotate(270deg);
@@ -96,7 +116,6 @@ button:hover,
 }
 
 /*  CLOSE/CANCEL/CROSS   */
-
 .hamburger.hamburger-cancel.active .icon {
   transform: scale(0);
   -moz-transform: scale(0);

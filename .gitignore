@@ -8,6 +8,7 @@ docker/db/
 public/assets/img/originals/
 *.pdf
 prepros-6.config
+vendor/twbs/
 
 # Misc
 *.xml
