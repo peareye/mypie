@@ -7,7 +7,7 @@ namespace Piton\Models;
 class MenuMapper extends DataMapperAbstract
 {
     protected $table = 'menu';
-    protected $modifiableColumns = ['date', 'location'];
+    protected $modifiableColumns = ['date', 'location', 'pinned'];
 
     /**
      * Get Current Menus By Date
@@ -19,7 +19,7 @@ class MenuMapper extends DataMapperAbstract
     {
         // Make select
         $this->makeSelect();
-        $this->sql .= ' where date >= ? and location is not null order by date';
+        $this->sql .= ' where `date` >= ? and `location` is not null and `pinned` is null order by `date`';
         $this->bindValues[] = date('Y-m-d');
 
         return $this->find();
@@ -36,8 +36,24 @@ class MenuMapper extends DataMapperAbstract
     {
         // Make select
         $this->makeSelect();
-        $this->sql .= ' where date = ? order by location';
+        $this->sql .= ' where `date` = ? and `pinned` is null order by `location`';
         $this->bindValues[] = date('Y-m-d');
+
+        return $this->find();
+    }
+
+    /**
+     * Get Pinned Menus
+     *
+     * Returns pinned menus regardless of today's date
+     * @param none
+     * @return array
+     */
+    public function getPinnedMenus()
+    {
+        // Make select
+        $this->makeSelect();
+        $this->sql .= ' where `pinned` = \'Y\' order by `date`';
 
         return $this->find();
     }
@@ -54,7 +70,7 @@ class MenuMapper extends DataMapperAbstract
     {
         // Make select
         $this->makeSelect();
-        $this->sql .= ' order by date desc, location';
+        $this->sql .= ' where `pinned` is null order by `date` desc, `location`';
 
         if ($limit) {
             $this->sql .= " limit ?";
@@ -81,7 +97,7 @@ class MenuMapper extends DataMapperAbstract
     {
         // Make select
         $this->makeSelect();
-        $this->sql .= ' where date < ? and location is not null order by date desc';
+        $this->sql .= ' where `date` < ? and `location` is not null and `pinned` is null order by `date` desc';
         $this->bindValues[] = date('Y-m-d');
 
         if ($limit) {
@@ -107,7 +123,7 @@ class MenuMapper extends DataMapperAbstract
     {
         // Make select
         $this->makeSelect();
-        $this->sql .= ' where date >= ?';
+        $this->sql .= ' where `date` >= ? and `pinned` is null';
 
         // Set parameter
         $startDate = new \DateTime('first day of this month 00:00:00');
@@ -126,7 +142,7 @@ class MenuMapper extends DataMapperAbstract
     {
         // Make select
         $this->makeSelect();
-        $this->sql .= ' order by updated_date desc limit 1';
+        $this->sql .= ' where `pinned` is null order by `updated_date` desc limit 1';
 
         $menu = $this->findRow();
 
@@ -160,7 +176,7 @@ class MenuMapper extends DataMapperAbstract
 
         // Prepare query
         $this->makeSelect();
-        $this->sql .= ' where date = ?';
+        $this->sql .= ' where `date` = ? and `pinned` is null';
         $this->bindValues[] = $menuDate->format('Y-m-d');
 
         // Return data

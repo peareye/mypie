@@ -7,12 +7,17 @@
 
 <section id="menu-main">
     <div class="container">
+        {% if hasPinnedMenu() %}
+            <h1 class="page-title">Delivery Menus</h1>
+            {{ displayPinnedMenu() }}
+        {% endif %}
+
         <h1 class="page-title">Menus</h1>
         {{ displayMenu() }}
 
         <a class="btn btn-primary mt-3" href="{{ pathFor('showMenuArchive', {'page':1}) }}">PAST PIE MENUS</a>
     </div>
-   
+
 </section>
 
 {% endblock %}

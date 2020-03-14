@@ -29,8 +29,9 @@ class AdminController extends BaseController
 
         $page['todaysMenus'] = $todaysMenus;
 
-        // Get the top most recent menus by date
+        // Get the top most recent menus by date, and pinned menus
         $page['newMenus'] = $MenuMapper->getMenusInDescDateOrder(4);
+        $page['pinnedMenus'] = $MenuMapper->getPinnedMenus();
 
         return $this->container->view->render($response, '@admin/pages/home.html', ['page' => $page]);
     }

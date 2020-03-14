@@ -1,13 +1,14 @@
-        <h3 class="page-title span">Menus</h3>
-        {% for m in page.newMenus %}
 
+
+{% macro listMenus(menus) %}
+        {% for m in menus %}
         <div class="menu-list-container">
             <div class="menu-date">
                     <h4>
-                    {% if m.location %} 
+                    {% if m.location %}
                     {{ m.location }}
-                
-                    {% else %} 
+
+                    {% else %}
                     No Location
                     {% endif %}
                     {{ m.date|date('j  M y') }}
@@ -42,4 +43,4 @@
         <h3>No menus found</h3>
 
         {% endfor %}
-
+{% endmacro listMenus %}

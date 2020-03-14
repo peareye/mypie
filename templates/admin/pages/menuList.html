@@ -1,4 +1,5 @@
 {% extends '@admin/admin_base.html' %}
+{% import '@admin/includes/_menuListMacros.html' as list %}
 
 {% block title %} Menu &amp; Calendar{% endblock %}
 {% block blurb %}
@@ -22,7 +23,10 @@
     {% include '@admin/includes/_editMenuItemDefaults.html' %}
   </div>
   <div class="grid-cell">
-    {% include '@admin/includes/_menuListAll.html' %} {{ pagination() }}
+    <h3 class="page-title span">Daily Menus</h3>
+    {{ list.listMenus(page.newMenus) }}
+
+    {{ pagination() }}
   </div>
 
 

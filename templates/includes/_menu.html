@@ -1,6 +1,10 @@
         {% for menu in menuList if menu.items %}
 
-        <h3 class="">{{ menu.date|date('l, j F, Y') }} at {{ menu.location }}</h3>
+        <h3>
+            {# Do not display date if this is a pinned menu #}
+            {% if not isPinned %}{{ menu.date|date('l, j F, Y') }} at{% endif %}
+            {{ menu.location }}
+        </h3>
 
         {# This next line summarizes and keeps a handy flag of which menu sections are available #}
         {% set available = availableMenuSections(menu.items) %}

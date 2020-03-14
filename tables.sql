@@ -59,6 +59,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
   `location` varchar(60) NULL DEFAULT NULL,
+  `pinned` CHAR(1) NULL DEFAULT NULL,
   `created_by` int(11) NOT NULL DEFAULT '1',
   `created_date` datetime NOT NULL,
   `updated_by` int(11) NOT NULL DEFAULT '1',
@@ -66,7 +67,8 @@ CREATE TABLE IF NOT EXISTS `menu` (
   PRIMARY KEY (`id`),
   KEY `menu_date_idx` (`date`),
   KEY `menu_updated_date_idx` (`updated_date`),
-  KEY `menu_location_idx` (`location`)
+  KEY `menu_location_idx` (`location`),
+  KEY `menu_pinnned_idx` (`pinned`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `menu_item` (
