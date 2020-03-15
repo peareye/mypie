@@ -2,8 +2,8 @@
 
         <h3>
             {# Do not display date if this is a pinned menu #}
-            {% if not isPinned %}{{ menu.date|date('l, j F, Y') }} at{% endif %}
-            {{ menu.location }}
+            {% if not isPinned %}{{ menu.date|date('l, j F, Y') }} at
+            {{ menu.location }}  {% endif %}
         </h3>
 
         {# This next line summarizes and keeps a handy flag of which menu sections are available #}
@@ -25,19 +25,6 @@
             </div>
             {% endif %}
 
-            <!-- Sides -->
-            {% if available.sides %}
-            <div class="sides-box">
-                <h4 class="menu-title">Awesome Sides</h4>
-                {% for m in menu.items if m.section == 'sides' %}
-                <span class="menu-items {% if m.sold_out == 'Y' %} sold-out {% endif %}">
-                    <div class="menu-item menu-item-description">{{ m.description }}</div>
-                    <div class="menu-item menu-item-price"> {{ m.price }}</div>
-                </span>
-                {% endfor %}
-            </div>
-            {% endif %}
-
             <!-- Sausage Rolls -->
             {% if available.rolls %}
             <div class="sausage-box">
@@ -51,6 +38,19 @@
                 {% endfor %}
             </div>
             {% endif %}
+
+                    <!-- Sides -->
+                    {% if available.sides %}
+                    <div class="sides-box">
+                        <h4 class="menu-title">Awesome Sides</h4>
+                        {% for m in menu.items if m.section == 'sides' %}
+                        <span class="menu-items {% if m.sold_out == 'Y' %} sold-out {% endif %}">
+                            <div class="menu-item menu-item-description">{{ m.description }}</div>
+                            <div class="menu-item menu-item-price"> {{ m.price }}</div>
+                        </span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
 
             <!-- Puds -->
             {% if available.puds %}
@@ -67,8 +67,8 @@
 
             <!-- Takeaway Pies -->
             {% if available.takeawaypies %}
-            <div class="takeaway-box">
-                <h4 class="menu-title">Takeaway Pies</h4>
+            <div class="takeaway-box span">
+                <h4 class="menu-title">Today's Delivery Selection</h4>
                 {% for m in menu.items if m.section == 'takeawaypies' %}
                 <span class="menu-items {% if m.sold_out == 'Y' %} sold-out {% endif %}">
                     <!-- <div class="menu-item menu-item-title">{{ m.type }}</div> -->
