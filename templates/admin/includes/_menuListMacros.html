@@ -4,15 +4,15 @@
         {% for m in menus %}
         <div class="menu-list-container">
             <div class="menu-date">
-                    <h4>
+                    <div>
                     {% if m.location %}
                     {{ m.location }}
 
                     {% else %}
                     No Location
                     {% endif %}
-                    {{ m.date|date('j  M y') }}
-                    </h4>
+                    {{ m.date|date('j  M Y') }}
+                    </div>
               </div>
             <ul class="menu-list-icons">
                 <li class="menu-list-icon">
