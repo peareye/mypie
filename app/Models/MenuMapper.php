@@ -89,6 +89,7 @@ class MenuMapper extends DataMapperAbstract
      * Get Past Menus in Descending Ordery by Date
      *
      * Returns an array of Domain Objects (one for each record)
+     * Only returns menus that have menu items
      * @param int $limit Limit
      * @param int $offset Offset
      * @return Array
@@ -97,7 +98,9 @@ class MenuMapper extends DataMapperAbstract
     {
         // Make select
         $this->makeSelect();
-        $this->sql .= ' where `date` < ? and `location` is not null and `pinned` is null order by `date` desc';
+        $this->sql .= ' where `date` < ? and `location` is not null and `pinned` is null ';
+        $this->sql .= ' and `id` in (select `menu_id` from `menu_item`)';
+        $this->sql .= ' order by `date` desc';
         $this->bindValues[] = date('Y-m-d');
 
         if ($limit) {
