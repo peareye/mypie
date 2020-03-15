@@ -30,7 +30,11 @@ a:focus {
 section .container,
 section .container-fluid {
   background: $mypie-light;
-  @include padding(2rem null);
+  @include padding(1em null);
+}
+section:last-of-type {
+  background: $mypie-light;
+  @include padding(1em null 4em);
 }
 
 .container-fluid {

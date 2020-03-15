@@ -37,11 +37,11 @@
               </div>
             </div>
             <input class="form-control datepicker" type="text" name="date" placeholder="Menu date" value="{{ menu.date|date('d-m-Y') }}"
-              required autocomplete="off">
+             autocomplete="off">
           </div>
           <div class="invalid-tooltip">Please select a date.</div>
         </div>
-        <div class="col-sm-9">
+        <div class="col-sm-7">
           <div class="input-group">
             <div class="input-group-prepend">
               <div class="input-group-text" id="btnGroupAddon2">
@@ -50,7 +50,10 @@
             </div>
             <input class="form-control" type="text" name="location" maxlength="60" placeholder="Location" value="{{ menu.location }}">
           </div>
-
+        </div>
+        <div class="col-sm-1 form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="pinned" id="pinnedCheckbox" value="on" {{ checked(menu.pinned) }}>
+          <label class="form-check-label" for="pinnedCheckbox">Pinned</label>
         </div>
       </div>
       <hr> {# This loads the macro functions at the bottom of this template. Each section has an extra blank row #} {% import
