@@ -1,0 +1,17 @@
+{% extends '_sidebar_layout.html' %}
+{% block title %}{{ page.title }}{% endblock %}
+{% block metadescription %}{{ page.meta_description }}{% endblock %}
+{% block main %}
+
+<section id="about-main">
+    <div class="container">
+
+        {% for p in page.pagelets %}
+        <h1 class="page-title">{{ p.title }}</h1>
+        {{ p.content_html }}
+
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}
