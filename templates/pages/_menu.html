@@ -4,15 +4,28 @@
 {% block metadescription %}{{ page.meta_description }}{% endblock %}
 
 {% block main %}
+{% if hasPinnedMenu() %}
+<section id="delivery-menu">
+    <div class="container">
+       
+        <h1 class="page-title">Delivery Menu</h1>
+        <p class="menu-text font-weight-bold text-center">Nationwide Home Delivery (£8 courier charge). Email your order to <a href="mailto:pies@mypie.london">pies@mypie.london</a></p>
+        {{ displayPinnedMenu() }}
+   
+    </div>
+</section>
+{% endif %}
 
 <section id="menu-main">
     <div class="container">
-        <h1 class="page-title">Menus</h1>
+     
+
+        <h1 class="page-title">Daily Menus</h1>
         {{ displayMenu() }}
 
         <a class="btn btn-primary mt-3" href="{{ pathFor('showMenuArchive', {'page':1}) }}">PAST PIE MENUS</a>
     </div>
-   
+
 </section>
 
 {% endblock %}

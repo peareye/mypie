@@ -12,6 +12,11 @@ Options -Indexes
 RewriteEngine On
 RewriteBase /
 
+# Rewrite http to https
+RewriteCond %{HTTP_HOST} !^localhost$ [NC]
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
 # Check to see if the user is attempting to access a valid file, such as an image
 # or css document, if this isn't true this sends the request to index.php.
 RewriteRule ^index\.php$ - [L]

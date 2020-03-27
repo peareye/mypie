@@ -35,6 +35,12 @@ class TwigExtension extends \Twig_Extension
      */
     private $settings = [];
 
+    /**
+     * Data Cache
+     * @var array
+     */
+    protected $cache = [];
+
     public function __construct(ContainerInterface $container)
     {
         $this->router = $container['router'];
@@ -89,6 +95,8 @@ class TwigExtension extends \Twig_Extension
             new \Twig_SimpleFunction('inUrl', array($this, 'isInUrl')),
             new \Twig_SimpleFunction('checked', array($this, 'checked')),
             new \Twig_SimpleFunction('displayMenu', array($this, 'displayMenu'), array('is_safe' => array('html'))),
+            new \Twig_SimpleFunction('displayPinnedMenu', array($this, 'displayPinnedMenu'), array('is_safe' => array('html'))),
+            new \Twig_SimpleFunction('hasPinnedMenu', array($this, 'hasPinnedMenu')),
             new \Twig_SimpleFunction('availableMenuSections', array($this, 'availableMenuSections')),
             new \Twig_SimpleFunction('authorized', array($this, 'authorizedUser')),
             new \Twig_SimpleFunction('currentRole', array($this, 'userCurrentRole')),
@@ -208,6 +216,76 @@ class TwigExtension extends \Twig_Extension
         }
 
         return $this->environment->render('includes/_menu.html', ['menuList' => $menuList]);
+    }
+
+    /**
+     * Is there a pinned menu to display?
+     *
+     * Checks and caches pinned menu data to render using displayPinnedMenu()
+     * Returns true|false without returning HTML
+     * @param none
+     * @return bool
+     */
+    public function hasPinnedMenu()
+    {
+        // Checked cached data if already requested
+        if (isset($this->cache['pinnedMenu'])) {
+            return true;
+        }
+
+        $menuMapper = ($this->container->dataMapper)('MenuMapper');
+        $menuItemMapper = ($this->container->dataMapper)('MenuItemMapper');
+        $menuList = $menuMapper->getPinnedMenus();
+
+        // Did we find menus to display?
+        if (is_array($menuList)) {
+            foreach ($menuList as $key => $row) {
+                if (isset($row->id)) {
+                    $menuList[$key]->items = $menuItemMapper->findItemsByMenuId($row->id);
+                }
+            }
+        }
+
+        if ($menuList) {
+            $this->cache['pinnedMenu'] = $menuList;
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Display Pinned Menu
+     *
+     * Gets menu and menu item data for the current menu, and renders _menu.html
+     * @param none
+     * @return string
+     */
+    public function displayPinnedMenu()
+    {
+        // Get cached data if already requested
+        if (isset($this->cache['pinnedMenu'])) {
+            return $this->environment->render('includes/_menu.html', ['menuList' => $this->cache['pinnedMenu'], 'isPinned' => true]);
+        }
+
+        // Get dependencies
+        $mapper = $this->container->dataMapper;
+        $MenuMapper = $mapper('MenuMapper');
+        $MenuItemMapper = $mapper('MenuItemMapper');
+
+        $menuList = $MenuMapper->getPinnedMenus();
+
+        // Did we find menus to display?
+        if (is_array($menuList)) {
+            foreach ($menuList as $key => $row) {
+                if (isset($row->id)) {
+                    $menuList[$key]->items = $MenuItemMapper->findItemsByMenuId($row->id);
+                }
+            }
+            $this->cache['pinnedMenu'] = $menuList;
+        }
+
+        return $this->environment->render('includes/_menu.html', ['menuList' => $menuList, 'isPinned' => true]);
     }
 
     /**

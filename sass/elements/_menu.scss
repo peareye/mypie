@@ -1,54 +1,22 @@
-// Menu
-// Menu Grid
-@supports (display: grid) {
-  .menu-wrapper {
+ /* Menu 
+    Menu Grid 
+*/
+
+@supports (display: grid){
+  .menu-wrapper{
     display: grid;
-    grid-gap: 1rem;
-    grid-template-areas: "pie" "sides" "sausage" "puds" "takeaway";
-  }
-  @media screen and (min-width: 768px) {
-    .menu-wrapper {
-      grid-template-areas: "pie pie" "sides sausage" "puds takeaway";
+    gap: 1em;
+    grid-template-rows: auto;
+    @media screen and (min-width: 768px){
+      grid-template-columns: 1fr 1fr;
     }
+  .pie-box, .sides-box, .sausage-box, .puds-box, .takeaway-box {
+    border-radius: $border-radius;
+    border: solid 1px rgba(167, 167, 167, 0.5);
+    @include margin(null null 0);
   }
-  @media screen and (min-width: 992px) {
-    .menu-wrapper {
-      grid-template-areas: "pie pie sides" "puds sausage takeaway";
-    }
   }
 }
-
-.pie-box,
-.sides-box,
-.sausage-box,
-.puds-box,
-.takeaway-box {
- 
-  border-radius: $border-radius;
-  border: solid 1px rgba(167, 167, 167, 0.5);
-  @include margin(null null 0);
-}
-
-.pie-box {
-  grid-area: pie;
-}
-
-.sides-box {
-  grid-area: sides;
-}
-
-.sausage-box {
-  grid-area: sausage;
-}
-
-.puds-box {
-  grid-area: puds;
-}
-
-.takeaway-box {
-  grid-area: takeaway;
-}
-
 // menu items
 .menu-title {
   @include border-top-radius(4px);
@@ -111,4 +79,12 @@
   padding: 30px 0;
   /* "transparent" only works here because == rgba(0,0,0,0) */
   background-image: linear-gradient(to bottom, transparent, black);
+}
+.menu-text{
+  @include padding(.5em .75em);
+  background: $mypie-light-grey;
+  border-radius: $border-radius;
+  font-size: 1.2rem;
+  line-height: 1.6;
+
 }

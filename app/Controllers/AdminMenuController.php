@@ -123,6 +123,7 @@ class AdminMenuController extends BaseController
         $menu->date = filter_var($request->getParsedBodyParam('date'), FILTER_SANITIZE_STRING);
         $menu->date = date("Y-m-d", strtotime($menu->date));
         $menu->location = filter_var($request->getParsedBodyParam('location'), FILTER_SANITIZE_STRING);
+        $menu->pinned = ($request->getParsedBodyParam('pinned', null) == 'on') ? 'Y' : '';
 
         // Save menu record and get menu ID
         $menu = $MenuMapper->save($menu);
