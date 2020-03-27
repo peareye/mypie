@@ -1,63 +1,65 @@
-
-
 <!-- navbar -->
 <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-    <div class="container">
- <!-- Small truck Logo visible collapsed menu -->
- <a class="navbar-brand d-md-none" href="{{ basePath() }}/">
-    <img src="/assets/img/brand.svg" alt="">
-</a>
+ <div class="container-fluid">
+  <!-- Small truck Logo visible collapsed menu -->
+  <a class="navbar-brand d-md-none" href="{{ basePath() }}/">
+   <img src="/assets/img/brand.svg" alt="">
+  </a>
 
-<!-- Hamburger Icon -->
-<div class="hamburger hamburger-cancel navbar-toggler"  data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-    aria-expanded="false" aria-label="Toggle navigation">
-        <span class="icon"></span>
-</div>
+  <!-- Hamburger Icon -->
+  <div class="hamburger hamburger-cancel navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
+   aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="icon"></span>
+  </div>
 
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto ">
-            <li class="nav-item {% if inUrl('/') %} active {% endif %}">
-                <a class="nav-link" title="MYPIE Home Page" href="{{ basePath() }}/">Home</a>
-             
-            </li>
-        <li class="nav-item {% if inUrl('suppliers') %} active {% endif %}">
-            <a class="nav-link" title="MYPIE Suppliers" href="{{ basePath() }}/suppliers">Suppliers</a>
-        </li>
-        <li class="nav-item {% if inUrl('about') %} active {% endif %}">
-            <a class="nav-link" title="About MYPIE" href="{{ basePath() }}/about">About Us</a>
-        </li>
-        <li class="nav-item {% if inUrl('events') %} active {% endif %}">
-            <a class="nav-link" title="MYPIE is here for Special Event" href="{{ basePath() }}/events">Beyond the Truck</a>
-        </li>
-    </ul>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+   <ul class="navbar-nav mr-auto ">
+    <li class="nav-item {% if inUrl('/') %} active {% endif %}">
+     <a class="nav-link" title="MYPIE Home Page" href="{{ basePath() }}/">Home</a>
+    </li>
+    <li class="nav-item {% if inUrl('about') %} active {% endif %}">
+     <a class="nav-link" title="About MYPIE" href="{{ basePath() }}/about">About</a>
+    </li>
+    <li class="nav-item {% if inUrl('suppliers') %} active {% endif %}">
+     <a class="nav-link" title="MYPIE Suppliers" href="{{ basePath() }}/suppliers">Suppliers</a>
+    </li>
+ 
+    <li class="nav-item {% if inUrl('events') %} active {% endif %}">
+     <a class="nav-link" title="MYPIE is here for Special Event" href="{{ basePath() }}/events">Services</a>
+    </li>
+   </ul>
 
-    <ul id="#in-page-links" class="navbar-nav ml-auto ">
-            <div class="dropdown-divider"></div>
-            <li class="nav-item  {% if inUrl('menu') %} active {% endif %}">
-                    <a class="nav-link" title="MYPIE Daily Menu" href="{{ basePath() }}/menu">Daily Menu</a>
-                </li>
-        <li class="nav-item">
-            <a class="nav-link" title="MYPIE Calendar" href="{{ basePath() }}/#calendar">Calendar</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" title="Contact MYPIE" href="#contact-us">Contact</a>
-        </li>
-    
+   <ul id="#in-page-links" class="navbar-nav ml-auto ">
+    <div class="dropdown-divider"></div>
+    <li class="nav-item  {% if inUrl('store') %} active {% endif %}">
+     <a class="nav-link" title="MYPIE Store" href="{{ basePath() }}/store">Store</a>
+    </li>
+    <li class="nav-item  {% if inUrl('menu') %} active {% endif %}">
+     <a class="nav-link" title="MYPIE Daily Menu" href="{{ basePath() }}/menu">Menu</a>
+    </li>
+    <li class="nav-item">
+     <a class="nav-link" title="MYPIE Calendar" href="{{ basePath() }}/#calendar">Calendar</a>
+    </li>
+    <li class="nav-item">
+     <a class="nav-link" title="Contact MYPIE" href="#contact-us">Contact</a>
+    </li>
 
-    </ul>
-</div>
-    </div>
-   
+
+   </ul>
+  </div>
+ </div>
+
 </nav>
 
 <!-- Logo Wrapper -->
 
 <div class="logo-container">
 
-    <div class="lg-logo-wrapper d-none d-md-block">
-        <div class="truck-wrapper">
-            
-            <img {% if inUrl('/') %} class="animated"{% endif %} src="/assets/img/animate/truck.svg" alt="The Little Pie Truck">
-            
-          </div> </div>
+ <div class="lg-logo-wrapper d-none d-md-block">
+  <div class="truck-wrapper">
+
+   <img {% if inUrl('/') %} class="animated" {% endif %} src="/assets/img/animate/truck.svg" alt="The Little Pie Truck">
+
   </div>
+ </div>
+</div>
