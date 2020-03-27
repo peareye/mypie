@@ -1,0 +1,13 @@
+#store-main {
+
+ .title-blurb {
+  width: 70%;
+  @include margin(null auto 2rem);
+  font-size: 1.3rem;
+  background: $mypie-light-grey;
+  @include padding(1em);
+  border-radius: $border-radius;
+  text-align: center;
+ }
+
+}

@@ -10906,6 +10906,18 @@ button:hover,
   margin-left: auto;
 }
 
+#store-main .title-blurb {
+  width: 70%;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  font-size: 1.3rem;
+  background: #efefef;
+  padding: 1em;
+  border-radius: 4px;
+  text-align: center;
+}
+
 #about-main h1 {
   margin-bottom: 1rem;
 }
