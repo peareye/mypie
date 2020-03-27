@@ -10907,11 +10907,10 @@ button:hover,
 }
 
 #store-main .title-blurb {
-  width: 70%;
-  margin-right: auto;
-  margin-bottom: 2rem;
-  margin-left: auto;
-  font-size: 1.3rem;
+  font-weight: 600;
+  width: 90%;
+  margin: 0 auto 2em;
+  font-size: 1.2rem;
   background: #efefef;
   padding: 1em;
   border-radius: 4px;

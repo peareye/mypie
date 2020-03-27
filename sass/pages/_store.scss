@@ -1,9 +1,10 @@
 #store-main {
 
  .title-blurb {
-  width: 70%;
-  @include margin(null auto 2rem);
-  font-size: 1.3rem;
+  font-weight: 600;
+  width: 90%;
+  @include margin(0 auto 2em);
+  font-size: 1.2rem;
   background: $mypie-light-grey;
   @include padding(1em);
   border-radius: $border-radius;
