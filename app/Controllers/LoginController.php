@@ -96,7 +96,7 @@ class LoginController extends BaseController
             $token = $security->generateLoginToken();
             $session->setData([
                 $this->loginTokenKey => $token,
-                $this->loginTokenExpiresKey => time() + 120,
+                $this->loginTokenExpiresKey => time() + 600,
                 'user_id' => $foundValidUser->id,
                 'email' => $foundValidUser->email,
                 'role' => ($foundValidUser->admin === 'Y') ? 'A' : $foundValidUser->admin
