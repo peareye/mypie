@@ -8,6 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="{% block metadescription %}{% endblock %}">
     <meta name="google-site-verification" content="FbJhBzSYk2dnYjdIOpv5_rNWvHogHwKYLJ7ivXeO9BM">
+    {% if not setting.production %}
+    <meta name="robots" content="noindex, nofollow">
+    {% endif %}
 
     {% include '/includes/_favicon.html' %}
 
