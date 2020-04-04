@@ -32,3 +32,6 @@ if (window.location.hash) {
 // Jarallax
 objectFitImages();
 jarallax(document.querySelectorAll('.jarallax'));
+
+// Show modal on page load for /store
+$('#staticBackdrop').modal('show');
