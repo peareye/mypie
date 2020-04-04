@@ -24,15 +24,12 @@
    </div>
  </div>
 
-        {% for p in page.pagelets %}
-        <h1 class="page-title">{{ p.title }}</h1>
+        <h1 class="page-title">{{ page.pagelets.title.title }}</h1>
         <div class="title-blurb">
-         {{ page.pagelets.title.content|raw }}
+         {{ page.pagelets.title.content_html }}
         </div>
 
-        {{ p.content_html }}
-
-        {% endfor %}
+         {{ page.pagelets.store.content_html }}
     </div>
 </section>
 {% endblock %}
