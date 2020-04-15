@@ -1,0 +1,35 @@
+{% extends '_sidebar_layout.html' %}
+{% block title %}{{ page.title }}{% endblock %}
+{% block metadescription %}{{ page.meta_description }}{% endblock %}
+{% block main %}
+
+<section id="demostore-main">
+    <div class="container-fluid">
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+   <div class="modal-content">
+     <div class="modal-header">
+       <h4 class="modal-title" id="staticBackdropLabel">MYPIE Delivery Options</h4>
+
+     </div>
+     <div class="modal-body">
+      {{ page.pagelets.title.content|raw }}
+     </div>
+ <div class="modal-footer">
+  <button type="button" class="btn btn-primary ml-auto" data-dismiss="modal">Got It!</button>
+ </div>
+
+     </div>
+   </div>
+ </div>
+
+        <h1 class="page-title">{{ page.pagelets.title.title }}</h1>
+        <div class="title-blurb">
+         {{ page.pagelets.title.content_html }}
+        </div>
+
+         {{ page.pagelets.demostore.content_html }}
+    </div>
+</section>
+{% endblock %}
