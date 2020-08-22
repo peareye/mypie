@@ -21,27 +21,31 @@ h6 {
   line-height: 1;
   @include margin(0);
 }
-h1{
+
+h1 {
   @include margin(null null .5rem);
 }
 
 a {
   color: $mypie-accent-red;
 }
- 
+
 .btn {
   @include margin(.5rem null);
   @include padding(.25rem);
   display: inline-block;
 }
+
 .btn-wrapper {
   @include margin(.5rem 1rem);
 }
-.btn-wrapper-center{
- 
+
+.btn-wrapper-center {
+
   width: 100%;
 
 }
+
 .btn a {
   color: #fff !important;
   font-weight: 700;
@@ -58,24 +62,27 @@ a {
   }
 }
 
-.navbar{
+.navbar {
   @include padding(.5rem null);
 }
-.navbar-brand{
+
+.navbar-brand {
   width: 60px;
   height: 60px;
   @include padding(0);
   @include margin(0);
 }
-header{
-.container {
-display: flex;
-flex-flow: column nowrap;
-@include padding(.5rem null);
+
+header {
+  .container {
+    display: flex;
+    flex-flow: column nowrap;
+    @include padding(.5rem null);
 
 
+  }
 }
-}
+
 /* Custom Styles */
 .grid-cell {
   border-radius: $border-radius;
@@ -223,6 +230,7 @@ btn-wrapper {
     align-content: center;
   }
 }
+
 #pages-home {
   .page-section {
     @media screen and (min-width: 768px) {
@@ -243,6 +251,7 @@ btn-wrapper {
     grid-row-gap: .25rem;
   }
 }
+
 // Suppliers Page
 #suppliers-home {
   @media screen and (min-width: 768px) {

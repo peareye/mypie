@@ -1,14 +1,77 @@
-#store-main {
+:target::before {
+  content: "";
+  display: block;
+  height: 60px;
+  margin: -60px 0 0;
+}
 
- .title-blurb {
-  font-weight: 600;
-  width: 90%;
-  @include margin(0 auto 2em);
-  font-size: 1.2rem;
-  background: $mypie-light-grey;
-  @include padding(1em);
-  border-radius: $border-radius;
-  text-align: center;
- }
+body {
+  position: relative;
+}
 
+#store {
+  @include padding(0);
+  border-top: solid 2px $mypie-light-grey;
+  position: relative;
+}
+
+.store {
+
+  display: flex;
+  position: relative;
+
+  &__sidebar {
+    @include padding(null 1rem);
+    display: none;
+
+    @media screen and (min-width: $breakpoint-sm) {
+      display: block;
+    }
+  }
+
+  .title-blurb {
+    font-weight: 600;
+    width: 90%;
+    @include margin(0 auto 2em);
+    font-size: 1.2rem;
+    background: $mypie-light-grey;
+    @include padding(1em);
+    border-radius: $border-radius;
+    text-align: center;
+
+
+    @media screen and (min-width: $breakpoint-sm) {
+      display: none;
+    }
+  }
+
+  .nav-pills {
+    position: sticky;
+    top: 60px;
+  }
+
+  &__content {
+    flex: 1;
+    @include padding(.5rem 1rem);
+  }
+
+  .productSection {
+    @include margin(2rem null);
+
+    h2 {
+      text-align: center;
+    }
+  }
+
+  .nav-link {
+    color: $mypie-dark-grey;
+
+    &:hover {}
+
+    &.active {
+      background: $mypie-dark-grey;
+      background: $mypie-dark;
+      color: $mypie-light-grey;
+    }
+  }
 }

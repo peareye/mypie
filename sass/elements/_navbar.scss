@@ -1,41 +1,43 @@
-// Navbar Custom Styles
-nav {
+//Navbar Custom Styles
+
+.topNav {
   @include padding(0.1px);
   box-shadow: $box-shadow;
   font-family: Arial, Helvetica, sans-serif;
   text-transform: uppercase;
 
-}
+  &-link {
+    color: rgba($mypie-light-grey, 1);
+    text-align: center;
+    font-weight: 700;
+    border-top: solid 3px transparent;
 
-.navbar {
-  @include padding(0 null);
-}
+    &:hover {
+      color: rgba($mypie-md-grey, 1);
+    }
 
-.navbar-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav-link {
-  color: rgba($mypie-light-grey, 1);
-  text-align: center;
-  font-weight: 700;
-  border-top: solid 3px transparent;
-
-  &:hover {
-    color: rgba($mypie-md-grey, 1);
+    &-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
+
 .navbar-dark .navbar-nav .nav-link {
   color: rgba(255, 255, 255, .6);
 }
+
 .bg-dark {
   background-color: $mypie-red !important;
 }
 
 .dropdown-divider {
   border-top: 2px solid rgba($mypie-light, .5) !important;
+}
+
+.navbar {
+  @include padding(0 1rem);
 }
 
 //Navbar Brand Sizing
