@@ -9908,7 +9908,7 @@ h3 {
 
 @media (min-width: 576px) and (max-width: 992px) {
   :root {
-    font-size: calc( 16px + (18 - 16) * ( (100vw - 576px) / ( 992 - 576) ));
+    font-size: calc(16px + (18 - 16) * ((100vw - 576px) / (992 - 576)));
   }
 }
 @media (min-width: 992px) {
@@ -9931,13 +9931,17 @@ p {
   margin-bottom: 1.2em;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "franchise_freebold", sans-serif;
   color: #231f20;
   color: #231f20;
   font-weight: inherit;
   line-height: 1.2;
-  text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
@@ -9966,7 +9970,8 @@ h6 {
   font-size: 0.8em;
 }
 
-small, .font_small {
+small,
+.font_small {
   font-size: 0.707em;
 }
 
