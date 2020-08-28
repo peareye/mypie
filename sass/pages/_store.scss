@@ -14,7 +14,7 @@
 
   .store {
     display: flex;
-    @include padding(null 2rem null null);
+    @include padding(null 1rem null null);
 
     &__content {
       flex: 1;
@@ -22,21 +22,15 @@
     }
 
     &__sidebar {
-      @include padding(null null null 1rem);
-    }
-
-    &__topnav {
-      background: white;
-      text-align: center;
+      @include padding(null null null .25rem);
+      max-width: 200px;
     }
   }
 
-
-
   .nav-pills {
     position: sticky;
+    position: -webkit-sticky;
     top: 90px;
-
   }
 
   .nav-link {
@@ -60,5 +54,9 @@
     @include padding(1em);
     border-radius: $border-radius;
     text-align: center;
+  }
+
+  .page-title {
+    text-align: left;
   }
 }

@@ -10925,7 +10925,7 @@ button:hover,
 }
 #store .store {
   display: flex;
-  padding-right: 2rem;
+  padding-right: 1rem;
 }
 #store .store__content {
   flex: 1;
@@ -10933,14 +10933,12 @@ button:hover,
   padding-left: 2rem;
 }
 #store .store__sidebar {
-  padding-left: 1rem;
-}
-#store .store__topnav {
-  background: white;
-  text-align: center;
+  padding-left: 0.25rem;
+  max-width: 200px;
 }
 #store .nav-pills {
   position: sticky;
+  position: -webkit-sticky;
   top: 90px;
 }
 #store .nav-link {
@@ -10960,6 +10958,9 @@ button:hover,
   padding: 1em;
   border-radius: 4px;
   text-align: center;
+}
+#store .page-title {
+  text-align: left;
 }
 
 #about-main h1 {
