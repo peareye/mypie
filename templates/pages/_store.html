@@ -4,6 +4,40 @@
 {% block body %}
 
 <section id="store">
+  <!-- 
+  <div class="sticky-top d-block d-sm-none">
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="">
+
+        <ul class="nav flex-column">
+          {% for item in page.pagelets %}
+          {% if item.name != "zz_delivery_info" %}
+          <li class="nav-item">
+            <a class="nav-link" href="#{{ item.name }}">{{ item.title }}</a>
+          </li>
+          {% endif %}
+          {% endfor %}
+
+          {% for item in page.pagelets %}
+          {% if item.name == "zz_delivery_info" %}
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#staticBackdrop">{{ item.title }}</a>
+          </li>
+          {% endif %}
+          {% endfor %}
+
+        </ul>
+
+      </div>
+    </div>
+    <nav class="navbar navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+        aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Pie Availability
+      </button>
+    </nav>
+  </div> -->
+
   <div class="store">
     <nav class="store__sidebar d-none d-sm-block" id="myScrollspy">
 
@@ -40,8 +74,7 @@
       <div class="productSection" id="{{ item.name }}">
         <h2 class="page-title">{{ item.title }}</h2>
 
-
-        <div id='collection-component-{{ item.content }}'></div>
+        <div class="shopify-collection" id='collection-component-{{ item.content }}'></div>
         <script type="text/javascript">
           /*<![CDATA[*/
           (function () {
@@ -79,39 +112,43 @@
                     "product": {
                       "styles": {
                         "product": {
+                          // product styles here
                           "display": "flex",
                           "flex-flow": "column nowrap",
-                          "padding": "1rem",
-                          "background-color": "white !important",
-                          "border-radius": "7px",
-                          "box-shadow": "0 0 10px rgba(0,0,0,.15)",
-                          "@media (min-width: 601px)": {
-                            // "max-width": "calc(25% - 20px)",
-                            // "margin-left": "20px",
-                            // "margin-bottom": "50px",
-                            // "width": "calc(25% - 20px)"
-                          },
+                          "justify-content": "flex-start !important",
+                          "align-items": "center !important",
+                          "background-color": "#f9f9f9",
+                          "box-shadow": "0 0 15px rgba(0,0,0,.15)",
+                          "padding-bottom": "1rem",
                           "img": {
-                            // "height": "calc(100% - 15px)",
-                            // "position": "absolute",
-                            // "left": "0",
-                            // "right": "0",
-                            // "top": "0"
+                            // product image styles here
+                            "width": "100%",
+                            "height": "auto",
+                            "display": "block",
                           },
                           "imgWrapper": {
-                            // "padding-top": "calc(75% + 15px)",
-                            // "position": "relative",
-                            // "height": "0"
+                            // image wrapper styles here
+                            "width": "100%",
+                            "flex": "1",
                           }
                         },
                         "title": {
-                          // "color": "#800080"
+                          "padding": "0 1rem",
+                          "font-size": "1.8rem",
+                          "justify-self": "flex-start",
+                          "flex": "1",
+                        },
+                        "price": {
+                          "font-weight": "bold",
+                          "font-size": "1.3rem",
                           "flex": "1",
                         },
                         "button": {
-                          "font-size": "16px",
+                          "font-weight": "bold",
+                          "font-size": "1.3rem",
                           "padding-top": "16px",
                           "padding-bottom": "16px",
+                          "margin-top": "auto",
                           ":hover": {
                             "background-color": "#d51920"
                           },
@@ -136,18 +173,12 @@
                       }
                     },
                     "productSet": {
-
                       "styles": {
-
                         "products": {
-                          "display": "flex",
-                          "flex-flow": "row wrap",
-                          "width": "100%",
-                          // "background-color": "pink !important",
-                          "justify-content": "center",
-                          "@media (min-width: 601px)": {
-                            // "margin-left": "-20px"
-                          }
+                          // product collection cards style here
+                          "display": "grid",
+                          "grid-template-columns": "repeat(auto-fill, minmax(250px, 1fr))",
+                          "grid-gap": "16px",
                         }
                       }
                     },
