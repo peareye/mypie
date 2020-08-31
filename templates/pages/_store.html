@@ -1,35 +1,277 @@
-{% extends '_sidebar_layout.html' %}
+{% extends 'store_layout.html' %}
 {% block title %}{{ page.title }}{% endblock %}
 {% block metadescription %}{{ page.meta_description }}{% endblock %}
-{% block main %}
+{% block body %}
 
-<section id="store-main">
-    <div class="container-fluid">
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
- <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-   <div class="modal-content">
-     <div class="modal-header">
-       <h4 class="modal-title" id="staticBackdropLabel">MYPIE Delivery Options</h4>
+<section id="store">
+  <div class="store">
+    <nav class="store__sidebar d-none d-sm-block" id="myScrollspy">
+      <ul class="nav nav-pills flex-column">
+        {% for item in page.pagelets %}
+        {% if item.name != "zz_delivery_info" %}
+        <li class="nav-item">
+          <a class="nav-link" href="#{{ item.name }}">{{ item.title }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
 
-     </div>
-     <div class="modal-body">
-      {{ page.pagelets.title.content|raw }}
-     </div>
- <div class="modal-footer">
-  <button type="button" class="btn btn-primary ml-auto" data-dismiss="modal">Got It!</button>
- </div>
 
-     </div>
-   </div>
- </div>
+        <li class="nav-item">
+          <a class="nav-link"
+            href="#{{ page.pagelets.zz_delivery_info.name }}">{{ page.pagelets.zz_delivery_info.title }}</a>
+        </li>
 
-        <h1 class="page-title">{{ page.pagelets.title.title }}</h1>
-        <div class="title-blurb">
-         {{ page.pagelets.title.content_html }}
+      </ul>
+    </nav>
+
+    <div class="store__content">
+      <h1 class="page-title">Nationwide Pie Delivery</h1>
+
+
+      {% for item in page.pagelets %}
+      {% if item.name != "zz_delivery_info" %}
+      <div class="productSection" id="{{ item.name }}">
+        <h2 class="page-title">{{ item.title }}</h2>
+
+        <div class="shopify-collection" id='collection-component-{{ item.content }}'></div>
+        <script type="text/javascript">
+          /*<![CDATA[*/
+          (function () {
+            var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+            if (window.ShopifyBuy) {
+              if (window.ShopifyBuy.UI) {
+                ShopifyBuyInit();
+              } else {
+                loadScript();
+              }
+            } else {
+              loadScript();
+            }
+
+            function loadScript() {
+              var script = document.createElement('script');
+              script.async = true;
+              script.src = scriptURL;
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(
+                script);
+              script.onload = ShopifyBuyInit;
+            }
+
+            function ShopifyBuyInit() {
+              var client = ShopifyBuy.buildClient({
+                domain: 'mypie-london.myshopify.com',
+                storefrontAccessToken: '4d2f81fe1889d5340cdb9ba1855c369a',
+              });
+              ShopifyBuy.UI.onReady(client).then(function (ui) {
+                ui.createComponent('collection', {
+                  id: '{{ item.content }}',
+                  node: document.getElementById('collection-component-{{ item.content }}'),
+                  moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
+                  options: {
+                    "product": {
+                      "styles": {
+                        "product": {
+                          // product styles here
+                          "display": "flex",
+                          "flex-flow": "column nowrap",
+                          "justify-content": "flex-start !important",
+                          "align-items": "center !important",
+                          "background-color": "#f9f9f9",
+                          "box-shadow": "0 0 15px rgba(0,0,0,.15)",
+                          "padding-bottom": "1rem",
+                          "margin-top": "15px",
+                          "@media (min-width: 601px)": {
+                            "margin-top": "0 !important",
+                            "margin-bottom": "20px",
+                            "width": "240px !important",
+
+                          },
+                          "img": {
+                            // product image styles here
+                            "width": "100%",
+                            "height": "auto",
+                            "display": "block",
+                          },
+                          "imgWrapper": {
+                            // image wrapper styles here
+                            "width": "100%",
+                            "flex": "1",
+                          }
+                        },
+                        "title": {
+                          "padding": "0 1rem",
+                          "font-size": "1.8rem",
+                          "justify-self": "flex-start",
+                          "flex": "1",
+                        },
+                        "price": {
+                          "font-weight": "bold",
+                          "font-size": "1.3rem",
+                          "flex": "1",
+                        },
+                        "button": {
+                          "font-weight": "bold",
+                          "font-size": "1.3rem",
+                          "padding-top": "16px",
+                          "padding-bottom": "16px",
+                          "margin-top": "auto",
+                          ":hover": {
+                            "background-color": "#d51920"
+                          },
+                          "background-color": "#ed1c24",
+                          ":focus": {
+                            "background-color": "#d51920"
+                          },
+                          "border-radius": "7px"
+                        },
+                        "quantityInput": {
+                          "font-size": "16px",
+                          "padding-top": "16px",
+                          "padding-bottom": "16px"
+                        }
+                      },
+                      "buttonDestination": "modal",
+                      "contents": {
+                        "options": false
+                      },
+                      "text": {
+                        "button": "View product"
+                      }
+                    },
+                    "productSet": {
+                      "styles": {
+                        "products": {
+                          // product collection cards style here
+                          "display": "grid",
+                          "grid-template-columns": "repeat(auto-fill, minmax(250px, 1fr))",
+                          "grid-gap": "16px",
+                        }
+                      }
+                    },
+                    "modalProduct": {
+                      "contents": {
+                        "img": false,
+                        "imgWithCarousel": true,
+                        "button": false,
+                        "buttonWithQuantity": true
+                      },
+                      "styles": {
+                        "product": {
+                          "@media (min-width: 601px)": {
+                            "max-width": "100%",
+                            "margin-left": "0px",
+                            "margin-bottom": "0px"
+                          }
+                        },
+                        "button": {
+                          "font-size": "16px",
+                          "padding-top": "16px",
+                          "padding-bottom": "16px",
+                          ":hover": {
+                            "background-color": "#d51920"
+                          },
+                          "background-color": "#ed1c24",
+                          ":focus": {
+                            "background-color": "#d51920"
+                          },
+                          "border-radius": "7px"
+                        },
+                        "quantityInput": {
+                          "font-size": "16px",
+                          "padding-top": "16px",
+                          "padding-bottom": "16px"
+                        }
+                      },
+                      "text": {
+                        "button": "Add to cart"
+                      }
+                    },
+                    "cart": {
+                      "styles": {
+                        "button": {
+                          "font-size": "16px",
+                          "padding-top": "16px",
+                          "padding-bottom": "16px",
+                          ":hover": {
+                            "background-color": "#d51920"
+                          },
+                          "background-color": "#ed1c24",
+                          ":focus": {
+                            "background-color": "#d51920"
+                          },
+                          "border-radius": "7px"
+                        }
+                      },
+                      "text": {
+                        "total": "Subtotal",
+                        "button": "Checkout"
+                      },
+                      "contents": {
+                        "note": true
+                      }
+                    },
+                    "toggle": {
+                      "styles": {
+                        "toggle": {
+                          "background-color": "#ed1c24",
+                          ":hover": {
+                            "background-color": "#d51920"
+                          },
+                          ":focus": {
+                            "background-color": "#d51920"
+                          }
+                        },
+                        "count": {
+                          "font-size": "16px"
+                        }
+                      }
+                    }
+                  },
+                });
+              });
+            }
+          })();
+          /*]]>*/
+        </script>
+      </div>
+      {% endif %}
+      {% endfor %}
+
+      <div id="{{  page.pagelets.zz_delivery_info.name }}" class="productSection">
+        <h2 class="page-title">{{  page.pagelets.zz_delivery_info.title }}</h2>
+        <div class=" title-blurb span">
+
+          {{ page.pagelets.zz_delivery_info.content }}
         </div>
+      </div>
 
-         {{ page.pagelets.store.content_html }}
+
+
     </div>
+
+  </div>
+
 </section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="staticBackdropLabel">MYPIE Delivery Options</h4>
+
+      </div>
+      <div class="modal-body">
+        {{ page.pagelets.zz_delivery_info.content|raw }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary ml-auto" data-dismiss="modal">Got It!</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 {% endblock %}

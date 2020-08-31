@@ -10,8 +10,12 @@ html {
   box-sizing: inherit;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  margin-top: 70px;
+  margin-top: 64px;
 
   @media (min-width: 768px) {
     margin-top: 78px;
@@ -32,6 +36,7 @@ section .container-fluid {
   background: $mypie-light;
   @include padding(1em null);
 }
+
 section:last-of-type {
   background: $mypie-light;
   @include padding(1em null 4em);
@@ -39,6 +44,7 @@ section:last-of-type {
 
 .container-fluid {
   max-width: 1200px;
+
 }
 
 .text-muted {
@@ -61,4 +67,3 @@ section:last-of-type {
 .menu-divider:last-of-type {
   display: none;
 }
-

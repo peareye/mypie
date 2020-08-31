@@ -1,10 +1,13 @@
 // Submit Button
 
-button, [type='button'], [type='reset'], [type='submit']{
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
   appearance: none;
   background: $mypie-red !important;
   color: $mypie-light !important;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   border: solid 0.1rem rgba($mypie-dark, 0.5);
   border: rgba($muted-accent-red, .8);
   border-radius: $border-radius;
@@ -12,31 +15,46 @@ button, [type='button'], [type='reset'], [type='submit']{
   display: inline-block;
   @include margin(null null 1rem);
 }
-button, [type='button']:hover, [type='reset']:hover, [type='submit']:hover{
+
+
+[type='button']:hover,
+[type='reset']:hover,
+[type='submit']:hover {
   background-color: $mypie-accent-red !important;
   color: $muted-white !important;
 }
-.btn{
+
+.btn {
   border: none;
 }
-.btn-primary{
+
+.btn-primary {
   background-color: $mypie-red;
   color: $mypie-light;
 }
-.btn-primary:hover,.btn-primary:active{
+
+.btn-primary:hover,
+.btn-primary:active {
   background-color: $mypie-light-grey !important;
   color: $mypie-dark !important;
-  
+
 }
-.btn-secondary{
+
+.btn-secondary {
   background-color: $mypie-secondary;
 }
-.btn-secondary:hover, .btn-secondary:active {
+
+.btn-secondary:hover,
+.btn-secondary:active {
   background-color: $mypie-light-grey !important;
   color: $mypie-dark !important;
 }
-.btn-primary:active,.btn-secondary:active, .btn-primary:focus, .btn-secondary:focus{
+
+.btn-primary:active,
+.btn-secondary:active,
+.btn-primary:focus,
+.btn-secondary:focus {
   border: none;
   box-shadow: 0 0 $mypie-dark;
-    
-  }
+
+}
