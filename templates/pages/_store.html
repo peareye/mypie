@@ -4,46 +4,8 @@
 {% block body %}
 
 <section id="store">
-  <!-- 
-  <div class="sticky-top d-block d-sm-none">
-    <div class="collapse" id="navbarToggleExternalContent">
-      <div class="">
-
-        <ul class="nav flex-column">
-          {% for item in page.pagelets %}
-          {% if item.name != "zz_delivery_info" %}
-          <li class="nav-item">
-            <a class="nav-link" href="#{{ item.name }}">{{ item.title }}</a>
-          </li>
-          {% endif %}
-          {% endfor %}
-
-          {% for item in page.pagelets %}
-          {% if item.name == "zz_delivery_info" %}
-          <li class="nav-item">
-            <a class="nav-link" href="#" data-toggle="modal" data-target="#staticBackdrop">{{ item.title }}</a>
-          </li>
-          {% endif %}
-          {% endfor %}
-
-        </ul>
-
-      </div>
-    </div>
-    <nav class="navbar navbar-dark bg-dark">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
-        aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span> Pie Availability
-      </button>
-    </nav>
-  </div> -->
-
   <div class="store">
     <nav class="store__sidebar d-none d-sm-block" id="myScrollspy">
-
-      <!-- <a class="" href="{{ basePath() }}/">
-      <img src="/assets/img/brand.svg" alt="">
-    </a> -->
       <ul class="nav nav-pills flex-column">
         {% for item in page.pagelets %}
         {% if item.name != "zz_delivery_info" %}
@@ -53,21 +15,18 @@
         {% endif %}
         {% endfor %}
 
-        {% for item in page.pagelets %}
-        {% if item.name == "zz_delivery_info" %}
+
         <li class="nav-item">
-          <a class="nav-link" href="#" data-toggle="modal" data-target="#staticBackdrop">{{ item.title }}</a>
+          <a class="nav-link"
+            href="#{{ page.pagelets.zz_delivery_info.name }}">{{ page.pagelets.zz_delivery_info.title }}</a>
         </li>
-        {% endif %}
-        {% endfor %}
+
       </ul>
     </nav>
 
     <div class="store__content">
       <h1 class="page-title">Nationwide Pie Delivery</h1>
-      <div class="title-blurb d-none">
-        {{ page.pagelets.zz_delivery_info.content }}
-      </div>
+
 
       {% for item in page.pagelets %}
       {% if item.name != "zz_delivery_info" %}
@@ -274,14 +233,24 @@
           })();
           /*]]>*/
         </script>
-
-
       </div>
       {% endif %}
       {% endfor %}
 
+      <div id="{{  page.pagelets.zz_delivery_info.name }}" class="productSection">
+        <h2 class="page-title">{{  page.pagelets.zz_delivery_info.title }}</h2>
+        <div class=" title-blurb span">
+
+          {{ page.pagelets.zz_delivery_info.content }}
+        </div>
+      </div>
+
+
+
     </div>
+
   </div>
+
 </section>
 
 
