@@ -15,16 +15,19 @@
 
   .store {
     display: flex;
-    @include padding(null 1rem null null);
+    // @include padding(null 1rem null null);
+    // @include padding(null .5rem);
 
     &__content {
       flex: 1;
-      @include padding(1rem null null 2rem);
+      @include padding(0rem .5rem);
     }
 
     &__sidebar {
-      @include padding(null null null .25rem);
-      max-width: 200px;
+      // @include padding(null null null .25rem);
+      width: 175px;
+      @include margin(0);
+      @include padding(0);
     }
   }
 
@@ -39,11 +42,13 @@
     font-family: Arial, Helvetica, sans-serif !important;
     font-size: 1.1rem !important;
     font-weight: 700 !important;
+    @include padding(null .5rem);
 
     &.active {
       background: $mypie-dark-grey;
       background: $mypie-dark;
       color: $mypie-light-grey;
+      @include padding(null .5rem);
     }
   }
 
@@ -61,6 +66,10 @@
   }
 
   .page-title {
-    text-align: left;
+    text-align: center;
+
+    @media screen and (min-width: $breakpoint-sm) {
+      text-align: left;
+    }
   }
 }

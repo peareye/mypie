@@ -10925,16 +10925,15 @@ button:hover,
 }
 #store .store {
   display: flex;
-  padding-right: 1rem;
 }
 #store .store__content {
   flex: 1;
-  padding-top: 1rem;
-  padding-left: 2rem;
+  padding: 0rem 0.5rem;
 }
 #store .store__sidebar {
-  padding-left: 0.25rem;
-  max-width: 200px;
+  width: 175px;
+  margin: 0;
+  padding: 0;
 }
 #store .nav-pills {
   position: sticky;
@@ -10946,11 +10945,15 @@ button:hover,
   font-family: Arial, Helvetica, sans-serif !important;
   font-size: 1.1rem !important;
   font-weight: 700 !important;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }
 #store .nav-link.active {
   background: #4b4b4b;
   background: #231f20;
   color: #efefef;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }
 #store .title-blurb {
   width: 90%;
@@ -10963,7 +10966,12 @@ button:hover,
   text-align: center;
 }
 #store .page-title {
-  text-align: left;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  #store .page-title {
+    text-align: left;
+  }
 }
 
 #about-main h1 {
