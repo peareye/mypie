@@ -46,6 +46,7 @@
     height: 500px;
   }
 }
+
 .hero-inner1 {
   width: 100%;
   height: 450px;
@@ -62,18 +63,26 @@
     @include padding(0);
   }
 }
+
 .hero-content {
   color: $mypie-light;
-  text-shadow: $text-shadow;
+  // text-shadow: $text-shadow;
   width: 85%;
+  width: 100%;
+  // background: rgba(0, 0, 0, .15);
+  filter: blur(8p);
+  @include padding(1rem);
+
 
   @media screen and (min-width: 992px) {
-    width: 50%;
+    width: 80%;
   }
 }
 
 .hero-content h1,
-.hero-content1 h1 {
+.hero-content1 h1,
+.hero-content h2,
+.hero-content1 h2 {
   color: $mypie-light;
   text-shadow: $text-shadow;
   font-size: 4.5rem;
@@ -82,5 +91,15 @@
 .hero-content p,
 .hero-content1 p {
   font-weight: bold;
+  font-size: 1.35rem;
   letter-spacing: .8px;
+  // text-shadow:
+  //   0.05em 0 black,
+  //   0 0.05em black,
+  //   -0.05em 0 black,
+  //   0 -0.05em black,
+  //   -0.05em -0.05em black,
+  //   -0.05em 0.05em black,
+  //   0.05em -0.05em black,
+  //   0.05em 0.05em black;
 }

@@ -26,11 +26,34 @@ body {
   }
 }
 
-a:focus {
-  outline: none;
-}
+
 
 // Custom Styles
+section {
+  @include padding(4rem null);
+
+  a {
+    color: $mypie-red;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    transition: all 125ms ease-in;
+
+
+
+    &:hover {
+      color: $mypie-red;
+      text-decoration: none;
+      outline: 5px dashed $mypie-red;
+
+      @include margin(null .25em null);
+
+
+    }
+  }
+}
+
 section .container,
 section .container-fluid {
   background: $mypie-light;

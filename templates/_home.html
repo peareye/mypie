@@ -1,4 +1,4 @@
- {% extends 'base_layout.html' %} 
+ {% extends 'base_layout.html' %}
 
  {% block title %}{{ page.title }}{% endblock %}
  {% block metadescription %}{{ page.meta_description }}{% endblock %}
@@ -6,69 +6,66 @@
 
 
 
-<!-- Hero Section -->
-{% include '/includes/_hero.html' %}
+ <!-- Hero Section (hero1) -->
+ {% include '/includes/_hero.html' %}
 
-<!-- News Release -->
-{% include '/includes/_news.html' %}
+ <!-- News Release -->
+ {% include '/includes/_news.html' %}
 
-<!-- Full Calendar -->
-{% import '/includes/_full-calendar.html' as calendar %}
+ <!-- Full Calendar REMOVE THE COMMENT WRAPPER WHEN CALENDAR TO BE REINSTATED -->
+ {#  
+  {% import '/includes/_full-calendar.html' as calendar %} 
+  #}
 
-<section id="calendar">
-  
-  <div class="calendar">
-    <div class="slider single-item">
-      {% for cal in page.calendar %} 
-      
-      {{ calendar.schedule(cal.month, cal.days) }} 
-      
-      {% endfor %}
+ <!-- Shop Now Section -->
+ {% include '/includes/_shop-now.html' %}
 
-    </div>
-  </div>
-</section>
+ <!-- Location Modal -->
+ <div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-labelledby="locationModalLabel"
+   aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="locationModalLabel">MYPIE Locations</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+         <div class="container-fluid">
+           {{ page.pagelets.truck_locations.content_html }}
 
-<!-- Location Modal -->
-<div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-labelledby="locationModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="locationModalLabel">MYPIE Locations</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="container-fluid">
-          {{ page.pagelets.truck_locations.content_html }}
+         </div>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary sm-btn" data-dismiss="modal">Close</button>
 
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary sm-btn" data-dismiss="modal">Close</button>
+       </div>
+     </div>
+   </div>
+ </div>
 
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container-fluid hero-container">
-  <div class="jarallax">
-    <img class="jarallax-img" src="{{ basePath() }}assets/img/compressed/showcase-min.jpg">
-    <div class="hero-inner1">
-      <div data-jarallax-element="0" class="hero-content">
-        <p class="lead">Award winning pies &amp; sausage rolls freshly baked every day. Served up with awesome sides and real gravy.</p>
-      
-        <p class="lead">Served to you from our custom vintage airstream caravan or pie truck.</p>
-      </div>
-    </div>
-  </div>
-</div>
+ <!-- Secondary Hero (hero2) -->
+ <div class="container-fluid hero-container">
+   <div class="jarallax">
+     <img class="jarallax-img" src="{{ basePath() }}assets/img/compressed/showcase-min.jpg">
+     <div class="hero-inner1">
+       <div data-jarallax-element="0" class="hero-content">
+         <h2 class=""> {{ page.pagelets.hero2.title }}</h2>
+         {{ page.pagelets.hero2.content_html }}
+         <!-- <p class="lead">Award winning pies &amp; sausage rolls freshly baked every day. Served up with awesome sides
+           and real gravy.</p>
 
-<!-- Newsletter Subscription -->
-{% include '/includes/_newsletter.html' %} 
+         <p class="lead">Served to you from our custom vintage airstream caravan or pie truck.</p> -->
+       </div>
+     </div>
+   </div>
+ </div>
 
-<!-- Get Social & Instragram Feed Section -->
+ <!-- Newsletter Subscription -->
+ {% include '/includes/_newsletter.html' %}
+
+ <!-- Get Social & Instragram Feed Section -->
  {% include '/includes/_insta-feed.html' %}
 
-{% endblock %}
+ {% endblock %}
