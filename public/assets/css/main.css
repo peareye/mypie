@@ -10584,6 +10584,15 @@ button,
   justify-content: flex-start;
   padding-top: 3rem;
   align-items: center;
+  position: relative;
+}
+.hero-inner::after {
+  content: "Hello";
+  position: absolute;
+  top: 50px;
+  left: -30px;
+  color: black;
+  z-index: 100;
 }
 @media screen and (min-width: 992px) {
   .hero-inner {
@@ -10613,8 +10622,11 @@ button,
 
 .hero-content {
   color: #fff;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
   width: 85%;
   width: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
   filter: blur(8p);
   padding: 1rem;
 }

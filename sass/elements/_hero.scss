@@ -39,6 +39,17 @@
   justify-content: flex-start;
   @include padding(3rem null null);
   align-items: center;
+  position: relative;
+
+  &::after {
+    content: 'Hello';
+    position: absolute;
+    top: 50px;
+    left: -30px;
+    color: black;
+    z-index: 100;
+
+  }
 
   @media screen and (min-width: 992px) {
     justify-content: center;
@@ -66,10 +77,11 @@
 
 .hero-content {
   color: $mypie-light;
-  // text-shadow: $text-shadow;
+  text-shadow: $text-shadow;
   width: 85%;
   width: 100%;
-  // background: rgba(0, 0, 0, .15);
+  background: rgba(0, 0, 0, .1);
+  border-radius: $border-radius;
   filter: blur(8p);
   @include padding(1rem);
 
