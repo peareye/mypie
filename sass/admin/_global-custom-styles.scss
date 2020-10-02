@@ -28,12 +28,16 @@ h1 {
 
 a {
   color: $mypie-accent-red;
+
+
 }
 
 .btn {
   @include margin(.5rem null);
   @include padding(.25rem);
   display: inline-block;
+  outline: none;
+
 }
 
 .btn-wrapper {
@@ -115,14 +119,13 @@ header {
 }
 
 .editor-toolbar button {
-  background: $mypie-dark-grey;
+  background: $mypie-light-grey;
+
   margin: 2px;
 }
 
 // Main Content Area
 section {
-  @include padding(.5rem);
-
   .page-section {
     @media screen and (min-width: 768px) {
       display: grid;

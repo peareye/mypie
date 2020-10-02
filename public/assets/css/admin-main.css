@@ -10007,6 +10007,7 @@ a {
   margin-bottom: 0.5rem;
   padding: 0.25rem;
   display: inline-block;
+  outline: none;
 }
 
 .btn-wrapper {
@@ -10084,13 +10085,10 @@ header .container {
 }
 
 .editor-toolbar button {
-  background: #4b4b4b;
+  background: #efefef;
   margin: 2px;
 }
 
-section {
-  padding: 0.5rem;
-}
 @media screen and (min-width: 768px) {
   section .page-section {
     display: grid;

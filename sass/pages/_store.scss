@@ -15,8 +15,6 @@
 
   .store {
     display: flex;
-    // @include padding(null 1rem null null);
-    // @include padding(null .5rem);
 
     &__content {
       flex: 1;
@@ -24,7 +22,6 @@
     }
 
     &__sidebar {
-      // @include padding(null null null .25rem);
       width: 175px;
       @include margin(0);
       @include padding(0);
@@ -35,6 +32,7 @@
     position: sticky;
     position: -webkit-sticky;
     top: 90px;
+    @include margin(null null null .5em);
   }
 
   .nav-link {
@@ -43,6 +41,11 @@
     font-size: 1.1rem !important;
     font-weight: 700 !important;
     @include padding(null .5rem);
+
+    &:hover {
+      outline: none;
+      @include margin(null 0 null);
+    }
 
     &.active {
       background: $mypie-dark-grey;

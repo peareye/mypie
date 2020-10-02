@@ -10003,8 +10003,24 @@ body {
   }
 }
 
-a:focus {
-  outline: none;
+section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+section a {
+  display: inline;
+  color: #ed1c24;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: all 125ms ease-in;
+  padding-right: 0.25rem;
+  padding-left: 0.25rem;
+}
+section a:hover {
+  color: #ed1c24;
+  text-decoration: none;
+  outline: 3px dashed #ed1c24;
 }
 
 section .container,
@@ -10143,6 +10159,9 @@ button,
 
 .btn {
   border: none;
+}
+.btn:hover {
+  outline: none;
 }
 
 .btn-primary {
@@ -10569,6 +10588,15 @@ button,
   justify-content: flex-start;
   padding-top: 3rem;
   align-items: center;
+  position: relative;
+}
+.hero-inner::after {
+  content: "Hello";
+  position: absolute;
+  top: 50px;
+  left: -30px;
+  color: black;
+  z-index: 100;
 }
 @media screen and (min-width: 992px) {
   .hero-inner {
@@ -10600,15 +10628,22 @@ button,
   color: #fff;
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
   width: 85%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  filter: blur(8p);
+  padding: 1rem;
 }
 @media screen and (min-width: 992px) {
   .hero-content {
-    width: 50%;
+    width: 80%;
   }
 }
 
 .hero-content h1,
-.hero-content1 h1 {
+.hero-content1 h1,
+.hero-content h2,
+.hero-content1 h2 {
   color: #fff;
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
   font-size: 4.5rem;
@@ -10617,12 +10652,17 @@ button,
 .hero-content p,
 .hero-content1 p {
   font-weight: bold;
+  font-size: 1.35rem;
   letter-spacing: 0.8px;
 }
 
 /* Section: _newsletter.html */
+#newsletter {
+  padding-bottom: 0;
+}
 #newsletter .container-fluid, #newsletter .container-sm, #newsletter .container-md, #newsletter .container-lg, #newsletter .container-xl {
   padding-bottom: 0;
+  max-width: 65ch;
 }
 #newsletter .newsletter-wrapper {
   text-align: center;
@@ -10630,33 +10670,17 @@ button,
 #newsletter .newsletter-signup-content {
   padding: 0 10px;
 }
-@media screen and (min-width: 768px) {
-  #newsletter .newsletter-wrapper {
-    text-align: left;
-    display: flex;
-    flex-flow: row nowrap;
-    border: solid #efefef 2px;
-    border-radius: 4px;
-    padding: 1rem;
-  }
-  #newsletter .newsletter-signup-content {
-    flex: 1;
-    padding-top: 1rem;
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-  #newsletter .newsletter-form {
-    flex: 1;
-  }
-}
-#newsletter .newsletter-form > div:nth-last-of-type(2) {
-  background-color: red !important;
-}
 
 #instagram {
   margin: auto;
   width: 100%;
   padding: 0;
+}
+
+#buyNow {
+  max-width: 65ch;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .topNav {
@@ -10732,7 +10756,7 @@ button:hover,
 
 /* Focus fix for Chrome */
 .hamburger:focus {
-  outline: 0;
+  outline: none;
 }
 
 /* Styling the icon */
@@ -10939,6 +10963,7 @@ button:hover,
   position: sticky;
   position: -webkit-sticky;
   top: 90px;
+  margin-left: 0.5em;
 }
 #store .nav-link {
   color: #4b4b4b;
@@ -10947,6 +10972,11 @@ button:hover,
   font-weight: 700 !important;
   padding-right: 0.5rem;
   padding-left: 0.5rem;
+}
+#store .nav-link:hover {
+  outline: none;
+  margin-right: 0;
+  margin-left: 0;
 }
 #store .nav-link.active {
   background: #4b4b4b;

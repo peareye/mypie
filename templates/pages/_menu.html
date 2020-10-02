@@ -7,18 +7,23 @@
 {% if hasPinnedMenu() %}
 <section id="delivery-menu">
     <div class="container">
-       
-        <h1 class="page-title">Check out our new Store</h1>
-        <p class="menu-text font-weight-bold text-center">Nationwide Home Delivery or Click & Collect. Order <a title="MYPIE Store" href="{{ basePath() }}/store">here</a> or click the Store link in the navigation menu above.</p>
-        {# {{ displayPinnedMenu() }} #}
-   
+        <h1 class="page-title">{{ page.pagelets.store_blurb.title }}</h1>
+        <div class="menu-text font-weight-bold text-center">
+            {{ page.pagelets.store_blurb.content_html }}
+        </div>
+
+
+
+
+        {#      <p class="menu-text font-weight-bold text-center">Nationwide Home Delivery or Click & Collect. Order <a title="MYPIE Store" href="{{ basePath() }}/store">here</a> or click the Store link in the navigation menu above.</p> #}
+
     </div>
 </section>
 {% endif %}
 
 <section id="menu-main">
     <div class="container">
-     
+
 
         <h1 class="page-title">Daily Menus</h1>
         {{ displayMenu() }}

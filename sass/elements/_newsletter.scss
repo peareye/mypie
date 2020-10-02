@@ -2,15 +2,15 @@
 
 #newsletter {
 
+  @include padding(null null 0 null);
+
   .container-fluid {
     @include padding(null null 0);
+    max-width: 65ch;
   }
 
   .newsletter-wrapper {
-  
     text-align: center;
-    // @include padding(1rem null null);
-
   }
 
   .newsletter-signup-content {
@@ -18,27 +18,28 @@
   }
 
   // Media Query
-  @media screen and (min-width: 768px) {
-    .newsletter-wrapper {
-      text-align: left;
-      display: flex;
-      flex-flow: row nowrap;
-      border: solid $mypie-light-grey 2px;
-      border-radius: $border-radius;
-      @include padding(1rem);
-    }
+  //   @media screen and (min-width: 768px) {
+  //     .newsletter-wrapper {
+  //       text-align: left;
+  //       display: flex;
+  //       flex-flow: row nowrap;
+  //       border: solid $mypie-light-grey 2px;
+  //       border-radius: $border-radius;
+  //       @include padding(1rem);
+  //     }
 
-    .newsletter-signup-content {
-      flex: 1;
-      @include padding(1rem 10px null)
-    }
+  //     .newsletter-signup-content {
+  //       flex: 1;
+  //       @include padding(1rem 10px null)
+  //     }
 
-    .newsletter-form {
-      flex: 1;
-      
-    }
-  }
-  .newsletter-form > div:nth-last-of-type(2){
-    background-color: red !important;
-  }
+  //     .newsletter-form {
+  //       flex: 1;
+
+  //     }
+  //   }
+
+  //   .newsletter-form>div:nth-last-of-type(2) {
+  //     background-color: red !important;
+  //   }
 }
