@@ -10008,18 +10008,19 @@ section {
   padding-bottom: 4rem;
 }
 section a {
+  display: inline;
   color: #ed1c24;
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: bold;
   transition: all 125ms ease-in;
+  padding-right: 0.25rem;
+  padding-left: 0.25rem;
 }
 section a:hover {
   color: #ed1c24;
   text-decoration: none;
-  outline: 5px dashed #ed1c24;
-  margin-right: 0.25em;
-  margin-left: 0.25em;
+  outline: 3px dashed #ed1c24;
 }
 
 section .container,
@@ -10158,6 +10159,9 @@ button,
 
 .btn {
   border: none;
+}
+.btn:hover {
+  outline: none;
 }
 
 .btn-primary {
@@ -10752,7 +10756,7 @@ button:hover,
 
 /* Focus fix for Chrome */
 .hamburger:focus {
-  outline: 0;
+  outline: none;
 }
 
 /* Styling the icon */

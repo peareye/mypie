@@ -26,6 +26,10 @@ button,
 
 .btn {
   border: none;
+
+  &:hover {
+    outline: none;
+  }
 }
 
 .btn-primary {

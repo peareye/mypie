@@ -36,6 +36,8 @@ a {
   @include margin(.5rem null);
   @include padding(.25rem);
   display: inline-block;
+  outline: none;
+
 }
 
 .btn-wrapper {
