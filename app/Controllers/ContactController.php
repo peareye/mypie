@@ -23,8 +23,8 @@ class ContactController extends BaseController
 
         // Log all submissions
         $ip = $_SERVER['HTTP_CLIENT_IP'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'] ?? 'No IP';
-        $log->info("Contact - IP: $ip, POST: " . print_r($_POST, true));
-        $log->info('Contact - User Agent: ' . print_r($request->getHeader('User-Agent'), true));
+        $log->notice("Contact - IP: $ip, POST: " . print_r($_POST, true));
+        $log->notice('Contact - User Agent: ' . print_r($request->getHeader('User-Agent'), true));
 
         // Verify we have required fields
         if (!$request->getParsedBodyParam('fullname') ||
@@ -60,7 +60,6 @@ class ContactController extends BaseController
     {
         // Get dependencies
         $email = $this->container->get('emailHandler');
-        $log = $this->container->get('logger');
         $config = $this->container->get('settings');
 
         // Send message
