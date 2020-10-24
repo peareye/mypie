@@ -29,7 +29,9 @@ class ContactController extends BaseController
         // Verify we have required fields
         if (!$request->getParsedBodyParam('fullname') ||
             !$request->getParsedBodyParam('email') ||
-            !$request->getParsedBodyParam('message')) {
+            !$request->getParsedBodyParam('message') ||
+            // To exclude those weird one word spam comments, require a 20 character minimum length
+            mb_strlen($request->getParsedBodyParam('message')) <= 20) {
             // Return error
             // TODO go back to submitting page with validation error
             return $response->withRedirect($this->container->router->pathFor('thankYou'));
