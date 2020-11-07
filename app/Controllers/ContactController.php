@@ -67,7 +67,6 @@ class ContactController extends BaseController
         // Send message
         $email->setFrom($config['site']['sendFromEmail'], $config['site']['title'])
             ->setReplyTo($contact->email, $contact->name)
-            ->setBcc(['Peri' => 'peri.moritz@gmail.com', 'Wolf' => 'wolfmoritz@gmail.com'])
             ->setSubject($contact->subject)
             ->setMessage("From: {$contact->email}\n\n" . $contact->message);
 
