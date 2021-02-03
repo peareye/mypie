@@ -40,7 +40,7 @@ $container['menuPagination'] = function ($c) {
 
 // Monolog logging
 $container['logger'] = function ($c) {
-    $level = ($c->get('settings')['production']) ? Monolog\Logger::ERROR : Monolog\Logger::DEBUG;
+    $level = ($c->get('settings')['production']) ? Monolog\Logger::NOTICE : Monolog\Logger::DEBUG;
     $logger = new Monolog\Logger('app');
     $logger->pushHandler(new Monolog\Handler\StreamHandler(ROOT_DIR . 'logs/' . date('Y-m-d') . '.log', $level));
 

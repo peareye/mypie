@@ -13,16 +13,25 @@ class ContactController extends BaseController
      */
     public function submitMessage($request, $response, $args)
     {
+        $log = $this->container->get('logger');
+
         // Check honeypot for spammers
         if ($request->getParsedBodyParam('alt-email') !== 'alt@example.com') {
             // Just return and say nothing
             return $response->withRedirect($this->container->router->pathFor('thankYou'));
         }
 
+        // Log all submissions
+        $ip = $_SERVER['HTTP_CLIENT_IP'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'] ?? 'No IP';
+        $log->notice("Contact - IP: $ip, POST: " . print_r($_POST, true));
+        $log->notice('Contact - User Agent: ' . print_r($request->getHeader('User-Agent'), true));
+
         // Verify we have required fields
         if (!$request->getParsedBodyParam('fullname') ||
             !$request->getParsedBodyParam('email') ||
-            !$request->getParsedBodyParam('message')) {
+            !$request->getParsedBodyParam('message') ||
+            // To exclude those weird one word spam comments, require a 20 character minimum length
+            mb_strlen($request->getParsedBodyParam('message')) <= 15) {
             // Return error
             // TODO go back to submitting page with validation error
             return $response->withRedirect($this->container->router->pathFor('thankYou'));
@@ -53,7 +62,6 @@ class ContactController extends BaseController
     {
         // Get dependencies
         $email = $this->container->get('emailHandler');
-        $log = $this->container->get('logger');
         $config = $this->container->get('settings');
 
         // Send message
@@ -72,8 +80,6 @@ class ContactController extends BaseController
         }
 
         $email->send();
-
-        $log->info('Contact message: ' . print_r($email, true));
 
         return;
     }
